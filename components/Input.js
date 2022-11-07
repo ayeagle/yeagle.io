@@ -1,5 +1,5 @@
 import React, {Component, useState, useEffect } from 'react'
-import reactDom from 'node_modules/react-dom/index';
+import styles from './Input.module.css'
 
 
 
@@ -27,25 +27,47 @@ import reactDom from 'node_modules/react-dom/index';
 //     margin: 10px 0;
 //  }
 
-const Input = ({ handleInputClick, inputPrompt }) => {
-    const [time, setTime] = useState(0);
+const Input = ({ handleInputClick1, handleInputClick2, handleInputClick3, inputPrompt1, inputPrompt2, inputPrompt3 }) => {
+    const [time1, setTime1] = useState(0);
+    const [time2, setTime2] = useState(0);
+    const [time3, setTime3] = useState(0);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        alert(`The name you entered was: ${time}`)
-    }
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     alert(`The name you entered was: ${time}`)
+    // }
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
-            <label>{inputPrompt} <br className='btn'></br><br className='btn'></br>
+        <form className={styles.form} >   {/*onSubmit={handleSubmit}*/}
+            <label>{inputPrompt1} <br className='btn'></br><br className='btn'></br>
                 <input
                     type="number"
-                    value={time}
+                    value={time1}
                     onChange={(e) =>
-                        setTime(e.target.value)
+                        setTime1(e.target.value)
                     }/>
             </label>
-            <input type="submit" className='btn' onClick= {handleInputClick(time)}/>
+            <br></br>
+            <br></br>
+            <label>{inputPrompt2} <br className='btn'></br><br className='btn'></br>
+                <input
+                    type="number"
+                    value={time2}
+                    onChange={(e) =>
+                        setTime2(e.target.value)
+                    }/>
+            </label>
+            <br></br>
+            <br></br>
+            <label>{inputPrompt3} <br className='btn'></br><br className='btn'></br>
+                <input
+                    type="number"
+                    value={time3}
+                    onChange={(e) =>
+                        setTime3(e.target.value)
+                    }/>
+            </label>
+            <input type="submit" className='btn' onClick= {handleInputClick1(time1), handleInputClick2(time2), handleInputClick3(time3)}/>
 
             {/* <p>The time you entered was {time}</p> */}
         </form>
