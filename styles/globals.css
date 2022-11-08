@@ -42,19 +42,3 @@ code {
   border-radius: 6px;
 
 }
-
-.form {
-  width: 100%;
-  display: block;
-  margin: 10px 0;
-  padding-left: 30%;
-  padding-right: 30%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  border-radius: 25px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #00000082;
-  color: #ffffff;
-}
