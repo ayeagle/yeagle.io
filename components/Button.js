@@ -1,8 +1,8 @@
 
-const Button = ( {handleClick} ) => { //args are called props
+const Button = ( {handleClick,buttonName}) => { //args are called props
   return (
     <>
-      <button id='button1' onClick= {handleClick}>Click Me!</button>
+      <button id='button1' onClick= {handleClick}> {buttonName} </button>
     </>
   )
 }
