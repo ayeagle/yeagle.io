@@ -1,0 +1,22 @@
+
+
+.table {
+    width: 100%;
+    max-width: 50%;
+    height: auto;
+    /* margin: 4 auto; */
+    overflow-x: auto;
+    border-spacing: 100;
+    border-width: 100px;
+    background-color: rgb(141, 203, 250);
+    border: 35px;
+    border-color: black;
+    /* border-collapse: collapse; */
+    border-spacing: 10;
+
+  }
+
+  .cell {
+      align:left;
+      padding: 10;
+  }
