@@ -15,17 +15,23 @@
 
 
 .form {
+   z-index: 100;
    width: 100%;
    display: block;
-   margin: 10px 0;
+   margin: 3px 0;
    padding-left: 30%;
    padding-right: 30%;
-   padding-top: 1%;
-   padding-bottom: 1%;
+   padding-top: 5%;
+   padding-bottom: 6%;
    border-radius: 25px;
+   border-color: #000000;
+   outline-width: 5px;
+   outline-style: solid;
+   outline-color: #000000;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    background-color: #00000082;
    color: #ffffff;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
  }
