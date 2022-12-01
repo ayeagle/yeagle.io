@@ -2,7 +2,7 @@ import React, {Component, useState, useEffect } from 'react'
 import styles from './Input.module.css'
 
 
-const Input = ({handleGeneralInput, inputType, inputPrompt1, inputPrompt4}) => {
+const Input = ({handleGeneralInput, inputType, inputPrompt1, func, state, dispatch}) => {
     const [time1, setTime1] = useState(0);
 
     return (
@@ -13,8 +13,12 @@ const Input = ({handleGeneralInput, inputType, inputPrompt1, inputPrompt4}) => {
                     value={time1}
                     onChange={(e) => {
                         console.log("handle click was invoked")
-                        setTime1(e.target.value)
-                        handleGeneralInput(inputType,time1)
+                        dispatch(func(+e.target.value))
+                        setTime1(+e.target.value)
+                        console.log(+e.target.value)
+                        console.log("this is time1: " + +time1)
+
+                        // handleGeneralInput(inputType,time1)
                     }
                     }/>
             </label>

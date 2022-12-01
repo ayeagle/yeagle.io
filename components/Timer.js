@@ -8,14 +8,14 @@ import Second from './legacyComponents/second'
 import Settings from '../components/legacyComponents/settings'
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
-import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive } from 'src/actions/cartAction'
+import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive, updateIterationsRemain } from 'src/actions/cartAction'
 import Break from '@components/Break'
 
 import styles from './Timer.module.css'
 
 
 
-export default function Timer() {
+export default function Timer({type, startVar}) {
 
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
@@ -31,13 +31,14 @@ export default function Timer() {
     // console.log("this is the flexvar: " + flexVar)
     console.log(state)
     console.log("above is the state before setting timeremain and totaltime")
-    const [timeRemain, setTimeRemain] = useState(state.workTime); //setting these to input instead now --> state.timeRemain
-    const [totalTime, setTotalTime] = useState(state.totalTime);   //setting these to input instead now --> state.totalTime
-
+    // const [timeRemain, setTimeRemain] = useState(state.workTime); //setting these to input instead now --> state.timeRemain
+    // const [totalTime, setTotalTime] = useState(state.totalTime);   //setting these to input instead now --> state.totalTime
+    // dispatch(updateTimeRemain(startVar))
 
     const [dashVal, setDashVal] = useState(283)
     const timePassed = 0
-    const timeLeft = state.workTime
+    if(state.timeRemain == 0) dispatch(updateTimeRemain(startVar))
+    let timeLeft = state.timeRemain
 
 
     //timeRemain variable is loading as -1 for some reason?
@@ -81,34 +82,6 @@ export default function Timer() {
     // }
 
 
-    /////////////////////////////////////
-
-
-
-    /////////////////////////////////////
-
-
-
-    /////////////////////////////////////
-
-
-
-    /////////////////////////////////////
-
-
-
-    /////////////////////////////////////
-
-
-
-    /////////////////////////////////////
-
-
-
-    /////////////////////////////////////
-
-
-
 
 
     // Warning occurs at 10s
@@ -136,15 +109,15 @@ export default function Timer() {
         var timerInterval = setInterval(() => {
 
             console.log(state)
-            console.log(timeRemain)
+            console.log(state.timeRemain)
 
             // // The amount of time passed increments by one
             // timePassed = timePassed += 1;
             // timeLeft = TIME_LIMIT - timePassed;
 
             timePassed = timePassed += 1;
-            timeLeft = (timeRemain - timePassed)
-            setTimeRemain(timeLeft)
+            timeLeft = (startVar - timePassed)
+            dispatch(updateTimeRemain(timeLeft))
 
             // // The time left label is updated
             // document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
@@ -153,9 +126,10 @@ export default function Timer() {
             setCircleDasharray();
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-
-                if (type == "work") dispatch(updatePage("break"))
-                else dispatch(updatePage("timer"))
+                dispatch(updateIterationsRemain(state.iterationsRemain - 1))
+                if(state.iterationsRemain-2 == 0) dispatch(updatePage("finished"))
+                else if (type == "work") dispatch(updatePage("break"))
+                else dispatch(updatePage("work"))
 
 
             }
@@ -168,9 +142,10 @@ export default function Timer() {
 
 
     function formatTimeLeft() {
+        console.log("so this right here is the startVar val given to formatime timeleft: " + startVar)
         // The largest round integer less than or equal to the result of time divided being by 60.
-        const time = timeRemain
-        console.log("this is the remain time var from within the format time left function: " + timeRemain)
+        const time = timeLeft
+        console.log("this is the remain time var from within the format time left function: " + state.timeRemain)
 
         console.log("this is the remaining time from within the format time left function: " + time)
         const minutes = Math.floor(time / 60);
@@ -192,10 +167,10 @@ export default function Timer() {
 
     function calculateTimeFraction() {
         // return timeLeft / TIME_LIMIT;
-        const rawTimeFraction = timeLeft / timeRemain;
-        console.log("fraction time remain: " + timeRemain)
-        console.log("fraction time total: " + timeRemain)
-        return rawTimeFraction - (1 / timeRemain) * (1 - rawTimeFraction);
+        const rawTimeFraction = timeLeft / startVar;  //I think this should maybe be the total time
+        console.log("fraction time remain: " + startVar)
+        console.log("fraction time total: " + startVar)
+        return rawTimeFraction - (1 / startVar) * (1 - rawTimeFraction);
     }
 
 
@@ -240,6 +215,8 @@ export default function Timer() {
     // }
     return (
         <>
+                        <h3 styles="font:bold">Work/Break Cycles Remaining: {Math.floor(state.iterationsRemain/2)}</h3>
+
             <div ><Button handleClick={startTimer} buttonName={"Start Timer"} /> <Button handleClick={stopTimer} buttonName={"Stop Timer"} /></div>
             {/* <div>Time Remaining is {Math.floor(timeRemain / 60)} minute(s) and {timeRemain % 60} seconds</div> */}
 
@@ -265,6 +242,7 @@ export default function Timer() {
                 <span className={styles.base_timer__label}>
                     {formatTimeLeft()}
                 </span>
+
             </div>
 
 
