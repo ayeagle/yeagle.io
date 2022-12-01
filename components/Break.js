@@ -10,12 +10,14 @@ import Table from '@components/Table'
 
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux";
-import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage, updateIterationsRemain} from 'src/actions/cartAction'
+import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage } from 'src/actions/cartAction'
 
 
 
 
-export default function Break() {
+export default function Break(count, setCount, workTime, setWorkTime, breakTime, setBreakTime, iterations, setIterations, totalTime, setTotalTime, timeRemain, setTimeRemain, timeActive, setTimeActive, dispatch, state, ready, setReady
+
+) {
 
     // const [count, setCount] = useState(0);
     // const [workTime, setWorkTime] = useState(0);
@@ -23,8 +25,8 @@ export default function Break() {
     // const [iterations, setIterations] = useState(0);
     // const [timeRemain, setTimeRemain] = useState(0);
     // const [timeActive, setTimeActive] = useState(true);
-    const dispatch = useDispatch();
-    const state = useSelector((state) => state);
+    //     const dispatch = useDispatch();
+    //   const state = useSelector((state) => state);
 
     //should I just init all of these useStates with the state.val as the initial value?
 
@@ -32,7 +34,7 @@ export default function Break() {
 
     const buttonClick = () => {
         dispatch(updatePage("main"))
-        // setReady(false)
+        setReady(false)
         console.log("The state val is now: " + state.ready)
         // console.log("new value of ready is: " + ready)
     }
@@ -92,7 +94,7 @@ console.log("break was indeed loaded!!!!!!!!!")
                 <Button handleClick={handleClick} buttonName={"Click Counter"} /> */}
 
                 <br></br>
-                <Timer type  ={"break"} startVar={+state.breakTime}/>
+               <Timer startVal={state.breakTime} type={"break"}/>
 
                <div> YOU'RE ON A BREAK NOW YAAY</div>
                 <div>Work Period Length: {state.workTime}</div>
@@ -101,12 +103,12 @@ console.log("break was indeed loaded!!!!!!!!!")
                 <br></br>
 
                 <div></div>
-                <div>total seconds elapsed {state.totalTime - state.timeRemain}</div>
+                <div>total seconds elapsed {totalTime - timeRemain}</div>
                 <br></br>
                 <div>Total time planned for working is:</div>
-                <div> hours: {Math.floor(state.totalTime / 3600)}  </div>
-                <div> minutes: {Math.floor((state.totalTime % 3600) / 60)} </div>
-                <div> seconds: {state.totalTime % 60} </div>
+                <div> hours: {Math.floor(totalTime / 3600)}  </div>
+                <div> minutes: {Math.floor((totalTime % 3600) / 60)} </div>
+                <div> seconds: {totalTime % 60} </div>
 
                 {/* <Table  name={"Times Selected"}
                         name1={"Working"}

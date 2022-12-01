@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE, UPDATE_ITERATIONS_REMAIN } from "../actionTypes/actionTypes";
+import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE } from "../actionTypes/actionTypes";
 
 const addItem = () => {
     return {
@@ -61,11 +61,5 @@ const updateTimeActive = (val) => {
         newVal: val,
     };
 };
-const updateIterationsRemain = (val) => {
-    return {
-        type: UPDATE_ITERATIONS_REMAIN,
-        newVal: val
-    };
-};
 
-export { addItem, deleteItem, updateWorkTime, updateBreakTime, updateIterations, updatePage, updateTotalTime, updateTimeRemain, updateTimeActive, updateIterationsRemain };
+export { addItem, deleteItem, updateWorkTime, updateBreakTime, updateIterations, updatePage, updateTotalTime, updateTimeRemain, updateTimeActive };

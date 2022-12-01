@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE, UPDATE_ITERATIONS_REMAIN} from "../actionTypes/actionTypes";
+import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE } from "../actionTypes/actionTypes";
 
 const initialState = {
   numOfItems: 0,
@@ -7,7 +7,6 @@ const initialState = {
   iterations: 0,
   totalTime: 0,
   timeRemain: 0,
-  iterationsRemain: 1, //to prevent any default case issues
   timeActive: true,
   page: "main",
 };
@@ -63,12 +62,6 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         timeActive: action.newVal,
       };
-
-      case UPDATE_ITERATIONS_REMAIN:
-        return {
-          ...state,
-          iterationsRemain: action.newVal
-        }
 
     default:
       return state;
