@@ -10,67 +10,24 @@ import Table from '@components/Table'
 
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux";
-import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage, updateIterationsRemain} from 'src/actions/cartAction'
+import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage, updateIterationsRemain } from 'src/actions/cartAction'
 
 
 
 
-export default function Break() {
+export default function Finished() {
 
-    // const [count, setCount] = useState(0);
-    // const [workTime, setWorkTime] = useState(0);
-    // const [breakTime, setBreakTime] = useState(0);
-    // const [iterations, setIterations] = useState(0);
-    // const [timeRemain, setTimeRemain] = useState(0);
-    // const [timeActive, setTimeActive] = useState(true);
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
-
-    //should I just init all of these useStates with the state.val as the initial value?
-
 
 
     const buttonClick = () => {
         dispatch(updatePage("main"))
-        // setReady(false)
         console.log("The state val is now: " + state.ready)
-        // console.log("new value of ready is: " + ready)
     }
 
-    // async function stopTimer() {
-    //     console.log('before ' + timeActive)
-    //     console.log('before state ' + state.timeActive)
-    //     setTimeActive(false)
-    //     dispatch(updateTimeActive(false))
-    //     console.log('after ' + timeActive)
-    //     console.log('after state ' + state.timeActive)
-    // }
+    console.log("finished was indeed loaded!!!!!!!!!")
 
-    // async function timeDisplay() {
-    //     console.log(state.timeRemain + " <---- this is the time remaining")
-    //     let var1 = timeRemain
-
-    //     async function loop() {
-    //         if (var1 > 0 && timeActive === true) {
-    //             var1 -= 1
-    //             setTimeRemain(var1)
-    //             console.log(var1)
-    //             console.log("state: " + state.timeActive)
-    //             console.log("Local use " + timeActive)
-    //         }
-    //         console.log("before await, time active is ----> " + timeActive)
-    //         await setTimeActive(state.timeActive)
-    //         console.log("after await, time active is ----> " + timeActive)
-
-    //         if (var1 > 0 && timeActive === true) setTimeout(loop, 1000)
-    //     }
-    //     loop()
-    // }
-
-    // const updateTime = setTimeLeft(timeLeft-1);
-    // let totalTimeSum = (+workTime + +breakTime) * Math.min(+iterations, 1)
-
-console.log("break was indeed loaded!!!!!!!!!")
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -83,7 +40,7 @@ console.log("break was indeed loaded!!!!!!!!!")
             </Head>
 
             <main>
-                <Header title="Break Time ;)" />
+                <Header title="Nice Work!!!" />
                 {/* <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p> */}
@@ -92,9 +49,9 @@ console.log("break was indeed loaded!!!!!!!!!")
                 <Button handleClick={handleClick} buttonName={"Click Counter"} /> */}
 
                 <br></br>
-                <Timer type  ={"break"} startVar={+state.breakTime}/>
+                {/* <Timer type={"break"} startVar={+state.breakTime} /> */}
 
-               <div> YOU'RE ON A BREAK NOW YAAY</div>
+                <div> You were working for a total of x time</div>
                 <div>Work Period Length: {state.workTime}</div>
                 <div>Break Period Length: {state.breakTime}</div>
                 <div>Iterations left: {state.iterations}</div>

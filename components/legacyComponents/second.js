@@ -10,7 +10,7 @@ import Table from '@components/Table'
 
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux";
-import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage } from 'src/actions/cartAction'
+import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage, updateIterationsRemain } from 'src/actions/cartAction'
 
 
 
@@ -23,13 +23,14 @@ export default function Second() {
     const [timeRemain, setTimeRemain] = useState(state.timeRemain);
     const [totalTime, setTotalTime] = useState(state.totalTime);
 
-    const [count, setCount] = useState(0);
-  const [workTime, setWorkTime] = useState(0);   //set these to state. values?
-  const [breakTime, setBreakTime] = useState(0);
-  const [iterations, setIterations] = useState(0);
 
-  const [timeActive, setTimeActive] = useState(true);
-  const [ready, setReady] = useState(false);
+    // const [count, setCount] = useState(0);
+    // const [workTime, setWorkTime] = useState(0);   //set these to state. values?
+    // const [breakTime, setBreakTime] = useState(0);
+    // const [iterations, setIterations] = useState(0);
+
+    // const [timeActive, setTimeActive] = useState(true);
+    // const [ready, setReady] = useState(false);
 
     // const [count, setCount] = useState(0);
     // const [workTime, setWorkTime] = useState(0);
@@ -96,7 +97,7 @@ export default function Second() {
             </Head>
 
             <main>
-                <Header title="Let's do this!" />
+                <Header title="Let's get to work!" />
                 {/* <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p> */}
@@ -105,9 +106,11 @@ export default function Second() {
                 <Button handleClick={handleClick} buttonName={"Click Counter"} /> */}
 
                 <br></br>
+
                 {/* <Button handleClick={timeDisplay} buttonName={"Start Timer"} />
                 <div>Time Remaining is {Math.floor(timeRemain / 60)} minute(s) and {timeRemain % 60} seconds</div> */}
-                <Timer startVal={state.workTime} type={"work"} />
+                <Timer type  ={"work"} startVar={+state.workTime}/>
+
                 {/* <Button handleClick={stopTimer} buttonName={"Stop Timer"} /> */}
                 <div>Work Period Length: {state.workTime}</div>
                 <div>Break Period Length: {state.breakTime}</div>

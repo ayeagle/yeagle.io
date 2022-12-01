@@ -13,6 +13,7 @@ import styles from '../components/Tomato.module.css'
 import styles2 from '../components/Footer.module.css'
 import Main from '@components/Main'
 import Break from '@components/Break'
+import Finished from '@components/Finished'
 
 
 
@@ -104,18 +105,25 @@ export default function Home() {
   //   setTotalTime((+workTime + +breakTime) * +Math.max(+iterations, 1))
   //   // dispatch(updateTotalTime((+state.workTime + +state.breakTime) * Math.min(+state.iterations, 1)))
   // }, [workTime, breakTime, iterations])
+
+  //should be returning HTML not direct call, doesn't execute
+  //transform/compile
+
   switch (state.page) {
     case "main":
-      return Main()
+      return <Main />
 
-    case "timer":
-      return Second()
+    case "work":
+      return <Second />
 
     case "break":
-      return Break()
+      return <Break />
+
+    case "finished":
+      return <Finished />
 
     default:
-      return Main()
+      return <Main />
 
   }
 
