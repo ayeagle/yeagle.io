@@ -12,7 +12,7 @@ import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkT
 import styles from '../components/Tomato.module.css'
 import styles2 from '../components/Footer.module.css'
 import Timer from '@components/Timer.js'
-import { GiphyFetch } from '@giphy/js-fetch-api'
+// import { GiphyFetch } from '@giphy/js-fetch-api'
 
 // import jQuery from 'node_modules/cypress/types/jquery/index'
 
