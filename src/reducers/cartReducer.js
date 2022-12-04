@@ -1,15 +1,20 @@
-import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE, UPDATE_ITERATIONS_REMAIN} from "../actionTypes/actionTypes";
+import { object } from "check-more-types";
+import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE, UPDATE_ITERATIONS_REMAIN, UPDATE_JOKE, UPDATE_GIF } from "../actionTypes/actionTypes";
 
 const initialState = {
   numOfItems: 0,
-  workTime: 0,
-  breakTime: 0,
-  iterations: 0,
-  totalTime: 0,
-  timeRemain: 0,
+  workTime: 1500,
+  breakTime: 300,
+  iterations: 4,
+  totalTime: 1500,
+  timeRemain: 1500,
   iterationsRemain: 1, //to prevent any default case issues
   timeActive: true,
   page: "main",
+  jokeSetup: "",
+  jokePunchline: "",
+  gif: "",
+
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -58,17 +63,30 @@ const cartReducer = (state = initialState, action) => {
         timeRemain: action.newVal,
       };
 
-      case UPDATE_TIMEACTIVE:
+    case UPDATE_TIMEACTIVE:
       return {
         ...state,
         timeActive: action.newVal,
       };
 
-      case UPDATE_ITERATIONS_REMAIN:
-        return {
-          ...state,
-          iterationsRemain: action.newVal
-        }
+    case UPDATE_ITERATIONS_REMAIN:
+      return {
+        ...state,
+        iterationsRemain: action.newVal
+      }
+    case UPDATE_JOKE:
+      return {
+        ...state,
+        jokeSetup: action.newVal1,
+        jokePunchline: action.newVal2
+      }
+
+    case UPDATE_GIF:
+      return {
+        ...state,
+        gif: action.newVal
+
+      }
 
     default:
       return state;

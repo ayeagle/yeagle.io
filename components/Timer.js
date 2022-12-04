@@ -15,37 +15,23 @@ import styles from './Timer.module.css'
 
 
 
-export default function Timer({type, startVar}) {
+export default function Timer({ type, startVar }) {
 
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
 
-    // let flexVar = 0
-    // if (type == "work") {
-    //     flexVar = state.workTime
-    // } else if (type = "break") {
-    //     flexVar = state.breakTime
-    // } else {
-    //     flexvar = 0
-    // }
-    // console.log("this is the flexvar: " + flexVar)
-    console.log(state)
-    console.log("above is the state before setting timeremain and totaltime")
-    // const [timeRemain, setTimeRemain] = useState(state.workTime); //setting these to input instead now --> state.timeRemain
-    // const [totalTime, setTotalTime] = useState(state.totalTime);   //setting these to input instead now --> state.totalTime
-    // dispatch(updateTimeRemain(startVar))
+
+    // console.log(state)
+    // console.log("above is the state before setting timeremain and totaltime")
+
 
     const [dashVal, setDashVal] = useState(283)
     const timePassed = 0
-    if(state.timeRemain == 0) dispatch(updateTimeRemain(startVar))
+    if (state.timeRemain == 0) dispatch(updateTimeRemain(startVar))
     let timeLeft = state.timeRemain
 
-
-    //timeRemain variable is loading as -1 for some reason?
-
-
-    console.log(state)
-    console.log(timeLeft)
+    // console.log(state)
+    // console.log(timeLeft)
 
 
     async function stopTimer() {
@@ -105,11 +91,12 @@ export default function Timer({type, startVar}) {
 
 
 
-    function startTimer() {
+    async function startTimer() {
         var timerInterval = setInterval(() => {
 
-            console.log(state)
-            console.log(state.timeRemain)
+
+            // console.log(state)
+            // console.log(state.timeRemain)
 
             // // The amount of time passed increments by one
             // timePassed = timePassed += 1;
@@ -123,16 +110,18 @@ export default function Timer({type, startVar}) {
             // document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
             // setTimeRemain(timeRemain - 1)
 
+            // if (!state.timeActive) timeLeft = 0
+
+
             setCircleDasharray();
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
                 dispatch(updateIterationsRemain(state.iterationsRemain - 1))
-                if(state.iterationsRemain-2 == 0) dispatch(updatePage("finished"))
+                if (state.iterationsRemain - 3 == 0) dispatch(updatePage("finished"))
                 else if (type == "work") dispatch(updatePage("break"))
                 else dispatch(updatePage("work"))
-
-
             }
+
         }, 1000)
 
     }
@@ -142,12 +131,12 @@ export default function Timer({type, startVar}) {
 
 
     function formatTimeLeft() {
-        console.log("so this right here is the startVar val given to formatime timeleft: " + startVar)
+        // console.log("so this right here is the startVar val given to formatime timeleft: " + startVar)
         // The largest round integer less than or equal to the result of time divided being by 60.
         const time = timeLeft
-        console.log("this is the remain time var from within the format time left function: " + state.timeRemain)
+        // console.log("this is the remain time var from within the format time left function: " + state.timeRemain)
 
-        console.log("this is the remaining time from within the format time left function: " + time)
+        // console.log("this is the remaining time from within the format time left function: " + time)
         const minutes = Math.floor(time / 60);
 
         // Seconds are the remainder of the time divided by 60 (modulus operator)
@@ -168,8 +157,8 @@ export default function Timer({type, startVar}) {
     function calculateTimeFraction() {
         // return timeLeft / TIME_LIMIT;
         const rawTimeFraction = timeLeft / startVar;  //I think this should maybe be the total time
-        console.log("fraction time remain: " + startVar)
-        console.log("fraction time total: " + startVar)
+        // console.log("fraction time remain: " + startVar)
+        // console.log("fraction time total: " + startVar)
         return rawTimeFraction - (1 / startVar) * (1 - rawTimeFraction);
     }
 
@@ -181,7 +170,7 @@ export default function Timer({type, startVar}) {
             calculateTimeFraction() * FULL_DASH_ARRAY
         ).toFixed(0)} 283`;
         setDashVal(circleDasharray)
-        console.log("this is the current dash value: " + dashVal)
+        // console.log("this is the current dash value: " + dashVal)
         // document
         //     .getElementById("base-timer-path-remaining")
         //     .setAttribute("stroke-dasharray", circleDasharray);
@@ -215,10 +204,11 @@ export default function Timer({type, startVar}) {
     // }
     return (
         <>
-                        <h3 styles="font:bold">Work/Break Cycles Remaining: {Math.floor(state.iterationsRemain/2)}</h3>
+            <h3 styles="font:bold">Work/Break Cycles Remaining: {Math.floor(state.iterationsRemain / 2)}</h3>
 
             <div ><Button handleClick={startTimer} buttonName={"Start Timer"} /> <Button handleClick={stopTimer} buttonName={"Stop Timer"} /></div>
             {/* <div>Time Remaining is {Math.floor(timeRemain / 60)} minute(s) and {timeRemain % 60} seconds</div> */}
+            <br></br>
 
             <div className={styles.base_timer}>
                 <svg className={styles.base_timer__svg} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

@@ -6,17 +6,18 @@ export default function Table({ name, name1, name2, name3, val1, val2, val3 }) {
     //need to learn more about flexbox fasho
 
     return (
-        <><caption>{name}</caption>
+        <>
+            <h3>{name}</h3>
             <table className={styles.table} title={name}>
                 <tr>
-                    <td className={styles.table}>{name1}</td>
+                    <td>{name1}</td>
                     <td>{val1}</td>
                 </tr>
-                <tr>
+                <tr >
                     <td>{name2}</td>
                     <td>{val2}</td>
                 </tr>
-                <tr>
+                <tr >
                     <td>{name3}</td>
                     <td>{val3}</td>
                 </tr>
