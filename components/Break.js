@@ -7,10 +7,11 @@ import 'imported/confetti'
 import Timer from '@components/Timer'
 import { useEffect, useState } from 'react'
 import Table from '@components/Table'
+import DadJoke from './DadJoke'
 
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux";
-import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage, updateIterationsRemain} from 'src/actions/cartAction'
+import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateTimeActive, updateTimeRemain, updateTotalTime, updatePage, updateIterationsRemain, updateJoke } from 'src/actions/cartAction'
 
 
 
@@ -25,9 +26,6 @@ export default function Break() {
     // const [timeActive, setTimeActive] = useState(true);
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
-
-    //should I just init all of these useStates with the state.val as the initial value?
-
 
 
     const buttonClick = () => {
@@ -70,7 +68,7 @@ export default function Break() {
     // const updateTime = setTimeLeft(timeLeft-1);
     // let totalTimeSum = (+workTime + +breakTime) * Math.min(+iterations, 1)
 
-console.log("break was indeed loaded!!!!!!!!!")
+    console.log("break was indeed loaded!!!!!!!!!")
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -83,19 +81,17 @@ console.log("break was indeed loaded!!!!!!!!!")
             </Head>
 
             <main>
-                <Header title="Break Time ;)" />
-                {/* <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p> */}
-                {/* <p>Count is {count}</p>
-
-                <Button handleClick={handleClick} buttonName={"Click Counter"} /> */}
-
+                <br></br>                <br></br>
                 <br></br>
-                <Timer type  ={"break"} startVar={+state.breakTime}/>
 
-               <div> YOU'RE ON A BREAK NOW YAAY</div>
-                <div>Work Period Length: {state.workTime}</div>
+                <Header title="Break Time ;)" />
+                <Timer type={"break"} startVar={+state.breakTime} />
+                <br></br>
+                <DadJoke />
+
+
+
+                {/* <div>Work Period Length: {state.workTime}</div>
                 <div>Break Period Length: {state.breakTime}</div>
                 <div>Iterations left: {state.iterations}</div>
                 <br></br>
@@ -106,7 +102,7 @@ console.log("break was indeed loaded!!!!!!!!!")
                 <div>Total time planned for working is:</div>
                 <div> hours: {Math.floor(state.totalTime / 3600)}  </div>
                 <div> minutes: {Math.floor((state.totalTime % 3600) / 60)} </div>
-                <div> seconds: {state.totalTime % 60} </div>
+                <div> seconds: {state.totalTime % 60} </div> */}
 
                 {/* <Table  name={"Times Selected"}
                         name1={"Working"}
@@ -122,7 +118,7 @@ console.log("break was indeed loaded!!!!!!!!!")
                         val2={state.breakTime}
                         val3={state.iterations} />
                 <br></br> */}
-
+                <br></br>
 
                 <Button className='btn' handleClick={buttonClick} buttonName={"Return Home"} >Let's get to work</Button>
 
