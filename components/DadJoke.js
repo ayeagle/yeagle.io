@@ -19,8 +19,6 @@ import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateT
 export default function DadJoke() {
 
 
-    //fake line for rebuild
-
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
     let temp = "click to reveal punchline"
