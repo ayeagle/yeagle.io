@@ -12,6 +12,10 @@
     color: #ff0404;
  } */
 
+ .explain {
+   font-size: 80%;
+   font-style: italic;
+ }
 
 .dadjoke {
    z-index: 100;

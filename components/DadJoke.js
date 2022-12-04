@@ -79,6 +79,8 @@ export default function DadJoke() {
         <div className={styles.dadjoke}>
 
             <h2> DAD JOKE TIME</h2>
+            <div className={styles.explain}> Jokes are from a public api and may contain content inappropriate for some viewers.</div>
+            <br></br>
             <div className={styles.dadjokesetup}> {state.jokeSetup} </div>
 
 
