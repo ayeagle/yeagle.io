@@ -39,7 +39,7 @@ export default function Main() {
 
   const options = {
     method: 'GET',
-    url: 'http://api.giphy.com/v1/gifs/search?q=celebrate&api_key=fk4nuCWHZdfaRasp0vvMdbuDO0urqGw3&limit=25',
+    url: 'https://api.giphy.com/v1/gifs/search?q=celebrate&api_key=fk4nuCWHZdfaRasp0vvMdbuDO0urqGw3&limit=25',
     // headers: {
     //     'api_key': 'fk4nuCWHZdfaRasp0vvMdbuDO0urqGw3',
     //     'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com'
