@@ -1,47 +1,26 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, {Component, useState, useEffect } from 'react'
 import styles from './Input.module.css'
 
 
-const Input = ({ type, inputPrompt1, state, func, dispatch, updateTotalTime, step, fieldPrompt }) => {
+const Input = ({handleGeneralInput, inputType, inputPrompt1, func, state, dispatch}) => {
     const [time1, setTime1] = useState(0);
-    let updater = 0
-    let newVal = 0;
-
 
     return (
         <div className={styles.form}    >   {/* onSubmit={handleSubmit}*/}
-            <label>{inputPrompt1} <br></br><br></br>
+            <label>{inputPrompt1} <br className='btn'></br><br className='btn'></br>
                 <input
                     type="number"
-                    placeholder= {fieldPrompt}
-
-                    min=".1"
-                    step= {step}
-                    // value={time1}
+                    value={time1}
                     onChange={(e) => {
-                        if (type == "work"){
-                            updater = (+newVal + +state.breakTime) * Math.min(+state.iterations, 1)
-                            newVal = +e.target.value * 60
-
-                        } else if (type == "break") {
-                            updater = (+state.workTime + +newVal) * Math.min(+state.iterations, 1)
-                            newVal = +e.target.value * 60
-
-                        } else {
-                            updater = (+state.workTime + +state.breakTime) * Math.min(+newVal, 1)
-                            newVal = +e.target.value
-                            console.log(newVal + "looks like iter was update here !!!!!!!!!!!!!!!!!")
-                        }
                         console.log("handle click was invoked")
-                        dispatch(func(+newVal))
-                        setTime1(+newVal)
-                        console.log(+newVal)
-                        console.log("this is time1: " + +time1 + "before the re-render")
-                        dispatch(updateTotalTime((updater)))
-                        console.log("this is the total time: " + state.totalTime)
+                        dispatch(func(+e.target.value))
+                        setTime1(+e.target.value)
+                        console.log(+e.target.value)
+                        console.log("this is time1: " + +time1)
+
                         // handleGeneralInput(inputType,time1)
                     }
-                    } />
+                    }/>
             </label>
             {/* <button className='btn' onClick= {handleGeneralInput(inputType,time1)}>{inputPrompt4}</button> */}
 
