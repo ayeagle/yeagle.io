@@ -105,6 +105,7 @@ export default function Main() {
       <Head>
         <title>Yeagle's Bagels!</title>
         <link rel="icon" href="/bagel_logo.png" />
+
       </Head>
       {/* <img src="http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=fk4nuCWHZdfaRasp0vvMdbuDO0urqGw3&limit=1" /> */}
       {/* <div>{GIF()}</div> */}
@@ -159,7 +160,7 @@ export default function Main() {
 
         />
 <br></br>
-        <Button className='btn' handleClick={buttonClick} buttonName={"Let's do this v2"} >Let's get to work</Button>
+        <Button className='btn' handleClick={buttonClick} buttonName={"Let's get to work!"} >Let's get to work</Button>
 
         {/* onClick= {handleGeneralInput(inputType,time1)} */}
 
