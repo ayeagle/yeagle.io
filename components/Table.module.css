@@ -2,7 +2,7 @@
 
 .table {
     width: 100%;
-    max-width: 50%;
+    /* max-width: 70%; */
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -11,17 +11,22 @@
     border-spacing: 100;
     border-width: 100px;
     background-color: rgb(141, 203, 250);
-    border: 35px;
+    /* border: 35px; */
     border-color: black;
-    border-collapse: collapse;
+    /* border-collapse: collapse;
     border-spacing: 10;
     justify-content: center;
-    text-align: center;
+    text-align: center; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
   }
 
 
-
+/*
   .wrapper {
       width: 100%;
         align-items: flex-end;
@@ -29,5 +34,5 @@
 
 .cell{
     text-align: left;
-    border: 1px solid black;
-}
+    border: 01px solid black;
+} */
