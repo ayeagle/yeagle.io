@@ -19,6 +19,10 @@ import { updateBreakTime, updateIterations, updateReady, updateWorkTime, updateT
 export default function DadJoke() {
 
 
+
+
+    // Owb7lR4TrWV04UXj1Wd0ZweF API Key
+
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
     let temp = "click to reveal punchline"
@@ -70,10 +74,47 @@ export default function DadJoke() {
 
     }
 
-    // const handleMouseOut = () => {
-    //     setIsHovering(false);
+    // const options = {
+    //     method: 'GET',
+    //     url: 'https://api.jokes.one/joke/random/',
+    //     headers: {
+    //         'Content-type': 'application/json',
+    //         "X-JokesOne-Api-Secret": "Owb7lR4TrWV04UXj1Wd0ZweF"
+    //     }
     // };
 
+
+    //  function get_joke() {
+
+    //     axios.request(options)
+    //         .then(function (response) {
+    //             console.log(response.data)
+    //             // console.log(response.data.body[0].NSFW)
+    //             // if(response.data.contents.jokes[0].clean != true){
+    //             //     console.log("!!!!!!!!!!!!!!!!!! uh oh this was a naughty joke.........")
+    //             //     get_joke()
+    //             // }
+    //             setIsHovering(false);
+    //             // console.log("this is before the joke is written to redux")
+    //             console.log(response.data.contents.jokes[0].text);
+    //             // console.log(response.data.body[0].punchline);
+    //             dispatch(updateJoke(response.data.contents.jokes[0].text, response.data.contents.jokes[0].text))
+    //             // console.log("this is the joke that was just fetched")
+    //             // console.log(state.jokeSetup)
+    //             // console.log(state.jokePunchline)
+    //         })
+    //         // .then(function (response){
+    //         //   jokePlaceholder = response.data
+    //         // })
+    //         .catch(function (error) {
+    //             console.error(error);
+    //         });
+
+    // }
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
+    };
 
     return (
         <div className={styles.dadjoke}>
