@@ -11,6 +11,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive, updateIterationsRemain } from 'src/actions/cartAction'
 import Break from '@components/Break'
 
+// import sound from './public/announcement_sound.mp3'
+
 import styles from './Timer.module.css'
 
 
@@ -32,6 +34,9 @@ export default function Timer({ type, startVar }) {
 
     // console.log(state)
     // console.log(timeLeft)
+    // const pokemon = require('./audio_files/announcement_sound.mp3');
+
+    var audio = new Audio('/announcement_sound.mp3')
 
 
     async function stopTimer() {
@@ -115,6 +120,7 @@ export default function Timer({ type, startVar }) {
 
             setCircleDasharray();
             if (timeLeft <= 0) {
+                audio.play()
                 clearInterval(timerInterval);
                 dispatch(updateIterationsRemain(state.iterationsRemain - 1))
                 if (state.iterationsRemain - 3 == 0) dispatch(updatePage("finished"))
