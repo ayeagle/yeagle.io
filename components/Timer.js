@@ -36,7 +36,10 @@ export default function Timer({ type, startVar }) {
     // console.log(timeLeft)
     // const pokemon = require('./audio_files/announcement_sound.mp3');
 
-    var audio = new Audio('/announcement_sound.mp3')
+    var alarm = new Audio('/announcement_sound.mp3')
+    var click = new Audio('/click.mp3')
+    var success = new Audio('/success.mp3')
+
 
 
     async function stopTimer() {
@@ -97,6 +100,7 @@ export default function Timer({ type, startVar }) {
 
 
     async function startTimer() {
+        // click.play()
         var timerInterval = setInterval(() => {
 
 
@@ -120,12 +124,18 @@ export default function Timer({ type, startVar }) {
 
             setCircleDasharray();
             if (timeLeft <= 0) {
-                audio.play()
                 clearInterval(timerInterval);
                 dispatch(updateIterationsRemain(state.iterationsRemain - 1))
-                if (state.iterationsRemain - 3 == 0) dispatch(updatePage("finished"))
-                else if (type == "work") dispatch(updatePage("break"))
-                else dispatch(updatePage("work"))
+                if (state.iterationsRemain - 3 == 0) {
+                    success.play()
+                    dispatch(updatePage("finished"))
+                } else if (type == "work") {
+                    alarm.play()
+                    dispatch(updatePage("break"))
+                } else {
+                    alarm.play()
+                    dispatch(updatePage("work"))
+                }
             }
 
         }, 1000)

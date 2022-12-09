@@ -15,7 +15,7 @@ const Input = ({ type, inputPrompt1, state, func, dispatch, updateTotalTime, ste
                     type="number"
                     placeholder= {fieldPrompt}
 
-                    min="5"
+                    min="0"
                     step= {step}
                     // value={time1}
                     onChange={(e) => {
