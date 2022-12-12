@@ -88,7 +88,7 @@ export default function Waves() {
                 {ModulatingSineWave((height - (height * level1)), color1, 30, .01, 40)}
                 {ModulatingSineWave((height - (height * level1)), color1, 10, .003, 40)}
                 <rect x='0' y={height * (1 - level1)+40} width={width} height={height} fill={color1} />
-                <rect x='0' y={height * (1 - level2)+40} width={10000} height={2} fill='#6170c9' stroke='white' strokeWidth={3} />
+                <rect x='0' y={height * (1 - level2)+40} width={10000} height={2} fill={color1} stroke='white' strokeWidth={3} />
 
                 {ModulatingSineWave((height - (height * level2)), color2, 50, .05, 30)}
                 {ModulatingSineWave((height - (height * level2)), color2, 200, .2, 30)}
@@ -103,7 +103,7 @@ export default function Waves() {
                 {ModulatingSineWave((height - (height * level3)), color3, 80, .08, 25)}
                 {ModulatingSineWave((height - (height * level3)), color3, 100, .1, 25)}
                 {ModulatingSineWave((height - (height * level3)), color3, 10, .005, 20)}
-                <rect x='0' y={height * (1 - level3)+40} width={width} height={height} fill='#57517d' />
+                <rect x='0' y={height * (1 - level3)+40} width={width} height={height} fill={color3}/>
             </svg>
 
 
