@@ -14,6 +14,7 @@ import styles2 from '../components/Footer.module.css'
 import Main from '@components/Main'
 import Break from '@components/Break'
 import Finished from '@components/Finished'
+import Meteor from '@components/Meteor'
 
 
 
@@ -108,6 +109,8 @@ export default function Home() {
 
   //should be returning HTML not direct call, doesn't execute
   //transform/compile
+
+  // return <Meteor/>
 
   switch (state.page) {
     case "main":
