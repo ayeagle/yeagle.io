@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive, updateIterationsRemain } from 'src/actions/cartAction'
 import Break from '@components/Break'
+import Waves from './Waves'
 
 // import sound from './public/announcement_sound.mp3'
 
@@ -225,7 +226,6 @@ export default function Timer({ type, startVar }) {
             <div ><Button handleClick={startTimer} buttonName={"Start Timer"} /> <Button handleClick={stopTimer} buttonName={"Stop Timer"} /></div>
             {/* <div>Time Remaining is {Math.floor(timeRemain / 60)} minute(s) and {timeRemain % 60} seconds</div> */}
             <br></br>
-
             <div className={styles.base_timer}>
                 <svg className={styles.base_timer__svg} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <g className={styles.base_timer__circle} >
