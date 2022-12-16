@@ -9,7 +9,7 @@ import Resizer from "@components/functional/Resizer";
 import { useEffect, useState } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './master.module.css';
-import Iceland from "@components/bio/embeds/Iceland";
+import Iceland from "@components/bio/Iceland";
 
 
 
