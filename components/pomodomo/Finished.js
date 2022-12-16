@@ -1,12 +1,10 @@
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import Button from '@components/Button'
-import Input from '@components/legacyComponents/Input'
+import Header from '@components/pomodomo/Header'
+import Footer from '@components/pomodomo/Footer'
+import Button from '@components/pomodomo/Button'
 import 'imported/confetti'
-import Timer from '@components/Timer'
 import { useEffect, useState } from 'react'
-import Table from '@components/Table'
+import Table from '@components/pomodomo/Table'
 import styles from './Table.module.css'
 
 import Link from 'next/link';

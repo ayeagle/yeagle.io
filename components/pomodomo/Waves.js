@@ -1,15 +1,8 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import Button from '@components/Button'
-import RouteButton from '@components/legacyComponents/RouteButton'
-import Input from '@components/Inputv2'
-import Second from './legacyComponents/second'
-import Settings from '../components/legacyComponents/settings'
+
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive, updateIterationsRemain } from 'src/actions/cartAction'
-import Break from '@components/Break'
+import Break from '@components/pomodomo/Break'
 import styles from './Timer.module.css'
 
 
@@ -82,11 +75,11 @@ export default function Waves() {
             <svg className="svg" width={width} height={height}>
                 <rect x='0' y='0' width={width} height={height} fill='#a3eaff' />
                 <rect x='0' y={height * (1 - level1)+40} width={10000} height={2} fill='#45b1d1' stroke='white' strokeWidth={3} />
-                {ModulatingSineWave((height - (height * level1)), color1, 130, .2, 40)}
+
                 {ModulatingSineWave((height - (height * level1)), color1, 88, .05, 40)}
+                {ModulatingSineWave((height - (height * level1)), color1, 130, .2, 40)}
                 {ModulatingSineWave((height - (height * level1)), color1, 80, .2, 40)}
-                {ModulatingSineWave((height - (height * level1)), color1, 30, .01, 40)}
-                {ModulatingSineWave((height - (height * level1)), color1, 10, .003, 40)}
+
                 <rect x='0' y={height * (1 - level1)+40} width={width} height={height} fill={color1} />
                 <rect x='0' y={height * (1 - level2)+40} width={10000} height={2} fill={color1} stroke='white' strokeWidth={3} />
 
