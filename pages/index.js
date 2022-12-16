@@ -9,7 +9,7 @@ import Finished from '@components/pomodomo/Finished'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Waves from '@components/pomodomo/Waves'
 
-import About from './About';  // this is the React component you want to render
+// import About from './About';  // this is the React component you want to render
 
 
 
@@ -20,6 +20,8 @@ export default function Home() {
   const state = useSelector((state) => state);
 
   console.log("minor change is in effect now")
+  console.log("removed the stupid fucking about import")
+
 
   const [count, setCount] = useState(0);
   const [workTime, setWorkTime] = useState(0);   //set these to state. values?
