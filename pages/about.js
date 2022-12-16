@@ -1,5 +1,5 @@
 import Waves from "@components/pomodomo/Waves";
-import Break from '@components/pomodomo/Break'
+import Break from '@components/pomodomo/Break';
 import Button from "@components/pomodomo/Button";
 import NavBar from "@components/bio/navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
@@ -8,8 +8,9 @@ import SVGSpacers from "@components/bio/SVGSpacers";
 import Resizer from "@components/functional/Resizer";
 import { useEffect, useState } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
-import styles from './master.module.css'
-import Iceland from '@components/bio/embeds/Iceland'
+import styles from './master.module.css';
+import Iceland from "@components/bio/embeds/Iceland";
+
 
 
 
