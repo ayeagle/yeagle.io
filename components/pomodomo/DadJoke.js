@@ -1,12 +1,7 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import Button from '@components/Button'
-import Input from '@components/legacyComponents/Input'
+
+import Button from '@components/pomodomo/Button'
 import 'imported/confetti'
-import Timer from '@components/Timer'
 import { useEffect, useState } from 'react'
-import Table from '@components/Table'
 import styles from './DadJoke.module.css'
 
 import Link from 'next/link';

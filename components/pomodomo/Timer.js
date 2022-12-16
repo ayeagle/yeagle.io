@@ -1,16 +1,9 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import Button from '@components/Button'
-import RouteButton from '@components/legacyComponents/RouteButton'
-import Input from '@components/Inputv2'
-import Second from './legacyComponents/second'
-import Settings from '../components/legacyComponents/settings'
+
+import Button from '@components/pomodomo/Button'
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive, updateIterationsRemain } from 'src/actions/cartAction'
-import Break from '@components/Break'
-import Waves from './Waves'
+import Break from '@components/pomodomo/Break'
 
 // import sound from './public/announcement_sound.mp3'
 

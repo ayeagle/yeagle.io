@@ -1,4 +1,4 @@
-import styles from '../components/Meteor.module.css'
+import styles from '../components/pomodomo/Meteor.module.css'
 
 
 export default function Meteor () {
