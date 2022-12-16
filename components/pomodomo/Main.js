@@ -10,8 +10,8 @@ import styles2 from '/components/pomodomo/Footer.module.css'
 import { useSpring, animated } from 'react-spring';
 import Waves from './Waves'
 import LoadGif from './LoadGif'
-import { API } from '@aws-amplify/api'
-import config from '/src/aws-exports'
+// import { API } from '@aws-amplify/api'
+// import config from '/src/aws-exports'
 // import { listSomething } from './graphql/queries'
 
 
@@ -24,7 +24,7 @@ import config from '/src/aws-exports'
 // import jQuery from 'node_modules/cypress/types/jquery/index'
 
 import { GiphyFetch } from '@giphy/js-fetch-api'
-import TextList from 'src/components/TextList'
+// import TextList from 'src/components/TextList'
 import Error from 'src/components/Error'//'./components/Error'
 // import REACT_APP_GIPHY_KEY from 'env'
 

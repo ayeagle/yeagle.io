@@ -19,6 +19,8 @@ export default function Home() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
+  console.log("minor change is in effect now")
+
   const [count, setCount] = useState(0);
   const [workTime, setWorkTime] = useState(0);   //set these to state. values?
   const [breakTime, setBreakTime] = useState(0);
