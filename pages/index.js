@@ -1,20 +1,15 @@
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import Button from '@components/Button'
-import RouteButton from '@components/legacyComponents/RouteButton'
-import Input from '@components/Inputv2'
-import Second from '../components/legacyComponents/second'
-import Settings from '../components/legacyComponents/settings'
+import Second from '../components/pomodomo/second'
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive } from 'src/actions/cartAction'
-import styles from '../components/Tomato.module.css'
-import styles2 from '../components/Footer.module.css'
-import Main from '@components/Main'
-import Break from '@components/Break'
-import Finished from '@components/Finished'
-import Meteor from '@components/Meteor'
+import Main from '@components/pomodomo/Main'
+import Break from '@components/pomodomo/Break'
+import Finished from '@components/pomodomo/Finished'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Waves from '@components/pomodomo/Waves'
+
+import About from './About';  // this is the React component you want to render
 
 
 
@@ -33,176 +28,38 @@ export default function Home() {
   const [timeActive, setTimeActive] = useState(true);
   const [ready, setReady] = useState(false);
 
-  //why is there input lag with the data being stored vs what is being displayed?
-  //need to be leveraging promises???
 
+  // return (
+  //   <Router>
+  //     <Route path="/about" component={About} />
+  //   </Router>
+  // );
 
-  // const handleClick = () => {
-  //   setCount(count + 1);
-  //   console.log("this button was clicked")
-  // }
+  const sendPage = () => {
+    switch (state.page) {
+      case "main":
+        return <Main />
 
-  // const buttonClick = () => {
-  //   dispatch(updateWorkTime(workTime))
-  //   dispatch(updateBreakTime(breakTime))
-  //   dispatch(updateIterations(iterations))
-  //   dispatch(updateTotalTime(totalTime))
-  //   dispatch(updateTimeRemain(timeRemain))
-  //   dispatch(updatePage("timer"))
-  //   setTimeRemain(totalTime)
-  //   console.log("The state val is now: " + state.page)
-  //   console.log("new value of ready is: " + ready)
-  // }
+      case "work":
+        return <Second />
 
-  // const handleGeneralInput = (setFunc, setVal) => {
-  //   console.log("--> this is the set func: " + setFunc)
-  //   console.log("--> this is the set val: " + setVal)
-  //   // setTimeRemain(getTotalTime())
+      case "break":
+        return <Break />
 
-  //   switch (setFunc) {
-  //     case "work":
-  //       setWorkTime(+setVal)
-  //       dispatch(updateWorkTime(+setVal))
-  //       console.log("case matched")
-  //       break
+      case "finished":
+        return <Finished />
 
-  //     case 'break':
-  //       setBreakTime(+setVal)
-  //       dispatch(updateBreakTime(+setVal))
-  //       console.log("case matched")
-  //       break
+      default:
+        return <Main />
 
-  //     case 'iter':
-  //       setIterations(+setVal)
-  //       dispatch(updateIterations(+setVal))
-  //       console.log("case matched")
-  //       break
-  // //   }
-  //   console.log("net value added: " + setVal + " to " + setFunc)
-  //   console.log("new total time is: " + (+workTime + +breakTime) * +Math.max(+iterations, 1))
-  //   dispatch(updateTotalTime((+state.workTime + +state.breakTime) * Math.max(+state.iterations, 1)))
-  //   console.log("well it looks like this is the current total time:  " + state.totalTime)
-  //   setTotalTime(state.totalTime)
-  //   setTimeRemain(state.totalTime)
-
-  //   //need to be leveraging promises???
-  //   //need to be leveraging promises???
-  //   //need to be leveraging promises???
-  //   //need to be leveraging promises???
-  //   //need to be leveraging promises???
-  //   //need to be leveraging promises???
-
-  //   console.log("this is the time remain var: ---> " + timeRemain)
-  //   console.log("this is the time remain var: ---> " + totalTime)
-
-
-  // }
-
-  // const getTotalTime = () => {
-  //   return (+state.workTime + +state.breakTime) * Math.max(+state.iterations, 1)
-  // }
-
-  // useEffect(() => {
-  //   setTotalTime((+workTime + +breakTime) * +Math.max(+iterations, 1))
-  //   // dispatch(updateTotalTime((+state.workTime + +state.breakTime) * Math.min(+state.iterations, 1)))
-  // }, [workTime, breakTime, iterations])
-
-  //should be returning HTML not direct call, doesn't execute
-  //transform/compile
-
-  // return <Meteor/>
-
-  switch (state.page) {
-    case "main":
-      return <Main />
-
-    case "work":
-      return <Second />
-
-    case "break":
-      return <Break />
-
-    case "finished":
-      return <Finished />
-
-    default:
-      return <Main />
-
+    }
   }
 
-
-
-
-
-
-
-
-  //   if (state.page == "main") {
-
-  //     return (
-  //       <div className="container">
-  //         <Head>
-  //           <title>Yeagle's Bagels!</title>
-  //           <link rel="icon" href="/bagel_logo.png" />
-  //         </Head>
-
-  //         <main>
-  //           {/* <Header title="Welcome to PomoDomo" /><img src="/tomato2.png" className={styles2.tomat}/> */}
-  //           <h1>Welcome to P<img src="/tomato2.png" className={styles2.tomat}/>m<img src="/tomato2.png" className={styles2.tomat}/>d<img src="/tomato2.png" className={styles2.tomat}/>m<img src="/tomato2.png" className={styles2.tomat}/></h1>
-
-
-  //           {/* <p className="description">
-  //           Get started by editing <code>pages/index.js</code>
-  //         </p> */}
-  //           <p>Count is {count}</p>
-
-  //           <Button handleClick={handleClick} buttonName={"Click Counter"} />
-  //           {/* <div className={styles.leaves}>
-  //           <i></i>
-  //           <i></i>
-
-
-
-  //           </div> */}
-
-  //           <Input
-  //             handleGeneralInput={handleGeneralInput}
-  //             inputType={"work"}
-  //             inputPrompt1={"How long do you want to work?"}
-  //           />
-  //           <Input
-  //             handleGeneralInput={handleGeneralInput}
-  //             inputType={"break"}
-  //             inputPrompt1={"How long do you want to break?"}
-  //           />
-  //           <Input
-  //             handleGeneralInput={handleGeneralInput}
-  //             inputType={"iter"}
-  //             inputPrompt1={"How many iterations do you want to do?"}
-  //           />
-
-  //           <Button className='btn' handleClick={buttonClick} buttonName={"Let's do this v2"} >Let's get to work</Button>
-
-  //           {/* onClick= {handleGeneralInput(inputType,time1)} */}
-
-  //           <>Current time is {workTime} and also {ready}</>
-
-  //           <div>Total time planned for working is:</div>
-  //           <div> hours: {Math.floor(totalTime / 3600)}  </div>
-  //           <div> minutes:{Math.floor((totalTime % 3600) / 60)} </div>
-  //           <div> seconds: {totalTime % 60} </div>
-
-  //         </main>
-
-  //         <Footer />
-  //         <script src="imported/confetti.js"></script>
-
-  //       </div>
-  //     )
-
-  //   } else if (state.page = "timer") return Second(count, setCount, workTime, setWorkTime, breakTime, setBreakTime, iterations, setIterations, totalTime, setTotalTime, timeRemain, setTimeRemain, timeActive, setTimeActive, dispatch, state, ready, setReady
-
-  //   )
-
+  return(
+    <>
+    <Waves/>
+    {sendPage()}
+    </>
+  )
 
 }
