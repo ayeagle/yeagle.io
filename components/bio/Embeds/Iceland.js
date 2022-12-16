@@ -34,10 +34,8 @@ export default function Iceland() {
     console.log(width + "this is from within Iceland")
 
     return (
-
-        <iframe width={"100%"} height={width*.6}  src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=20" align-content={"center"}
-        frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture"
-        allowFullScreen></iframe>
-
+        <>
+        <iframe width={"100%"} height={width*.6}  src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=20" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        </>
     )
 }
