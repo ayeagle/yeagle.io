@@ -2,7 +2,10 @@ import '@styles/globals.css'
 // import "./App.css";
 import { Provider } from "react-redux";
 import store from 'src/store';
-import Waves from '@components/pomodomo/Waves';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter } from 'node_modules/react-router-dom/dist/index';
+import About from './about';
+
 // import {SafeAreaView} from 'react-native'
 
 
@@ -16,10 +19,11 @@ import Waves from '@components/pomodomo/Waves';
 
 
 function Application({ Component, pageProps }) {
-  return<Provider store={store}>
-
-        <Component {...pageProps} />
-        </Provider>
+  return (
+      <Provider store={store}>
+        <Component {...pageProps}/>
+      </Provider>
+  )
 }
 
 export default Application
