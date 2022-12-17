@@ -10,7 +10,8 @@ import { useEffect, useState } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
-
+import NavButton from "@components/bio/NavButton";
+import Carousel from "@components/bio/Carousel";
 
 
 
@@ -46,26 +47,35 @@ export default function About() {
     }, [])
 
 
+
     return (
         <div className={styles.master}>
             <BasicPageTop />
             <NavBar />
             <span>
                 <img src="/IMGassets/me.png" className={styles.image} />
-                <div className={styles.image_text} style={{top:(`200px`)}} >Behavioral economist and startup enthusiast with a passion for building and scaling customer-obsessed products.</div>
+                <div className={styles.image_text} style={{ top: (`20vh`) }} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
             </span>
             <SVGSpacers type="bot" num="2" width={width} />
-            <h4  className={styles.text_left} >"I chose Alex because he contains all
+            <h4 className={styles.text_left} >"I chose Alex because he contains all
                 of the ingredients for a strong team member... I am confident
                 he will be a valuable addition to any product teams solving tough problems."</h4>
-                <h3 className={styles.text_left} >Marcus Lowe, Head of Product @ Resource.io</h3>
-                <h3>learn why button</h3>
+            <h3 className={styles.text_left} >Marcus Lowe, Head of Product @ Resource.io
+                <br></br>
+                <br></br>
+                <NavButton handleClick={{}} buttonName={"Learn Why"} />
+            </h3>
+            <Carousel/>
+
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
-            <h4  className={styles.text_left} > A broad range of experiences
-            has given my product work diversity and perspective. </h4>
-            <div>JKHD</div>
-            <h2>cool stuff</h2>
+            <h4 > A broad range of experiences
+                has given my product work diversity and perspective.
+
+                <br></br>
+                <br></br>
+                <NavButton handleClick={{}} buttonName={"See my Projects"} />
+            </h4>
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
             <h3>I'm also a drone videographer!</h3>
@@ -73,8 +83,8 @@ export default function About() {
             <Iceland width={width} height-={height} />
             {/* </div> */}
             <SVGSpacers type="top" num="2" width={width} />
-            <div  className={styles.box}>
-                <BasicPageBottom/>
+            <div className={styles.box}>
+                <BasicPageBottom />
             </div>
 
 
