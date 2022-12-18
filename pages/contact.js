@@ -10,11 +10,13 @@ import { useEffect, useState } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
+import Socials from "@components/bio/Socials";
 
 
 
 
-export default function Coding() {
+export default function Contact() {
+
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
@@ -50,16 +52,17 @@ export default function Coding() {
         <div className={styles.master}>
             <BasicPageTop />
             <NavBar />
+
             <span>
                 <img src="/IMGassets/me.png" className={styles.image} />
                 <div className={styles.image_text} style={{ top: (`200px`) }} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
             </span>
             <SVGSpacers type="bot" num="1" width={width} />
+            <Socials/>
             <h2>Self-Learned Curriculum</h2>
             <div className={styles.list}>
                 <div>
                     <li> Web Dev Bootcamp </li>
-                    <li> FB/Meta new engineer Bootcamp curriculum</li>
                     <li> Road to React </li>
                     <li> Full Stack Serverless </li>
                     <li> Designing Data-Intensive Applications</li>

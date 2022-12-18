@@ -68,10 +68,10 @@ export default function NavBar() {
                             <a className="nav-link" href="/resume">Resume</a>
                         </li>
                         <li className={createStyle}>
-                            <a className="nav-link" href="#">Creative Work</a>
+                            <a className="nav-link" href="creative">Creative Work</a>
                         </li>
                         <li className={contactStyle}>
-                            <a className="nav-link" href="#">Contact</a>
+                            <a className="nav-link" href="/contact">Contact</a>
                         </li>
                     </ul>
                 </div>

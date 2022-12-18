@@ -54,7 +54,7 @@ export default function About() {
             <NavBar />
             <span>
                 <img src="/IMGassets/me.png" className={styles.image} />
-                <div className={styles.image_text} style={{ top: (`20vh`) }} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
+                <div className={styles.image_text} style={{ top: (`20vh`) }} >Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
             </span>
             <SVGSpacers type="bot" num="2" width={width} />
             <h4 className={styles.text_left} >"I chose Alex because he contains all
@@ -65,7 +65,7 @@ export default function About() {
                 <br></br>
                 <NavButton handleClick={{}} buttonName={"Learn Why"} />
             </h3>
-            <Carousel/>
+            <Carousel className={styles.caro}/>
 
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />

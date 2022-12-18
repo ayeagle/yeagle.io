@@ -11,10 +11,12 @@ import Waves from '@components/pomodomo/Waves'
 
 // import About from './About';  // this is the React component you want to render
 
-
+import About from './about';
 
 
 export default function Home() {
+
+  // return <About/>
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state);

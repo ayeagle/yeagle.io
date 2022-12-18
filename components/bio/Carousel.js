@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Carousel.module.css'
+import Button from '@components/pomodomo/Button';
 
 
 // export default function Carousel() {
@@ -22,210 +23,114 @@ import styles from './Carousel.module.css'
 export default function Carousel() {
 
 
-    const quotesArray = ["Quotesadf  sdfafsda fdasf dsf dsaf sdf sdaf asdf sd f ds f 1",
-        "Quote sdfsdsdfdssdsd sdfsdfdfdfd ffddsasddfass adsda asd2",
-        "Quot asd df sasdfdfdf5hjhtyjufjkfghj fghj fhgj ghfgh f gjghj fghjghf jhgj ghfj ghgh jj  3"];
-
-    const [currQuote, setCurrQuote] = useState(quotesArray[0])
-    // const [slideIndex, setSlideIndex] = useState(0)
-    let slideIndex = 0
-
-    // function showSlides() {
-    //     const newSlides = {};
-    //     Object.keys(mySlides).forEach(number => {
-    //         if (number !== slideIndex) {
-    //             newSlides[number] = React.cloneElement(mySlides[number], {
-    //                 style: { display: 'none' }
-    //             });
-    //         } else {
-    //             newSlides[number] = React.cloneElement(mySlides[number], {
-    //                 style: { display: 'block' }
-    //             });
-    //         }
-    //     });
-    //     slideIndex = (slideIndex + 1);
-    //     if (slideIndex > Object.keys(mySlides).length) {
-    //         slideIndex = 1;
-    //     }
-    //     // setMySlides(newSlides);
-    //     setCurrSlide(newSlides[slideIndex].jsx)
-    //     setTimeout(showSlides, 2000);
-    //     // return Object.values(newSlides);
-    // }
-    function quotes() {
-        console.log("slideindex before: " + slideIndex)
-        if (slideIndex >= quotesArray.length) slideIndex = (0);
-        else slideIndex = (slideIndex + 1);
-        console.log("slideindex after: " + slideIndex)
-
-        console.log("this quopte length " + quotesArray.length)
-
-        console.log("this is slideindex " + slideIndex)
-
-        console.log("this is the quotes function before timeout " + quotesArray[slideIndex])
-        setTimeout(quotes, 2000);
-        console.log("this is the quotes function after timeout " + quotesArray[slideIndex])
-        console.log("-----> " + currQuote)
-
-
-        return (
-            <div className={styles.mySlides}>
-                <div className={styles.numbertext}>2 / 3</div>
-                {quotesArray[slideIndex]}
-                {/* <img src="img2.jpg" style={{width:"100%"}} /> */}
-                <div className={styles.text}>Caption Two</div>
-            </div>
-        )
-
-
-
+  const quotesArray = ["Quotesadf  sdfafsda fdasf dsf dsaf sdf sdaf asdf sd f ds f 1",
+    "Quote sdfsdsdfdssdsd sdfsdfdfdfd ffddsasddfass adsda asd2",
+    "Quot asd df sasdfdfdf5hjhtyjufjkfghj fghj fhgj ghfgh f gjghj fghjghf jhgj ghfj ghgh jj  3"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const elements = [
+    {
+      id: 1,
+      content: "I chose Alex because he contains all of the ingredients for a strong team member... I am confident he will be a valuable addition to any product teams solving tough problems.",
+      author: "Marcus Lowe, Head of Product @ Resource.io"
+    },
+    { id: 2, content: 'ElQuote sdfsdsdfdssdsd sdfsdfdfdfd ffddsasddfass adsda asd' },
+    { id: 3, content: 'Elemot asd df sasdfdfdf5hjhtyjufjkfghj fghj fhgj ghfgh f gjghj fghjghf jhgent 3' },
+    {
+      id: 1,
+      content: "I chose Alex because he contains all of the ingredients for a strong team member... I am confident he will be a valuable addition to any product teams solving tough problems.",
+      author: "Marcus Lowe, Head of Product @ Resource.io"
+    },
+    {
+      id: 1,
+      content: "I chose Alex because he contains all of the ingredients for a strong team member... I am confident he will be a valuable addition to any product teams solving tough problems.",
+      author: "Marcus Lowe, Head of Product @ Resource.io"
+    },
+    {
+      id: 1,
+      content: "I chose Alex because he contains all of the ingredients for a strong team member... I am confident he will be a valuable addition to any product teams solving tough problems.",
+      author: "Marcus Lowe, Head of Product @ Resource.io"
+    },
+    {
+      id: 1,
+      content: "I chose Alex because he contains all of the ingredients for a strong team member... I am confident he will be a valuable addition to any product teams solving tough problems.",
+      author: "Marcus Lowe, Head of Product @ Resource.io"
+    },
+    {
+      id: 1,
+      content: "I chose Alex because he contains all of the ingredients for a strong team member... I am confident he will be a valuable addition to any product teams solving tough problems.",
+      author: "Marcus Lowe, Head of Product @ Resource.io"
     }
+  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((currentIndex + 1) % elements.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
-
-
-    // useEffect(() => {
-
-    //     setCurrQuote(quotes())
-
-    // }, [currQuote])
-
-    return (
-        <>
-            <div className={styles.slideshow_container}>
-                <div>{currQuote}</div>
-                {/*
-                <div className={styles.mySlides}>
-                    <div className={styles.numbertext}>1 / 3</div>
-                    <div>{quotes[1]}</div>
-                    <img src="img1.jpg" style={{width:"100%"}} />
-                    <div className={styles.text}>Caption Text</div>
-                </div>
-
-                <div className={styles.mySlides}>
-                    <div className={styles.numbertext}>2 / 3</div>
-                    {quotes[1]}
-                    <img src="img2.jpg" style={{width:"100%"}} />
-                    <div className={styles.text}>Caption Two</div>
-                </div>
-
-                <div className={styles.mySlides}>
-                    <div className={styles.numbertext}>3 / 3</div>
-                    {quotes[1]}
-                    <img src="img3.jpg" style={{width:"100%"}} />
-                    <div className={styles.text}>Caption Three</div>
-                </div>
-
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a> */}
-            </div>
+  return (
+    <>
+      {/* <rect style={{height:"200px", top:"200px"}}> */}
+      <div className={styles.carousel}>
+        {elements.map((element, index) => (
+          <div
+            key={element.id}
+            className={styles.carousel_element}
+            style={{
+              left: index === currentIndex ? "50vw" : index < currentIndex ? '100vw' : '-100vw',
+            }}
+          >
+            {element.content}
             <br></br>
+            <br></br>
+            {element.author}
+          </div>
+        ))}
+      </div>
+      <Button buttonName={"Button"} />
+    {/* </rect> */}
+    </>
+  );
 
-            {/* <div >
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div> */}
-        </>
-    )
+
+
+  // return (
+  //   <div className={styles.carousel}>
+
+  //     <div
+  //       key="0"
+  //       className={styles.carousel_element}
+  //       style={{
+  //         left: +"0" === currentIndex ? 0 : +"0" < currentIndex ? '100%' : '-100%',
+  //       }}
+  //     >
+  //       {elements[0].content}
+  //       <br></br>
+  //       <br></br>
+  //       {elements[0].author}
+  //     </div> <div
+  //       key="1"
+  //       className={styles.carousel_element}
+  //       style={{
+  //         left: +"1" === currentIndex ? 0 : +"1" < currentIndex ? '100%' : '-100%',
+  //       }}
+  //     >
+  //       {elements[1].content}
+  //       <br></br>
+  //       <br></br>
+  //       {elements[1].author}
+  //     </div> <div
+  //       key="2"
+  //       className={styles.carousel_element}
+  //       style={{
+  //         left: +"2" === currentIndex ? 0 : +"2" < currentIndex ? '100%' : '-100%',
+  //       }}
+  //     >
+  //       {elements[2].content}
+  //       <br></br>
+  //       <br></br>
+  //       {elements[2].author}
+  //     </div>
+  //   </div>
+  // );
 }
-
-
-// style="text-align:center"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let slideIndex = 0;
-// const [currSlide, setCurrSlide] = useState()
-
-// // const [slideIndex, setSlideIndex] = useState(0)
-// const [mySlides, setMySlides] = useState([
-//     {
-//         jsx: (
-//             <div className={styles.mySlides}>
-//                 <div className={styles.numbertext}>1 / 3</div>
-//                 <img src="bagel.png" style={{ width: '100%' }} />
-//                 <div className={styles.text}>Caption Text</div>
-//             </div>
-//         )
-//     },
-//     {
-//         jsx: (
-//             <div className={styles.mySlides}>
-//                 <div className={styles.numbertext}>2 / 3</div>
-//                 {quotes[1]}
-//                 <div className={styles.text}>Caption Two</div>
-//             </div>
-//         )
-//     },
-//     {
-//         jsx: (
-//             <div className={styles.mySlides}>
-//                 <div className={styles.numbertext}>3 / 3</div>
-//                 {quotes[1]}
-//                 <div className={styles.text}>Caption Three</div>
-//             </div>
-//         )
-//     }
-// ])
-
-
-// // function showSlides() {
-// //   let i;
-// //   let slides = myslides
-// //   for (i = 0; i < slides.length; i++) {
-// //     slides[i].jsx.value.style.display = "none";
-// //   }
-// //   slideIndex++;
-// //   if (slideIndex > slides.length) {slideIndex = 1}
-// //   slides[slideIndex-1].style.display = "block";
-// //   setTimeout(showSlides, 2000); // Change image every 2 seconds
-// // }
-
-
-
-// useEffect (() => {
-// function showSlides() {
-//     const newSlides = {};
-//     Object.keys(mySlides).forEach(number => {
-//         if (number !== slideIndex) {
-//             newSlides[number] = React.cloneElement(mySlides[number], {
-//                 style: { display: 'none' }
-//             });
-//         } else {
-//             newSlides[number] = React.cloneElement(mySlides[number], {
-//                 style: { display: 'block' }
-//             });
-//         }
-//     });
-//     slideIndex = (slideIndex + 1);
-//     if (slideIndex > Object.keys(mySlides).length) {
-//         slideIndex = 1;
-//     }
-//     // setMySlides(newSlides);
-//     setCurrSlide(newSlides[slideIndex].jsx)
-//     setTimeout(showSlides, 2000);
-//     // return Object.values(newSlides);
-// }
-
-// showSlides()
-
-// },[])
