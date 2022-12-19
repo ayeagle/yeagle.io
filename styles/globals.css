@@ -74,20 +74,3 @@ td {
   text-align: center;
 
 }
-
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-}
-
-div {
-  /* other styles */
-  position: relative; /* make sure the element is positioned relatively */
-  transition: left 10s; /* define the transition duration */
-}
-
-div.move-left {
-  left: -100px; /* move the element 100px to the left */
-}

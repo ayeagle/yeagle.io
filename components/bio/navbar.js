@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Socials from "./Socials";
 
 
 export default function NavBar() {
@@ -8,11 +9,11 @@ export default function NavBar() {
     // const location = useLocation();
     // console.log(location.pathname);
 
-    const [ portStyle, upP] = useState("nav-item")
-    const [ codingStyle, upC] = useState("nav-item")
-    const [ resumeStyle, upR] = useState("nav-item")
-    const [ createStyle, upCW] = useState("nav-item")
-    const [ contactStyle, upCO] = useState("nav-item")
+    const [portStyle, upP] = useState("nav-item")
+    const [codingStyle, upC] = useState("nav-item")
+    const [resumeStyle, upR] = useState("nav-item")
+    const [createStyle, upCW] = useState("nav-item")
+    const [contactStyle, upCO] = useState("nav-item")
 
     useEffect(() => {
         console.log(window.location.pathname)
@@ -68,10 +69,13 @@ export default function NavBar() {
                             <a className="nav-link" href="/resume">Resume</a>
                         </li>
                         <li className={createStyle}>
-                            <a className="nav-link" href="creative">Creative Work</a>
+                            <a className="nav-link" href="creative">Creative</a>
                         </li>
                         <li className={contactStyle}>
                             <a className="nav-link" href="/contact">Contact</a>
+                        </li>
+                        <li className={contactStyle}>
+                            <Socials size={"x-large"} loc={"right"}/>
                         </li>
                     </ul>
                 </div>
