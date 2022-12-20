@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive, updateIterationsRemain } from 'src/actions/cartAction'
 import Break from '@components/pomodomo/Break'
-import styles from './Timer.module.css'
+import styles from './Waves.module.css'
+
 
 
 
@@ -72,7 +73,7 @@ export default function Waves() {
 
     return (
         <>
-            <svg className="svg" width={width} height={height}>
+            <svg className={styles.waves_svg} width={width} height={height}>
                 <rect x='0' y='0' width={width} height={height} fill='#a3eaff' />
                 <rect x='0' y={height * (1 - level1)+40} width={10000} height={2} fill='#45b1d1' stroke='white' strokeWidth={3} />
 
