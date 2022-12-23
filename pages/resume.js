@@ -49,10 +49,14 @@ export default function Coding() {
         <div className={styles.master}>
             <BasicPageTop />
             <NavBar />
+            <span>
+                <img src="/IMGassets/city.png" className={styles.image} />
+                <div className={styles.image_text_center} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
+            </span>
             <SVGSpacers type="bot" num="1" width={width} />
             <h2>Self-Learned Curriculum</h2>
             <div className={styles.list}>
-                <Lines content={curriculum}/>
+                {/* <Lines content={curriculum}/> */}
             </div>
             <SVGSpacers type="top" num="5" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
@@ -73,13 +77,13 @@ export default function Coding() {
             <h2>Languages + Stack</h2>
             <div className={styles.list}>
                 <div>Favorite Stack
-                    <Lines content={stack}/>
+                    {/* <Lines content={stack}/> */}
                 </div>
             </div>
             <div className={styles.list}></div>
             <div className={styles.list}>
                 <div>Other Languages/Frameworks
-                <Lines content={frameworks}/>
+                {/* <Lines content={frameworks}/> */}
                 </div>
             </div>
 
