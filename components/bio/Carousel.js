@@ -61,6 +61,10 @@ export default function Carousel() {
       author: "Marcus Lowe, Head of Product @ Resource.io"
     }
   ];
+
+  const [currQuote, setCurrQuote] = useState(0)
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((currentIndex + 1) % elements.length);

@@ -22,7 +22,7 @@
 .image_text {
     z-index: 100;
     width: 35%;
-    position: absolute;
+    position: relative ;
     font-size: 3vw;
     text-align: left;
     /* top: 10%; */
@@ -31,6 +31,23 @@
     padding: 5px;
     color: black;
     top: 100px;
+}
+
+.image_text_center {
+    z-index: 100;
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    font-size: 3vw;
+    text-align: center;
+    justify-content: center;
+    /* top: 10%; */
+    font-weight: 520;
+    /* left: 50%; */
+    padding: 5px;
+    color: white;
+    top: 200px;
+    /* top: 500px; */
 }
 
 .text_left {
@@ -95,7 +112,7 @@
     text-align: left;
     padding: 5%;
     display: inline-flex;
-    max-width: 90%;
+    max-width: 50%;
     font-size: 2vw;
 
 }
