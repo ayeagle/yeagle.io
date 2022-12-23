@@ -22,7 +22,7 @@
 .image_text {
     z-index: 100;
     width: 35%;
-    position: relative ;
+    position: absolute ;
     font-size: 3vw;
     text-align: left;
     /* top: 10%; */
