@@ -10,8 +10,7 @@ import { useEffect, useState } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
-
-
+import Lines from "@components/bio/Lines";
 
 
 export default function Coding() {
@@ -50,21 +49,10 @@ export default function Coding() {
         <div className={styles.master}>
             <BasicPageTop />
             <NavBar />
-            <span>
-                {/* <img src="/IMGassets/me.png" className={styles.image} /> */}
-                <div className={styles.image_text} style={{ top: (`200px`) }} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
-            </span>
             <SVGSpacers type="bot" num="1" width={width} />
             <h2>Self-Learned Curriculum</h2>
             <div className={styles.list}>
-                <div>
-                    <li> Web Dev Bootcamp </li>
-                    <li> Road to React </li>
-                    <li> Full Stack Serverless </li>
-                    <li> Designing Data-Intensive Applications</li>
-                    <li> System Design Book</li>
-
-                </div>
+                <Lines content={curriculum}/>
             </div>
             <SVGSpacers type="top" num="5" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
@@ -85,26 +73,13 @@ export default function Coding() {
             <h2>Languages + Stack</h2>
             <div className={styles.list}>
                 <div>Favorite Stack
-                    <li> ReactJS </li>
-                    <li> Node.js </li>
-                    <li> ExpressJS </li>
-                    <li> Java </li>
-                    <li> AWS RDS </li>
-                    <li> PostgreSQL </li>
-
+                    <Lines content={stack}/>
                 </div>
             </div>
             <div className={styles.list}></div>
             <div className={styles.list}>
                 <div>Other Languages/Frameworks
-                    <li> Python </li>
-                    <li> PHP </li>
-                    <li> Vanilla JS </li>
-                    <li> Axios </li>
-                    <li> Bootstrap </li>
-                    <li> Presto </li>
-                    <li> Scuba </li>
-
+                <Lines content={frameworks}/>
                 </div>
             </div>
 
