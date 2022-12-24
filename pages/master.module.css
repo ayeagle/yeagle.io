@@ -13,10 +13,28 @@
     width: 100%;
     height: auto;
     z-index: 0;
-    /* position: absolute; */
+    position: relative;
     left: 0;
+    /* top: -7vh; */
     /* height: auto; */
     /* width: auto; */
+    margin-top: -4em;
+    margin-bottom: -3em;
+
+}
+
+.video {
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    /* top: -7vh; */
+    /* height: auto; */
+    /* width: auto; */
+    margin-top: -4em;
+    margin-bottom: -30px;
+
 }
 
 .image_text {
@@ -30,7 +48,7 @@
     left: calc(100% - 40%);
     padding: 5px;
     color: black;
-    top: 100px;
+    top: 1em;
 }
 
 .image_text_center {

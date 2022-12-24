@@ -147,10 +147,13 @@ export default function Coding() {
         <div className={styles.master}>
             <BasicPageTop />
             <NavBar />
+            <SVGSpacers type="bot" num="1" width={width} />
+
             <span>
                 <img src="/IMGassets/rocks.png" className={styles.image} />
                 <div className={styles.image_text_center} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
             </span>
+            <SVGSpacers type="top" num="5" width={width} />
             <SVGSpacers type="bot" num="1" width={width} />
             <h2>Self-Learned Curriculum</h2>
             <div className={styles.list}>
