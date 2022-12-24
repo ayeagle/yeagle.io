@@ -2,7 +2,9 @@
     position: relative;
     height: 300px;
     width: 300px;
-  }
+    justify-content: center;
+    align-items: center;
+ }
 
   /* Removes SVG styling that would hide the time label */
   .base_timer__circle {

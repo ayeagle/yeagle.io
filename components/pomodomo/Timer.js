@@ -213,13 +213,13 @@ export default function Timer({ type, startVar }) {
     //     }
     // }
     return (
-        <>
+        <><div style={{zIndex:1}}>
             <h3 styles="font:bold">Work/Break Cycles Remaining: {Math.floor(state.iterationsRemain / 2)}</h3>
 
             <div ><Button handleClick={startTimer} buttonName={"Start Timer"} /> <Button handleClick={stopTimer} buttonName={"Stop Timer"} /></div>
             {/* <div>Time Remaining is {Math.floor(timeRemain / 60)} minute(s) and {timeRemain % 60} seconds</div> */}
             <br></br>
-            <div className={styles.base_timer}>
+            <div className={styles.base_timer} style={{left:"13%"}}>
                 <svg className={styles.base_timer__svg} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <g className={styles.base_timer__circle} >
                         <circle className={styles.base_timer__path_elapsed} cx="50" cy="50" r="45" />
@@ -243,7 +243,7 @@ export default function Timer({ type, startVar }) {
                 </span>
 
             </div>
-
+            </div>
 
         </>
     )
