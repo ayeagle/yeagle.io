@@ -1,7 +1,7 @@
 
 
 .svg{
+  z-index:10000;
   border-width: 0;
   position:relative;
-
 }

@@ -52,7 +52,7 @@ export default function NavBar() {
     return (
         <>
             {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous" /> */}
-            <nav className="navbar navbar-expand-lg navbar-dark bg-black">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-black" style={{background: "#eb5c00", zIndex:1000}}>
                 <a className="navbar-brand" href="/about">Alex Yeagle</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

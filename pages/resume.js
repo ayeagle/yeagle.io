@@ -50,7 +50,7 @@ export default function Coding() {
             <BasicPageTop />
             <NavBar />
             <span>
-                <img src="/IMGassets/city.png" className={styles.image} />
+                <img src="/IMGassets/citys.png" className={styles.image} />
                 <div className={styles.image_text_center} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
             </span>
             <SVGSpacers type="bot" num="1" width={width} />
