@@ -2,12 +2,14 @@
 
 .footer {
     width: 100%;
-    height: 100px;
+    height: auto;
     /* border-top: 1px solid black; */
-    display: flex;
+    /* display: flex; */
+    font-size: 3vw;
     justify-content: center;
     align-items: center;
     background: #eb5c00;
+    position: absolute;
     /* color: black; */
 
   }
@@ -21,4 +23,46 @@
   .tomat {
     height: .65em;
     margin: 0px;
+  }
+
+
+  .bottom{
+    display: flex;
+    height: 5vh;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 3vw;
+    opacity: 80%;
+    padding:10px;
+    color:white;
+    fill: white;
+    flood-color: white;
+    text-decoration: none;
+    transition: .5s;
+    margin-bottom: 10px;
+
+  }
+
+
+  /* .bottom:link {
+    color: #ff0000;
+  } */
+
+  /* .bottom:visited {
+    color: #00ff00;
+  } */
+
+  .bottom :hover {
+    opacity: 500%;
+    color:white;
+    text-decoration: none;
+    font-size: 3.5vw;
+    transition: .5s;
+
+  }
+
+  .bottom :active {
+    opacity: 500%;
+    color:white;
+    text-decoration: none;
   }

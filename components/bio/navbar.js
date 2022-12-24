@@ -69,7 +69,7 @@ export default function NavBar() {
                             <a className="nav-link" href="/resume">Resume</a>
                         </li>
                         <li className={createStyle}>
-                            <a className="nav-link" href="creative">Creative</a>
+                            <a className="nav-link" href="/creative">Creative</a>
                         </li>
                         <li className={contactStyle}>
                             <a className="nav-link" href="/contact">Contact</a>
