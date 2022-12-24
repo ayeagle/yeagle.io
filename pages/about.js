@@ -52,10 +52,14 @@ export default function About() {
         <div className={styles.master}>
             <BasicPageTop />
             <NavBar />
-            <span>
-                <img src="/IMGassets/me.png" className={styles.image} />
-                <div className={styles.image_text} style={{ top: (`20vh`) }} >Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
-            </span>
+            <SVGSpacers type="bot" num="2" width={width} />
+
+            <div style={{position:"relative"}}>
+                <img src="/IMGassets/me.png"  className={styles.image}/>
+                <div className={styles.image_text}>Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
+            </div>
+            <SVGSpacers type="top" num="1" width={width} />
+
             <SVGSpacers type="bot" num="2" width={width} />
             <h4 className={styles.text_left} >"I chose Alex because he contains all
                 of the ingredients for a strong team member... I am confident
@@ -80,7 +84,7 @@ export default function About() {
             <SVGSpacers type="bot" num="3" width={width} />
             <h3>I'm also a drone videographer!</h3>
             {/* <div height={600}> */}
-            <Iceland width={width} height-={height} />
+            <Iceland width={width} height-={height} className={styles.video}/>
             {/* </div> */}
             <SVGSpacers type="top" num="2" width={width} />
             <div className={styles.box}>
