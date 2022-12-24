@@ -144,107 +144,34 @@
   display: inline-flex;
   flex-direction:row;
   /* width: 100%; */
-  height: auto;
-  overflow: hidden;
-  position: relative;
-  transition: transform 10s ease;
-  padding: 0px;
+  /* height: auto; */
+  /* overflow: hidden; */
+  position: sticky;
+  /* transition: transform 2s ease; */
+  /* padding: 0px; */
   /* margin: 20px; */
 }
 
 .carousel_element {
-  z-index: 100000;
-  position: relative;
-  top: 0;
-  left: 0;
+  top: 3em;
+  z-index: 1000;
+  position: absolute ;
+  width: 80%;
+  height: 30vh;
+  /* width: 100px; */
+  /* top: 0;
+  left: 0; */
   /* width: 80vw; */
-  height: 20vh;
-  display: flex;
+  /* height: 20vh; */
+  /* display: flex; */
   align-items: center;
-  /* justify-content: center; */
-  font-size: 2vw;
+  justify-content: center;
+  font-size: 1.3em;
   color: white;
   transition: left 10s ease;
   /* padding: 10px; */
+  /* margin: 10px; */
 }
-
-
-
-.btn {
-  display: block;
-  margin: 100px 0;
-  background-color: #00A4BD;
- color: #FFFFFF;
-}
-
-
-
-.tomatoButton {
-  display: block;
-  margin: 5px 0;
-  background-color: #00A4BD;
-  color: #FFFFFF;
-  z-index: 100;
-  /* width: 100px;
-  height: 100px;
-  background: red;
-  border-radius: 100px / 80px; */
-}
-
-/* .form {
-  display: block;
-  margin: 100px 0;
-  background-color: #00A4BD;
-  color: #ff0404;
-} */
-
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #6232ff;
-  border: none;
-  color: #FFFFFF;
-  /* text-align: center; */
-  font-size: 3vw;
-  padding: 10px;
-
-  /* transition: all 0.5s; */
-  cursor: pointer;
-  margin: 5px;
-  /* -webkit-animation: falling 5s 0s infinite; */
-  z-index: 100;
-
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-  z-index: 100;
-
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-  z-index: 100;
-
-}
-
-.button:hover span {
-  padding-right: 25px;
-  z-index: 100;
-
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-  z-index: 100;
-
+.button{
+  background-color: blue;
 }
