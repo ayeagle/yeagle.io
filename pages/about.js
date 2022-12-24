@@ -54,28 +54,29 @@ export default function About() {
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />
 
-            <div style={{position:"relative"}}>
-                <img src="/IMGassets/me.png"  className={styles.image}/>
+            <div style={{ position: "relative" }}>
+                <img src="/IMGassets/me.png" className={styles.image} />
                 <div className={styles.image_text}>Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
             </div>
             <SVGSpacers type="top" num="1" width={width} />
 
             <SVGSpacers type="bot" num="2" width={width} />
-            <h4 className={styles.text_left} >"I chose Alex because he contains all
+            {/* <h4 className={styles.text_left} >"I chose Alex because he contains all
                 of the ingredients for a strong team member... I am confident
                 he will be a valuable addition to any product teams solving tough problems."</h4>
             <h3 className={styles.text_left} >Marcus Lowe, Head of Product @ Resource.io
                 <br></br>
                 <br></br>
                 <NavButton handleClick={{}} buttonName={"Learn Why"} />
-            </h3>
-            <Carousel className={styles.caro}/>
-
+            </h3> */}
+            <div style={{ position: "relative", height:"30em", width:"100vw"}}>
+                <Carousel className={styles.caro} />
+            </div>
+            <NavButton handleClick={{}} buttonName={"Learn why people say that stuff"} />
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
-            <h4 > A broad range of experiences
+            <h4 style={{ padding: "5vw" }}> A broad range of experiences across product, operations, analytics, and engineering
                 has given my product work diversity and perspective.
-
                 <br></br>
                 <br></br>
                 <NavButton handleClick={{}} buttonName={"See my Projects"} />
@@ -84,7 +85,7 @@ export default function About() {
             <SVGSpacers type="bot" num="3" width={width} />
             <h3>I'm also a drone videographer!</h3>
             {/* <div height={600}> */}
-            <Iceland width={width} height-={height} className={styles.video}/>
+            <Iceland width={width} height-={height} className={styles.video} />
             {/* </div> */}
             <SVGSpacers type="top" num="2" width={width} />
             <div className={styles.box}>
