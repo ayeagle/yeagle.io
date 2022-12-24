@@ -91,14 +91,14 @@ export default function Finished() {
     }
 
     return (
-        <div className="container">
+        <div className="container" >
             <Head>
                 <title>Yeagle's Bagels!</title>
                 <link rel="icon" href="/bagel_logo.png" />
             </Head>
 
             <main>
-                <Header title="Nice Work!!!" />
+                <Header style={{zIndex:20}} title="Nice Work!!!" />
                 {/* <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p> */}
@@ -108,14 +108,14 @@ export default function Finished() {
 
                 <br></br>
                 {/* <Timer type={"break"} startVar={+state.breakTime} /> */}
-                <iframe src={state.gif[Math.floor(Math.random()*25)].embed_url} width="480" height="400" frameBorder="0" allowFullScreen></iframe>
+                <iframe style={{zIndex:20}} src={state.gif[Math.floor(Math.random()*25)].embed_url} width="480" height="400" frameBorder="0" allowFullScreen></iframe>
                 {/* class="giphy-embed" */}
-                <h3> You worked for a total of {state.workTime / 60 * state.iterations} minutes!</h3>
+                <h3 style={{zIndex:20}}> You worked for a total of {state.workTime / 60 * state.iterations} minutes!</h3>
                 {/* <div>Work Periods: {state.workTime/60} minutes</div>
                 <div>Break Periods: {state.breakTime/60} minutes</div>
                 <div>Total Cycles: {state.iterations}</div> */}
                 <br></br>
-                <div className={styles.wrapper}>
+                <div className={styles.wrapper} style={{zIndex:20}}>
                     <Table
                         name={"Finished Work Plan"}
                         name1={"Working"}

@@ -82,7 +82,7 @@ export default function BasicPageBottom() {
         </ul>
       </div>
 
-      <Socials size={"x-large"} loc={"right"} />
+      <Socials size={"2.5vw"} loc={"right"} />
 
       <footer className={styles.footer}>
         Made by <img src="/bagel_logo.png" alt="Netlify Logo" className={styles.logo} /> for you

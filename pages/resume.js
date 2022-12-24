@@ -51,10 +51,10 @@ export default function Coding() {
             <NavBar />
             <SVGSpacers type="bot" num="3" width={width} />
 
-            <span>
+            <div style={{position:"relative"}}>
                 <img src="/IMGassets/city.png" className={styles.image} />
                 <div className={styles.image_text_center} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
-            </span>
+            </div>
             <SVGSpacers type="top" num="5" width={width} />
 
             <SVGSpacers type="bot" num="1" width={width} />

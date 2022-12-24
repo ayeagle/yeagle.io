@@ -14,7 +14,7 @@ import Waves from '@components/pomodomo/Waves'
 import About from './about';
 
 
-export default function Home() {
+export default function Index() {
 
   // return <About/>
 
