@@ -98,7 +98,7 @@ export default function Second() {
                 <link rel="icon" href="/bagel_logo.png" />
             </Head>
 
-            <main>
+            <main style={{zIndex:20}}>
                 <Header title="Let's get to work!" />
                 {/* <p className="description">
           Get started by editing <code>pages/index.js</code>
@@ -126,7 +126,7 @@ export default function Second() {
                 <div> hours: {Math.floor(totalTime / 3600)}  </div>
                 <div> minutes: {Math.floor((totalTime % 3600) / 60)} </div>
                 <div> seconds: {totalTime % 60} </div> */}
-                <div className={styles.wrapper}>
+                <div className={styles.wrapper} style={{zIndex:20}}>
                     <Table
                         name={"Current Work Plan"}
                         name1={"Working"}

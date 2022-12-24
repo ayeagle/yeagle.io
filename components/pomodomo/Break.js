@@ -57,7 +57,7 @@ export default function Break() {
                 <br></br>                <br></br>
                 <br></br>
 
-                <Header title="Break Time ;)" />
+                <Header style={{zIndex:30}} title="Break Time ;)" />
                 <Timer type={"break"} startVar={+state.breakTime} />
                 <br></br>
                 <DadJoke />

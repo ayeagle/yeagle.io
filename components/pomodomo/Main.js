@@ -120,9 +120,11 @@ export default function Main() {
         {/* <div>{GIF()}</div> */}
         <main>
           {/* <Header title="Welcome to PomoDomo" /><img src="/tomato2.png" className={styles2.tomat}/> */}
+          <div style={{zIndex:1}}>
           <h1>Welcome to P<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} />d<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} /></h1>
-          <h3>An easy way to plan a working session <br></br>using the Pomodoro productivity method.</h3>
+          <h3 >An easy way to plan a working session <br></br>using the Pomodoro productivity method.</h3>
           <h4>Also comes with dad jokes during the break!!!</h4>
+          </div>
           {/* <div>{SineWaveAnimation()}</div> */}
           {/* <div>{window.innerHeight}</div>
           <div>{window.innerWidth}</div> */}
