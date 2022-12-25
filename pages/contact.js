@@ -1,7 +1,7 @@
 import Waves from "@components/pomodomo/Waves";
 import Break from '@components/pomodomo/Break';
 import Button from "@components/pomodomo/Button";
-import NavBar from "@components/bio/navbar";
+import NavBar from "@components/bio/Navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
 import BasicPageBottom from "@components/bio/BasicPageBottom";
 import SVGSpacers from "@components/bio/SVGSpacers";
@@ -51,66 +51,31 @@ export default function Contact() {
     return (
         <div className={styles.master}>
             <BasicPageTop />
-            <NavBar />
+            <NavBar/>
+            <SVGSpacers type="bot" num="3" width={width} />
 
-            <span>
-                <img src="/IMGassets/me.png" className={styles.image} />
-                <div className={styles.image_text} style={{ top: (`200px`) }} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
-            </span>
-            <SVGSpacers type="bot" num="1" width={width} />
-            <Socials/>
-            <h2>Self-Learned Curriculum</h2>
-            <div className={styles.list}>
-                <div>
-                    <li> Web Dev Bootcamp </li>
-                    <li> Road to React </li>
-                    <li> Full Stack Serverless </li>
-                    <li> Designing Data-Intensive Applications</li>
-                    <li> System Design Book</li>
-
-                </div>
+            <div style={{position:"relative"}}>
+                <img src="/IMGassets/sf.png" className={styles.image}  />
+                <div className={styles.image_text_center} style={{top:"2em"}}>Interested in building something together?</div>
             </div>
             <SVGSpacers type="top" num="5" width={width} />
-            <SVGSpacers type="bot" num="3" width={width} />
-            <h2>Projects</h2>
-            <div className={styles.list}>
-                <div className={styles.ind_list}> Work
-                    <li> Created and maintain multibillion row structured datasets on user reports </li>
-                    <li> Created multiple PHP methods to extract information from production code to be used in Hive tables</li>
-                </div>
-                <div></div>
-                <div className={styles.ind_list}>Personal
-                    <li> Personal Website </li>
-                    <li> Pomodomo</li>
-                </div>
-            </div>
-            <SVGSpacers type="top" num="1" width={width} />
-            <SVGSpacers type="bot" num="2" width={width} />
-            <h2>Languages + Stack</h2>
-            <div className={styles.list}>
-                <div>Favorite Stack
-                    <li> ReactJS </li>
-                    <li> Node.js </li>
-                    <li> ExpressJS </li>
-                    <li> Java </li>
-                    <li> AWS RDS </li>
-                    <li> PostgreSQL </li>
 
-                </div>
-            </div>
-            <div className={styles.list}></div>
-            <div className={styles.list}>
-                <div>Other Languages/Frameworks
-                    <li> Python </li>
-                    <li> PHP </li>
-                    <li> Vanilla JS </li>
-                    <li> Axios </li>
-                    <li> Bootstrap </li>
-                    <li> Presto </li>
-                    <li> Scuba </li>
+            <SVGSpacers type="bot" num="1" width={width} />
+            <div style={{ height: "60vh", fill: "black", zIndex: 500 }} />
 
-                </div>
-            </div>
+
+
+            {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "30%", fill: "none" }}> */}
+            {/* <div className={styles.app_module_center_wrapper} style={{ top: "30%"}}/> */}
+
+
+            {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "50%", fill: "none" }} /> */}
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
 
             <SVGSpacers type="top" num="4" width={width} />
             <div className={styles.box}>

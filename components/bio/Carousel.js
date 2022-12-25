@@ -74,7 +74,7 @@ export default function Carousel() {
   const [caroLive, setCaroLive] = useState(false)
 
 
-  console.log(elements.length + "this is the element length")
+  // console.log(elements.length + "this is the element length")
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -88,12 +88,17 @@ export default function Carousel() {
   //   }, 10000);
   //   return () => clearInterval(interval);
   // }, [mover]);
+
+  // console.log("here is the curr index: " + currentIndex)
+
   const forwardClick = () => {
-    setCurrentIndex(currentIndex+1)
+    // console.log("e index changed up by 1 from this: " + currentIndex)
+    setCurrentIndex(Math.min(currentIndex+1,elements.length))
   }
 
   const backClick = () => {
-    setCurrentIndex(currentIndex-1)
+    // console.log("e index changed down by 1 from this: " + currentIndex)
+    setCurrentIndex(Math.max(currentIndex-1,0))
   }
 
   useEffect(() => {
@@ -131,7 +136,7 @@ export default function Carousel() {
           </span>
 
         ))}
-        <Button className={styles.button} buttonName={"\u25c0"} handleClick={backClick}/> <Button className={styles.button} buttonName={"\u25b6"} handleClick={forwardClick}/>
+        <Button className={styles.button} buttonName={"\u25c0"} handleClick={forwardClick}/> <Button className={styles.button} buttonName={"\u25b6"} handleClick={backClick}/>
 
       </div>
       {/* </div> */}

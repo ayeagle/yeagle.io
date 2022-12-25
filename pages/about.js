@@ -1,7 +1,7 @@
 import Waves from "@components/pomodomo/Waves";
 import Break from '@components/pomodomo/Break';
 import Button from "@components/pomodomo/Button";
-import NavBar from "@components/bio/navbar";
+import NavBar from "@components/bio/Navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
 import BasicPageBottom from "@components/bio/BasicPageBottom";
 import SVGSpacers from "@components/bio/SVGSpacers";
@@ -72,14 +72,14 @@ export default function About() {
             <div style={{ position: "relative", height:"25em", width:"100vw"}}>
                 <Carousel className={styles.caro} />
             </div>
-            <NavButton handleClick={{}} buttonName={"Learn why people say that stuff"} />
+            <a href="/resume"><NavButton handleClick={{}} buttonName={"Learn why people say that stuff"} /></a>
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
             <h4 style={{ padding: "5vw" }}> A broad range of experiences across product, operations, analytics, and engineering
                 has given my product work diversity and perspective.
                 <br></br>
                 <br></br>
-                <NavButton handleClick={{}} buttonName={"See my Projects"} />
+                <a href="/portfolio"><NavButton buttonName={"See my Projects"} /></a>
             </h4>
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
