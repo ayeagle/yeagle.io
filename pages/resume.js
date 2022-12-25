@@ -1,7 +1,6 @@
 import Waves from "@components/pomodomo/Waves";
 import Break from '@components/pomodomo/Break';
 import Button from "@components/pomodomo/Button";
-import NavBar from "@components/bio/Navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
 import BasicPageBottom from "@components/bio/BasicPageBottom";
 import SVGSpacers from "@components/bio/SVGSpacers";
@@ -11,6 +10,7 @@ import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
 import Lines from "@components/bio/Lines";
+import NavBar from "@components/bio/navbar";
 
 
 export default function Coding() {
@@ -67,25 +67,25 @@ export default function Coding() {
                 {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "30%", fill: "none" }}> */}
                 {/* <div className={styles.app_module_center_wrapper} style={{ top: "30%"}}/> */}
                 {/* <a href="/pomodomo"> */}
-                    <div className={styles.hov_catch}>
-                        <visualViewport className={styles.jobs} style={{ top: "25%" }}>
-                            {/* <Waves h={400/4} w={800/4}> */}
-                            <img src="/IMGassets/meta4.png" className={styles.logo} style={{}} />
+                <div className={styles.hov_catch}>
+                    <visualViewport className={styles.jobs} style={{ top: "25%" }}>
+                        {/* <Waves h={400/4} w={800/4}> */}
+                        <img src="/IMGassets/meta4.png" className={styles.logo} style={{}} />
 
-                        </visualViewport>
-                        {/* </div> */}
-                    </div>
+                    </visualViewport>
+                    {/* </div> */}
+                </div>
                 {/* </a> */}
 
                 {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "50%", fill: "none" }} /> */}
-                    <div className={styles.hov_catch}>
-                        <visualViewport className={styles.jobs} style={{ top: "55%" }}>
-                            {/* <Waves h={400/4} w={800/4}> */}
-                            <img src="/IMGassets/captivateiq.png" className={styles.logo} style={{backgroundColor:"white", top:"-45%"}} />
+                <div className={styles.hov_catch}>
+                    <visualViewport className={styles.jobs} style={{ top: "55%" }}>
+                        {/* <Waves h={400/4} w={800/4}> */}
+                        <img src="/IMGassets/captivateiq.png" className={styles.logo} style={{ backgroundColor: "white", top: "-45%" }} />
 
-                        </visualViewport>
-                        {/* </div> */}
-                    </div>
+                    </visualViewport>
+                    {/* </div> */}
+                </div>
                 <br></br>
                 <br></br>
                 <br></br>
