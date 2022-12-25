@@ -224,10 +224,9 @@ export default function Timer({ type, startVar }) {
                     <g className={styles.base_timer__circle} >
                         <circle className={styles.base_timer__path_elapsed} cx="50" cy="50" r="45" />
                         <path
-                            className={styles.base_timer_path_remaining}
+                            className={styles.base_timer__path_remaining}
                             id="base_timer_path_remaining"
                             stroke-dasharray={dashVal}
-                            className={styles.base_timer__path_remaining}
                             color={remainingPathColor}
                             d="
                             M 50, 50
