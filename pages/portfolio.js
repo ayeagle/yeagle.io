@@ -1,6 +1,6 @@
 import Break from '@components/pomodomo/Break';
 import Button from "@components/pomodomo/Button";
-import NavBar from "@components/bio/Navbar";
+import NavBar from "@components/bio/navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
 import BasicPageBottom from "@components/bio/BasicPageBottom";
 import SVGSpacers from "@components/bio/SVGSpacers";
