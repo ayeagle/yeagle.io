@@ -51,17 +51,47 @@ export default function Coding() {
             <NavBar />
             <SVGSpacers type="bot" num="3" width={width} />
 
-            <div style={{position:"relative"}}>
+            <div style={{ position: "relative" }}>
                 <img src="/IMGassets/city.png" className={styles.image} />
                 <div className={styles.image_text_center} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
             </div>
             <SVGSpacers type="top" num="5" width={width} />
 
             <SVGSpacers type="bot" num="1" width={width} />
-            <h2>Work</h2>
-            <div className={styles.list}>
-                {/* <Lines content={curriculum}/> */}
+            <div style={{ position: "relative" }}>
+
+                <div style={{ height: "60vh", fill: "black", zIndex: 500 }} />
+
+
+
+                {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "30%", fill: "none" }}> */}
+                {/* <div className={styles.app_module_center_wrapper} style={{ top: "30%"}}/> */}
+                {/* <a href="/pomodomo"> */}
+                    <div className={styles.hov_catch}>
+                        <visualViewport className={styles.jobs} style={{ top: "25%" }}>
+                            {/* <Waves h={400/4} w={800/4}> */}
+                            <img src="/IMGassets/meta4.png" className={styles.logo} style={{}} />
+
+                        </visualViewport>
+                        {/* </div> */}
+                    </div>
+                {/* </a> */}
+
+                {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "50%", fill: "none" }} /> */}
+                    <div className={styles.hov_catch}>
+                        <visualViewport className={styles.jobs} style={{ top: "55%" }}>
+                            {/* <Waves h={400/4} w={800/4}> */}
+                            <img src="/IMGassets/captivateiq.png" className={styles.logo} style={{backgroundColor:"white", top:"-45%"}} />
+
+                        </visualViewport>
+                        {/* </div> */}
+                    </div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
             </div>
+
             <SVGSpacers type="top" num="5" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
             <h2>Projects</h2>
