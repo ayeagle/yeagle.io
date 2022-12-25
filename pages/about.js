@@ -85,7 +85,7 @@ export default function About() {
             <SVGSpacers type="bot" num="3" width={width} />
             <h3>I'm also a drone videographer!</h3>
             {/* <div height={600}> */}
-            <Iceland width={width} height-={height} className={styles.video} />
+            <Iceland width={width} height={height} className={styles.video} />
             {/* </div> */}
             <SVGSpacers type="top" num="2" width={width} />
             <div className={styles.box}>

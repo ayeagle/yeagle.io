@@ -35,7 +35,6 @@
     margin-top: -4em;
     margin-bottom: -30px;
     bottom: auto;
-
 }
 
 .image_text {
@@ -147,4 +146,65 @@
 
 .caro{
     justify-content: left !important;
+}
+
+
+.app_module_center {
+    position: absolute;
+    z-index:400;
+    /* top: 30%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 15vw;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.app_module_center_title {
+    position: sticky;
+    z-index: 500;
+    color:black;
+    font-size: 4vw;
+    top: 30%;
+    justify-content: center;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    /* width: 50vw;
+    height: 15vw; */
+    /* border-radius: 10px;
+    overflow: hidden; */
+}
+
+
+.video_button {
+    z-index: 100;
+    /* margin-top: -20%; */
+    /* width: 100%;
+    height: auto; */
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: -7vh; */
+    /* height: auto; */
+    /* width: auto; */
+    margin-top: -4em;
+    margin-bottom: -30px;
+    /* bottom: auto; */
+}
+
+/* .app_module_center  :hover {
+    opacity: 40%;
+    transition: .1s;
+} */
+
+.hover_catch{
+    opacity: 100%;
+}
+
+.hover_catch :hover{
+    opacity: 40%;
+    box-shadow: outset 100px 100px 100px 100px white;
+    /* transition: .1s; */
 }
