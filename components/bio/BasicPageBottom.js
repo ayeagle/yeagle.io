@@ -73,10 +73,10 @@ export default function BasicPageBottom() {
         <ul className="navbar-nav">
 
           <span className={styles.bottom}>
-            <li className={portStyle}   style={{paddingLeft:"1.5vw", paddingRight:"1.5vw"}}> <a className={styles.bottom} href="#">Portfolio <span className="sr-only">(current)</span></a> </li>
+          <li className={createStyle} style={{paddingLeft:"1.5vw", paddingRight:"1.5vw"}}> <a className={styles.bottom}  href="/about">About</a></li>
+            <li className={portStyle}   style={{paddingLeft:"1.5vw", paddingRight:"1.5vw"}}> <a className={styles.bottom} href="/portfolio">Portfolio <span className="sr-only">(current)</span></a> </li>
             <li className={codingStyle}  style={{paddingLeft:"1.5vw", paddingRight:"1.5vw"}}> <a className={styles.bottom}  href="/coding">Coding</a></li>
             <li className={resumeStyle} style={{paddingLeft:"1.5vw", paddingRight:"1.5vw"}}> <a className={styles.bottom}  href="/resume">Resume</a></li>
-            <li className={createStyle} style={{paddingLeft:"1.5vw", paddingRight:"1.5vw"}}> <a className={styles.bottom}  href="creative">Creative</a></li>
             <li className={contactStyle} style={{paddingLeft:"1.5vw", paddingRight:"1.5vw"}}> <a className={styles.bottom}  href="/contact">Contact</a></li>
           </span>
         </ul>

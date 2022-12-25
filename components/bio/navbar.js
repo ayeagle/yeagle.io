@@ -68,9 +68,6 @@ export default function NavBar() {
                         <li className={resumeStyle}>
                             <a className="nav-link" href="/resume">Resume</a>
                         </li>
-                        <li className={createStyle}>
-                            <a className="nav-link" href="/creative">Creative</a>
-                        </li>
                         <li className={contactStyle}>
                             <a className="nav-link" href="/contact">Contact</a>
                         </li>

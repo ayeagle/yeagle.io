@@ -34,6 +34,7 @@ export default function Waves({ w, h }) {
             window.addEventListener('resize', handleWindowResize)
         }
     }, [])
+    // handleWindowResize()
 
 
     const ModulatingSineWave = (y_add, color, period, modulation, height) => {

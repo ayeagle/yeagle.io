@@ -1,7 +1,7 @@
 import Waves from "@components/pomodomo/Waves";
 import Break from '@components/pomodomo/Break';
 import Button from "@components/pomodomo/Button";
-import NavBar from "@components/bio/navbar";
+import NavBar from "@components/bio/Navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
 import BasicPageBottom from "@components/bio/BasicPageBottom";
 import SVGSpacers from "@components/bio/SVGSpacers";
@@ -58,7 +58,7 @@ export default function Coding() {
             <SVGSpacers type="top" num="5" width={width} />
 
             <SVGSpacers type="bot" num="1" width={width} />
-            <h2>Self-Learned Curriculum</h2>
+            <h2>Work</h2>
             <div className={styles.list}>
                 {/* <Lines content={curriculum}/> */}
             </div>
@@ -78,18 +78,8 @@ export default function Coding() {
             </div>
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="2" width={width} />
-            <h2>Languages + Stack</h2>
-            <div className={styles.list}>
-                <div>Favorite Stack
-                    {/* <Lines content={stack}/> */}
-                </div>
-            </div>
-            <div className={styles.list}></div>
-            <div className={styles.list}>
-                <div>Other Languages/Frameworks
-                {/* <Lines content={frameworks}/> */}
-                </div>
-            </div>
+            <h2>Stuff</h2>
+
 
             <SVGSpacers type="top" num="4" width={width} />
             <div className={styles.box}>
