@@ -178,8 +178,12 @@
 }
 
 
-@media only screen and (min-width: 600px) and (max-width: 900px) {
+@media only screen{
   .carousel_element {
-    font-size: 100vw;
+    top:10vh;
+    font-size: 2vh;
   }
 }
+
+
+/* and (min-width: 600px) and (max-width: 900px) */
