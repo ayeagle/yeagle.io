@@ -8,28 +8,32 @@ import styles from './Waves.module.css'
 
 
 
-export default function Waves() {
+export default function Waves({ w, h }) {
 
-    const [height,updateHeight] = useState(0)
-    const [width,updateWidth] = useState(0)
+    const [height, updateHeight] = useState(h)
+    const [width, updateWidth] = useState(w)
 
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
 
 
-  useEffect(() => {
-    updateHeight(document.documentElement.scrollHeight)
-    updateWidth(document.documentElement.scrollWidth)
+    useEffect(() => {
+        if (typeof h === 'undefined') {
+            updateHeight(document.documentElement.scrollHeight)
+            updateWidth(document.documentElement.scrollWidth)
+        }
 
-    function handleWindowResize() {
-    //   updateHeight(window.innerHeight)
-    //   updateWidth(window.innerWidth)
-    updateHeight(document.documentElement.scrollHeight)
-    updateWidth(document.documentElement.scrollWidth)
-    }
+        function handleWindowResize() {
+            //   updateHeight(window.innerHeight)
+            //   updateWidth(window.innerWidth)
+            updateHeight(document.documentElement.scrollHeight)
+            updateWidth(document.documentElement.scrollWidth)
+        }
 
-    window.addEventListener('resize', handleWindowResize)
-  }, [])
+        if (typeof w === 'undefined') {
+            window.addEventListener('resize', handleWindowResize)
+        }
+    }, [])
 
 
     const ModulatingSineWave = (y_add, color, period, modulation, height) => {
@@ -56,7 +60,7 @@ export default function Waves() {
 
         return (
             <svg width={10000} height={2000}>
-                <path d={pathData} stroke="white" fill={color} strokeWidth={2}/>
+                <path d={pathData} stroke="white" fill={color} strokeWidth={2} />
                 {/* <rect x='100' y='48' width={1000} height={48} fill={color}/> */}
             </svg>
         );
@@ -75,29 +79,29 @@ export default function Waves() {
         <>
             <svg className={styles.waves_svg} width={width} height={height}>
                 <rect x='0' y='0' width={width} height={height} fill='#a3eaff' />
-                <rect x='0' y={height * (1 - level1)+40} width={10000} height={2} fill='#45b1d1' stroke='white' strokeWidth={3} />
+                <rect x='0' y={height * (1 - level1) + 40} width={10000} height={2} fill='#45b1d1' stroke='white' strokeWidth={3} />
 
                 {ModulatingSineWave((height - (height * level1)), color1, 88, .05, 40)}
                 {ModulatingSineWave((height - (height * level1)), color1, 130, .2, 40)}
                 {ModulatingSineWave((height - (height * level1)), color1, 80, .2, 40)}
 
-                <rect x='0' y={height * (1 - level1)+40} width={width} height={height} fill={color1} />
-                <rect x='0' y={height * (1 - level2)+40} width={10000} height={2} fill={color1} stroke='white' strokeWidth={3} />
+                <rect x='0' y={height * (1 - level1) + 40} width={width} height={height} fill={color1} />
+                <rect x='0' y={height * (1 - level2) + 40} width={10000} height={2} fill={color1} stroke='white' strokeWidth={3} />
 
                 {ModulatingSineWave((height - (height * level2)), color2, 50, .05, 30)}
                 {ModulatingSineWave((height - (height * level2)), color2, 200, .2, 30)}
                 {ModulatingSineWave((height - (height * level2)), color2, 140, .2, 30)}
                 {ModulatingSineWave((height - (height * level2)), color2, 135, .2, 30)}
                 {ModulatingSineWave((height - (height * level2)), color2, 95, .05, 30)}
-                <rect x='0' y={height * (1 - level2)+40} width={width} height={height} fill={color2} />
-                <rect x='0' y={height * (1 - level3)+40} width={10000} height={2} fill={color2} stroke='white' strokeWidth={3}  />
+                <rect x='0' y={height * (1 - level2) + 40} width={width} height={height} fill={color2} />
+                <rect x='0' y={height * (1 - level3) + 40} width={10000} height={2} fill={color2} stroke='white' strokeWidth={3} />
 
                 {ModulatingSineWave((height - (height * level3)), color3, 150, .2, 20)}
                 {ModulatingSineWave((height - (height * level3)), color3, 150, .2, 20)}
                 {ModulatingSineWave((height - (height * level3)), color3, 80, .08, 25)}
                 {ModulatingSineWave((height - (height * level3)), color3, 100, .1, 25)}
                 {ModulatingSineWave((height - (height * level3)), color3, 10, .005, 20)}
-                <rect x='0' y={height * (1 - level3)+40} width={width} height={height} fill={color3}/>
+                <rect x='0' y={height * (1 - level3) + 40} width={width} height={height} fill={color3} />
             </svg>
 
 
