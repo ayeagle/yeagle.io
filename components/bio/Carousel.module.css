@@ -176,3 +176,10 @@
 .button{
   background-color: blue;
 }
+
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .carousel_element {
+    font-size: 100vw;
+  }
+}
