@@ -53,14 +53,15 @@ export default function Coding() {
 
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/city.png" className={styles.image} />
-                <div className={styles.image_text_center} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
+                <div className={styles.image_text_center} style={{top:"2em"}} >Worked on hypergrowth solutions backed by...<br/>2x Accel<br/>1x FAANG <br/>   2x Seqouia<br/> 1x 500 Startups <br/> 2x Y Combinator <br/>2x First Round Capital
+</div>
             </div>
             <SVGSpacers type="top" num="5" width={width} />
 
             <SVGSpacers type="bot" num="1" width={width} />
             <div style={{ position: "relative" }}>
 
-                <div style={{ height: "60vh", fill: "black", zIndex: 500 }} />
+                <div style={{ height: "100vh", fill: "black", zIndex: 500 }} />
 
 
 
@@ -68,9 +69,9 @@ export default function Coding() {
                 {/* <div className={styles.app_module_center_wrapper} style={{ top: "30%"}}/> */}
                 {/* <a href="/pomodomo"> */}
                 <div className={styles.hov_catch}>
-                    <visualViewport className={styles.jobs} style={{ top: "25%" }}>
+                    <visualViewport className={styles.jobs} style={{ top: "15%" }}>
                         {/* <Waves h={400/4} w={800/4}> */}
-                        <img src="/IMGassets/meta4.png" className={styles.logo} style={{}} />
+                        <img src="/IMGassets/meta4.png" className={styles.logo} style={{ top: "-100%" }} />
 
                     </visualViewport>
                     {/* </div> */}
@@ -79,9 +80,25 @@ export default function Coding() {
 
                 {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "50%", fill: "none" }} /> */}
                 <div className={styles.hov_catch}>
+                    <visualViewport className={styles.jobs} style={{ top: "35%" }}>
+                        {/* <Waves h={400/4} w={800/4}> */}
+                        <img src="/IMGassets/captivateiq.png" className={styles.logo} style={{ backgroundColor: "white", top: "-150%" }} />
+
+                    </visualViewport>
+                    {/* </div> */}
+                </div>
+                <div className={styles.hov_catch}>
                     <visualViewport className={styles.jobs} style={{ top: "55%" }}>
                         {/* <Waves h={400/4} w={800/4}> */}
-                        <img src="/IMGassets/captivateiq.png" className={styles.logo} style={{ backgroundColor: "white", top: "-45%" }} />
+                        <img src="/IMGassets/guide.png" className={styles.logo} style={{ top: "-65%" }} />
+
+                    </visualViewport>
+                    {/* </div> */}
+                </div>
+                <div className={styles.hov_catch}>
+                    <visualViewport className={styles.jobs} style={{ top: "75%" }}>
+                        {/* <Waves h={400/4} w={800/4}> */}
+                        <img src="/IMGassets/sift2.png" className={styles.logo} style={{ top: "-60%" }} />
 
                     </visualViewport>
                     {/* </div> */}
