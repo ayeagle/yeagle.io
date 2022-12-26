@@ -23,10 +23,6 @@ import Button from '@components/pomodomo/Button';
 
 export default function Carousel() {
 
-
-  const quotesArray = ["Quotesadf  sdfafsda fdasf dsf dsaf sdf sdaf asdf sd f ds f 1",
-    "Quote sdfsdsdfdssdsd sdfsdfdfdfd ffddsasddfass adsda asd2",
-    "Quot asd df sasdfdfdf5hjhtyjufjkfghj fghj fhgj ghfgh f gjghj fghjghf jhgj ghfj ghgh jj  3"];
   const elements = [
     {
       id: 1,
