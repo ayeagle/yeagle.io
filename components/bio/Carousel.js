@@ -105,7 +105,7 @@ export default function Carousel() {
     const interval = setInterval(() => {
 
       setCurrentIndex((currentIndex + 1) % elements.length);
-    }, 20000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [currentIndex]);
 
@@ -120,6 +120,9 @@ export default function Carousel() {
             className={styles.carousel_element}
             style={{
               left: index === currentIndex ? "10%" : index < currentIndex ? '100%' : '-100%',
+              color: index === currentIndex ? "white" : index < currentIndex ? 'rgb(0,0,0)' : 'rgb(0,0,0)',
+              transition: index === currentIndex ? "5s" : index < currentIndex ? '3s' : '3s',
+
               // `${element.position + mover}em`,
             }}
           >
