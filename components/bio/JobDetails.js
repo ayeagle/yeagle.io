@@ -34,7 +34,7 @@ export default function JobDetails({ elements, key }) {
         setOpen(!open)
         if (open) {
             setWorkStyle(styles.work_details_closed)
-            setWorkVH("0vh")
+            setWorkVH("7vw")
         } else {
             setWorkStyle(styles.work_details_open)
             setWorkVH(elements.details_view_height)
@@ -71,20 +71,20 @@ export default function JobDetails({ elements, key }) {
             <div className={styles.jobs_container}>
 
                 <div key={key} style={{ position: "relative" }}>
+                    <span className={styles.details_header}>
+                        {/* <h3 className={styles.details_header_units}>{elements.company}</h3> */}
+                        <h3 className={styles.details_header_units}>{elements.role}</h3>
+                        <h3 className={styles.details_header_units}>{elements.tenure}</h3>
+                    </span>
                     <div style={{ position: "relative" }}>
                         <visualViewport className={styles.logo_container}>
                             {/* <Waves h={400/4} w={800/4}> */}
-                            <img src={elements.logo_pic} className={styles.logo} style={{top: elements.top_move_perc }} onClick={openClick}/>
+                            <img src={elements.logo_pic} className={styles.logo} style={{ top: elements.top_move_perc }} onClick={openClick} />
                         </visualViewport>
                     </div>
 
-
-                    <div className={workStyle}  style={{ height: workVH }}    >
-                        <span className={styles.details_header}>
-                            {/* <h3 className={styles.details_header_units}>{elements.company}</h3> */}
-                            <h3 className={styles.details_header_units}>{elements.role}</h3>
-                            <h3 className={styles.details_header_units}>{elements.tenure}</h3>
-                        </span>
+                    <div className={workStyle} style={{ height: workVH }}    >
+                        <br></br>
                         <ul className={styles.work_bullets}>
                             {elements.details.map(detail => (
                                 <li key={detail} >{detail}</li>

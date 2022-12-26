@@ -6,13 +6,14 @@
     justify-content: center;
     position: relative;
     /* left: 10%; */
-    top: 35vw;
+    top: 0vw;
     /* border: 3px solid red; */
+    margin-top: 5vh;
     border-radius: 10px;
-    margin-bottom: 20vh;
+    margin-bottom: 5vh;
     /* background-color:aqua; */
-    transition: 2s;
-    padding-bottom: 25vw;
+    transition: .1s;
+    /* padding-bottom: 25vw; */
 }
 
 .jobs_container{
@@ -22,7 +23,7 @@
     justify-content: center;
     position: relative;
     left: 10%;
-    top: 10vh;
+    top: 0vw;
     /* border: 3px solid rgb(68, 0, 255); */
     border-radius: 10px;
     /* margin-bottom: 2vw; */
@@ -45,7 +46,9 @@
     overflow: hidden;
     opacity: 100% !important;
     box-shadow: none;
-    transition: 2s;
+    transition: .5s;
+    border: 3px solid rgb(60, 60, 60);
+    border-top: 0px solid rgb(0, 0, 0);
 
     /* top: 10vh; */
 }
@@ -80,18 +83,19 @@
 .work_details_closed {
     position: relative;
     top: -5vw;
-    height: 0vh;
-    width: 100%;
-    /* left:0%;    top: 5vh; */
+    height: 5vh;
+    left:-.5%;
+    width: 101%;
     color: black;
     /* display: none; */
-    visibility: collapse;
+    /* visibility: collapse; */
     /* margin-bottom: 20vh;  */
-    margin-top: -30vw;
-    transition:  1.5s ease-in-out;
+    margin-top: 5vw;
+    transition:  1.5s;
     margin-bottom:8vw;
-    /* border: 3px solid rgb(60, 60, 60);
-    border-top: 0px solid rgb(0, 0, 0); */
+    padding-bottom:8vw;
+    border: 3px solid rgb(60, 60, 60);
+    border-top: none;
     border-radius: 0 0 5% 5%;
     padding: 1vw;
 
@@ -101,22 +105,22 @@
 
 .work_details_open{
     position: relative;
-    top: 5vw;
+    top: 2vw;
     height: 50vw;
-    width: 100%;
-    /* left:0%; */
+    left:-.5%;
+    width: 101%;    /* left:0%; */
     /* top: 5vh; */
     /* margin-bottom: 20vh; */
-    margin-top: -35vw;
-    margin-bottom:5vw;
-    /* border: 3px solid rgb(60, 60, 60);
-    border-top: 0px solid rgb(0, 0, 0); */
+    padding-top:5vw;
+    margin-top: 5vw;
+    border: 3px solid rgb(60, 60, 60);
+    border-top: 0px solid rgb(0, 0, 0);
 
     border-radius: 0 0 5% 5%;
     padding: 1vw;
     /* transition:  1.5s, content 3s;*/
 
-    transition:  1.5s ease-in-out;
+    transition:  1.5s;
 
 
 
@@ -124,9 +128,20 @@
 
 
 .details_header {
+    position: relative;
     display:flex;
     justify-content:center;
+    top: 0vw;
+    left:-.5%;
+    width: 101%;    /* left:0%; */
     font-size: 2vw;
+   border: 3px solid rgb(60, 60, 60);
+    border-bottom: 0px solid rgb(0, 0, 0);
+    border-radius: 5% 5%  0 0 ;
+    margin-top: 12vw;
+    height: 15vw;
+    transition:  1.5s;
+
 }
 
 .details_header_units{
