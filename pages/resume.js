@@ -78,57 +78,6 @@ export default function Resume() {
             <SVGSpacers type="bot" num="1" width={width} />
             <h1 style={{ fontSize: "5vw" }}> Education</h1>
             <EducationSection />
-            <h1 style={{ fontSize: "5vw" }}> Education</h1>
-            <h1 style={{ fontSize: "5vw" }}> Education</h1>
-            <h1 style={{ fontSize: "5vw" }}> Education</h1>
-            <h1 style={{ fontSize: "5vw" }}> Education</h1>
-
-            {/*
-            <div style={{ position: "relative" }}>
-                <div style={{ height: "100vh", fill: "black", zIndex: 500 }} />
-                <div className={styles.hov_catch}>
-                    <visualViewport className={styles.jobs} style={{ top: "15%" }}>
-                        <img src="/IMGassets/meta4.png" className={styles.logo} style={{ top: "-100%" }} />
-                    </visualViewport>
-                </div>
-                <div className={styles.hov_catch}>
-                    <visualViewport className={styles.jobs} style={{ top: "35%" }}>
-                        <img src="/IMGassets/captivateiq.png" className={styles.logo} style={{ backgroundColor: "white", top: "-150%" }} />
-                    </visualViewport>
-                </div>
-                <div className={styles.hov_catch}>
-                    <visualViewport className={styles.jobs} style={{ top: "55%" }}>
-                        <img src="/IMGassets/guide.png" className={styles.logo} style={{ top: "-65%" }} />
-                    </visualViewport>
-                </div>
-                <div className={styles.hov_catch}>
-                    <visualViewport className={styles.jobs} style={{ top: "75%" }}>
-                        <img src="/IMGassets/sift2.png" className={styles.logo} style={{ top: "-60%" }} />
-                    </visualViewport>
-                </div>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-            </div> */}
-            {/*
-            <SVGSpacers type="top" num="5" width={width} />
-            <SVGSpacers type="bot" num="3" width={width} />
-            <h2>Projects</h2>
-            <div className={styles.list}>
-                <div className={styles.ind_list}> Work
-                    <li> Created and maintain multibillion row structured datasets on user reports </li>
-                    <li> Created multiple PHP methods to extract information from production code to be used in Hive tables</li>
-                </div>
-                <div></div>
-                <div className={styles.ind_list}>Personal
-                    <li> Personal Website </li>
-                    <li> Pomodomo</li>
-                </div>
-            </div>
-            <SVGSpacers type="top" num="1" width={width} />
-            <SVGSpacers type="bot" num="2" width={width} />
-            <h2>Stuff</h2> */}
 
 
             <SVGSpacers type="top" num="4" width={width} />

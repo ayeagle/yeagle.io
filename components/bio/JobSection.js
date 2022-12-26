@@ -20,7 +20,7 @@ export default function JobSection() {
                     "Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR"],
             logo_pic: "/IMGassets/meta2.png",
             top_move_perc: "-20%",
-            details_view_height: "45vw",
+            details_view_height: "40vw",
 
         },
         {
@@ -37,7 +37,7 @@ export default function JobSection() {
 
             logo_pic: "/IMGassets/captivateiq.png",
             top_move_perc: "-140%",
-            details_view_height: "45vw",
+            details_view_height: "40vw",
 
 
         },
@@ -56,7 +56,7 @@ export default function JobSection() {
             "Uncovered and prioritized customer pains against technical feasibility on a daily basis"],
             logo_pic: "/IMGassets/guide.png",
             top_move_perc: "-65%",
-            details_view_height: "50vw",
+            details_view_height: "45vw",
 
         },
         {
@@ -71,7 +71,7 @@ export default function JobSection() {
 
             logo_pic: "/IMGassets/sift2.png",
             top_move_perc: "-65%",
-            details_view_height: "35vw",
+            details_view_height: "30vw",
 
         },
 
