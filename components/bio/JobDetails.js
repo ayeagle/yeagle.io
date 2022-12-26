@@ -16,7 +16,7 @@ export default function JobDetails({ elements, key }) {
 
     const [open, setOpen] = useState(false)
     const [workStyle, setWorkStyle] = useState(styles.work_details_closed)
-    const [workVH, setWorkVH] = useState(0)
+    const [workVH, setWorkVH] = useState("7vw")
 
     console.log("On the current load of the page, the workstyle is set to: " + workStyle)
     console.log("elements.viewheight: " + elements.details_view_height)
@@ -71,11 +71,11 @@ export default function JobDetails({ elements, key }) {
             <div className={styles.jobs_container}>
 
                 <div key={key} style={{ position: "relative" }}>
-                    <span className={styles.details_header}>
+                    <div className={styles.details_header}>
                         {/* <h3 className={styles.details_header_units}>{elements.company}</h3> */}
-                        <h3 className={styles.details_header_units}>{elements.role}</h3>
-                        <h3 className={styles.details_header_units}>{elements.tenure}</h3>
-                    </span>
+                        <h3 className={styles.details_header_units} style={{left:"0px"}}>{elements.role}</h3>
+                        <h3 className={styles.details_header_units} style={{justifyItems:"right"}}>{elements.tenure}</h3>
+                    </div>
                     <div style={{ position: "relative" }}>
                         <visualViewport className={styles.logo_container}>
                             {/* <Waves h={400/4} w={800/4}> */}
