@@ -72,7 +72,7 @@ export default function About() {
             <div style={{ position: "relative", height:"25em", width:"100vw"}}>
                 <Carousel className={styles.caro} />
             </div>
-            <a href="/resume"><NavButton handleClick={{}} buttonName={"Learn why people say that stuff"} /></a>
+            <a href="/resume"><NavButton buttonName={"See my work"} /></a>
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
             <h4 style={{ padding: "5vw" }}> A broad range of experiences across product, operations, analytics, and engineering

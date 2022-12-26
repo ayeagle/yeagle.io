@@ -36,7 +36,7 @@
 
 .logo_container {
     position: absolute;
-    z-index:400;
+    z-index:1000;
     /* top: 30%; */
     left: 50%;
     transform: translate(-50%, -50%);
@@ -60,6 +60,7 @@
     z-index: 0;
     position: absolute;
     left: 0;
+
     /* transform: translate(-50%, -50%); */
     /* top: -7vh; */
     /* height: auto; */
@@ -69,16 +70,34 @@
     /* transition: 2s; */
 }
 
+.arrow{
+    width: 10%;
+    /* height: auto; */
+    z-index: 0;
+    margin-top:0vw;
+    left:50%;
+    position: absolute;
+    opacity: 100% !important;
+    transition: 2s;
+}
+
+
 .logo_container  :hover {
     /* background-color: #eb5c00; */
     /* fill: black;
     z-index: 410; */
-    opacity: 70%;
+    opacity: 50%;
     /* box-shadow: 0 8px 16px 0 rgb(255, 255, 255), 0 6px 20px 0 rgb(255, 255, 255); */
+    z-index: 10;
 
     transition: .1s;
 }
 
+.arrow :hover{
+    opacity: 100% !important;
+    margin-top:10vw;
+    transition: 2s;
+}
 
 .work_details_closed {
     position: relative;

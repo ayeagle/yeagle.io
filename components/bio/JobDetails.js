@@ -73,13 +73,16 @@ export default function JobDetails({ elements, key }) {
                 <div key={key} style={{ position: "relative" }}>
                     <div className={styles.details_header}>
                         {/* <h3 className={styles.details_header_units}>{elements.company}</h3> */}
-                        <h3 className={styles.details_header_units} style={{left:"0px"}}>{elements.role}</h3>
-                        <h3 className={styles.details_header_units} style={{justifyItems:"right"}}>{elements.tenure}</h3>
+                        <h3 className={styles.details_header_units} style={{ left: "0px" }}>{elements.role}</h3>
+                        <h3 className={styles.details_header_units} style={{ justifyItems: "right" }}>{elements.tenure}</h3>
                     </div>
                     <div style={{ position: "relative" }}>
+                        <img src="/IMGassets/down_arrow.png" className={styles.arrow} onClick={openClick} />
+
                         <visualViewport className={styles.logo_container}>
                             {/* <Waves h={400/4} w={800/4}> */}
                             <img src={elements.logo_pic} className={styles.logo} style={{ top: elements.top_move_perc }} onClick={openClick} />
+
                         </visualViewport>
                     </div>
 
