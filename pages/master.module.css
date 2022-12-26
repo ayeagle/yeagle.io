@@ -2,7 +2,6 @@
     background-color: black;
     color: white;
     position:static;
-
 }
 
 .pre {
@@ -18,9 +17,9 @@
     /* top: -7vh; */
     /* height: auto; */
     /* width: auto; */
-    margin-top: -4em;
-    margin-bottom: -3em;
-
+    top: -10vw;
+    /* margin-top: -4em; */
+    margin-bottom: -20vw;
 }
 
 .video {
@@ -118,7 +117,6 @@
     /* height:10000; */
     /* position:static; */
     z-index: 10000;
-
 }
 
 .button_left {
@@ -132,7 +130,6 @@
     display: inline-flex;
     max-width: 50%;
     font-size: 2vw;
-
 }
 
 
@@ -141,7 +138,6 @@
     text-align: left;
     padding: 5%;
     font-size: 2vw;
-
 }
 
 .caro{
@@ -153,8 +149,6 @@
     opacity: 65% !important;
     /* box-shadow: 8px 8px 8px 8px rgb(119, 119, 119), 0 6px 6px 0 rgb(110, 110, 110); */
     box-shadow: 0 0 20px rgb(255, 255, 255)
-
-
 }
 
 .app_module_center {
@@ -213,8 +207,6 @@
     /* bottom: auto; */
     opacity: 100% !important;
     box-shadow: none;
-
-
 }
 
 .app_module_center_wrapper {
@@ -230,8 +222,6 @@
     opacity: 0%;
     background-color: black !important;
     box-shadow: none;
-
-
 }
 
 
@@ -284,11 +274,9 @@
     position: absolute;
     left: 0;
     /* transform: translate(-50%, -50%); */
-
     /* top: -7vh; */
     /* height: auto; */
     /* width: auto; */
     /* margin-top: -5.5em;
     margin-bottom: -5em; */
-
 }
