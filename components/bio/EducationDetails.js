@@ -5,7 +5,7 @@ import Button from '@components/pomodomo/Button';
 
 
 
-export default function JobDetails({ elements, key }) {
+export default function EducationDetails({ elements, key }) {
 
 
 
@@ -77,11 +77,9 @@ export default function JobDetails({ elements, key }) {
 
                 <div key={key} style={{ position: "relative" }}>
                     <div className={styles.details_header}>
-                        {/* <h3 className={styles.details_header_units}>{elements.company}</h3> */}
                         <a href={elements.company_url} target="_blank"><h3 className={styles.details_header_units}>{elements.company} &#128279;</h3></a>
                         <h3 className={styles.details_header_units}>{elements.role}</h3>
                         <h3 className={styles.details_header_units}>{elements.tenure}</h3>
-
                     </div>
                     <div style={{ position: "relative" }}>
                         <div className={styles.arrow} onClick={openClick} >
@@ -102,11 +100,6 @@ export default function JobDetails({ elements, key }) {
                                 <li key={detail} >{detail}</li>
                             ))}
                         </ul>
-                        <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
-                        <div className={styles.details_mini_header} > Hard Skills</div>
-                        <ul><li className={styles.work_bullets}> {elements.hard_skills}</li></ul>
-                        <div className={styles.details_mini_header} > Soft Skills</div>
-                        <ul><li className={styles.work_bullets}> {elements.soft_skills}</li></ul>
                     </div>
 
 

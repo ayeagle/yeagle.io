@@ -56,7 +56,7 @@ export default function About() {
             <SVGSpacers type="bot" num="2" width={width} />
 
             <div style={{ position: "relative" }}>
-                <img src="/IMGassets/me.png" className={styles.image} />
+                <img src="/IMGassets/me2.png" className={styles.image} />
                 <div className={styles.image_text}><Typing content={"Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions."}/></div>
             </div>
             <SVGSpacers type="top" num="1" width={width} />
