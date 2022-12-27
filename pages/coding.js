@@ -12,7 +12,7 @@ import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
 import Lines from "@components/bio/Lines";
 import Typing from "@components/bio/Typing";
-
+import Flood from "@components/bio/Flood";
 
 
 
@@ -148,6 +148,7 @@ export default function Coding() {
 
     return (
         <div className={styles.master}>
+            <Flood/>
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="1" width={width} />
