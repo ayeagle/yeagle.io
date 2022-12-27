@@ -69,7 +69,7 @@ export default function About() {
                 <br></br>
                 <NavButton handleClick={{}} buttonName={"Learn Why"} />
             </h3> */}
-            <div style={{ position: "relative", height:"25em", width:"100vw"}}>
+            <div style={{ position: "relative", height: "30em", width: "100vw" }}>
                 <Carousel className={styles.caro} />
             </div>
             <a href="/resume"><NavButton buttonName={"See my work"} /></a>
