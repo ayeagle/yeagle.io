@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     background: #eb5c00;
-    position: absolute;
+    position: relative;
     /* color: black; */
 
   }
@@ -38,6 +38,7 @@
     fill: white;
     flood-color: white;
     text-decoration: none;
+    /* width: 100%; */
     /* transition: .5s; */
     margin-bottom: 10px;
 

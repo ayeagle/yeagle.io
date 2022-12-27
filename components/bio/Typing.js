@@ -5,13 +5,13 @@ export default function Typing({ content }) {
 
     const [displayText, setDisplayText] = useState("")
     const [index, setIndex] = useState(0)
-    const [spacer, setSpacer] = useState(`&nbsp;`);
+    const [spacer, setSpacer] = useState("|");
     const [indexPauser, setIndexPauser] = useState(0)
 
     const extra = `&nbsp;`
 
     useEffect(() => {
-        if (indexPauser < 4 || index == content.length) {
+        if (indexPauser < 3 || index == content.length) {
 
             const interval = setInterval(() => {
 
@@ -19,7 +19,7 @@ export default function Typing({ content }) {
                 else setSpacer(`&nbsp;`)
 
                 setIndexPauser(indexPauser + 1)
-                if (indexPauser == 3) {
+                if (indexPauser == 2) {
                     clearInterval(interval)
                     setSpacer("|")
                     // setIndex(0)

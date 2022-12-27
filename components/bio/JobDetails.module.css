@@ -53,6 +53,19 @@
 
 }
 
+.details_mini_header {
+    text-align: left;
+    padding-left: 3vw;
+    font-size: 3vw;
+}
+
+.skill_units {
+    text-align: left;
+    padding-left: 2vw;
+
+}
+
+
 /* .details_header :hover {
     opacity: 50%;
 } */
@@ -113,12 +126,12 @@
     opacity: 100%;
 }
 
-.arrow_down{
+.arrow_down {
     /* transform: rotate(0); */
     transition: 0s;
 }
 
-.arrow_up{
+.arrow_up {
     transform: rotate(180deg);
     transition: 0s;
 }
@@ -141,6 +154,7 @@
     border-top: 0px solid rgb(0, 0, 0);
     border-radius: 0 0 20px 20px;
     padding: 1vw;
+    background-color: rgba(0, 0, 0, 0);
 
 
 }
@@ -175,7 +189,9 @@
 
 .details_header_units {
     padding: 3vw;
-    font-size: 2.5vw;
+    font-size: 2.2vw;
+    /* text-decoration: none; */
+    color:white;
 
 }
 
