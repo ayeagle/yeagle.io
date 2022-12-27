@@ -12,13 +12,14 @@ import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
 import NavButton from "@components/bio/NavButton";
 import Carousel from "@components/bio/Carousel";
-
+import Typing from "@components/bio/Typing";
 
 
 export default function About() {
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
+    const tester = "testing"
 
     // console.log("this is the height (start) ==> " + height)
     //     console.log("this is the width (start) ==> " + width)
@@ -56,7 +57,7 @@ export default function About() {
 
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/me.png" className={styles.image} />
-                <div className={styles.image_text}>Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
+                <div className={styles.image_text}><Typing content={"Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions."}/></div>
             </div>
             <SVGSpacers type="top" num="1" width={width} />
 

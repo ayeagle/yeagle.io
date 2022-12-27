@@ -10,8 +10,11 @@ import { useEffect, useState } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
-
 import Lines from "@components/bio/Lines";
+import Typing from "@components/bio/Typing";
+
+
+
 
 const courses = [
     {
@@ -151,7 +154,7 @@ export default function Coding() {
 
             <div style={{position:"relative"}}>
                 <img src="/IMGassets/rocks.png" className={styles.image} />
-                <div className={styles.image_text_center} >Self-taught frontend programmer and product enthusiast with a passion for building and scaling customer-obsessed solutions.</div>
+                <div className={styles.image_text_center} ><Typing content={"Highly motivated self-taught developer with a passion for building products that make life 10x better."}/></div>
             </div>
             <SVGSpacers type="top" num="4" width={width} />
             <SVGSpacers type="bot" num="1" width={width} />
