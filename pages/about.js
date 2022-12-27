@@ -52,7 +52,7 @@ export default function About() {
 
     return (
         <div className={styles.master}>
-            <Flood2/>
+            <Flood/>
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />
