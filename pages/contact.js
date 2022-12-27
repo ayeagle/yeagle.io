@@ -12,7 +12,7 @@ import styles from './master.module.css';
 import Iceland from "@components/bio/Iceland";
 import Socials from "@components/bio/Socials";
 import NavButton from "@components/bio/NavButton";
-
+import Typing from "@components/bio/Typing";
 
 
 export default function Contact() {
@@ -61,7 +61,7 @@ export default function Contact() {
 
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/sf.png" className={styles.image} />
-                <div className={styles.image_text_center} style={{ top: "2em" }}>Interested in building something together?</div>
+                <div className={styles.image_text_center} style={{ top: "2em" }}><Typing content={"Interested in building something together?"}/></div>
             </div>
             <SVGSpacers type="top" num="5" width={width} />
 
