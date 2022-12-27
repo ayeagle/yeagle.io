@@ -16,7 +16,7 @@
   z-index: 1000;
   position: absolute ;
   width: 75%;
-  height: 30vh;
+  /* height: 30vh; */
   /* width: 100px; */
   /* top: 0;
   left: 0; */
@@ -30,6 +30,10 @@
   transition: left 10s ease;
   /* padding: 10px; */
   /* margin: 10px; */
+  padding: 4vw;
+  border-radius: 20px;
+  border: 10px solid;
+
 }
 
 .button{
