@@ -13,7 +13,7 @@ import Lines from "@components/bio/Lines";
 import NavBar from "@components/bio/navbar";
 import JobSection from "@components/bio/JobSection";
 import EducationSection from "@components/bio/EducationSection";
-
+import Typing from "@components/bio/Typing";
 
 
 
@@ -58,13 +58,7 @@ export default function Resume() {
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/city.png" className={styles.image} />
                 <div className={styles.image_text_center} style={{ top: "2em" }}>
-                    Worked on hypergrowth solutions backed by...
-                    <br />2x Accel
-                    <br />1x FAANG
-                    <br />2x Seqouia
-                    <br />1x 500 Startups
-                    <br />2x Y Combinator
-                    <br />2x First Round Capital
+                    <Typing content = {`Worked on hypergrowth solutions backed by...<br/>2x Accel<br/>1x FAANG<br />2x Seqouia <br />1x 500 Startups<br />2x Y Combinator<br />2x First Round Capital`}/>
                 </div>
             </div>
             <SVGSpacers type="top" num="5" width={width} />
