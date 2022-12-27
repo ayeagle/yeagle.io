@@ -17,6 +17,7 @@ export default function JobDetails({ elements, key }) {
     const [open, setOpen] = useState(false)
     const [workStyle, setWorkStyle] = useState(styles.work_details_closed)
     const [workVH, setWorkVH] = useState("7vw")
+    const [arrowStyle, setArrowStyle] = useState(styles.arrow_down)
 
     console.log("On the current load of the page, the workstyle is set to: " + workStyle)
     console.log("elements.viewheight: " + elements.details_view_height)
@@ -35,9 +36,13 @@ export default function JobDetails({ elements, key }) {
         if (open) {
             setWorkStyle(styles.work_details_closed)
             setWorkVH("7vw")
+            setArrowStyle(styles.arrow_down)
+
         } else {
             setWorkStyle(styles.work_details_open)
             setWorkVH(elements.details_view_height)
+            setArrowStyle(styles.arrow_up)
+
         }
     }
 
@@ -78,7 +83,7 @@ export default function JobDetails({ elements, key }) {
                     </div>
                     <div style={{ position: "relative" }}>
                         <div className={styles.arrow} onClick={openClick} >
-                            <img src="/IMGassets/down_arrow.png" style={{height:"5vw"}}/>
+                            <img  className={arrowStyle} src="/IMGassets/down_arrow.png" style={{height:"5vw"}}/>
                         </div>
 
                         <visualViewport className={styles.logo_container}>

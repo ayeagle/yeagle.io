@@ -113,6 +113,16 @@
     opacity: 100%;
 }
 
+.arrow_down{
+    /* transform: rotate(0); */
+    transition: 0s;
+}
+
+.arrow_up{
+    transform: rotate(180deg);
+    transition: 0s;
+}
+
 .work_details_closed {
     position: relative;
     top: -5vw;
