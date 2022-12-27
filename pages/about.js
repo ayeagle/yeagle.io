@@ -14,7 +14,8 @@ import NavButton from "@components/bio/NavButton";
 import Carousel from "@components/bio/Carousel";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
-
+import Flood2
+ from "@components/bio/Flood2";
 export default function About() {
 
     const [height, updateHeight] = useState(0)
@@ -51,7 +52,7 @@ export default function About() {
 
     return (
         <div className={styles.master}>
-            <Flood/>
+            <Flood2/>
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />

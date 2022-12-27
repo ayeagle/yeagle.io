@@ -1,12 +1,15 @@
 .fill_down_start {
     top:0;
-    height: 300vh;
+    height: 0vh;
     width: 100%;
     fill: #eb5c00;
     background-color:  #eb5c00;
     color:  #eb5c00;
     position: absolute;
     z-index: 999999;
+    padding-bottom:-200vh;
+    opacity: 20%;
+
 }
 
 .fill_down_end {
@@ -17,9 +20,11 @@
     fill: #eb5c00;
     background-color:  #eb5c00;
     color:  #eb5c00;
-    transition:1.3s ease-out;
+    transition:1.5s ease-out;
     position: absolute;
     z-index: 999999;
+    opacity: 50%;
+
 
 }
 
@@ -27,6 +32,8 @@
     position: absolute;
     z-index: 999999;
     width: 100%;
+    padding-bottom:200vh;
+    /* opacity: 20%; */
 
 }
 
@@ -34,17 +41,23 @@
     width: 100%;
 
     transform: translateY(2000px);
-    transition:1.3s ease-out;
+    transition:1.5s ease-out;
     z-index: 999999;
     position: absolute;
+    opacity: 50%;
+
 }
 
 
 .svg_down_start {
+    margin-top:-30vw;
+    padding-bottom:400vh;
+    position: relative;
 }
 
 
 .svg_down_end {
+    position: relative;
 
 }
 
