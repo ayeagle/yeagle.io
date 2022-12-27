@@ -280,3 +280,22 @@
     /* margin-top: -5.5em;
     margin-bottom: -5em; */
 }
+
+/*
+.contact_wrapper {
+    transition: 1s;
+} */
+
+.contact_element {
+    font-size: 4vw;
+    transition: .2s;
+    opacity: 80%;
+    border: 3px white;
+}
+
+.contact_element:hover {
+    /* font-size: 5vw; */
+    opacity: 100%;
+    transition: .2s;
+    /* color: red; */
+}

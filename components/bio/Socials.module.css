@@ -1,20 +1,3 @@
-.social {
-    z-index: 10000;
-    display: flex;
-    /* position: static; */
-    /* padding: 1vw; */
-    padding:3px;
-    color: inherit;
-    font-size: 2vw;
-    flood-color: black;
-    stroke: aliceblue;
-    fill: black;
-    top: 50%;
-    padding-top: 15px;
-
-    /* width: 100%; */
-}
-
 .social_container {
     padding-left: 30px;
     padding-right: 30px;
@@ -25,4 +8,26 @@
     /* color: red; */
     justify-content: center;
     background-color: inherit;
+}
+
+.social {
+    z-index: 10000;
+    display: flex;
+    /* position: static; */
+    /* padding: 1vw; */
+    padding: 3px;
+    color: inherit;
+    font-size: 2vw;
+    flood-color: black;
+    stroke: aliceblue;
+    fill: black;
+    top: 50%;
+    padding-top: 15px;
+    opacity: 70%;
+
+    /* width: 100%; */
+}
+
+.social:hover {
+    opacity: 100%;
 }
