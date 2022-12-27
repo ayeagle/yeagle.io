@@ -29,6 +29,7 @@ export default function Carousel() {
       content: "I think Alex is currently one of the thought leaders on our team. He drives insightful conversation and provides thoughtful feedback. Alex is at a point where he could be a mentor to other colleagues and help those around him reach his level of product knowledge",
       author: "Nic Gochis",
       role: "Product Solutions Manager @ CaptivateIQ",
+      size: "1.0em",
 
       position: 0,
     },
@@ -37,6 +38,8 @@ export default function Carousel() {
       content: "I'm really impressed with Alex's progress in such a short time and grateful to have him on the team. All of [his work] helps us build much better products for users that are more likely to be successful sooner… Super importantly, he knows our products well and has done a great job getting to know the team and constantly reinforcing the value of [product testing].",
       author: "Erin Connolly",
       role: "Director of Product Management @ Facebook",
+      size: ".9em",
+
       position: 0,
     },
     {
@@ -44,6 +47,8 @@ export default function Carousel() {
       content: "Alex is a pillar of excellence and without him our department would crumble and the roof cave in. I know he stresses about CIQ as much as I do. He is fixated on getting better and making everyone better. He is a clear leader and leads from behind. I am proud to be in the same department as him.",
       author: "Richard Demke",
       role: "Product Solutions Manager @ CaptivateIQ",
+      size: "1.0em",
+
       position: 0,
     },
     {
@@ -51,6 +56,7 @@ export default function Carousel() {
       content: "Something that stood out to me during the [FB Neighborhoods deprecation] was Alex's understanding of the product and user experiences. He can effectively draw the relations between product experiences and engineering complexities. He also led lot of post launch analysis to determine the impact of the launched flows... I am confident that he would be a very good PM and I would be excited to work with him as a product manager. ",
       author: "Chetan Ambekar",
       role: "Senior SWE @ Facebook",
+      size: ".9em",
       position: 0,
     },
     {
@@ -58,6 +64,7 @@ export default function Carousel() {
       content: "I chose Alex because he contains all of the ingredients for a strong team member... I am confident he will be a valuable addition to any product teams solving tough problems.",
       author: "Marcus Lowe",
       role: "Head of Product @ Resource.io",
+      size: "1.2em",
       position: 0,
     }
 
@@ -121,7 +128,10 @@ export default function Carousel() {
             style={{
               left: index === currentIndex ? "12.5%" : index < currentIndex ? '100%' : '-100%',
               color: index === currentIndex ? "white" : index < currentIndex ? 'rgb(0,0,0)' : 'rgb(0,0,0)',
+              backgroundColor: index === currentIndex ? "#7c4455" : index < currentIndex ? 'rgb(0,0,0)' : 'rgb(0,0,0)',
               transition: index === currentIndex ? "5s" : index < currentIndex ? '3s' : '3s',
+              borderColor: index === currentIndex ? "#eb5c00" : index < currentIndex ? 'rgb(0,0,0)' : 'rgb(0,0,0)',
+              fontSize: element.size
 
               // `${element.position + mover}em`,
             }}
@@ -143,85 +153,4 @@ export default function Carousel() {
     </>
   );
 
-
-
-
-
-
-
-
-
-  // const [currQuote, setCurrQuote] = useState(0)
-
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((currentIndex + 1) % elements.length);
-  //   }, 10000);
-  //   return () => clearInterval(interval);
-  // }, [currentIndex]);
-
-  // return (
-  //   <>
-  //     {/* <rect style={{height:"200px", top:"200px"}}/> */}
-  //     <div className={styles.carousel}>
-  //       {elements.map((element, index) => (
-  //         <span
-  //           key={element.id}
-  //           className={styles.carousel_element}
-  //           style={{
-  //             left: index === currentIndex ? "50%" : index < currentIndex ? '1000vw' : '-1000vw',
-  //           }}
-  //         >
-  //           {element.content}
-  //           <br></br>
-  //           <br></br>
-  //           {element.author}
-  //         </span>
-  //       ))}
-  //     </div>
-  //   {/* </rect> */}
-  //   </>
-  // );
-
-
-  // return (
-  //   <div className={styles.carousel}>
-
-  //     <div
-  //       key="0"
-  //       className={styles.carousel_element}
-  //       style={{
-  //         left: +"0" === currentIndex ? 0 : +"0" < currentIndex ? '100%' : '-100%',
-  //       }}
-  //     >
-  //       {elements[0].content}
-  //       <br></br>
-  //       <br></br>
-  //       {elements[0].author}
-  //     </div> <div
-  //       key="1"
-  //       className={styles.carousel_element}
-  //       style={{
-  //         left: +"1" === currentIndex ? 0 : +"1" < currentIndex ? '100%' : '-100%',
-  //       }}
-  //     >
-  //       {elements[1].content}
-  //       <br></br>
-  //       <br></br>
-  //       {elements[1].author}
-  //     </div> <div
-  //       key="2"
-  //       className={styles.carousel_element}
-  //       style={{
-  //         left: +"2" === currentIndex ? 0 : +"2" < currentIndex ? '100%' : '-100%',
-  //       }}
-  //     >
-  //       {elements[2].content}
-  //       <br></br>
-  //       <br></br>
-  //       {elements[2].author}
-  //     </div>
-  //   </div>
-  // );
 }
