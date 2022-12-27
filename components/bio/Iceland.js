@@ -13,8 +13,6 @@ export default function Iceland() {
         // Update the height and width state when the component is mounted
         updateHeight(window.innerHeight)
         updateWidth(window.innerWidth)
-        console.log("this is the height (useeffect) ==> " + height)
-        console.log("this is the width (useeffect) ==> " + width)
 
         function handleWindowResize() {
             // Update the height and width state when the window is resized
@@ -30,8 +28,6 @@ export default function Iceland() {
             window.removeEventListener('resize', handleWindowResize)
         }
     }, [])
-
-    console.log(width + "this is from within Iceland")
 
     return (
         <>

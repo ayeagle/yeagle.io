@@ -32,10 +32,6 @@ export default function Typing({ content }) {
 
         } else if (index <= content.length) {
             const interval = setInterval(() => {
-                console.log("this is the index: " + index)
-                console.log("this is the index val: " + content[index])
-                console.log("this is the diplaytext (before)" + displayText)
-
                 if (content[index] == "<") {
                     setDisplayText(displayText + content[index] + content[index+1] + content[index+2] + content[index+3])
                     setIndex(index + 4)
