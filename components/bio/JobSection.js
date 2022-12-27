@@ -10,7 +10,7 @@ export default function JobSection() {
         {
             id: 1,
             company: "Facebook",
-            company_url: "url url",
+            company_url: "https://www.metacareers.com/",
             role: "Product Development",
             tenure: "2022-Present",
             details: ["Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
@@ -19,14 +19,16 @@ export default function JobSection() {
                      "Synthesize user signal into roadmap-actionable dashboards and reporting",
                     "Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR"],
             logo_pic: "/IMGassets/meta2.png",
+            hard_skills: "PostgresQL, Presto, Scuba, Python Scripting",
+            soft_skills: "PMF, Feature/Fix Efficiency, Leadership w/o Authority",
             top_move_perc: "-20%",
-            details_view_height: "40vw",
+            details_view_height: "60vw",
 
         },
         {
             id: 2,
             company: "CaptivateIQ",
-            company_url: "url url",
+            company_url: "https://www.captivateiq.com/",
             role: "Product Solutions Consultant",
             tenure: "2021-2022",
             details: ["Project manage calculation model design and build schedule for MM-ENT companies",
@@ -36,15 +38,17 @@ export default function JobSection() {
                     "Train new users and team-members on data manipulation and modeling best practices"],
 
             logo_pic: "/IMGassets/captivateiq.png",
+            hard_skills: "SQL, Excel, Python",
+            soft_skills: "Problem Solving, Product Strategy, Collaboration",
             top_move_perc: "-140%",
-            details_view_height: "40vw",
+            details_view_height: "60vw",
 
 
         },
         {
             id: 2,
             company: "Guide.co",
-            company_url: "url url",
+            company_url: "https://guide.co/",
             role: "Product Growth Lead",
             tenure: "2019-2020",
             details: ["Worked weekly with eng team and C-suite to uncover PMF and bring an early-access platform to market",
@@ -55,14 +59,16 @@ export default function JobSection() {
             "Acquired, onboarded, and conducted user research with 18 pre-launch customers",
             "Uncovered and prioritized customer pains against technical feasibility on a daily basis"],
             logo_pic: "/IMGassets/guide.png",
+            hard_skills: "Excel, Product/Design Tooling",
+            soft_skills: "Product Strategy, Growth Strategy",
             top_move_perc: "-65%",
-            details_view_height: "45vw",
+            details_view_height: "65vw",
 
         },
         {
             id: 2,
             company: "Sift",
-            company_url: "url url",
+            company_url: "https://sift.com/",
             role: "Business Development Lead",
             tenure: "2018-2019",
             details: ["Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
@@ -70,8 +76,10 @@ export default function JobSection() {
             "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output "],
 
             logo_pic: "/IMGassets/sift2.png",
+            hard_skills: "Excel, Salesforce",
+            soft_skills: "Collaboration, Project Scoping",
             top_move_perc: "-65%",
-            details_view_height: "30vw",
+            details_view_height: "50vw",
 
         },
 

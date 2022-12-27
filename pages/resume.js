@@ -72,6 +72,7 @@ export default function Resume() {
             <SVGSpacers type="bot" num="1" width={width} />
             <h1 style={{ fontSize: "5vw" }}> Education</h1>
             <EducationSection />
+            <div style={{ height: "20vh", fill: "black", zIndex: 500 }}/>
 
 
             <SVGSpacers type="top" num="4" width={width} />

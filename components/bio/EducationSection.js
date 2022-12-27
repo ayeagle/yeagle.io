@@ -1,34 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styles from './JobDetails.module.css'
 import Button from '@components/pomodomo/Button';
-import JobDetails from './JobDetails';
-
+import EducationDetails from './EducationDetails';
 
 export default function EducationSection() {
 
     const elements = [
         {
             id: 1,
-            company: "Facebook",
-            company_url: "url url",
-            role: "Product School",
-            tenure: "2020",
-            details: ["Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
-                     "Lead the product strategy and execution for deprecation of Neighborhoods, a hyper-local FB product with 5 million MAUs",
-                     "Operationalize signal collection and prioritization for the experimental pre-launch pillar of the FB app",
-                     "Synthesize user signal into roadmap-actionable dashboards and reporting",
-                    "Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR"],
-            logo_pic: "/IMGassets/pschool2.png",
-            top_move_perc: "-85%",
-            details_view_height: "45vw",
-
-        },
-        {
-            id: 2,
-            company: "CaptivateIQ",
-            company_url: "url url",
-            role: "Product Solutions Consultant",
-            tenure: "2021-2022",
+            company: "Carleton",
+            company_url: "https://www.carleton.edu/",
+            role: "BA Behavioral Economics",
+            tenure: "2014-2018",
             details: ["Project manage calculation model design and build schedule for MM-ENT companies",
                      "Leverage data architecture, manipulation, and scripting to parse and synthesize multiple data sources into clear and accurate commission outputs",
                      "Use a host of in-house formulas based on SQL, Excel, and Python to build performant calculation models",
@@ -37,6 +20,29 @@ export default function EducationSection() {
 
             logo_pic: "/IMGassets/carleton.png",
             top_move_perc: "-13%",
+            details_view_height: "45vw",
+        },
+        {
+            id: 2,
+            company: "Product School",
+            company_url: "https://productschool.com/",
+            role: "Honors Distinction",
+            tenure: "2020",
+            details: ["Credential ID: 20019092"],
+            logo_pic: "/IMGassets/pschool2.png",
+            top_move_perc: "-85%",
+            details_view_height: "45vw",
+
+        },
+        {
+            id: 3,
+            company: "HBX CORe",
+            company_url: "https://online.hbs.edu/courses/core/?c1=GAW_SE_NW&source=US_BRND&cr2=search__-__nw__-__us__-__branded&kw=hbx_core_exm&cr5=538763295301&cr7=c&hsa_cam=909737724&hsa_grp=53361372898&hsa_mt=e&hsa_src=g&hsa_ad=538763295301&hsa_acc={792-723-8641}&hsa_net=adwords&hsa_kw=hbx%20core&hsa_tgt=kwd-493465437512&hsa_ver=3&gclid=CjwKCAiAzKqdBhAnEiwAePEjkgV0k4oarYdX-NbiFH9CtP4sREFY1nZbNyApcF0id3V8khRCqEPF3RoCuqQQAvD_BwE",
+            role: "Honors Distinction",
+            tenure: "2019",
+            details: ["Credential ID: 20019092"],
+            logo_pic: "/IMGassets/hbx.jpeg",
+            top_move_perc: "-83%",
             details_view_height: "45vw",
 
 
@@ -68,7 +74,7 @@ export default function EducationSection() {
         <>
             {elements.map((elements, index) => (
                 <div className={styles.jobs_wrapper}>
-                    <JobDetails elements={elements} key={index}/>
+                    <EducationDetails elements={elements} key={index}/>
                 </div>
 
             ))}
