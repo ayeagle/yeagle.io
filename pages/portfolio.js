@@ -13,6 +13,7 @@ import NavButton from "@components/bio/NavButton";
 import Carousel from "@components/bio/Carousel";
 import Waves from "@components/pomodomo/Waves";
 import styles2 from '/components/pomodomo/Footer.module.css'
+import Flood from "@components/bio/Flood";
 
 
 export default function Portfolio() {
@@ -50,6 +51,8 @@ export default function Portfolio() {
 
     return (
         <div className={styles.master}>
+                        <Flood/>
+
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />

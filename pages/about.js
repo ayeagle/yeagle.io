@@ -13,7 +13,7 @@ import Iceland from "@components/bio/Iceland";
 import NavButton from "@components/bio/NavButton";
 import Carousel from "@components/bio/Carousel";
 import Typing from "@components/bio/Typing";
-
+import Flood from "@components/bio/Flood";
 
 export default function About() {
 
@@ -51,6 +51,7 @@ export default function About() {
 
     return (
         <div className={styles.master}>
+            <Flood/>
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />
