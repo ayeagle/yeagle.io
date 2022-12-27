@@ -38,7 +38,7 @@
     fill: white;
     flood-color: white;
     text-decoration: none;
-    transition: .5s;
+    /* transition: .5s; */
     margin-bottom: 10px;
 
   }
@@ -56,13 +56,7 @@
     opacity: 500%;
     color:white;
     text-decoration: none;
-    font-size: 3.5vw;
-    transition: .5s;
+    /* font-size: 3.5vw; */
+    /* transition: .1s; */
 
-  }
-
-  .bottom :active {
-    opacity: 500%;
-    color:white;
-    text-decoration: none;
   }

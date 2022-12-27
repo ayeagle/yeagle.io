@@ -77,7 +77,9 @@ export default function JobDetails({ elements, key }) {
                         <h3 className={styles.details_header_units} style={{ justifyItems: "right" }}>{elements.tenure}</h3>
                     </div>
                     <div style={{ position: "relative" }}>
-                        <img src="/IMGassets/down_arrow.png" className={styles.arrow} onClick={openClick} />
+                        <div className={styles.arrow} onClick={openClick} >
+                            <img src="/IMGassets/down_arrow.png" style={{height:"5vw"}}/>
+                        </div>
 
                         <visualViewport className={styles.logo_container}>
                             {/* <Waves h={400/4} w={800/4}> */}
