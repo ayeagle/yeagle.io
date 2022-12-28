@@ -1,0 +1,23 @@
+.wrapper {
+    height: 50vh;
+    width: 80%;
+    position: relative;
+    z-index: 1000;
+    background-color: white;
+left:10%;
+border-radius: 10px;
+}
+
+.item{
+    height: 10vh;
+    width: 10vw;
+    position: absolute;
+    z-index: 11000;
+    background-color: rgb(255, 1, 1);
+    left:10%;
+    top: 10%;
+    border-radius: 10px;
+    transition: 0s;
+    color:black;
+
+}

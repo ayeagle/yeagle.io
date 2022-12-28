@@ -13,7 +13,7 @@ import Iceland from "@components/bio/Iceland";
 import Lines from "@components/bio/Lines";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
-
+import DragDrop from "@components/bio/DragDrop";
 
 
 const courses = [
@@ -112,6 +112,39 @@ const frameworks = [
     }
 ]
 
+const dropjects = [
+    {
+        id: 1,
+        content: "Python",
+        url: 0,
+    }, {
+        id: 2,
+        content: "PHP/Hack",
+        url: 0,
+    }, {
+        id: 3,
+        content: "Vanilla JS",
+        url: 0,
+    }, {
+        id: 4,
+        content: "Axios",
+        url: 0,
+    }, {
+        id: 5,
+        content: "Bootstrap",
+        url: 0,
+    }, {
+        id: 6,
+        content: "Presto",
+        url: 0,
+    }, {
+        id: 7,
+        content: "Scuba",
+        url: 0,
+    }
+]
+
+
 
 
 export default function Coding() {
@@ -172,6 +205,7 @@ export default function Coding() {
             </div>
             <SVGSpacers type="top" num="5" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
+            {/* <DragDrop  dropjects={dropjects} startX={231} startY={1079}/> */}
             <h2>Projects</h2>
 
             <div className={styles.list}>
