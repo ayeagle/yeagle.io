@@ -3,8 +3,8 @@ import * as icons from 'react-icons/fa';
 import styles from './Socials.module.css'
 
 export default function Socials({size,loc}) {
-    console.log(size + "?this is the size prop")
-    console.log(loc + "?this is the loc prop")
+    // console.log(size + "?this is the size prop")
+    // console.log(loc + "?this is the loc prop")
 
     return (
         <>
