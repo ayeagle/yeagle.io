@@ -84,6 +84,8 @@ const updateGif = (val) => {
 };
 
 const updateUuid = (val) => {
+    console.log("redux state ALSO happening!!!!!!!!  "+ val)
+
     return {
         type: UPDATE_UUID,
         newVal: val,
