@@ -95,12 +95,12 @@ export default function JobSection() {
     const [open, setOpen] = useState(false)
     const [workStyle, setWorkStyle] = useState("styles.work_details_closed")
 
-    console.log("On the current load of the page, the workstyle is set to: " + workStyle)
+    // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
 
 
     const openClick = () => {
-        console.log("the onlclick is being used to change styles")
-        console.log("current style before change is : " + workStyle)
+        // console.log("the onlclick is being used to change styles")
+        // console.log("current style before change is : " + workStyle)
 
         setOpen(!open)
         if (open) setWorkStyle(styles.work_details_closed)

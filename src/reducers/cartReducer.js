@@ -91,12 +91,13 @@ const cartReducer = (state = initialState, action) => {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-      case UPDATE_UUID:
-        return {
-          ...state,
-          uuid: action.newVal
+    case UPDATE_UUID:
+      console.log("redux state happening!!!!!!!!  action.newval --> " + action.newVal)
+      return {
+        ...state,
+        uuid: action.newVal
 
-        }
+      }
 
     default:
       return state;

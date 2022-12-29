@@ -19,17 +19,17 @@ export default function JobDetails({ elements, key }) {
     const [workVH, setWorkVH] = useState("7vw")
     const [arrowStyle, setArrowStyle] = useState(styles.arrow_down)
 
-    console.log("On the current load of the page, the workstyle is set to: " + workStyle)
-    console.log("elements.viewheight: " + elements.details_view_height)
-    console.log("workvh state: " + elements.workVH)
+    // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
+    // console.log("elements.viewheight: " + elements.details_view_height)
+    // console.log("workvh state: " + elements.workVH)
 
 
 
     const openClick = (index) => {
-        console.log("the onlclick is being used to change styles")
-        console.log("current style before change is : " + workStyle)
-        console.log("!!!!!!! this is the index being passed : " + index)
-        console.log("!!!!!!! this is the key value " + key)
+        // console.log("the onlclick is being used to change styles")
+        // console.log("current style before change is : " + workStyle)
+        // console.log("!!!!!!! this is the index being passed : " + index)
+        // console.log("!!!!!!! this is the key value " + key)
 
 
         setOpen(!open)
