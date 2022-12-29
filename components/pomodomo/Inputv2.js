@@ -32,13 +32,10 @@ const Input = ({ type, inputPrompt1, state, func, dispatch, updateTotalTime, ste
                             newVal = +e.target.value
                             console.log(newVal + "looks like iter was update here !!!!!!!!!!!!!!!!!")
                         }
-                        console.log("handle click was invoked")
                         dispatch(func(+newVal))
                         setTime1(+newVal)
                         console.log(+newVal)
-                        console.log("this is time1: " + +time1 + "before the re-render")
                         dispatch(updateTotalTime((updater)))
-                        console.log("this is the total time: " + state.totalTime)
                         // handleGeneralInput(inputType,time1)
                     }
                     } />

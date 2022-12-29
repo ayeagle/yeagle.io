@@ -2,8 +2,12 @@
 
 .svg{
   z-index:10000;
-  border-width: 0;
+  /* border-width: 0; */
   position:relative;
   overflow-y: scroll;
   overflow-x: hidden;
+  /* border: -1px none; */
+  /* margin-top:-1px;;
+  margin-bottom:1px;; */
+
 }

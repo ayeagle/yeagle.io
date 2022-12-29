@@ -1,5 +1,5 @@
 import { object } from "check-more-types";
-import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE, UPDATE_ITERATIONS_REMAIN, UPDATE_JOKE, UPDATE_GIF } from "../actionTypes/actionTypes";
+import { ADD_ITEM, DELETE_ITEM, UPDATE_WORKTIME, UPDATE_BREAKTIME, UPDATE_ITERATIONS, UPDATE_PAGE, UPDATE_TOTALTIME, UPDATE_TIMEREMAIN, UPDATE_TIMEACTIVE, UPDATE_ITERATIONS_REMAIN, UPDATE_JOKE, UPDATE_GIF, UPDATE_UUID } from "../actionTypes/actionTypes";
 
 const initialState = {
   numOfItems: 0,
@@ -14,6 +14,7 @@ const initialState = {
   jokeSetup: "",
   jokePunchline: "",
   gif: "",
+  uuid: "",
 
 };
 
@@ -87,6 +88,15 @@ const cartReducer = (state = initialState, action) => {
         gif: action.newVal
 
       }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+      case UPDATE_UUID:
+        return {
+          ...state,
+          uuid: action.newVal
+
+        }
 
     default:
       return state;

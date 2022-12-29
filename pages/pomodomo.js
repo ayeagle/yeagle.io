@@ -19,18 +19,14 @@ export default function Pomo() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
-  console.log("minor change is in effect now")
-  console.log("removed the stupid fucking about import")
-
-
-  const [count, setCount] = useState(0);
-  const [workTime, setWorkTime] = useState(0);   //set these to state. values?
-  const [breakTime, setBreakTime] = useState(0);
-  const [iterations, setIterations] = useState(0);
-  const [totalTime, setTotalTime] = useState(0);
-  const [timeRemain, setTimeRemain] = useState(0);
-  const [timeActive, setTimeActive] = useState(true);
-  const [ready, setReady] = useState(false);
+  // const [count, setCount] = useState(0);
+  // const [workTime, setWorkTime] = useState(0);   //set these to state. values?
+  // const [breakTime, setBreakTime] = useState(0);
+  // const [iterations, setIterations] = useState(0);
+  // const [totalTime, setTotalTime] = useState(0);
+  // const [timeRemain, setTimeRemain] = useState(0);
+  // const [timeActive, setTimeActive] = useState(true);
+  // const [ready, setReady] = useState(false);
 
 
   // return (

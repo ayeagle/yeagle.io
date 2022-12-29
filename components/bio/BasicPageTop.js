@@ -1,12 +1,13 @@
 import { MetaHTMLAttributes } from "react"
 import Header from "@components/pomodomo/Header"
 import Head from 'next/head'
-
+import GenSessionUuid from "@components/DBcomponents/usergen"
 
 
 export default function BasicPageTop() {
   return (
     <>
+      <GenSessionUuid />
       <Head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
