@@ -16,9 +16,9 @@ import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
-import {StartDatabaseConnection} from "../components/DBcomponents/Connect"
+// import {StartDatabaseConnection} from "../components/DBcomponents/Connect"
 
-StartDatabaseConnection()
+// StartDatabaseConnection()
 
 
 export default function Debug() {
