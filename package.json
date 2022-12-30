@@ -1,3 +1,5 @@
+
+
 {
   "name": "next-netlify-starter",
   "version": "0.5.0",
@@ -26,5 +28,10 @@
     "react-spring": "^9.5.5",
     "redux": "^4.2.0",
     "uuid": "^9.0.0"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
