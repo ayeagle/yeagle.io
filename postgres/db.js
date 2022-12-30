@@ -1,45 +1,79 @@
-const express = require('express');
-const app = express();
-const { Client } = require('pg');
-const portNum = 3001
+// const express = require('express');
+// const app = express();
+// const { Client } = require('pg');
+// const portNum = 3001
+// const fs = require('fs');
 
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+
+// app.get('/', (req, res) => {
+//     res.send('Hello, World!');
+// });
 
 
-const client = new Client({
-    host: 'database-1.chvf8cjpyfew.us-east-1.rds.amazonaws.com',
-    user: 'postgres3',
-    password: 'r%0k3kS*FT8!kGz0zih',
-    database: 'maindb',
-});
+// const client = new Client({
+//     host: 'database-1.chvf8cjpyfew.us-east-1.rds.amazonaws.com',
+//     user: 'postgres3',
+//     password: 'r%0k3kS*FT8!kGz0zih',
+//     database: 'maindb',
+// });
+
+function StartDatabaseConnection() {
+    // app.listen(portNum, () => {
+    //     console.log('Server listening on port: ' + portNum);
+
+        // client.connect((err) => {
+        //     if (err) {
+        //         console.error('Error connecting to the database:', err.stack);
+        //     } else {
+        //         console.log('Successfully connected to the database');
+
+        //         client.query(`
+        //       CREATE TABLE user_activity (
+        //         id SERIAL PRIMARY KEY,
+        //         user_id INTEGER NOT NULL,
+        //         activity VARCHAR(255) NOT NULL,
+        //         time TIMESTAMP NOT NULL
+        //       );
+        //     `, (err, res) => {
+        //             if (err) {
+        //                 console.error('Error creating table:', err.stack);
+        //             } else {
+        //                 console.log('Successfully created table');
+        //             }
+        //         });
+        //     }
+        // });
+    // });
+    const total = 1
+
+}
+
+// function insertActivity(userId, activity, time, client) {
+//     client.query(
+//         `INSERT INTO user_activity (user_id, activity, time) VALUES ($1, $2, $3)`,
+//         [userId, activity, time],
+//         (err, res) => {
+//             if (err) {
+//                 console.error('Error inserting row:', err.stack);
+//             } else {
+//                 console.log('Successfully inserted row');
+//             }
+//         }
+//     );
+// }
+
+export {StartDatabaseConnection}
 
 
-app.listen(portNum, () => {
-    console.log('Server listening on port: ' + portNum);
 
-    client.connect((err) => {
-        if (err) {
-            console.error('Error connecting to the database:', err.stack);
-        } else {
-            console.log('Successfully connected to the database');
 
-            client.query(`
-              CREATE TABLE user_activity (
-                id SERIAL PRIMARY KEY,
-                user_id INTEGER NOT NULL,
-                activity VARCHAR(255) NOT NULL,
-                time TIMESTAMP NOT NULL
-              );
-            `, (err, res) => {
-                if (err) {
-                    console.error('Error creating table:', err.stack);
-                } else {
-                    console.log('Successfully created table');
-                }
-            });
-        }
-    });
-});
+
+
+
+
+// removed from the package.json file
+  // "net": false,
+    // "dns": false,
+    // "tls": false,
+    // "pg-native": false
