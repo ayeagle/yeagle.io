@@ -16,11 +16,12 @@ import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
+import {StartDatabaseConnection} from "../components/DBcomponents/Connect"
+
+StartDatabaseConnection()
 
 
-
-
-export default function About() {
+export default function Debug() {
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
