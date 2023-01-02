@@ -1,62 +1,44 @@
-const express = require('express');
-const app = express();
-const { Client } = require('pg');
-const portNum = 3001
+
+import axios from 'axios';
+
+import React, { useState, useEffect, useRef } from 'react';
+import Button from '@components/pomodomo/Button';
+import DragElement from '@components/bio/DragElement';
 
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+export default function Connect({}) {
+
+    const [single, setSingle] = useState(0)
+
+    const insertData = (table, activity, date) => {
+      console.log("INSERT DATA FX IS LIVE")
+
+        return (dispatch) => {
+          dispatch({ type: INSERT_DATA_REQUEST });
+          axios.post('/api/insert', {table, activity, date})
+            .then((response) => {
+              // dispatch({ type: INSERT_DATA_SUCCESS, payload: response.data })
+              console.log("this is the response data "+ response.data)
+            })
+            .catch((error) => {
+              // dispatch({ type: INSERT_DATA_ERROR, error });
+              console.log("this is the error:  "+ error)
+
+            });
+        };
+      };
+
+    if(single <= 3) {
+      insertData("user_activity","loaded thing", Date())
+      console.log("this is the date: "+ Date())
+      setSingle(single+1)
+      console.log("insertData was invoked")
+    }
 
 
-const client = new Client({
-    host: 'database-1.chvf8cjpyfew.us-east-1.rds.amazonaws.com',
-    user: 'postgres3',
-    password: 'r%0k3kS*FT8!kGz0zih',
-    database: 'maindb',
-});
-
-function StartDatabaseConnection() {
-    app.listen(portNum, () => {
-        console.log('Server listening on port: ' + portNum);
-
-        // client.connect((err) => {
-        //     if (err) {
-        //         console.error('Error connecting to the database:', err.stack);
-        //     } else {
-        //         console.log('Successfully connected to the database');
-
-        //         client.query(`
-        //       CREATE TABLE user_activity (
-        //         id SERIAL PRIMARY KEY,
-        //         user_id INTEGER NOT NULL,
-        //         activity VARCHAR(255) NOT NULL,
-        //         time TIMESTAMP NOT NULL
-        //       );
-        //     `, (err, res) => {
-        //             if (err) {
-        //                 console.error('Error creating table:', err.stack);
-        //             } else {
-        //                 console.log('Successfully created table');
-        //             }
-        //         });
-        //     }
-        // });
-    });
+    return (
+        <>
+            <div>The connect component has been mounted</div>
+        </>
+    )
 }
-
-function insertActivity(userId, activity, time, client) {
-    client.query(
-        `INSERT INTO user_activity (user_id, activity, time) VALUES ($1, $2, $3)`,
-        [userId, activity, time],
-        (err, res) => {
-            if (err) {
-                console.error('Error inserting row:', err.stack);
-            } else {
-                console.log('Successfully inserted row');
-            }
-        }
-    );
-}
-
-export {StartDatabaseConnection}

@@ -19,7 +19,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 
-
 export default function About() {
 
     const [height, updateHeight] = useState(0)
