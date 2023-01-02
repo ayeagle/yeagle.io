@@ -17,6 +17,8 @@ import Flood from "@components/bio/Flood";
 import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
 // import {StartDatabaseConnection} from "../components/DBcomponents/Connect"
+import Connect from "@components/DBcomponents/Connect";
+
 
 // StartDatabaseConnection()
 
@@ -57,18 +59,21 @@ export default function Debug() {
 
     return (
         <div className={styles.master}>
-            <Flood/>
+            <Flood />
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />
 
+            <Connect />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
             <div style={{ height: "80vh", fill: "black", zIndex: 500, }} >
 
-            <div>This is your uuid lol <br></br>{state.uuid}</div>
-            <div>This is your cookie lol (static) <br></br>{CID}</div>
-
-
-
+                <div>This is your uuid lol <br></br>{state.uuid}</div>
+                <div>This is your cookie lol (static) <br></br>{CID}</div>
 
             </div>
 
