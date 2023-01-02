@@ -11,7 +11,7 @@ export default function Typing({ content }) {
     const extra = `&nbsp;`
 
     useEffect(() => {
-        if (indexPauser < 3 || index == content.length) {
+        if (indexPauser < 2 || index == content.length) {
 
             const interval = setInterval(() => {
 
@@ -43,7 +43,7 @@ export default function Typing({ content }) {
                     clearInterval(interval)
                     // setIndex(0)
                 }
-            }, 35);
+            }, 28);
             return () => clearInterval(interval);
 
         }

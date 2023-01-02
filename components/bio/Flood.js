@@ -35,10 +35,10 @@ export default function Flood() {
 
     return (
         <>
-            {/* <div className={currStyle}>
+            <div className={currStyle}>
                 <SVGSpacers className={svgStyle} type="top" num="5" />
                 <div className={fillStyle}>  </div>
-            </div> */}
+            </div>
         </>
     )
 }

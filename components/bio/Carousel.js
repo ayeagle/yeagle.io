@@ -77,6 +77,28 @@ export default function Carousel() {
   const [caroLive, setCaroLive] = useState(false)
 
 
+
+  const preStyle = {left: '100%',
+                    color: 'rgb(0,0,0)',
+                    backgroundColor: 'rgb(0,0,0)',
+                    transition: '.5s',
+                    borderColor: 'rgb(0,0,0)'}
+
+
+  const currStyle = {left: "12.5%" ,
+                    color:  "white",
+                    backgroundColor:  "#7c4455",
+                    transition:  "1s",
+                    borderColor: "#eb5c00"}
+
+const postStyle = {left: '-100%',
+                  color: 'rgb(0,0,0)',
+                  backgroundColor: 'rgb(0,0,0)',
+                  transition: '.5s',
+                  borderColor: 'rgb(0,0,0)'}
+
+
+
   // console.log(elements.length + "this is the element length")
 
   // useEffect(() => {
@@ -125,17 +147,8 @@ export default function Carousel() {
           <span
             key={element.id}
             className={styles.carousel_element}
-            style={{
-              left: index === currentIndex ? "12.5%" : index < currentIndex ? '100%' : '-100%',
-              color: index === currentIndex ? "white" : index < currentIndex ? 'rgb(0,0,0)' : 'rgb(0,0,0)',
-              backgroundColor: index === currentIndex ? "#7c4455" : index < currentIndex ? 'rgb(0,0,0)' : 'rgb(0,0,0)',
-              transition: index === currentIndex ? "5s" : index < currentIndex ? '3s' : '3s',
-              borderColor: index === currentIndex ? "#eb5c00" : index < currentIndex ? 'rgb(0,0,0)' : 'rgb(0,0,0)',
-              fontSize: element.size
-
-              // `${element.position + mover}em`,
-            }}
-          >
+            style={{...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size, zIndex:((Math.abs(index-currentIndex)*(-5))+1000)}}
+            >
             "{element.content}"
             <br></br>
             <br></br>
