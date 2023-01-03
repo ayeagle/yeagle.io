@@ -15,6 +15,7 @@ import JobSection from "@components/bio/JobSection";
 import EducationSection from "@components/bio/EducationSection";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
+import Spacer from "@components/bio/spacer";
 
 
 
@@ -67,15 +68,20 @@ export default function Resume() {
             <SVGSpacers type="top" num="5" width={width} />
 
             <SVGSpacers type="bot" num="1" width={width} />
+            <Spacer/>
             <h1 style={{ fontSize: "5vw" }}> Work Experience</h1>
             <JobSection />
+            <Spacer/>
 
             <SVGSpacers type="top" num="5" width={width} />
 
             <SVGSpacers type="bot" num="1" width={width} />
+            <Spacer/>
+
             <h1 style={{ fontSize: "5vw" }}> Education</h1>
             <EducationSection />
-            <div style={{ height: "20vh", fill: "black", zIndex: 500 }} />
+            {/* <div style={{ height: "20vh", fill: "black", zIndex: 500 }} /> */}
+            <Spacer/>
 
 
             <SVGSpacers type="top" num="4" width={width} />
