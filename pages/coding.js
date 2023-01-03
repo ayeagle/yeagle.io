@@ -14,7 +14,7 @@ import Lines from "@components/bio/Lines";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import DragDrop from "@components/bio/DragDrop";
-
+import Spacer from "@components/bio/spacer";
 
 const courses = [
     {
@@ -192,6 +192,8 @@ export default function Coding() {
             </div>
             <SVGSpacers type="top" num="4" width={width} />
             <SVGSpacers type="bot" num="1" width={width} />
+            <Spacer/>
+
             <h2>Self-Learned Curriculum</h2>
             <div className={styles.list}>
                 <span>Courses
@@ -203,8 +205,12 @@ export default function Coding() {
                     <Lines content={books} />
                 </span>
             </div>
+            <Spacer/>
+
             <SVGSpacers type="top" num="5" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
+            <Spacer/>
+
             {/* <DragDrop  dropjects={dropjects} startX={231} startY={1079}/> */}
             <h2>Projects</h2>
 
@@ -220,8 +226,12 @@ export default function Coding() {
                     <li> Pomodomo</li>
                 </span>
             </div>
+            <Spacer/>
+
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="2" width={width} />
+            <Spacer/>
+
             <h2>Languages + Stack</h2>
             <div className={styles.list}>
                 <div>Favorite Stack
@@ -236,6 +246,7 @@ export default function Coding() {
 
                 </div>
             </div>
+            <Spacer/>
 
             <SVGSpacers type="top" num="4" width={width} />
             <div className={styles.box}>

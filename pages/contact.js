@@ -14,7 +14,7 @@ import Socials from "@components/bio/Socials";
 import NavButton from "@components/bio/NavButton";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
-
+import Spacer from "@components/bio/spacer";
 
 export default function Contact() {
 
@@ -69,26 +69,17 @@ export default function Contact() {
             <SVGSpacers type="top" num="5" width={width} />
 
             <SVGSpacers type="bot" num="1" width={width} />
-            <div style={{ height: "60vh", fill: "black", zIndex: 500 }}>
+            <Spacer/>
+            <div >
                 <div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
                     <Socials size={"3vw"} loc={"center"} />
                     <div className={styles.contact_element}>+1 (559) 451 6174</div>
                     <div className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</div>
                     <div className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</div>
                     <div className={styles.contact_element}>SF, CA</div>
-
-
                     <br></br>
                     <a><NavButton buttonName={"Get in touch"} handleClick={sendEmail} /></a>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-
-
+                    <Spacer/>
                 </div>
             </div>
 

@@ -16,10 +16,13 @@ import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
-
+import Spacer from "@components/bio/spacer";
+import axios from "node_modules/axios/index";
 
 
 export default function About() {
+
+
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
@@ -28,6 +31,22 @@ export default function About() {
     // console.log("this is the height (start) ==> " + height)
     //     console.log("this is the width (start) ==> " + width)
 
+    const [limiter, setLimiter] = useState(0)
+
+
+    // if (limiter <= 3) {
+    //     setLimiter(limiter + 1)
+
+    //     axios.get('http://ec2-44-210-111-39.compute-1.amazonaws.com:3000/')
+    //         .then(response => {
+    //             console.log(response.data); // 'Hello World!'
+    //             console.log("the request was successful")
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //             console.log("the request was NOT NOT NOT successful")
+    //         });
+    // }
 
     useEffect(() => {
         // Update the height and width state when the component is mounted
@@ -45,6 +64,47 @@ export default function About() {
         // Add the event listener
         window.addEventListener('resize', handleWindowResize)
 
+        let sessionId = document.cookie.substr( document.cookie.indexOf("=")+1, document.cookie.indexOf("=") + 36)
+        let activity = "loading the about page"
+        let timestamp = new Date().toISOString()
+
+        console.log("CLIENT SIDE: session id value is " +sessionId + " and the type of this is " + typeof(sessionId))
+        console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
+        console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
+
+        setLimiter(limiter + 1)
+
+
+        if (limiter <=3 ) {
+            console.log("data post was triggered!!!!!!!!")
+
+            // console.log("this is the req body sessionId --> " + req.body.sessionId);
+
+
+            axios.post('http://ec2-44-210-111-39.compute-1.amazonaws.com:5432/activity', {
+                sessionId: sessionId,
+                activity: activity,
+                timestamp: timestamp
+            })
+                .then(response => {
+                    console.log(response.data);
+                    console.log("the request was successful")
+
+                })
+                .catch(error => {
+                    console.error(error);
+                    console.log("UNSUCCESSFUL REQUEST")
+                    // console.log(error.response.data)
+
+                });
+        }
+
+
+
+
+
+
+
         // Clean up the event listener when the component unmounts
         return () => {
             window.removeEventListener('resize', handleWindowResize)
@@ -55,45 +115,38 @@ export default function About() {
 
     return (
         <div className={styles.master}>
-            <Flood/>
+            <Flood />
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />
-
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/me2.png" className={styles.image} />
-                <div className={styles.image_text}><Typing content={"Self-taught developer and product enthusiast with a passion for building and scaling customer-obsessed solutions."}/></div>
+                <div className={styles.image_text}><Typing content={"Self-taught developer and product enthusiast with a passion for building functional and valuable customer-obsessed solutions."} /></div>
             </div>
             <SVGSpacers type="top" num="1" width={width} />
-
             <SVGSpacers type="bot" num="2" width={width} />
-
-            {/* <h4 className={styles.text_left} >"I chose Alex because he contains all
-                of the ingredients for a strong team member... I am confident
-                he will be a valuable addition to any product teams solving tough problems."</h4>
-            <h3 className={styles.text_left} >Marcus Lowe, Head of Product @ Resource.io
-                <br></br>
-                <br></br>
-                <NavButton handleClick={{}} buttonName={"Learn Why"} />
-            </h3> */}
+            <Spacer />
             <div style={{ position: "relative", height: "30em", width: "100%" }}>
                 <Carousel className={styles.caro} />
             </div>
             <a href="/resume"><NavButton buttonName={"See my work"} /></a>
+            <Spacer />
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
-            <h4 style={{ padding: "5vw" }}> A broad range of experiences across product, operations, analytics, and engineering
-                has given my product work diversity and perspective.
-                <br></br>
-                <br></br>
+            <div style={{ height: "15vh", fill: "black", zIndex: 500 }} />
+            <h4 style={{ padding: "7vw", fontSize: "5vw" }}> A broad range of experiences across product, operations, analytics, and engineering
+                has given my product work diversity and perspective. <br></br><br></br>
                 <a href="/portfolio"><NavButton buttonName={"See my Projects"} /></a>
             </h4>
+            <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
+            <Spacer />
             <h3>I'm also a drone videographer!</h3>
             {/* <div height={600}> */}
             <Iceland width={width} height={height} className={styles.video} />
             {/* </div> */}
+            <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <div className={styles.box}>
                 <BasicPageBottom />

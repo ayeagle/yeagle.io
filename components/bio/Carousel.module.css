@@ -36,8 +36,33 @@
 }
 
 .button{
-  background-color: blue;
+  background-color: #eb5c00;
+  height: 6vw;
+  width: 12vw;
+  transition: .3s;
+  position:relative;
+  padding-left: 10vw;
+  padding-right: 10vw;
+
+
 }
+
+.button:hover{
+  background-color: #eb5c00;
+  height: 6vw;
+  width: 14vw;
+  transition: .3s;
+
+}
+
+.button:active{
+  background-color: #eb5c00;
+  height: 6vw;
+  width: 14vw;
+  transition: .3s;
+
+}
+
 
 
 @media only screen{

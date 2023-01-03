@@ -158,8 +158,9 @@ const postStyle = {left: '-100%',
           </span>
 
         ))}
+        <div style={{width:"100vw", display: "flex", justifyContent: "center"}}>
         <Button className={styles.button} buttonName={"\u25c0"} handleClick={forwardClick}/> <Button className={styles.button} buttonName={"\u25b6"} handleClick={backClick}/>
-
+        </div>
       </div>
       {/* </div> */}
       {/* </rect> */}
