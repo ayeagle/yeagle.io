@@ -14,7 +14,7 @@ import Lines from "@components/bio/Lines";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import DragDrop from "@components/bio/DragDrop";
-import Spacer from "@components/bio/spacer";
+import Spacer from "@components/bio/Spacer";
 
 const courses = [
     {
