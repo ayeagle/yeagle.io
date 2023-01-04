@@ -14,6 +14,7 @@ import Carousel from "@components/bio/Carousel";
 import Waves from "@components/pomodomo/Waves";
 import styles2 from '/components/pomodomo/Footer.module.css'
 import Flood from "@components/bio/Flood";
+import Spacer from "@components/bio/Spacer";
 
 
 export default function Portfolio() {

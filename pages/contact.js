@@ -14,7 +14,7 @@ import Socials from "@components/bio/Socials";
 import NavButton from "@components/bio/NavButton";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
-import Spacer from "@components/bio/spacer";
+import Spacer from "@components/bio/Spacer";
 
 export default function Contact() {
 
