@@ -75,7 +75,7 @@ export default function About() {
         setLimiter(limiter + 1)
 
 
-        if (limiter <=1 ) {
+        if (limiter <=3 ) {
             console.log("data post was triggered!!!!!!!!")
 
             // console.log("this is the req body sessionId --> " + req.body.sessionId);
