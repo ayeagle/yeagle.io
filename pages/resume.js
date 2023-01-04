@@ -15,7 +15,7 @@ import JobSection from "@components/bio/JobSection";
 import EducationSection from "@components/bio/EducationSection";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
-import Spacer from "@components/bio/spacer";
+import Spacer from "@components/bio/Spacer";
 
 
 

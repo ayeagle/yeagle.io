@@ -16,7 +16,7 @@ import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
-import Spacer from "@components/bio/spacer";
+import Spacer from "@components/bio/Spacer";
 import axios from "node_modules/axios/index";
 
 
