@@ -15,6 +15,7 @@ import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import DragDrop from "@components/bio/DragDrop";
 import Spacer from "@components/bio/Spacer";
+import LogActivity from "@components/DBcomponents/LogActivity";
 
 const courses = [
     {
@@ -145,12 +146,13 @@ const dropjects = [
 ]
 
 
-
+let userId = 20
 
 export default function Coding() {
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
+    const [limiter, setLimiter] = useState(0)
 
     // console.log("this is the height (start) ==> " + height)
     //     console.log("this is the width (start) ==> " + width)
@@ -168,6 +170,11 @@ export default function Coding() {
             updateHeight(window.innerHeight)
             updateWidth(window.innerWidth)
         }
+        if (limiter <=3 ) {
+            setLimiter(limiter + 1)
+            LogActivity(userId, "loaded coding page")
+        }
+
 
         // Add the event listener
         window.addEventListener('resize', handleWindowResize)

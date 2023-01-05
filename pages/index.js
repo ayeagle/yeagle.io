@@ -33,6 +33,7 @@ export default function Index() {
   const [timeRemain, setTimeRemain] = useState(0);
   const [timeActive, setTimeActive] = useState(true);
   const [ready, setReady] = useState(false);
+  const [limiter, setLimiter] = useState(0)
 
 
   // return (

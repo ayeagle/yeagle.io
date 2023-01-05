@@ -15,12 +15,15 @@ import Waves from "@components/pomodomo/Waves";
 import styles2 from '/components/pomodomo/Footer.module.css'
 import Flood from "@components/bio/Flood";
 import Spacer from "@components/bio/Spacer";
+import LogActivity from "@components/DBcomponents/LogActivity";
 
+let userId = 20
 
 export default function Portfolio() {
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
+    const [limiter, setLimiter] = useState(0)
 
     // console.log("this is the height (start) ==> " + height)
     //     console.log("this is the width (start) ==> " + width)
@@ -38,6 +41,11 @@ export default function Portfolio() {
             updateHeight(document.documentElement.scrollHeight)
             updateWidth(document.documentElement.scrollWidth)
         }
+        if (limiter <=3 ) {
+            setLimiter(limiter + 1)
+            LogActivity(userId, "loaded portfolio page")
+        }
+
 
         // Add the event listener
         window.addEventListener('resize', handleWindowResize)
