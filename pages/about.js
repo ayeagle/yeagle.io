@@ -18,7 +18,7 @@ import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
 import Spacer from "@components/bio/Spacer";
 import axios from "node_modules/axios/index";
-
+import LogActivity from "@components/DBcomponents/LogActivity";
 
 export default function About() {
 
@@ -64,39 +64,19 @@ export default function About() {
         // Add the event listener
         window.addEventListener('resize', handleWindowResize)
 
-        let sessionId = document.cookie.substr( document.cookie.indexOf("=")+1, document.cookie.indexOf("=") + 36)
-        let activity = "loading the about page"
+        let userId = 20 //document.cookie.substr( document.cookie.indexOf("=")+1, document.cookie.indexOf("=") + 36)
+        // let activity = "loading the about page"
         let timestamp = new Date().toISOString()
 
-        console.log("CLIENT SIDE: session id value is " +sessionId + " and the type of this is " + typeof(sessionId))
-        console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
-        console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
+        // console.log("CLIENT SIDE: session id value is " +userId + " and the type of this is " + typeof(userId))
+        // console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
+        // console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
 
-        setLimiter(limiter + 1)
 
 
         if (limiter <=3 ) {
-            console.log("data post was triggered!!!!!!!!")
-
-            // console.log("this is the req body sessionId --> " + req.body.sessionId);
-
-
-            axios.post('http://ec2-44-210-111-39.compute-1.amazonaws.com:5432/activity', {
-                sessionId: sessionId,
-                activity: activity,
-                timestamp: timestamp
-            })
-                .then(response => {
-                    console.log(response.data);
-                    console.log("the request was successful")
-
-                })
-                .catch(error => {
-                    console.error(error);
-                    console.log("UNSUCCESSFUL REQUEST")
-                    // console.log(error.response.data)
-
-                });
+            setLimiter(limiter + 1)
+            LogActivity(userId, "loaded about page")
         }
 
 
