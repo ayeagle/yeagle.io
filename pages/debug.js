@@ -18,10 +18,12 @@ import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
 // import {StartDatabaseConnection} from "../components/DBcomponents/Connect"
 import Connect from "@components/DBcomponents/Connect";
+import LogActivity from "@components/DBcomponents/LogActivity";
 
 
 // StartDatabaseConnection()
 
+let userId = 20
 
 export default function Debug() {
 
@@ -29,6 +31,8 @@ export default function Debug() {
     const [width, updateWidth] = useState(0)
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
+    const [limiter, setLimiter] = useState(0)
+
     // console.log("this is the height (start) ==> " + height
     //     console.log("this is the width (start) ==> " + width)
     const [CID, setCID] = useState(0);
@@ -45,6 +49,12 @@ export default function Debug() {
             updateHeight(window.innerHeight)
             updateWidth(window.innerWidth)
         }
+
+        if (limiter <=3 ) {
+            setLimiter(limiter + 1)
+            LogActivity(userId, "loaded debug page")
+        }
+
         setCID(document.cookie)
         // Add the event listener
         window.addEventListener('resize', handleWindowResize)

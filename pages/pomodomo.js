@@ -8,6 +8,7 @@ import Break from '@components/pomodomo/Break'
 import Finished from '@components/pomodomo/Finished'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Waves from '@components/pomodomo/Waves'
+import LogActivity from "@components/DBcomponents/LogActivity";
 
 // import About from './About';  // this is the React component you want to render
 
@@ -18,6 +19,7 @@ export default function Pomo() {
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  const [limiter, setLimiter] = useState(0)
 
   // const [count, setCount] = useState(0);
   // const [workTime, setWorkTime] = useState(0);   //set these to state. values?

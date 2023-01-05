@@ -15,12 +15,16 @@ import NavButton from "@components/bio/NavButton";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
 import Spacer from "@components/bio/Spacer";
+import LogActivity from "@components/DBcomponents/LogActivity";
+
+let userId = 20
 
 export default function Contact() {
 
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
+    const [limiter, setLimiter] = useState(0)
 
     // console.log("this is the height (start) ==> " + height)
     //     console.log("this is the width (start) ==> " + width)
@@ -41,6 +45,10 @@ export default function Contact() {
             // Update the height and width state when the window is resized
             updateHeight(window.innerHeight)
             updateWidth(window.innerWidth)
+        }
+        if (limiter <=3 ) {
+            setLimiter(limiter + 1)
+            LogActivity(userId, "loaded contact page")
         }
 
         // Add the event listener
