@@ -82,7 +82,7 @@
     overflow: hidden;
     opacity: 100% !important;
     box-shadow: none;
-    transition: .5s;
+    /* transition: .5s; */
     border: 3px solid rgb(60, 60, 60);
     border-top: 0px solid rgb(0, 0, 0);
     opacity: 100%;
