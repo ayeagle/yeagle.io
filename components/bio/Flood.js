@@ -1,5 +1,4 @@
 import React from "react"
-import * as icons from 'react-icons/fa';
 import styles from './Flood.module.css'
 import SVGSpacers from "./SVGSpacers";
 import { useEffect, useState } from "react";
