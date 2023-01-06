@@ -19,6 +19,10 @@ import { useSelector, useDispatch } from "react-redux";
 import Spacer from "@components/bio/Spacer";
 import axios from "node_modules/axios/index";
 import LogActivity from "@components/DBcomponents/LogActivity";
+import LoginWindow from "@components/bio/LoginWindow";
+
+
+
 
 export default function Login() {
     const [height, updateHeight] = useState(0)
@@ -54,7 +58,7 @@ export default function Login() {
 
 
 
-        if (limiter <=3 ) {
+        if (limiter <= 3) {
             setLimiter(limiter + 1)
             LogActivity(userId, "loaded login page")
         }
@@ -79,10 +83,10 @@ export default function Login() {
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />
-           
-            <Spacer />
-            <Spacer />
 
+            <Spacer />
+            <Spacer />
+            <LoginWindow />
             <Spacer />
 
             <Spacer />

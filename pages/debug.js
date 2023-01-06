@@ -20,10 +20,11 @@ import { useSelector, useDispatch } from "react-redux";
 import Connect from "@components/DBcomponents/Connect";
 import LogActivity from "@components/DBcomponents/LogActivity";
 import LoginButton from "@components/bio/LoginButton";
-
+import CheckUser from "@components/DBcomponents/CheckUser";
 // StartDatabaseConnection()
 
 let userId = 20
+let userName = "jhsjk"
 
 export default function Debug() {
 
@@ -50,9 +51,17 @@ export default function Debug() {
             updateWidth(window.innerWidth)
         }
 
-        if (limiter <=3 ) {
+        if (limiter <= 1) {
+            const promise = CheckUser("asdjkhkjh");
+
             setLimiter(limiter + 1)
-            LogActivity(userId, "loaded debug page")
+            // LogActivity(userId, "loaded debug page")
+            console.log("this is the result of the user check:::: ")
+
+            promise.then((data) => {
+                // the data argument contains the value that the Promise was resolved with
+                console.log(!data)
+            }) //does the user exist?
         }
 
         setCID(document.cookie)
