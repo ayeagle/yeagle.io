@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Socials from "./Socials";
-
+import LoginButton from "./LoginButton";
 
 export default function NavBar() {
 
@@ -73,7 +73,11 @@ export default function NavBar() {
                         <li className={contactStyle}>
                             <Socials size={"x-large"} loc={"right"}/>
                         </li>
+                        <li className={contactStyle}>
+                            <LoginButton />
+                        </li>
                     </ul>
+                    <br></br>
                 </div>
             </nav>
         </>

@@ -32,6 +32,8 @@ global.app = app;
 ///////////////////////////////
 const logActivity = require('./logActivity');
 const checkUser = require('./checkUser');
+const addNewUser = require('./addNewUser');
+
 
 
 ///////////////////////////////
@@ -88,4 +90,8 @@ app.use('/checkUser',  (req, res, next) => {
 
 app.use('/logActivity',  (req, res, next) => {
   logActivity(req, res, next);
+});
+
+app.use('/addNewUser',  (req, res, next) => {
+  addNewUser(req, res, next);
 });
