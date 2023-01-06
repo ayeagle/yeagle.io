@@ -1,0 +1,24 @@
+.login_container{
+    height: auto;
+    width: 20vw;
+    z-index: 10000;
+    background-color: white;
+    border-radius: 10px;
+    text-decoration: none;    
+}
+
+.login_container:hover{
+    opacity: 60%;
+    text-decoration: none;    
+
+}
+
+.login_text{
+    text-decoration: none;
+    color: black;
+}
+
+.login_text:hover{
+    text-decoration: none;
+    color: black;
+}
