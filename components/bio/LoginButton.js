@@ -10,7 +10,7 @@ export default function LoginButton() {
 
     const logClick = () => {
 
-        //logic to see if they are 
+        //logic to see if they are
 
     }
 
@@ -18,7 +18,7 @@ export default function LoginButton() {
         <>
             <div className={styles.login_container} onClick={logClick}>
                 <a href='/login' className={styles.login_text}>
-                    <div className={styles.login_text}>Login / Signup</div>
+                    <div className={styles.login_text}>Login</div>
                 </a>
             </div>
         </>

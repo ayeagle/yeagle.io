@@ -21,10 +21,15 @@ import Connect from "@components/DBcomponents/Connect";
 import LogActivity from "@components/DBcomponents/LogActivity";
 import LoginButton from "@components/bio/LoginButton";
 import CheckUser from "@components/DBcomponents/CheckUser";
+import AddNewUser from "@components/DBcomponents/AddNewUser";
+
 // StartDatabaseConnection()
 
 let userId = 20
-let userName = "jhsjk"
+let username = "jhsjk"
+
+let randomusername = Math.floor(Math.random()*1000000)
+
 
 export default function Debug() {
 
@@ -52,16 +57,18 @@ export default function Debug() {
         }
 
         if (limiter <= 1) {
-            const promise = CheckUser("asdjkhkjh");
+
+            AddNewUser(randomusername, "test_password")
+            // const promise = CheckUser("asdjkhkjh");
 
             setLimiter(limiter + 1)
-            // LogActivity(userId, "loaded debug page")
-            console.log("this is the result of the user check:::: ")
+            // // LogActivity(userId, "loaded debug page")
+            // console.log("this is the result of the user check:::: ")
 
-            promise.then((data) => {
-                // the data argument contains the value that the Promise was resolved with
-                console.log(!data)
-            }) //does the user exist?
+            // promise.then((data) => {
+            //     // the data argument contains the value that the Promise was resolved with
+            //     console.log(!data)
+            // }) //does the user exist?
         }
 
         setCID(document.cookie)
@@ -83,7 +90,7 @@ export default function Debug() {
             <NavBar />
             <SVGSpacers type="bot" num="2" width={width} />
 
-            <Connect />
+            {/* <Connect /> */}
             <br></br>
             <br></br>
             <br></br>
