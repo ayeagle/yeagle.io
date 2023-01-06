@@ -16,23 +16,23 @@ logActivity = (req, res, next) => {
     // Close the connection to the database
   }
 
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.json());
+  // app.use(express.urlencoded({ extended: true }));
+  // app.use(express.json());
 
 
-  app.use(cors({
-    origin: 'http://localhost:3000/*',
-    credentials: true
-  }));
+  // app.use(cors({
+  //   origin: 'http://localhost:3000/*',
+  //   credentials: true
+  // }));
 
-  app.use(bodyParser.json());
+  // app.use(bodyParser.json());
 
   console.log("---------------------- New Post Cycle --------------------")
   console.log("post.js on the server was invoked")
 
 
   // app.post('/activity', (req, res) => {
-    res.send("POST Request Called")
+    // res.send("POST Request Called")
     console.log(req.body)
 
     const user_id = req.body.userId;
