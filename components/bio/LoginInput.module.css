@@ -1,34 +1,88 @@
-.form{
+.form {
 
     position: relative;
     width: 100%;
-    font-size: 3vw;
+    font-size: 2vw;
     justify-content: space-between;
-padding: 2vw;
-color: black;
+    padding: 2vw;
+    color: black;
 }
 
-.inline_wrapper{
+.inline_wrapper {
     /* display: flex; */
     /* flex-direction: row; */
-    bottom:0px;
+    font-size: 2vw;
+
+    bottom: 0px;
 }
 
-.check_button{
-    height:5vw;
-    width: 40%;
-    position:relative;
-    top:0vw;
+.check_button {
+    height: 5vw;
+    width: 45%;
+    position: relative;
+    top: .3vw;
     font-size: 2vw;
     border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
+
 .input {
-    height:5vw;
+    height: 5vw;
     width: 90%;
-    position:relative;
-    top:.4vw;
-    font-size: 2.5vw;
+    position: relative;
+    top: .4vw;
+    font-size: 2vw;
     border-radius: 10px;
     padding-left: 1.5vw;
+}
+
+
+.warning {
+    position: relative;
+    width: 100%;
+    font-size: 1.5vw;
+    justify-content: space-between;
+    /* padding: 2vw; */
+    color: red;
+}
+
+
+.check_button:hover {
+    height: 5vw;
+    width: 45%;
+    position: relative;
+    top: .3vw;
+    font-size: 2vw;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    opacity: 80%;
+    border: 3px solid black;
+}
+
+
+.submit_button {
+    height: 5vw;
+    width: 50%;
+    position: relative;
+    /* top: 5vw; */
+    font-size: 2vw;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+
+.submit_button:hover {
+
+    opacity: 80%;
+}
+
+.submit_button:hover {
+
+    opacity: 80%;
+    background-color: rgb(148, 148, 251);
+    transition: 5s;
 }

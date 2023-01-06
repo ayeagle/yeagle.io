@@ -1,5 +1,5 @@
 .login_container{
-    height: 40vw;
+    height: auto;
     width: 60%;
     left:20%;
     /* justify-content: center; */
@@ -8,6 +8,7 @@
     background-color: white;
     border-radius: 10px;
     text-decoration: none;
+    padding: 1vw;
 }
 
 /* .login_container:hover{
