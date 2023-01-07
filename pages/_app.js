@@ -7,6 +7,8 @@ import About from './about';
 import genSessionUuid from "../components/DBcomponents/usergen"
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+// import { Router } from 'react-router-dom'
+// import { createBrowserHistory } from 'history'
 
 
 console.log("Oh wow look at you, you little hacker! Inspecting elements and stuff... very impressive wow!")
@@ -16,8 +18,10 @@ function Application({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Component {...pageProps}>
-      </Component>
+      {/* <Router history={history}> */}
+        <Component {...pageProps}>
+        </Component>
+      {/* </Router> */}
     </Provider>
   )
 }

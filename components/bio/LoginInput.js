@@ -1,6 +1,10 @@
 import React, { Component, useState, useEffect } from 'react'
 import styles from './LoginInput.module.css'
 import CheckUser from '@components/DBcomponents/CheckUser';
+import AddNewUser from '@components/DBcomponents/AddNewUser';
+// import { useNavigate } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import About from 'pages/about';
 
 export default function LoginInput({ type, inputPrompt1, fieldPrompt }) {
     const [userCheckVal, setUserCheckVal] = useState('')
@@ -11,6 +15,13 @@ export default function LoginInput({ type, inputPrompt1, fieldPrompt }) {
     const [greenSwitch, setGreenSwitch] = useState(false)
     const [greenSecSwitch, setSecGreenSwitch] = useState(false)
     const [viewPassword, setViewPassword] = useState('password')
+
+    const [userGenResult, setUserGenResult] = useState('')
+
+    // const navigate = useNavigate()
+
+
+    console.log("this is the result:   "+userGenResult)
 
     let updater = 0
     let newVal = 0;
@@ -77,13 +88,34 @@ export default function LoginInput({ type, inputPrompt1, fieldPrompt }) {
         }
     }
 
+    // const redirect = () => {
+    //     console.log("redirect function was triggered")
+    //     return About()
+    // }
+
+    const initUserCreation = () => {
+        sendUsernameCheck()
+        sendPasswordCheck()
+
+        if (greenSwitch && greenSecSwitch) {
+            // setUserGenResult(
+                AddNewUser(userCheckVal, userPasswordCheckVal)
+                // redirect()
+                // navigate('./about')
+            //     .then(response => {
+            //         return response.data
+            //     })
+            // )
+        }
+    }
+
 
 
     useEffect(() => {
 
 
 
-    },[greenSwitch, greenSecSwitch])
+    }, [greenSwitch, greenSecSwitch])
 
 
     return (
@@ -127,7 +159,7 @@ export default function LoginInput({ type, inputPrompt1, fieldPrompt }) {
             </div>
             <br></br>
 
-            <button className={styles.submit_button} style={{display: (greenSwitch && greenSecSwitch) ? '' : "none"}} onClick={sendPasswordCheck}>Create Account</button>
+             <a href="/about"><button className={styles.submit_button} style={{ display: (greenSwitch && greenSecSwitch) ? '' : "none" }} onClick={initUserCreation}>Create Account</button></a>
             <br></br>
 
         </>
