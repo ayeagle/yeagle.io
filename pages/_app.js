@@ -11,9 +11,22 @@ import { useSelector, useDispatch } from "react-redux";
 // import { createBrowserHistory } from 'history'
 
 
+
 console.log("Oh wow look at you, you little hacker! Inspecting elements and stuff... very impressive wow!")
 
 function Application({ Component, pageProps }) {
+
+  useEffect(() => {
+
+    window.user = 
+        {
+            username: null,
+            preference: "stuff",
+            url: "",
+        }
+
+
+  }, [])
 
 
   return (

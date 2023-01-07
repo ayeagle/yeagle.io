@@ -5,6 +5,37 @@ import LoginButton from "./LoginButton";
 export default function NavBar() {
 
 
+
+    const [height, updateHeight] = useState(0)
+    const [width, updateWidth] = useState(0)
+
+    // console.log("this is the height (start) ==> " + height)
+    //     console.log("this is the width (start) ==> " + width)
+
+
+    useEffect(() => {
+        // Update the height and width state when the component is mounted
+        updateHeight(window.innerHeight)
+        updateWidth(window.innerWidth)
+        console.log("this is the height (useeffect) ==> " + height)
+        console.log("this is the width (useeffect) ==> " + width)
+
+        function handleWindowResize() {
+            // Update the height and width state when the window is resized
+            updateHeight(window.innerHeight)
+            updateWidth(window.innerWidth)
+        }
+
+        // Add the event listener
+        window.addEventListener('resize', handleWindowResize)
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', handleWindowResize)
+        }
+    }, [])
+
+
     // const location = useLocation();
     // console.log(location.pathname);
 
@@ -56,7 +87,7 @@ export default function NavBar() {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse" id="navbarNav" style={{top: "2px", position: "relative"}}>
                     <ul className="navbar-nav">
                         <li className={portStyle}>
                             <a className="nav-link" href="/portfolio">Portfolio <span className="sr-only">(current)</span></a>
@@ -74,7 +105,7 @@ export default function NavBar() {
                             <Socials size={"x-large"} loc={"right"}/>
                         </li>
                         <li className={contactStyle}>
-                            <LoginButton />
+                            <LoginButton className="nav-link" position={width < 992 ? "relative" : "absolute"} margin={width < 992 ? "0 auto" : ""} right= {width < 992 ? "" : "10px" }/>
                         </li>
                     </ul>
                     <br></br>

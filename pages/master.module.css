@@ -125,13 +125,33 @@
 
 
 .list{
-    text-align: left;
+    /* text-align: left; */
     padding: 5%;
-    display: inline-flex;
-    max-width: 50%;
+    /* display: inline-flex; */
+    width: 50%;
     font-size: 2vw;
+    /* position:absolute; */
+    margin: 0 auto;
 }
 
+
+
+.list_container{
+    /* text-align: left; */
+    padding: 5%;
+    display: inline-flex;
+    width: 100%;
+    height: 30vw;
+    font-size: 2vw;
+    /* margin: 0 auto; */
+    position: relative; 
+}
+
+
+.list_header{
+        font-size: 3vw;
+        font-weight: 300;
+}
 
 .ind_list{
     max-width: 50%;
@@ -298,3 +318,4 @@
     transition: .2s;
     /* color: red; */
 }
+
