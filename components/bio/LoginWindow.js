@@ -3,7 +3,7 @@ import styles from './LoginWindow.module.css'
 import LoginInput from './LoginInput';
 
 
-export default function LoginWindow() {
+export default function LoginWindow({setLoginOrSignUp}) {
 
     //logic to see if they are already logged in or not
 
@@ -17,7 +17,7 @@ export default function LoginWindow() {
     return (
         <>
             <div className={styles.login_container}>
-                    <LoginInput inputPrompt1={"Enter a username"} fieldPrompt={"e.g. yeagle_bagel"}/>
+                    <LoginInput inputPrompt1={"Enter a username"} fieldPrompt={"e.g. yeagle_bagel"} setLoginOrSignUp={setLoginOrSignUp}/>
             </div>
         </>
     )

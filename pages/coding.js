@@ -145,6 +145,31 @@ const dropjects = [
     }
 ]
 
+const workProjects = [
+    {
+        id: 1,
+        words: `Created and maintain multibillion row structured datasets on user reports`,
+        url: 0,
+    }, {
+        id: 2,
+        words: "Created multiple PHP methods to extract information from production code to be used in Hive tables",
+        url: 0,
+    }
+]
+
+
+const personalProjects = [
+    {
+        id: 1,
+        words: "Personal Website",
+        url: 0,
+    }, {
+        id: 2,
+        words: "Pomodomo",
+        url: 0,
+    }
+]
+
 
 let userId = 20
 
@@ -170,7 +195,7 @@ export default function Coding() {
             updateHeight(window.innerHeight)
             updateWidth(window.innerWidth)
         }
-        if (limiter <=3 ) {
+        if (limiter <= 3) {
             setLimiter(limiter + 1)
             LogActivity(userId, "loaded coding page")
         }
@@ -188,72 +213,96 @@ export default function Coding() {
 
     return (
         <div className={styles.master}>
-            <Flood/>
+            <Flood />
             <BasicPageTop />
             <NavBar />
             <SVGSpacers type="bot" num="1" width={width} />
 
-            <div style={{position:"relative"}}>
+            <div style={{ position: "relative" }}>
                 <img src="/IMGassets/rocks.png" className={styles.image} />
-                <div className={styles.image_text_center} ><Typing content={"Highly motivated self-taught developer with a passion for building products that make life 10x better."}/></div>
+                <div className={styles.image_text_center} ><Typing content={"Highly motivated self-taught developer with a passion for building products that make life 10x better."} /></div>
             </div>
             <SVGSpacers type="top" num="4" width={width} />
             <SVGSpacers type="bot" num="1" width={width} />
-            <Spacer/>
+            <Spacer />
 
             <h2>Self-Learned Curriculum</h2>
-            <div className={styles.list}>
-                <span>Courses
-                    <Lines content={courses} />
-                </span>
+            <div className={styles.list_container}>
+
+                <div className={styles.list}>
+                    <span style={{ textAlign: "right" }} >
+                        <div className={styles.list_header}>Books</div>
+                        <br></br>
+                        <Lines content={books} />
+                    </span>
+                </div>
+                <div className={styles.list}>
+                    <span style={{ textAlign: "left" }} >
+                        <div className={styles.list_header}>Courses</div>
+                        <br></br>
+                        <Lines content={courses} />
+                    </span>
+                </div>
             </div>
-            <div className={styles.list}>
-                <span>Books
-                    <Lines content={books} />
-                </span>
-            </div>
-            <Spacer/>
+
+            <Spacer />
 
             <SVGSpacers type="top" num="5" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
-            <Spacer/>
+            <Spacer />
 
             {/* <DragDrop  dropjects={dropjects} startX={231} startY={1079}/> */}
-            <h2>Projects</h2>
 
-            <div className={styles.list}>
-                <span>ork
-                    <li> Created and maintain multibillion row structured datasets on user reports </li>
-                    <li> Created multiple PHP methods to extract information from production code to be used in Hive tables</li>
-                </span>
+            <h2>Projects</h2>
+            <div className={styles.list_container}>
+                <div className={styles.list}>
+                    <span style={{ textAlign: "right" }}>
+                        <div className={styles.list_header}>Work</div>
+                        <br></br>
+
+                        <Lines content={workProjects} />
+                    </span>
+                </div>
+                <div className={styles.list}>
+                    <span style={{ textAlign: "left" }}>
+                        <div className={styles.list_header}>Personal</div>
+                        <br></br>
+
+                        <Lines content={personalProjects} />
+                    </span>
+                </div>
             </div>
-            <div className={styles.list}>
-                <span>personal
-                    <li> Personal Website </li>
-                    <li> Pomodomo</li>
-                </span>
-            </div>
-            <Spacer/>
+
+
+
+
+
+            <Spacer />
 
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="2" width={width} />
-            <Spacer/>
+            <Spacer />
 
             <h2>Languages + Stack</h2>
-            <div className={styles.list}>
-                <div>Favorite Stack
-                    <Lines content={stack} />
+            <div className={styles.list_container}>
+                <div className={styles.list}>
+                    <span style={{ textAlign: "right", right:"50%",   float: "right"}}>
+                        <div className={styles.list_header}>Favorite Stack</div>
+                        <br></br>
 
+                        <Lines content={stack} style={{left:"30%"}}/>
+                    </span>
+                </div>
+                <div className={styles.list}>
+                    <span style={{ textAlign: "left" }}>
+                        <div className={styles.list_header}>Other</div>
+                        <br></br>
+                        <Lines content={frameworks}  />
+                    </span>
                 </div>
             </div>
-            <div className={styles.list}></div>
-            <div className={styles.list}>
-                <div>Other Languages/Frameworks
-                    <Lines content={frameworks} />
 
-                </div>
-            </div>
-            <Spacer/>
+            <Spacer />
 
             <SVGSpacers type="top" num="4" width={width} />
             <div className={styles.box}>

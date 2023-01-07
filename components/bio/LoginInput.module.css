@@ -77,12 +77,46 @@
 
 .submit_button:hover {
 
-    opacity: 80%;
+    opacity: 80%;    
+    border: 3px solid black;
+
 }
 
 .submit_button:hover {
 
     opacity: 80%;
-    background-color: rgb(148, 148, 251);
-    transition: 5s;
+    /* background-color: rgb(148, 148, 251);
+    transition: 5s; */
+    border: 3px solid black;
+
+}
+
+
+.login_container{
+    height: auto;
+    width: 60%;
+    left:20%;
+    /* justify-content: center; */
+    position:relative;
+    z-index: 10000;
+    background-color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 1vw;
+}
+
+/* .login_container:hover{
+    opacity: 60%;
+    text-decoration: none;
+
+} */
+
+.login_text{
+    text-decoration: none;
+    color: black;
+}
+
+.login_text:hover{
+    text-decoration: none;
+    color: black;
 }

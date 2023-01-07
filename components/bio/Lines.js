@@ -1,23 +1,25 @@
 import React from "react"
+import styles from './Lines.module.css'
+
 
 export default function Lines({ content }) {
 
     return (
-        <ul>
+        <div>
             {content.map(function (item) {
                 return (
-                    <li key={item.id}>
+                    <div key={item.id} className={styles.lines}>
                         {item.url !== 0 ? (
                             <a href={item.url} style={{color:"white"}}>{item.words}</a>
                         ) : (
-                            <span>{item.words}</span>
+                            <div>{item.words}</div>
                         )}
-                    </li>
+                    </div>
                 )
 
             }
             )
             }
-        </ul>
+        </div>
     )
 }

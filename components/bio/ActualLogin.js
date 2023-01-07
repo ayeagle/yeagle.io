@@ -5,9 +5,13 @@ import AddNewUser from '@components/DBcomponents/AddNewUser';
 // import { useNavigate } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import About from 'pages/about';
+import ValidateLogin from '@components/DBcomponents/ValidateLogin';
+import UserPreferences from '@components/bio/UserPreferences';
 import LogActivity from '@components/DBcomponents/LogActivity';
 
-export default function LoginInput({ type, inputPrompt1, fieldPrompt, setLoginOrSignUp }) {
+
+
+export default function ActualLogin({ setLoginOrSignUp }) {
     const [userCheckVal, setUserCheckVal] = useState('')
     const [userPasswordCheckVal, setUserPasswordCheckVal] = useState('')
     const [validName, setValidName] = useState('')
@@ -21,11 +25,10 @@ export default function LoginInput({ type, inputPrompt1, fieldPrompt, setLoginOr
 
     // const navigate = useNavigate()
 
-
-    console.log("this is the result:   " + userGenResult)
-
     let updater = 0
     let newVal = 0;
+
+    
 
     console.log(typeof validName)
 
@@ -39,6 +42,26 @@ export default function LoginInput({ type, inputPrompt1, fieldPrompt, setLoginOr
         return regex.test(string);
     }
 
+
+    const validate = () => {
+        let promise = ValidateLogin(userCheckVal,userPasswordCheckVal)
+
+        promise.then((data) => {
+            setValidName(!data)
+            console.log(!data + " this is in the inverse data")
+
+           if (data) {
+                setAddPrompt("Successful Login")
+                setGreenSwitch(true)
+                setLoginOrSignUp('logged in')
+                LogActivity(localStorage.getItem('uid'), "logged in normally")
+                        } else {
+                setAddPrompt("Uh oh looks like something went wrong...")
+                setGreenSwitch(false)
+            }
+        })
+        
+    }
 
     const sendUsernameCheck = () => {
         let promise = CheckUser(userCheckVal)
@@ -100,15 +123,9 @@ export default function LoginInput({ type, inputPrompt1, fieldPrompt, setLoginOr
 
         if (greenSwitch && greenSecSwitch) {
             // setUserGenResult(
-            AddNewUser(userCheckVal, userPasswordCheckVal)
-            setLoginOrSignUp('logged in')
-            localStorage.setItem('username', userCheckVal)
-            localStorage.setItem('password', userPasswordCheckVal)
-            LogActivity(userCheckVal, "account created")
-            LogActivity(userCheckVal, "logged in after account creation")
-
-            // redirect()
-            // navigate('./about')
+                AddNewUser(userCheckVal, userPasswordCheckVal)
+                // redirect()
+                // navigate('./about')
             //     .then(response => {
             //         return response.data
             //     })
@@ -126,48 +143,52 @@ export default function LoginInput({ type, inputPrompt1, fieldPrompt, setLoginOr
 
 
     return (
-        <>
+        <>            <div className={styles.login_container}>
+            <div style={{color: "black"}}>current user = {localStorage.getItem('username')} and {localStorage.getItem('password')}</div>
+
             <div className={styles.form}>
                 <div className={styles.inline_wrapper}>
-                    <label>{inputPrompt1} <br />
+                    <label>Enter username<br />
                         <input
                             className={styles.input}
                             type="string"
-                            placeholder={fieldPrompt}
+                            placeholder="username"
                             // value={time1}
                             onChange={(e) => {
                                 setUserCheckVal(e.target.value)
                             }
                             } />
                     </label>
-                    <button className={styles.check_button} onClick={sendUsernameCheck}>Check Username</button>
+                    {/* <button className={styles.check_button} onClick={sendUsernameCheck}>Check Username</button> */}
                 </div>
                 <div className={styles.warning} style={{ color: greenSwitch ? "green" : "red" }}>{addPrompt}</div>
                 <br></br>
                 <div className={styles.inline_wrapper}>
-                    <label>Enter a password<br />
+                    <label>Enter password<br />
                         <input
                             className={styles.input}
                             type={viewPassword}
-                            placeholder="e.g. test_password"
+                            placeholder="password"
                             // value={time1}
                             onChange={(e) => {
                                 setUserPasswordCheckVal(e.target.value)
                             }
                             } />
                     </label>
-                    <button className={styles.check_button} style={{ width: "15%" }} onClick={changePasswordVisibility}>View</button>
-                    <button className={styles.check_button} style={{ width: "25%" }} onClick={sendPasswordCheck}>Check</button>
+                    <br></br>
+                    <button className={styles.check_button} style={{ width: "40%" }} onClick={changePasswordVisibility}>View Password</button>
+                    {/* <button className={styles.check_button} style={{ width: "25%" }} onClick={sendPasswordCheck}>Check</button> */}
                     <div className={styles.warning} style={{ color: greenSecSwitch ? "green" : "red" }}>{addSecPrompt}</div>
-                    <div className={styles.warning} style={{ bottom: "-30px" }}>This website is a test project with minimal security. Please do not enter any passwords used on other sites.</div>
+                    {/* <div className={styles.warning} style={{ bottom: "-30px" }}>This website is a test project with minimal security. Please do not enter any passwords used on other sites.</div> */}
 
                 </div>
 
             </div>
             <br></br>
 
-            <button className={styles.submit_button} style={{ display: (greenSwitch && greenSecSwitch) ? '' : "none" }} onClick={initUserCreation}>Create Account</button>
+            <button className={styles.submit_button} onClick={validate}>Log In</button>
             <br></br>
+            </div>
 
         </>
     )

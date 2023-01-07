@@ -1,4 +1,4 @@
-.login_container{
+/* .login_container{
     height: auto;
     width: 10vh;
     z-index: 10000;
@@ -10,22 +10,39 @@
     margin: 0 auto;
     border: 3px solid black;
     border-radius: 10px;
-
-}
+} */
 
 .login_container:hover{
-    opacity: 60%;
+    opacity: 100%;
     text-decoration: none;
-
 }
 
 .login_text{
     text-decoration: none;
-    color: black;
+    color: white;
 
 }
 
 .login_text:hover{
     text-decoration: none;
-    color: black;
+    color: white;
+}
+
+
+.login_container{
+    height: auto;
+    width: 10vh;
+    z-index: 10000;
+    color: white;
+    text-decoration: none;
+    position:relative;
+    top: 12px;
+    font-weight: 600;
+    opacity: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* margin: 0 auto; */
+
+    /* right: 0px;  */
+    /* padding-left: 400%; */
 }

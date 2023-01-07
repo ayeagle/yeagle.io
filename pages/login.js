@@ -20,16 +20,50 @@ import Spacer from "@components/bio/Spacer";
 import axios from "node_modules/axios/index";
 import LogActivity from "@components/DBcomponents/LogActivity";
 import LoginWindow from "@components/bio/LoginWindow";
+import SignupLogin from "@components/bio/SignupLogin";
+import ActualLogin from "@components/bio/ActualLogin";
+import UserPreferences from "@components/bio/UserPreferences";
 
 
-
-
-export default function Login() {
+export default function Login({ path = 'choose' }) {
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
     const [limiter, setLimiter] = useState(0)
+
+    const [loginOrSignup, setLoginOrSignUp] = useState(path)
+
+    const [loginExperience, setLoginExperience] = useState(false)
+
+    const route = () => {
+        switch (loginOrSignup) {
+            case "choose":
+                return <SignupLogin setLoginOrSignUp={setLoginOrSignUp} />
+
+            case "login":
+                return <ActualLogin setLoginOrSignUp={setLoginOrSignUp} />
+
+            case "sign up":
+                return <LoginWindow setLoginOrSignUp={setLoginOrSignUp} />
+
+            case "logged in":
+                return <UserPreferences setLoginOrSignUp={setLoginOrSignUp}  />
+
+            default:
+                return <SignupLogin setLoginOrSignUp={setLoginOrSignUp} />
+
+        }
+    }
+
+    useEffect(() => {
+
+        if (localStorage.getItem('username') != 'null') setLoginOrSignUp('logged in')
+
+
+
+    }, [])
+
 
 
     useEffect(() => {
@@ -64,16 +98,14 @@ export default function Login() {
         }
 
 
-
-
-
-
+        setLoginExperience(route())
 
         // Clean up the event listener when the component unmounts
         return () => {
             window.removeEventListener('resize', handleWindowResize)
         }
-    }, [])
+    }, [loginOrSignup])
+
 
 
 
@@ -82,11 +114,14 @@ export default function Login() {
             <Flood />
             <BasicPageTop />
             <NavBar />
+
+
             <SVGSpacers type="bot" num="2" width={width} />
 
             <Spacer />
             <Spacer />
-            <LoginWindow />
+            {loginExperience}
+            {/* <LoginWindow /> */}
             <Spacer />
 
             <Spacer />
