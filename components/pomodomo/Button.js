@@ -7,7 +7,7 @@ import styles from './Button.module.css'
 const Button = ( {handleClick,buttonName}) => { //args are called props
   return (
     <>
-      <button className={styles.button}  id='button1' onClick= {handleClick}><span>{buttonName} </span> </button>
+      <button className={styles.button} id='button1' onClick= {handleClick}><span>{buttonName} </span> </button>
     </>
   )
 }

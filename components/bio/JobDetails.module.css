@@ -149,7 +149,7 @@
 .work_details_closed {
     position: relative;
     top: -30vw;
-    height: 5vh;
+    height: auto;
     left: -.5%;
     width: 101%;
     color: rgba(0, 0, 0, 0);
@@ -160,7 +160,7 @@
     /* transition: 1.5s; */
     margin-bottom: 8vw;
     padding-bottom: 8vw;
-    /* border: 3px solid rgb(0, 0, 0); */
+    border: 3px solid rgb(0, 0, 0);
     /* border-top: 0px solid rgb(0, 0, 0); */
     border-radius: 0 0 20px 20px;
     padding: 1vw;
@@ -168,7 +168,7 @@
     /* font-display:none; */
     /* display:block; */
     background-color: rgba(0, 0, 0, 0);
-    transition:  color .6s ease-out, height 1s, top 1s, border 1s;
+    transition:  color .6s ease-out, height 1s, top 1s, border 1s ease-out;
 }
 
 
