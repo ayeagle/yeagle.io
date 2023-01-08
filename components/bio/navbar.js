@@ -89,14 +89,14 @@ export default function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav" style={{top: "2px", position: "relative"}}>
                     <ul className="navbar-nav">
-                        <li className={portStyle}>
-                            <a className="nav-link" href="/portfolio">Portfolio <span className="sr-only">(current)</span></a>
+                        <li className={resumeStyle}>
+                            <a className="nav-link" href="/resume">Resume</a>
                         </li>
                         <li className={codingStyle}>
                             <a className="nav-link" href="/coding">Coding</a>
                         </li>
-                        <li className={resumeStyle}>
-                            <a className="nav-link" href="/resume">Resume</a>
+                        <li className={portStyle}>
+                            <a className="nav-link" href="/portfolio">Portfolio <span className="sr-only">(current)</span></a>
                         </li>
                         <li className={contactStyle}>
                             <a className="nav-link" href="/contact">Contact</a>

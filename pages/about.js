@@ -114,10 +114,11 @@ export default function About() {
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
             <div style={{ height: "15vh", fill: "black", zIndex: 500 }} />
-            <h4 style={{ padding: "7vw", fontSize: "5vw" }}> A broad range of experiences across product, operations, analytics, and engineering
+            <h4 style={{ padding: "7vw", fontSize: "4vw" }}> A broad range of experiences across product, operations, analytics, and engineering
                 has given my product work diversity and perspective. <br></br><br></br>
-                <a href="/portfolio"><NavButton buttonName={"See my Projects"} /></a>
             </h4>
+            <a href="/portfolio"><NavButton buttonName={"See my Projects"} /></a>
+
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />

@@ -41,7 +41,7 @@ export default function JobDetails({ elements, key }) {
         } else {
             setWorkStyle(styles.work_details_open)
             // setWorkVH(elements.details_view_height)
-             setWorkVH(elements.details_view_height)
+            setWorkVH(elements.details_view_height)
 
             setArrowStyle(styles.arrow_up)
 
@@ -91,29 +91,29 @@ export default function JobDetails({ elements, key }) {
                         </div> */}
 
                         <visualViewport className={styles.logo_container}>
-                        <div className={styles.arrow} onClick={openClick} >
-                            <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
-                        </div>
+                            <div className={styles.arrow} onClick={openClick} >
+                                <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
+                            </div>
                             {/* <Waves h={400/4} w={800/4}> */}
                             <img src={elements.logo_pic} className={styles.logo} style={{ top: elements.top_move_perc }} onClick={openClick} />
 
                         </visualViewport>
                     </div>
                     <div style={{ height: workVH, transition: "1s" }} >
-                    <div className={workStyle} >
-                        <div className={styles.details_mini_header} >Work</div>
-                        <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
-                        <ul className={styles.work_bullets}>
-                            {elements.details.map(detail => (
-                                <li key={detail} >{detail}</li>
-                            ))}
-                        </ul>
-                        <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
-                        <div className={styles.details_mini_header} > Hard Skills</div>
-                        <ul><li className={styles.work_bullets}> {elements.hard_skills}</li></ul>
-                        <div className={styles.details_mini_header} > Soft Skills</div>
-                        <ul><li className={styles.work_bullets}> {elements.soft_skills}</li></ul>
-                    </div>
+                        <div className={workStyle} >
+                            <div className={styles.details_mini_header} >Work</div>
+                            <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
+                            <ul className={styles.work_bullets}>
+                                {elements.details.map(detail => (
+                                    <li key={detail} >{detail}</li>
+                                ))}
+                            </ul>
+                            <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
+                            <div className={styles.details_mini_header} > Hard Skills</div>
+                            <ul><li className={styles.work_bullets}> {elements.hard_skills}</li></ul>
+                            <div className={styles.details_mini_header} > Soft Skills</div>
+                            <ul><li className={styles.work_bullets}> {elements.soft_skills}</li></ul>
+                        </div>
                     </div>
 
                 </div>

@@ -33,7 +33,7 @@
     border: none;
     color: #FFFFFF;
     /* text-align: center; */
-    font-size: 3vw;
+    font-size: 2.6vw;
     padding: 10px;
 
     /* transition: all 0.5s; */
@@ -65,7 +65,7 @@
   }
 
   .button:hover span {
-    padding-right: 25px;
+    padding-right: 3vw;
     z-index: 100;
 
   }

@@ -78,24 +78,30 @@ export default function Carousel() {
 
 
 
-  const preStyle = {left: '100%',
-                    color: 'rgb(0,0,0)',
-                    backgroundColor: 'rgb(0,0,0)',
-                    transition: '.5s',
-                    borderColor: 'rgb(0,0,0)'}
+  const preStyle = {
+    left: '100%',
+    color: 'rgb(0,0,0)',
+    backgroundColor: 'rgb(0,0,0)',
+    transition: '.5s',
+    borderColor: 'rgb(0,0,0)'
+  }
 
 
-  const currStyle = {left: "12.5%" ,
-                    color:  "white",
-                    backgroundColor:  "#7c4455",
-                    transition:  "1s",
-                    borderColor: "#eb5c00"}
+  const currStyle = {
+    left: "12.5%",
+    color: "white",
+    backgroundColor: "#7c4455",
+    transition: "1s",
+    borderColor: "#eb5c00"
+  }
 
-const postStyle = {left: '-100%',
-                  color: 'rgb(0,0,0)',
-                  backgroundColor: 'rgb(0,0,0)',
-                  transition: '.5s',
-                  borderColor: 'rgb(0,0,0)'}
+  const postStyle = {
+    left: '-100%',
+    color: 'rgb(0,0,0)',
+    backgroundColor: 'rgb(0,0,0)',
+    transition: '.5s',
+    borderColor: 'rgb(0,0,0)'
+  }
 
 
 
@@ -118,12 +124,12 @@ const postStyle = {left: '-100%',
 
   const forwardClick = () => {
     // console.log("e index changed up by 1 from this: " + currentIndex)
-    setCurrentIndex(Math.min(currentIndex+1,elements.length-1))
+    setCurrentIndex(Math.min(currentIndex + 1, elements.length - 1))
   }
 
   const backClick = () => {
     // console.log("e index changed down by 1 from this: " + currentIndex)
-    setCurrentIndex(Math.max(currentIndex-1,0))
+    setCurrentIndex(Math.max(currentIndex - 1, 0))
   }
 
   useEffect(() => {
@@ -141,14 +147,15 @@ const postStyle = {left: '-100%',
   return (
     <>
       <div>
+    
         {/* <rect style={{height:"200px", top:"200px"}}/> */}
         {/* <div className={styles.carousel}> */}
         {elements.map((element, index) => (
           <span
             key={element.id}
             className={styles.carousel_element}
-            style={{...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size, zIndex:((Math.abs(index-currentIndex)*(-5))+1000)}}
-            >
+            style={{ ...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size, zIndex: ((Math.abs(index - currentIndex) * (-5)) + 1000) }}
+          >
             "{element.content}"
             <br></br>
             <br></br>
@@ -158,8 +165,11 @@ const postStyle = {left: '-100%',
           </span>
 
         ))}
-        <div style={{width:"100vw", display: "flex", justifyContent: "center"}}>
-        <Button className={styles.button} buttonName={"\u25c0"} handleClick={forwardClick}/> <Button className={styles.button} buttonName={"\u25b6"} handleClick={backClick}/>
+        <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
+          
+            <button className={styles.buttonr} buttonName={"\u25c0"} onClick={forwardClick}><span>{`\u25c0`}</span></button>
+     
+            <button className={styles.buttonl} buttonName={"\u25b6"} onClick={backClick} ><span>{`\u25b6`}</span></button>
         </div>
       </div>
       {/* </div> */}

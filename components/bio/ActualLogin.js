@@ -144,7 +144,7 @@ export default function ActualLogin({ setLoginOrSignUp }) {
 
     return (
         <>            <div className={styles.login_container}>
-            <div style={{color: "black"}}>current user = {localStorage.getItem('username')} and {localStorage.getItem('password')}</div>
+            {/* <div style={{color: "black"}}>current user = {localStorage.getItem('username')} and {localStorage.getItem('password')}</div> */}
 
             <div className={styles.form}>
                 <div className={styles.inline_wrapper}>
