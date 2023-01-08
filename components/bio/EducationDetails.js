@@ -92,14 +92,17 @@ export default function EducationDetails({ elements, key }) {
 
                         </visualViewport>
                     </div>
-                    <div className={workStyle} style={{ height: workVH }}    >
-                        <div className={styles.details_mini_header} >Work</div>
-                        <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
-                        <ul className={styles.work_bullets}>
-                            {elements.details.map(detail => (
-                                <li key={detail} >{detail}</li>
-                            ))}
-                        </ul>
+                    <div style={{ height: workVH, transition: "1s" }} >
+
+                        <div className={workStyle} >
+                            <div className={styles.details_mini_header} >Work</div>
+                            <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
+                            <ul className={styles.work_bullets}>
+                                {elements.details.map(detail => (
+                                    <li key={detail} >{detail}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
 

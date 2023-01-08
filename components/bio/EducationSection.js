@@ -20,7 +20,7 @@ export default function EducationSection() {
 
             logo_pic: "/IMGassets/carleton.png",
             top_move_perc: "-13%",
-            details_view_height: "45vw",
+            details_view_height: "25vw",
         },
         {
             id: 2,
@@ -31,7 +31,7 @@ export default function EducationSection() {
             details: ["Credential ID: 20019092"],
             logo_pic: "/IMGassets/pschool2.png",
             top_move_perc: "-85%",
-            details_view_height: "45vw",
+            details_view_height: "15vw",
 
         },
         {
@@ -43,7 +43,7 @@ export default function EducationSection() {
             details: ["Credential ID: 20019092"],
             logo_pic: "/IMGassets/hbx.jpeg",
             top_move_perc: "-83%",
-            details_view_height: "45vw",
+            details_view_height: "15vw",
 
 
         },
