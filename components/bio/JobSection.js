@@ -22,7 +22,7 @@ export default function JobSection() {
             hard_skills: "PostgresQL, Presto, Scuba, Python Scripting",
             soft_skills: "PMF, Feature/Fix Efficiency, Leadership w/o Authority",
             top_move_perc: "-20%",
-            details_view_height: "60vw",
+            details_view_height: "45vw",
 
         },
         {
@@ -41,7 +41,7 @@ export default function JobSection() {
             hard_skills: "SQL, Excel, Python",
             soft_skills: "Problem Solving, Product Strategy, Collaboration",
             top_move_perc: "-140%",
-            details_view_height: "60vw",
+            details_view_height: "40vw",
 
 
         },
@@ -62,7 +62,7 @@ export default function JobSection() {
             hard_skills: "Excel, Product/Design Tooling",
             soft_skills: "Product Strategy, Growth Strategy",
             top_move_perc: "-65%",
-            details_view_height: "65vw",
+            details_view_height: "40vw",
 
         },
         {
@@ -79,7 +79,7 @@ export default function JobSection() {
             hard_skills: "Excel, Salesforce",
             soft_skills: "Collaboration, Project Scoping",
             top_move_perc: "-65%",
-            details_view_height: "50vw",
+            details_view_height: "30vw",
 
         },
 
