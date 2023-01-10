@@ -220,7 +220,7 @@ export default function Coding() {
 
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/rocks.png" className={styles.image} />
-                <div className={styles.image_text_center} ><Typing content={"Highly motivated self-taught developer with a passion for building products that make life 10x better."} /></div>
+                <div className={styles.image_text_center} ><Typing content={"Painstakingly self taught developer in love with building things that make life 10x better."} /></div>
             </div>
             <SVGSpacers type="top" num="4" width={width} />
             <SVGSpacers type="bot" num="1" width={width} />

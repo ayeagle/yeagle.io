@@ -80,7 +80,7 @@ export default function About() {
             <SVGSpacers type="bot" num="2" width={width} />
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/me2.png" className={styles.image} />
-                <div className={styles.image_text}><Typing content={"Self-taught developer and product enthusiast with a passion for building functional and valuable customer-obsessed solutions."} /></div>
+                <div className={styles.image_text}><Typing content={"Self-taught developer and product enthusiast with a passion for building customer-obsessed solutions."} /></div>
             </div>
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="2" width={width} />

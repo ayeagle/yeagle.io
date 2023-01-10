@@ -82,11 +82,11 @@ export default function BasicPageBottom() {
         {/* </ul> */}
       </div>
 
-      <Socials size={"2.5vw"} loc={"right"} />
+      <Socials size={"2vw"} loc={"right"} />
 
       <footer className={styles.footer}>
-        Made by <img src="/bagel_logo.png" alt="Netlify Logo" className={styles.logo} /> for you
-        <div style={{ fontSize: "2.5vw", fontStyle: "italic" }}>All media is my own</div>
+        Made by me for you <img src="/bagel_logo.png" alt="Netlify Logo" className={styles.logo}/> All media is my own
+        {/* <div style={{ fontSize: "2vw", fontStyle: "italic" }}>All media is my own</div> */}
       </footer>    </>
   )
 }
