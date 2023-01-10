@@ -77,7 +77,7 @@ export default function Portfolio() {
                 <div className={styles.hov_catch}>
                     <visualViewport className={styles.app_module_center} style={{ top: "25%" }}>
                         {/* <Waves h={400/4} w={800/4}> */}
-                        <Waves h={200} w={1000} />
+                        <Waves h={400} w={1000} />
                         <div className={styles.app_module_center_title}>P<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} />d<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} /></div>
                     </visualViewport>
                     {/* </div> */}
