@@ -33,21 +33,6 @@ export default function About() {
 
     const [limiter, setLimiter] = useState(0)
 
-
-    // if (limiter <= 3) {
-    //     setLimiter(limiter + 1)
-
-    //     axios.get('http://ec2-44-210-111-39.compute-1.amazonaws.com:3000/')
-    //         .then(response => {
-    //             console.log(response.data); // 'Hello World!'
-    //             console.log("the request was successful")
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //             console.log("the request was NOT NOT NOT successful")
-    //         });
-    // }
-
     useEffect(() => {
         // Update the height and width state when the component is mounted
         updateHeight(window.innerHeight)
@@ -67,12 +52,6 @@ export default function About() {
         let userId = 20 //document.cookie.substr( document.cookie.indexOf("=")+1, document.cookie.indexOf("=") + 36)
         // let activity = "loading the about page"
         let timestamp = new Date().toISOString()
-
-        // console.log("CLIENT SIDE: session id value is " +userId + " and the type of this is " + typeof(userId))
-        // console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
-        // console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
-
-
 
         if (limiter <=3 ) {
             setLimiter(limiter + 1)
@@ -118,7 +97,6 @@ export default function About() {
                 has given my product work diversity and perspective. <br></br><br></br>
             </h4>
             <a href="/portfolio"><NavButton buttonName={"See my Projects"} /></a>
-
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
@@ -132,8 +110,6 @@ export default function About() {
             <div className={styles.box}>
                 <BasicPageBottom />
             </div>
-
-
         </div>
     )
 }

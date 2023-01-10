@@ -36,37 +36,40 @@ export default function Index() {
   const [limiter, setLimiter] = useState(0)
 
 
+  return(
+    <About/>
+  )
   // return (
   //   <Router>
   //     <Route path="/about" component={About} />
   //   </Router>
   // );
 
-  const sendPage = () => {
-    switch (state.page) {
-      case "main":
-        return <Main />
+//   const sendPage = () => {
+//     switch (state.page) {
+//       case "main":
+//         return <Main />
 
-      case "work":
-        return <Second />
+//       case "work":
+//         return <Second />
 
-      case "break":
-        return <Break />
+//       case "break":
+//         return <Break />
 
-      case "finished":
-        return <Finished />
+//       case "finished":
+//         return <Finished />
 
-      default:
-        return <Main />
+//       default:
+//         return <Main />
 
-    }
-  }
+//     }
+//   }
 
-  return(
-    <>
-    <Waves/>
-    {sendPage()}
-    </>
-  )
+//   return(
+//     <>
+//     <Waves/>
+//     {sendPage()}
+//     </>
+//   )
 
 }
