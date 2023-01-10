@@ -82,11 +82,12 @@ export default function EducationDetails({ elements, key }) {
                         <h3 className={styles.details_header_units}>{elements.tenure}</h3>
                     </div>
                     <div style={{ position: "relative" }}>
-                        <div className={styles.arrow} onClick={openClick} >
-                            <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
-                        </div>
+
 
                         <visualViewport className={styles.logo_container}>
+                            <div className={styles.arrow} onClick={openClick} >
+                                <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
+                            </div>
                             {/* <Waves h={400/4} w={800/4}> */}
                             <img src={elements.logo_pic} className={styles.logo} style={{ top: elements.top_move_perc }} onClick={openClick} />
 

@@ -168,7 +168,10 @@
     /* font-display:none; */
     /* display:block; */
     background-color: rgba(0, 0, 0, 0);
-    transition:  color .6s ease-out, height 1s, top 1s, border 1s ease-out;
+    z-index: -1;
+    /* display:none; */
+    transition:  color .6s ease-out, height 1s, top 1s, border 1s ease-out, z-index 0s 5s;
+
 }
 
 
@@ -178,6 +181,7 @@
     height: auto;
     left: -.5%;
     width: 101%;
+
     /* display: block; */
     padding-top: 5vw;
     margin-top: 5vw;
