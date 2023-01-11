@@ -28,10 +28,10 @@
     height: auto;
     position: absolute;
     left: 0;
-    /* top: -7vh; */
+    /* top: vh; */
     /* height: auto; */
     /* width: auto; */
-    margin-top: -4em;
+    /* margin-top: vw; */
     margin-bottom: -30px;
     bottom: auto;
 }

@@ -103,7 +103,7 @@ export default function About() {
             <Spacer height={"5vw"}/>
 
             <div style={{position: "relative"}}>
-                <div style={{position: "absolute"}}>
+                <div style={{position: "absolute", top: "2vh"}}>
 
                     <div className={styles.image_text_center} style={{top:"26vw"}}>I'm also a drone videographer!</div>
                     {/* <div height={600}> */}
@@ -113,7 +113,7 @@ export default function About() {
                 </div>
                 
             </div>
-            <Spacer height={"60vw"}/>
+            <Spacer height={"50vw"}/>
 
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
