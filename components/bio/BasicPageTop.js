@@ -9,7 +9,7 @@ export default function BasicPageTop() {
     <>
       <GenSessionUuid />
       <Head>
-        <meta property="og:image" content="/bagel_logo.png" />
+        <meta property="og:image" content="https://imgur.com/2oR6Isd" />
         <meta property="og:title" content="Yeagle's Bagels" />
 
         <link rel="icon" href="/bagel_logo.png" />
