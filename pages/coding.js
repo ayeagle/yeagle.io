@@ -304,6 +304,14 @@ export default function Coding() {
 
             <Spacer />
 
+            {/* <SVGSpacers type="top" num="1" width={width} />
+            <SVGSpacers type="bot" num="2" width={width} />
+            <Spacer />
+
+            <div className={styles.turn_tile}>React</div>
+
+            <Spacer /> */}
+
             <SVGSpacers type="top" num="4" width={width} />
             <div className={styles.box}>
                 <BasicPageBottom />

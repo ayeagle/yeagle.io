@@ -67,28 +67,32 @@ export default function Portfolio() {
             <SVGSpacers type="bot" num="2" width={width} />
             <div style={{position:"relative"}}>
 
-            <div style={{ height: "60vh", fill: "black", zIndex: 500}} />
+            {/* <div style={{ height: "60vh", fill: "black", zIndex: 500}} /> */}
 
+<Spacer/>
 
 
             {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "30%", fill: "none" }}> */}
             {/* <div className={styles.app_module_center_wrapper} style={{ top: "30%"}}/> */}
            <a href="/pomodomo">
                 <div className={styles.hov_catch}>
-                    <visualViewport className={styles.app_module_center} style={{ top: "25%" }}>
+                    <visualViewport className={styles.app_module_center} style={{ top: "2vw" }}>
                         {/* <Waves h={400/4} w={800/4}> */}
-                        <Waves h={400} w={1000} />
+                        <Waves h={400} w={2000} />
                         <div className={styles.app_module_center_title}>P<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} />d<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} /></div>
                     </visualViewport>
                     {/* </div> */}
                 </div>
             </a>
+            {/* <Spacer/> */}
+            <Spacer height={"30vw"}/>
+            {/* <Spacer/> */}
 
             {/* <div className={styles.app_module_center_wrapper} style={{ height: "200px", top: "50%", fill: "none" }} /> */}
             <a href="/about">
                 <div className={styles.hov_catch}>
                     <visualViewport className={styles.app_module_center} style={{ top: "55%", fill: "none" }}>
-                        <iframe style={{ width: "1000px", height: "600px", marginTop: "-2vh" }} className={styles.app_module_center} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=42" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe style={{ width: "80vw", height: "48vw", marginTop: "-2vh" }} className={styles.app_module_center} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=42" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         <div className={styles.app_module_center_title} style={{ fontWeight: 600, color: "white" }}>Personal Site</div>
                     </visualViewport>
                 </div>
@@ -98,6 +102,7 @@ export default function Portfolio() {
             <br></br>
             <br></br>
             </div>
+            <Spacer height={"20vw"}/>
 
             <SVGSpacers type="top" num="2" width={width} />
             <div className={styles.box}>

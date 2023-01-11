@@ -164,6 +164,13 @@
     justify-content: left !important;
 }
 
+.hov_catch{
+    position:relative;
+    /* opacity: 65% !important; */
+    /* box-shadow: 8px 8px 8px 8px rgb(119, 119, 119), 0 6px 6px 0 rgb(110, 110, 110); */
+    box-shadow: 0 0 20px rgb(255, 255, 255)
+}
+
 
 .hov_catch :hover{
     opacity: 65% !important;
@@ -179,7 +186,7 @@
     transform: translate(-50%, -50%);
     width: 50vw;
     height: 15vw;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
     opacity: 100% !important;
     box-shadow: none;
@@ -319,3 +326,20 @@
     /* color: red; */
 }
 
+.turn_tile {
+    position:relative;
+    margin: 0 auto; 
+    width: 20%; 
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+
+.turn_tile:hover{
+    position:relative;
+    margin: 0 auto; 
+    width: 20%; 
+    border: 3px solid white;
+    border-radius: 10px;
+    transform: rotate(180deg);
+}
