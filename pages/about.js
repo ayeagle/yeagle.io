@@ -53,7 +53,7 @@ export default function About() {
         // let activity = "loading the about page"
         let timestamp = new Date().toISOString()
 
-        if (limiter <=3 ) {
+        if (limiter <= 3) {
             setLimiter(limiter + 1)
             LogActivity(userId, "loaded about page")
         }
@@ -84,12 +84,12 @@ export default function About() {
             </div>
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="2" width={width} />
-            <Spacer />
+            <Spacer height="8vw"/>
             <div style={{ position: "relative", height: "30em", width: "100%" }}>
                 <Carousel className={styles.caro} />
             </div>
             <a href="/resume"><NavButton buttonName={"See my work"} /></a>
-            <Spacer />
+            <Spacer height="8vw"/>
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
             <div style={{ height: "15vh", fill: "black", zIndex: 500 }} />
@@ -100,11 +100,21 @@ export default function About() {
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
-            <Spacer />
-            <h3>I'm also a drone videographer!</h3>
-            {/* <div height={600}> */}
-            <Iceland width={width} height={height} className={styles.video} />
-            {/* </div> */}
+            <Spacer height={"5vw"}/>
+
+            <div style={{position: "relative"}}>
+                <div style={{position: "absolute"}}>
+
+                    <div className={styles.image_text_center} style={{top:"26vw"}}>I'm also a drone videographer!</div>
+                    {/* <div height={600}> */}
+                   <Iceland width={width} height={height} className={styles.video} />
+                    {/* </div> */}
+
+                </div>
+                
+            </div>
+            <Spacer height={"60vw"}/>
+
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <div className={styles.box}>
