@@ -54,13 +54,14 @@ export default function Home() {
 
 
 
-    
+
 
 
 
     console.log("HERE IT IS THIS IS IT")
-    console.log(getGroupObject() )
+    console.log(getGroupObject())
 
+    console.log(getGroupObject())
 
 
     return (
@@ -68,7 +69,7 @@ export default function Home() {
             <div className={styles.page_container}>
                 <div className={styles.left_element_wrapper}>
                     <div className={styles.centering_unit}>
-                        <Typing content={"Gift exchanges with friends and family made easy :D"} />
+                        <Typing content={"Christmas shopping for friends and family made easy :D"} />
                     </div>
                 </div>
                 {/* <div className={styles.home_divider} />
@@ -76,14 +77,18 @@ export default function Home() {
 
                 <div className={styles.right_element_wrapper}>
                     <div className={styles.centering_unit}>
-                        <Login />
+                        What's your group name?
+                        <br></br><br></br>
+
+                        What are the user's names?
+                        <br></br><br></br>
+
+
+                        what are their emails?
                     </div>
-                    {/* <div className={styles.centering_unit}>
-                        <UserSelect groupData={groupData} setGroupData={setGroupData}/>
+                    <Gifts groupData={groupData} setGroupData={setGroupData}/>
 
 
-                        <Gifts groupData={groupData} setGroupData={setGroupData}/>
-                    </div> */}
                 </div>
             </div>
         </>
