@@ -13,6 +13,8 @@ import Gifts from "@components/xmas/Gifts";
 
 
 
+let style1 = styles.left_element_wrapper
+let style2 = styles.right_element_wrapper
 
 
 export default function Home() {
@@ -22,6 +24,7 @@ export default function Home() {
     const [width, updateWidth] = useState(0)
     const [limiter, setLimiter] = useState(0)
     const [groupData, setGroupData] = useState(getGroupObject())
+    const [moveToCreate, setMoveToCreate] = useState(false)
 
     useEffect(() => {
         // Update the height and width state when the component is mounted
@@ -52,8 +55,16 @@ export default function Home() {
 
     }, [groupData])
 
+    
 
+    if(!moveToCreate){
+        style1 = styles.left_element_wrapper
+        style2 = styles.right_element_wrapper
 
+    } else {
+        style1 = styles.left_element_wrapper2
+        style2 = styles.right_element_wrapper2
+    }
     
 
 
@@ -66,7 +77,7 @@ export default function Home() {
     return (
         <>
             <div className={styles.page_container}>
-                <div className={styles.left_element_wrapper}>
+                <div className={style1}>
                     <div className={styles.centering_unit}>
                         <Typing content={"Gift exchanges with friends and family made easy :D"} />
                     </div>
@@ -74,9 +85,9 @@ export default function Home() {
                 {/* <div className={styles.home_divider} />
                 <div className={styles.home_divider2} /> */}
 
-                <div className={styles.right_element_wrapper}>
+                <div className={style2}>
                     <div className={styles.centering_unit}>
-                        <Login />
+                        <Login move={setMoveToCreate}/>
                     </div>
                     {/* <div className={styles.centering_unit}>
                         <UserSelect groupData={groupData} setGroupData={setGroupData}/>
