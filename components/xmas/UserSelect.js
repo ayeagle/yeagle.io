@@ -30,32 +30,7 @@ export default function UserSelect({ groupData, setGroupData}) {
 
     // let groupData = getGroupObject()
 
-    const getinfo = () => {
-        // let promise = XMAS_ValidateLogin(userCheckVal)
-        let promise = XMAS_GetGroupObject('name', 1)
-
-
-        promise.then((data) => {
-            setValidName(!data)
-            console.log(!data + " this is in the inverse data")
-            console.log("data: " + data)
-
-            if (data) {
-                setAddPrompt("Successful Login")
-                setGreenSwitch(true)
-                setCreateNew(false)
-                // setGroupData(getGroupObject())
-                setGroupData(data)
-                // setLoginOrSignUp('logged in')
-                // LogActivity(localStorage.getItem('uid'), "logged in normally")
-            } else {
-                setAddPrompt("Hmm I don't think that group exists...")
-                setGreenSwitch(false)
-                setCreateNew(true)
-            }
-        })
-
-    }
+   
 
     return (
         <>   <div>
