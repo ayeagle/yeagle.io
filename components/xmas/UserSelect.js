@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react'
-import styles from '@components/bio/LoginInput.module.css'
+import styles from '@components/xmas/UserSelect.module.css'
 
 // import { useNavigate } from 'react-router-dom';
 import { Redirect } from 'react-router';
@@ -13,9 +13,9 @@ import UserPreferences from '@components/bio/UserPreferences';
 import { getGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 
-// let curr_group = getGroupObject()
+let curr_group = getGroupObject()
 
-export default function UserSelect({ groupData, setGroupData}) {
+export default function UserSelect({ groupData, setGroupData }) {
     const [userCheckVal, setUserCheckVal] = useState('')
     const [userPasswordCheckVal, setUserPasswordCheckVal] = useState('')
     const [validName, setValidName] = useState('')
@@ -27,43 +27,81 @@ export default function UserSelect({ groupData, setGroupData}) {
     const [createNew, setCreateNew] = useState(false)
     const [userGenResult, setUserGenResult] = useState('')
     // const [groupData, setGroupData] = useState(getGroupObject())
+    let curr_group = getGroupObject()
+
+
+    const validate = () => {
+        // let promise = XMAS_ValidateLogin(userCheckVal)
+        let promise = XMAS_GetGroupObject(userCheckVal, 1)
+
+
+        promise.then((data) => {
+            setValidName(!data)
+            console.log(!data + " this is in the inverse data")
+            console.log("data: " + data)
+            // console.log("isNew: " + isNew)
+            setAddPrompt("Successful Login")
+            console.log("curr_group data available just before redirect")
+            console.log(curr_group)
+            // redirect(<UserSelect groupData={curr_group}/>)
+            // updateGroupObject(curr_group)
+            curr_group = data
+            // getGroup()
+            // redirect('/xmas/create')
+
+        }
+        )
+    }
+
+    useEffect(() => {
+        validate()
+    }, [])
+
+    const userChoose = (name) => {
+        console.log(name)
+        // LogActivity(localStorage.getItem('uid'), "logged out")
+        localStorage.setItem('current_user', name);
+        localStorage.setItem('group_id', curr_group[0].group_id);
+        redirect('/xmas/home')
+
+    }
+
+
+    const redirect = (loc) => {
+        // setTimeout(() => {
+            window.location.href = loc;
+            // setCode(loc)
+        // }, 100);
+
+    }
+
 
     // let groupData = getGroupObject()
+    console.log("this is the group being passed into the userselect page")
+    console.log(curr_group)
 
-   
+    console.log("this is the goupdata passed into the userselect page")
+    console.log(groupData)
+
 
     return (
-        <>   <div>
-            {groupData[0].group_members.map((index) => {
-                console.log("----------------> this is the index: " + index)
-                return (
-                    <div className={styles.gift_box}>
-                        <div key={index}>
-                            <div>{groupData[0].group_members[index]}</div>
-                        </div>
-                    </div>
-
-                )
-            })
-            }
-        </div>
-            <div className={styles.login_container}>
-                Who are you ?
-
-
-
-
-                <br></br>
-                <div className={styles.warning} >{addPrompt}</div>
-                <br></br>
+        <>
+            <div className={styles.title_wrapper}>
+                And who might you be?
             </div>
-            <button className={styles.submit_button} onClick={getinfo}>Create a Group!</button>
-
-            <br></br>
-
-            <button className={styles.submit_button} >Log In</button>
-            <br></br>
-
+            <div>
+                {curr_group[0].group_members.map((name, index) => {
+                    console.log("----------------> this is the index: " + index)
+                    return (
+                        <div className={styles.name_option} onClick={()=> userChoose(name)}>
+                            <div key={index}>
+                                <div>{name}</div>
+                            </div>
+                        </div>
+                    )
+                })
+                }
+            </div>
         </>
     )
 }

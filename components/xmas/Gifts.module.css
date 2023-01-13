@@ -1,5 +1,14 @@
-.gift_box{
+.gift_container{
+    display: flex;
+    /* overflow: wrap; */
+flex-wrap: wrap;
 
+
+}
+
+
+
+.gift_box{
     position: relative;
     border: 10px solid rgb(76, 76, 126);
     border-radius: 40px;
@@ -8,4 +17,13 @@
     margin-top: 1vw;
     height: auto;
     width: auto;
+    display: flex;
+    margin: 2vw;
+}
+
+
+.gift_detail{
+    padding: 2vw;
+    border: 1px solid black;
+
 }
