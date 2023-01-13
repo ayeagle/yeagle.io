@@ -12,6 +12,7 @@ import XMAS_AddNewUser from './DB/XMAS_AddNewUser';
 import { getGroupObject, updateGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 import Create from '@components/xmas/Create'
+import UserSelect from './UserSelect';
 
 
 let curr_group = getGroupObject()
@@ -30,17 +31,17 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
 
 
     const redirect = (loc) => {
-        setTimeout(() => {
+        // setTimeout(() => {
             // window.location.href = loc;
             setCode(loc)
-        }, 100);
+        // }, 100);
 
     }
 
 
     const validate = () => {
         // let promise = XMAS_ValidateLogin(userCheckVal)
-        let promise = XMAS_CheckUser(userCheckVal, 2)
+        let promise = XMAS_CheckUser(userCheckVal, 1)
 
 
 
@@ -71,6 +72,8 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                     console.log(curr_group)
 
                     updateGroupObject(curr_group)
+                    localStorage.setItem('group_name', userCheckVal);
+
                     redirect(<Create/>)
                 } else {
                     setAddPrompt("Hmm looks like that group name is taken...")
@@ -81,8 +84,16 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                 if (data) {
                     setAddPrompt("Successful Login")
                     setGreenSwitch(true)
-                    setCreateNew(false)
-                    getGroup()
+                    setCreateNew(false)                    
+                    console.log("curr_group data available just before redirect")
+
+                    console.log(curr_group)
+                    localStorage.setItem('group_name', userCheckVal);
+                    updateGroupObject(curr_group)
+
+                    redirect(<UserSelect groupData={curr_group}/>)
+
+                    // getGroup()
                     // redirect('/xmas/create')
                 } else {
                     setAddPrompt("Hmm I don't think that group exists...")
@@ -110,6 +121,11 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                             }
                             } />
                     </label>
+                    <br></br>
+                    <br></br>
+
+                <div className={styles.warning} style={{ color: greenSwitch ? "green" : "red" }}>{addPrompt}</div>
+
                 </div>
                 <div className={styles.inline_wrapper} style={{display: focus === 'login' ? "none" : ""}}>
                     <label>

@@ -9,94 +9,60 @@ import Login from "@components/xmas/Login";
 import UserSelect from "@components/xmas/UserSelect";
 import { getGroupObject } from "@components/xmas/DB/curr_group_data";
 import Gifts from "@components/xmas/Gifts";
+import XMAS_GetGroupObject from "@components/xmas/DB/XMAS_GetGroupObject";
 
+let curr_group = getGroupObject()
+let name = ''
 
-
-
-let style1 = styles.left_element_wrapper
-let style2 = styles.right_element_wrapper
-
+// let userCheckVal = localStorage.getItem('current_user')
+// let group_id = localStorage.getItem('group_id')
 
 export default function Home() {
 
+    const [groupData, setGroupData] = useState(curr_group)
 
-    const [height, updateHeight] = useState(0)
-    const [width, updateWidth] = useState(0)
-    const [limiter, setLimiter] = useState(0)
-    const [groupData, setGroupData] = useState(getGroupObject())
-    const [moveToCreate, setMoveToCreate] = useState(false)
 
-    useEffect(() => {
-        // Update the height and width state when the component is mounted
-        updateHeight(window.innerHeight)
-        updateWidth(window.innerWidth)
-        console.log("this is the height (useeffect) ==> " + height)
-        console.log("this is the width (useeffect) ==> " + width)
 
-        function handleWindowResize() {
-            // Update the height and width state when the window is resized
-            updateHeight(window.innerHeight)
-            updateWidth(window.innerWidth)
-        }
-        // if (limiter <= 3) {
-        //     setLimiter(limiter + 1)
-        //     LogActivity(userId, "loaded contact page")
-        // }
 
-        // // Add the event listener
-        window.addEventListener('resize', handleWindowResize)
-
-        setGroupData(getGroupObject())
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', handleWindowResize)
-        }
-
-    }, [groupData])
-
+    const validate = () => {
+        // let promise = XMAS_ValidateLogin(userCheckVal)
+        let promise = XMAS_GetGroupObject(localStorage.getItem('current_user'), localStorage.getItem('group_id'))
     
-
-    if(!moveToCreate){
-        style1 = styles.left_element_wrapper
-        style2 = styles.right_element_wrapper
-
-    } else {
-        style1 = styles.left_element_wrapper2
-        style2 = styles.right_element_wrapper2
+    
+        promise.then((data) => {
+            // setValidName(!data)
+            // console.log(!data + " this is in the inverse data")
+            // console.log("data: " + data)
+            // // console.log("isNew: " + isNew)
+            // // setAddPrompt("Successful Login")
+            // console.log("curr_group data available just before redirect")
+            // console.log(curr_group)
+            // redirect(<UserSelect groupData={curr_group}/>)
+            // updateGroupObject(curr_group)
+            curr_group = data
+            setGroupData(curr_group)
+            // getGroup()
+            // redirect('/xmas/create')
+    
+        }
+        )
     }
     
+    useEffect(() => {
+        validate()
+    }, [groupData, setGroupData])
+    
 
 
 
-    console.log("HERE IT IS THIS IS IT")
-    console.log(getGroupObject() )
 
-
+    console.log(curr_group)
 
     return (
         <>
-            <div className={styles.page_container}>
-                <div className={style1}>
-                    <div className={styles.centering_unit}>
-                        <Typing content={"Gift exchanges with friends and family made easy :D"} />
-                    </div>
-                </div>
-                {/* <div className={styles.home_divider} />
-                <div className={styles.home_divider2} /> */}
+            {/* <Gifts/> */}
+            <Gifts groupData={groupData} setGroupData={setGroupData}/>
 
-                <div className={style2}>
-                    <div className={styles.centering_unit}>
-                        <Login move={setMoveToCreate}/>
-                    </div>
-                    {/* <div className={styles.centering_unit}>
-                        <UserSelect groupData={groupData} setGroupData={setGroupData}/>
-
-
-                        <Gifts groupData={groupData} setGroupData={setGroupData}/>
-                    </div> */}
-                </div>
-            </div>
         </>
     )
 }

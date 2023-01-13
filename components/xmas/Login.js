@@ -69,11 +69,13 @@ useEffect(() => {
         if(focus === 'login' && current !== 'login') {
             setFocus('signup')
             setSubmitCode(<SubmissionCode prompt={"Let's create a group!"} isNew={true} setCode={setSubmitCode}  move={move} focus={'signup'}/>)
+            move(false)
 
         } else if (focus === 'signup' && current !== 'signup'){
 
             setFocus('login')
             setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'}/>)
+            move(false)
 
         }
     }

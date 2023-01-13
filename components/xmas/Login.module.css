@@ -83,7 +83,7 @@
 
 }
 
-.submit_buttonl:active {
+/* .submit_buttonl:active {
     height: 5vw;
     width: 100%;
     position: relative;
@@ -91,15 +91,15 @@
     border-radius: 10px 0px 0px 0px;
     background-color: black;
     color: white;
-}
+} */
 
-.submit_buttonr:active {
+/* .submit_buttonr:active {
     height: 5vw;
     width: 100%;
     position: relative;
     font-size: 2vw;
     border-radius:  0px 10px 0px 0px;
-}
+} */
 
 
 .go_button{
@@ -108,8 +108,15 @@
     position: relative;
     font-size: 2vw;
     border-radius: 10px;
+    /* border-radius:  0px 10px 0px 0px; */
+    border: 1px solid black;
 }
 
+.go_button:hover{
+background-color:#c5c5c5;
+    border: 3px solid black;
+
+}
 
 
 
@@ -150,7 +157,7 @@
     /* background-color: rgb(190, 190, 190); */
     border-radius: 10px;
     text-decoration: none;
-    transition: 5s;
+    /* transition: 5s; */
     /* padding: 1vw; */
 }
 

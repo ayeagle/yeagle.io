@@ -18,15 +18,15 @@ export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
         xmas_group_id:xmas_group_id
     })
         .then(response => {
-            temp.group_id = response.data[0].group_id
+            temp[0].group_id = response.data[0].group_id
 
-            temp.group_members = response.data[0].participants
+            temp[0].group_members = response.data[0].participants
 
             response.data.map((element, i) => {
-                console.log("inside first loop")
+                // console.log("inside first loop")
 
-                console.log(element)
-                console.log(i)
+                // console.log(element)
+                // console.log(i)
                 // console.log(element.length)
 
                 temp[0].gifts.push({
@@ -41,7 +41,7 @@ export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
                 updateGroupObject(temp)
               });
 
-              console.log(temp)
+            //   console.log(temp)
 
             return temp
         })
