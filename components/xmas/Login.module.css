@@ -63,29 +63,72 @@
 }
 
 
-.submit_button {
+.submit_buttonl {
     height: 5vw;
-    /* width: 100%; */
+    width: 100%;
     position: relative;
-    /* top: 5vw; */
     font-size: 2vw;
-    border-radius: 10px;
-    margin-left: 2%;
-    margin-right: 2%;
-    padding-left: 10%;
-    padding-right: 10%;
+    border-radius: 10px 0px 0px 0px;
+    border: 1px solid black;
 
 }
 
+.submit_buttonr {
+    height: 5vw;
+    width: 100%;
+    position: relative;
+    font-size: 2vw;
+    border-radius:  0px 10px 0px 0px;
+    border: 1px solid black;
 
-.submit_button:hover {
+}
+
+.submit_buttonl:active {
+    height: 5vw;
+    width: 100%;
+    position: relative;
+    font-size: 2vw;
+    border-radius: 10px 0px 0px 0px;
+    background-color: black;
+    color: white;
+}
+
+.submit_buttonr:active {
+    height: 5vw;
+    width: 100%;
+    position: relative;
+    font-size: 2vw;
+    border-radius:  0px 10px 0px 0px;
+}
+
+
+.go_button{
+    height: 5vw;
+    width: 60%;
+    position: relative;
+    font-size: 2vw;
+    border-radius: 10px;
+}
+
+
+
+
+.login_signup_wrapper {
+    display: inline-flex;
+    flex-direction: row;
+    /* margin-left:-3%; */
+    width: 100%;
+    /* margin-top:-10%; */
+}
+
+.submit_buttonl:hover {
 
     opacity: 80%;    
     border: 3px solid black;
 
 }
 
-.submit_button:hover {
+.submit_buttonr:hover {
 
     opacity: 80%;
     /* background-color: rgb(148, 148, 251);
@@ -100,13 +143,15 @@
     width: 80%;
     left:10%;
     font-size: 3vw;
+    box-shadow: 0 0 20px #888888;
     /* justify-content: center; */
     position:relative;
     z-index: 10000;
     /* background-color: rgb(190, 190, 190); */
     border-radius: 10px;
     text-decoration: none;
-    padding: 1vw;
+    transition: 5s;
+    /* padding: 1vw; */
 }
 
 /* .login_container:hover{

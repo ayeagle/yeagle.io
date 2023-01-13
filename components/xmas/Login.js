@@ -8,17 +8,16 @@ import XMAS_CheckUser from './DB/XMAS_CheckUser';
 import XMAS_ValidateLogin from './DB/XMAS_ValidateLogin';
 import XMAS_AddNewUser from './DB/XMAS_AddNewUser';
 
-import create from '/pages/xmas/create.js'
 // import LogActivity from '@components/DBcomponents/LogActivity';
 import { getGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
-
+import SubmissionCode from './SubmissionCode';
 
 
 
 let curr_group = getGroupObject()
 
-export default function ActualLogin({ setLoginOrSignUp }) {
+export default function Login({ setLoginOrSignUp, move }) {
     const [userCheckVal, setUserCheckVal] = useState('')
     const [userPasswordCheckVal, setUserPasswordCheckVal] = useState('')
     const [validName, setValidName] = useState('')
@@ -28,7 +27,8 @@ export default function ActualLogin({ setLoginOrSignUp }) {
     const [greenSecSwitch, setSecGreenSwitch] = useState(false)
     const [viewPassword, setViewPassword] = useState('password')
     const [createNew, setCreateNew] = useState(false)
-
+    const [focus, setFocus] = useState('login')
+const [submitCode, setSubmitCode] = useState()
 
     const [userGenResult, setUserGenResult] = useState('')
 
@@ -37,7 +37,12 @@ export default function ActualLogin({ setLoginOrSignUp }) {
     let updater = 0
     let newVal = 0;
 
+useEffect(() => {
 
+    setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'}/>)
+
+
+},[])
 
     // console.log(typeof validName)
 
@@ -59,162 +64,37 @@ export default function ActualLogin({ setLoginOrSignUp }) {
         console.log("promise was executed")
     }
 
-        // promise.then((data) => {
-        //     // setValidName(!data)
-        //     // console.log(!data + " this is in the inverse data")
-        //     // console.log("data: " + data)
 
-        //     if (data) {
-        //         setAddPrompt("Successful Login")
-        //         setGreenSwitch(true)
-        //         setCreateNew(false)
+    const changeFocus = (current) => {
+        if(focus === 'login' && current !== 'login') {
+            setFocus('signup')
+            setSubmitCode(<SubmissionCode prompt={"Let's create a group!"} isNew={true} setCode={setSubmitCode}  move={move} focus={'signup'}/>)
 
+        } else if (focus === 'signup' && current !== 'signup'){
 
+            setFocus('login')
+            setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'}/>)
 
-
-
-
-
-
-
-
-
-
-
-        //         setTimeout(() => {
-        //             window.location.href='/xmas/create';
-        //           }, 1000);
-
-
-        //         // setLoginOrSignUp('logged in')
-        //         // LogActivity(localStorage.getItem('uid'), "logged in normally")
-        //     } else {
-        //         setAddPrompt("Hmm I don't think that group exists...")
-        //         setGreenSwitch(false)
-        //         setCreateNew(true)
-        //     }
-        // })
-
-
-
-
-
-
-
-    const validate = () => {
-        // let promise = XMAS_ValidateLogin(userCheckVal)
-        let promise = XMAS_CheckUser(userCheckVal, 2)
-
-
-        promise.then((data) => {
-            setValidName(!data)
-            // console.log(!data + " this is in the inverse data")
-            // console.log("data: " + data)
-
-            if (data) {
-                setAddPrompt("Successful Login")
-                setGreenSwitch(true)
-                setCreateNew(false)
-
-
-                getGroup()
-
-
-
-
-
-
-
-
-
-
-                // setTimeout(() => {
-                //     window.location.href='/xmas/create';
-                //   }, 1000);
-
-
-                // setLoginOrSignUp('logged in')
-                // LogActivity(localStorage.getItem('uid'), "logged in normally")
-            } else {
-                setAddPrompt("Hmm I don't think that group exists...")
-                setGreenSwitch(false)
-                setCreateNew(true)
-            }
-        })
-
+        }
     }
 
-    // const sendUsernameCheck = () => {
-    //     let promise = XMAS_CheckUser(userCheckVal)
+    // changeFocus()
 
-    //     promise.then((data) => {
-    //         setValidName(!data)
 
-    //         console.log(!data + " this is in the inverse data")
-
-    //         if (userCheckVal == '') {
-    //             setAddPrompt("Oops you didn't enter anything!")
-    //             setGreenSwitch(false)
-    //         } else if (!isValidName(userCheckVal)) {
-    //             setAddPrompt("Special characters and white spaces aren't allowed!")
-    //             setGreenSwitch(false)
-    //         } else if (!data) {
-    //             setAddPrompt("That name is available!")
-    //             setGreenSwitch(true)
-    //         } else {
-    //             setAddPrompt("That name is already taken, sorry!")
-    //             setGreenSwitch(false)
-    //         }
-    //     })
-    // }
-
-    // const initUserCreation = () => {
-    //     sendUsernameCheck()
-    //     sendPasswordCheck()
-
-    //     if (greenSwitch && greenSecSwitch) {
-    //         // setUserGenResult(
-    //         XMAS_AddNewUser(userCheckVal, userPasswordCheckVal)
-    //         // redirect()
-    //         // navigate('./about')
-    //         //     .then(response => {
-    //         //         return response.data
-    //         //     })
-    //         // )
-    //     }
-    // }
-
+    // onClick={() => redirect('/xmas/create')}
 
     return (
         <>
             <div className={styles.login_container}>
-
-                <div className={styles.form}>
-                    Have a group already?
-                    <div className={styles.inline_wrapper}>
-                        <label>
-                            <br />
-                            <input
-                                className={styles.input}
-                                type="string"
-                                placeholder="group name"
-                                onChange={(e) => {
-                                    setUserCheckVal(e.target.value)
-                                }
-                                } />
-                        </label>
-                    </div>
-                    <br></br>
-                    <div className={styles.warning} style={{ color: greenSwitch ? "green" : "red" }}>{addPrompt}</div>
-                    <br></br>
-                    <button className={styles.submit_button} onClick={validate}>Log In</button>
+                <div className={styles.login_signup_wrapper}>
+                    <button className={styles.submit_buttonl} style={{color: focus === 'login' ? 'white' : 'black', backgroundColor: focus === 'login' ? 'black' : 'white' }}   onClick={() => changeFocus('login')}>Log In</button>
+                    <button className={styles.submit_buttonr} style={{color: focus === 'signup' ? 'white' : 'black', backgroundColor: focus === 'signup' ? 'black' : 'white' }} onClick={() => changeFocus('signup')}>Sign Up</button>
                 </div>
+               {submitCode}
 
                 {/* <button className={styles.submit_button} onClick={validate}>Log In</button> */}
-                <div>or...</div>
                 <br></br>
 
-                <a href="/xmas/create"><button className={styles.submit_button}>Create a new group!</button></a>
 
                 <br></br>
             </div>

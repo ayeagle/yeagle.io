@@ -1,0 +1,11 @@
+.user_input{
+
+background-color: rgb(235, 235, 235);
+border-radius: 10px;
+border: 1px solid black;
+width: 90%;
+font-size: 4vw;
+padding:1vw;
+transition: 3s;
+
+}
