@@ -1,0 +1,11 @@
+.gift_box{
+
+    position: relative;
+    border: 10px solid rgb(76, 76, 126);
+    border-radius: 40px;
+    padding: 1vw;
+    top: 2vw;
+    margin-top: 1vw;
+    height: auto;
+    width: auto;
+}
