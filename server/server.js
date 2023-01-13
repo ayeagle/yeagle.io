@@ -35,6 +35,13 @@ const checkUser = require('./checkUser');
 const addNewUser = require('./addNewUser');
 const validateLogin = require('./validateLogin');
 
+const xmas_checkUser = require('./xmas_checkUser');
+const xmas_addNewUser = require('./xmas_addNewUser');
+const xmas_validateLogin = require('./xmas_validateLogin');
+const xmas_getGroupObject = require('./xmas_getGroupObject');
+
+
+
 
 ///////////////////////////////
 // app.use(express.urlencoded({ extended: true }));
@@ -100,4 +107,19 @@ app.use('/validateLogin',  (req, res, next) => {
   validateLogin(req, res, next);
 });
 
+app.use('/xmas_checkUser',  (req, res, next) => {
+  xmas_checkUser(req, res, next);
+});
+
+app.use('/xmas_addNewUser',  (req, res, next) => {
+  xmas_addNewUser(req, res, next);
+});
+
+app.use('/xmas_validateLogin',  (req, res, next) => {
+  xmas_validateLogin(req, res, next);
+});
+
+app.use('/xmas_getGroupObject',  (req, res, next) => {
+  xmas_getGroupObject(req, res, next);
+});
 
