@@ -14,7 +14,7 @@ import { getGroupObject, updateGroupObject } from '@components/xmas/DB/curr_grou
 
 
 
-let curr_group = getGroupObject()
+// let curr_group = getGroupObject()
 
 
 export default function InputUsers({ prompt }) {
@@ -22,14 +22,14 @@ export default function InputUsers({ prompt }) {
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
     const [limiter, setLimiter] = useState(0)
-    const [groupData, setGroupData] = useState(getGroupObject())
+    const [groupData, setGroupData] = useState('')
 
 
 
     console.log("HERE IT IS THIS IS IT")
-    console.log(getGroupObject())
+    // console.log(getGroupObject())
 
-    console.log(getGroupObject())
+    // console.log(getGroupObject())
 
 
     console.log("this is the curr name: " + curr_group[0].group_name)
@@ -55,6 +55,7 @@ export default function InputUsers({ prompt }) {
                     </div>
 
                 ))}
+                <button className={styles.submit_button}></button>
             </div>
 
 

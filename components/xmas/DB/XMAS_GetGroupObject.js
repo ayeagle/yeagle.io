@@ -2,12 +2,17 @@ import axios from "node_modules/axios/index";
 import { getGroupObject, updateGroupObject } from "./curr_group_data";
 
 let testName = ''
-let temp = getGroupObject()
 
 export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
 
+    let temp = getGroupObject();
+
+
 
     console.log("get group object method invoked");
+
+    console.log("this is the temp/curr_group object before getting assigned")
+    console.log(temp)
 
         // console.log("CLIENT SIDE: session id value is " +userId + " and the type of this is " + typeof(userId))
         // console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
@@ -18,9 +23,9 @@ export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
         xmas_group_id:xmas_group_id
     })
         .then(response => {
-            temp[0].group_id = response.data[0].group_id
+            temp.group_id = response.data[0].group_id
 
-            temp[0].group_members = response.data[0].participants
+            temp.group_members = response.data[0].participants
 
             response.data.map((element, i) => {
                 // console.log("inside first loop")
@@ -29,7 +34,7 @@ export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
                 // console.log(i)
                 // console.log(element.length)
 
-                temp[0].gifts.push({
+                temp.gifts.push({
                     gift_id: element.unique_id,
                     requester:element.requester_name,
                     giver: element.giver_name,
@@ -38,8 +43,12 @@ export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
                     url: element.url,
                     year: element.year,
                 });
-                updateGroupObject(temp)
               });
+
+              console.log("************ this is the value of temp before it is deployed to update the group object")
+              console.log(temp)
+              updateGroupObject(temp)
+
 
             //   console.log(temp)
 

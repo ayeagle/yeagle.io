@@ -13,9 +13,10 @@ import UserPreferences from '@components/bio/UserPreferences';
 import { getGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 
-let curr_group = getGroupObject()
+// let curr_group = getGroupObject()
+let curr_group = ''
 
-export default function UserSelect({ groupData, setGroupData }) {
+export default function UserSelect({ }) {
     const [userCheckVal, setUserCheckVal] = useState('')
     const [userPasswordCheckVal, setUserPasswordCheckVal] = useState('')
     const [validName, setValidName] = useState('')
@@ -26,51 +27,70 @@ export default function UserSelect({ groupData, setGroupData }) {
     const [viewPassword, setViewPassword] = useState('password')
     const [createNew, setCreateNew] = useState(false)
     const [userGenResult, setUserGenResult] = useState('')
-    // const [groupData, setGroupData] = useState(getGroupObject())
-    let curr_group = getGroupObject()
+    const [data, setData] = useState('')
+    const [runOnce, setRunOnce] = useState(0)
+
+    // let curr_group = await getGroupObject();
 
 
-    const validate = () => {
-        // let promise = XMAS_ValidateLogin(userCheckVal)
-        let promise = XMAS_GetGroupObject(userCheckVal, 1)
-
-
-        promise.then((data) => {
-            setValidName(!data)
-            console.log(!data + " this is in the inverse data")
-            console.log("data: " + data)
-            // console.log("isNew: " + isNew)
-            setAddPrompt("Successful Login")
-            console.log("curr_group data available just before redirect")
-            console.log(curr_group)
-            // redirect(<UserSelect groupData={curr_group}/>)
-            // updateGroupObject(curr_group)
-            curr_group = data
-            // getGroup()
-            // redirect('/xmas/create')
-
-        }
-        )
+    if (runOnce === 0) {
+        // validate()
+        setRunOnce(2)
+        console.log('fetching object')
+        curr_group = getGroupObject();
+        console.log('retrieved object')
+        console.log(curr_group)
     }
 
-    useEffect(() => {
-        validate()
-    }, [])
+
+
+    // let curr_group = getGroupObject()
+
+
+    // async function validate () {
+    //     // let promise = XMAS_ValidateLogin(userCheckVal)
+    //     let promise = await XMAS_GetGroupObject(localStorage.getItem('group_name'), localStorage.getItem('group_id'))
+
+    //     // localStorage.setItem('group_name', data.name);
+    //     // localStorage.setItem('group_id', data.id);
+
+
+    //     promise.then((data) => {
+    //         setValidName(!data)
+    //         // console.log(!data + " this is in the inverse data")
+    //         // console.log("data: " + data)
+    //         // console.log("isNew: " + isNew)
+    //         setAddPrompt("Successful Login")
+    //         console.log("curr_group data available just before redirect")
+    //         // console.log(curr_group)
+    //         // redirect(<UserSelect groupData={curr_group}/>)
+    //         // updateGroupObject(curr_group)
+    //         curr_group = data
+    //         // getGroup()
+    //         // redirect('/xmas/create')
+
+    //     }
+    //     )
+    // }
+
+
+    // useEffect(() => {
+    //     // setData(curr_group)
+    // }, [])
 
     const userChoose = (name) => {
         console.log(name)
         // LogActivity(localStorage.getItem('uid'), "logged out")
         localStorage.setItem('current_user', name);
-        localStorage.setItem('group_id', curr_group[0].group_id);
+        localStorage.setItem('group_id', curr_group.group_id);
         redirect('/xmas/home')
-
     }
 
 
     const redirect = (loc) => {
         // setTimeout(() => {
-            window.location.href = loc;
-            // setCode(loc)
+        window.location.href = loc;
+        // setCode(loc)
         // }, 100);
 
     }
@@ -78,30 +98,37 @@ export default function UserSelect({ groupData, setGroupData }) {
 
     // let groupData = getGroupObject()
     console.log("this is the group being passed into the userselect page")
-    console.log(curr_group)
+    // console.log(curr_group)
 
     console.log("this is the goupdata passed into the userselect page")
-    console.log(groupData)
+    // console.log(curr_group.group_members[0])
 
+    // console.log(groupData)
+
+    // if (data == '') return <></>
 
     return (
         <>
             <div className={styles.title_wrapper}>
                 And who might you be?
             </div>
-            <div>
-                {curr_group[0].group_members.map((name, index) => {
+            {curr_group.name != '' ? (<div>
+                {curr_group.group_members.map((name, index) => {
                     console.log("----------------> this is the index: " + index)
+                    console.log("----------------> this is the name: " + name)
+
                     return (
-                        <div className={styles.name_option} onClick={()=> userChoose(name)}>
+                        <div className={styles.name_option} onClick={() => userChoose(name)}>
                             <div key={index}>
-                                <div>{name}</div>
+                                <div key={index}>{name}</div>
                             </div>
                         </div>
                     )
                 })
                 }
             </div>
+            ) : (
+                <div>Loading...</div>)}
         </>
     )
 }
