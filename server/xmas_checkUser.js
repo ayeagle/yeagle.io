@@ -43,7 +43,7 @@ xmas_checkUser = (req, res, next) => {
         console.log("Successful post nice work")
         console.log(result.rows[0].name)
 
-        res.send(result.rows[0].name)
+        res.send(result.rows[0])
         // return
     });
     // });

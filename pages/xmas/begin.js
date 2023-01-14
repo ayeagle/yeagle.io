@@ -23,37 +23,9 @@ export default function Begin() {
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
     const [limiter, setLimiter] = useState(0)
-    const [groupData, setGroupData] = useState(getGroupObject())
+    const [groupData, setGroupData] = useState('')
     const [moveToCreate, setMoveToCreate] = useState(false)
 
-    useEffect(() => {
-        // Update the height and width state when the component is mounted
-        updateHeight(window.innerHeight)
-        updateWidth(window.innerWidth)
-        console.log("this is the height (useeffect) ==> " + height)
-        console.log("this is the width (useeffect) ==> " + width)
-
-        function handleWindowResize() {
-            // Update the height and width state when the window is resized
-            updateHeight(window.innerHeight)
-            updateWidth(window.innerWidth)
-        }
-        // if (limiter <= 3) {
-        //     setLimiter(limiter + 1)
-        //     LogActivity(userId, "loaded contact page")
-        // }
-
-        // // Add the event listener
-        window.addEventListener('resize', handleWindowResize)
-
-        setGroupData(getGroupObject())
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', handleWindowResize)
-        }
-
-    }, [groupData])
 
     
 
@@ -69,8 +41,8 @@ export default function Begin() {
 
 
 
-    console.log("HERE IT IS THIS IS IT")
-    console.log(getGroupObject() )
+    // console.log("HERE IT IS THIS IS IT")
+    // console.log(getGroupObject() )
 
 
 

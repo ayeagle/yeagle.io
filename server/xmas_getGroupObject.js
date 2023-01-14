@@ -15,6 +15,8 @@ xmas_getGroupObject = (req, res, next) => {
     function done() {
         // Close the connection to the database
     }
+    console.log("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
 
 
     console.log("---------------------- New XMAS Get Group Object Check Cycle --------------------")
@@ -26,7 +28,7 @@ xmas_getGroupObject = (req, res, next) => {
 
     console.log("this is in the middle")
 
-    const query = `SELECT * FROM gifts_data LEFT JOIN xmas_groups on xmas_groups.id = gifts_data.group_id WHERE group_id = ($1)`;
+    const query = `SELECT * FROM gifts_data LEFT JOIN xmas_groups on xmas_groups.id = gifts_data.group_id WHERE group_id = ($1) ORDER BY details DESC`;
 
     console.log("this shit right here is the group id: " + xmas_group_id)
 
@@ -43,13 +45,13 @@ xmas_getGroupObject = (req, res, next) => {
             console.log("this is the result: ")
             return
         }
-        console.log("Successful post nice work")
-        console.log(result)
-        console.log("Successful post nice work pt 2")
-        console.log(result.rows)
-        console.log("Successful post nice work pt 3")
-        console.log(result.values)
-        console.log("Successful post nice work pt 4")
+        // console.log("Successful post nice work")
+        // console.log(result)
+        // console.log("Successful post nice work pt 2")
+        // console.log(result.rows)
+        // console.log("Successful post nice work pt 3")
+        // console.log(result.values)
+        // console.log("Successful post nice work pt 4")
 
 
         console.log(result.rows[0].unique_id)

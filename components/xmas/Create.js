@@ -14,7 +14,7 @@ import InputUsers from '@components/xmas/InputUsers'
 
 
 
-let curr_group = getGroupObject()
+// let curr_group = getGroupObject()
 
 
 
@@ -26,7 +26,7 @@ export default function Create() {
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
     const [limiter, setLimiter] = useState(0)
-    const [groupData, setGroupData] = useState(getGroupObject())
+    const [groupData, setGroupData] = useState('')
 
 
     console.log("this is the curr name: "+ curr_group[0].group_name)
