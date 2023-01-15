@@ -10,9 +10,9 @@ export default function Lines({ content }) {
                 return (
                     <div key={item.id} className={styles.lines}>
                         {item.url !== 0 ? (
-                            <a href={item.url} style={{color:"white"}}>{item.words}</a>
+                            <div style={{paddingTop: "1vw"}}><a href={item.url} style={{color:"white"}}>{item.words}</a></div>
                         ) : (
-                            <div>{item.words}</div>
+                            <div style={{paddingTop: "1vw"}}>{item.words}</div>
                         )}
                     </div>
                 )

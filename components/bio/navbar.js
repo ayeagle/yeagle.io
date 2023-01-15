@@ -92,11 +92,11 @@ export default function NavBar() {
                         <li className={resumeStyle}>
                             <a className="nav-link" href="/resume">Resume</a>
                         </li>
-                        <li className={codingStyle}>
-                            <a className="nav-link" href="/coding">Coding</a>
-                        </li>
                         <li className={portStyle}>
                             <a className="nav-link" href="/portfolio">Portfolio <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className={codingStyle}>
+                            <a className="nav-link" href="/coding">Dev XP</a>
                         </li>
                         <li className={contactStyle}>
                             <a className="nav-link" href="/contact">Contact</a>

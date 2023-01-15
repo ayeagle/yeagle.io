@@ -53,6 +53,16 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
     }
 
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      // Perform desired action
+      console.log('Enter key pressed');
+      validate()
+    }
+  }
+
+
+
     const validate = () => {
         // let promise = XMAS_ValidateLogin(userCheckVal)
         let promise = XMAS_CheckUser(userCheckVal, 1)
@@ -137,8 +147,12 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                             placeholder="group name"
                             onChange={(e) => {
                                 setUserCheckVal(e.target.value)
-                            }
-                            } />
+                            }}
+                            onKeyDown={event => {
+                                if(event.key === 'Enter'){
+                                    validate()                                
+                                }
+                             }} />
                     </label>
                     <br></br>
                     <br></br>
@@ -155,8 +169,12 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                             placeholder="# of users"
                             onChange={(e) => {
                                 setNumUsers(e.target.value)
-                            }
-                            } />
+                            }}
+                            onKeyDown={event => {
+                                if(event.key === 'Enter'){
+                                    validate()                                
+                                }
+                             }} />
                     </label>
                 </div>
                 <br></br>

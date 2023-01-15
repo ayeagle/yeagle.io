@@ -20,12 +20,16 @@ import LogActivity from "@components/DBcomponents/LogActivity";
 const courses = [
     {
         id: 1,
-        words: "Web Dev Bootcamp (Course)",
+        words: "Web Dev Bootcamp",
         url: "https://www.udemy.com/course/the-web-developer-bootcamp/",
     }, {
         id: 6,
-        words: "FB/Meta 6 week engineer Bootcamp curriculum (Course)",
+        words: "FB/Meta 6 week engineer Bootcamp curriculum",
         url: "https://www.facebook.com/notes/10158790871917200/",
+    }, {
+        id: 3,
+        words: "FB/Meta Odyssey Mentorship Program ",
+        url: 0,
     }, {
         id: 7,
         words: "2022 Complete Python Bootcamp",
@@ -36,19 +40,19 @@ const courses = [
 const books = [
     {
         id: 2,
-        words: "Road to React (Book)",
+        words: "Road to React",
         url: "https://www.roadtoreact.com/",
     }, {
         id: 3,
-        words: "Full Stack Serverless (Book)",
+        words: "Full Stack Serverless",
         url: "https://www.oreilly.com/library/view/full-stack-serverless/9781492059882/",
     }, {
         id: 4,
-        words: "Designing Data-Intensive Applications (Book)",
+        words: "Designing Data-Intensive Applications",
         url: "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/",
     }, {
         id: 5,
-        words: "System Design (Book)",
+        words: "System Design Interview",
         url: 0,
     },
 ]
@@ -220,7 +224,7 @@ export default function Coding() {
 
             <div style={{ position: "relative" }}>
                 <img src="/IMGassets/rocks.png" className={styles.image} />
-                <div className={styles.image_text_center} ><Typing content={"Painstakingly self taught developer in love with building things that make life 10x better."} /></div>
+                <div className={styles.image_text_center} ><Typing content={"Self taught developer in love with building things that make life 10x better."} /></div>
             </div>
             <SVGSpacers type="top" num="4" width={width} />
             <SVGSpacers type="bot" num="1" width={width} />
@@ -302,6 +306,7 @@ export default function Coding() {
                 </div>
             </div>
 
+            <Spacer />
             <Spacer />
 
             {/* <SVGSpacers type="top" num="1" width={width} />

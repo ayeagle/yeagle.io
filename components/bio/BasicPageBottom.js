@@ -75,7 +75,7 @@ export default function BasicPageBottom() {
         <span className={styles.bottom}>
           <div className={createStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/about">About</a></div>
           <div className={resumeStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/resume">Resume</a></div>
-          <div className={codingStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/coding">Coding</a></div>
+          <div className={codingStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/coding">Dev XP</a></div>
           <div className={portStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/portfolio">Portfolio <span className="sr-only">(current)</span></a> </div>
           <div className={contactStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/contact">Contact</a></div>
         </span>
