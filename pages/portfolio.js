@@ -106,7 +106,7 @@ export default function Portfolio() {
                             <div className={styles.app_module_center_title}>P<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} />d<img src="/tomato2.png" className={styles2.tomat} />m<img src="/tomato2.png" className={styles2.tomat} /></div>
                             <br></br>
                         </visualViewport>
-                        <div className={styles.more_info}> More Info </div>
+                        {/* <div className={styles.more_info}> More Info </div> */}
 
                         {/* </div> */}
                     </div>
@@ -123,13 +123,13 @@ export default function Portfolio() {
                             <iframe style={{ width: "80vw", height: "48vw", marginTop: "-2vh" }} className={styles.app_module_center} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=42" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             <div className={styles.app_module_center_title} style={{ fontWeight: 600, color: "white" }}>Personal Site</div>
                         </visualViewport>
-                        <div className={styles.more_info}> More Info </div>
+                        {/* <div className={styles.more_info}> More Info </div> */}
 
                     </div>
 
                 </a>
                 {/* <Lines content={pomodomo_more_info} /> */}
-                {/* <Spacer height={"30vw"} />
+                {/* <Spacer height={"30vw"} />A
 
                 <a href="/about" style={{ position: "relative" }}>
                     <div className={styles.hov_catch} style={{ position: "relative" }}>

@@ -97,7 +97,7 @@ export default function EducationDetails({ elements, key }) {
 
                         <div className={workStyle} >
                             <div className={styles.details_mini_header} >Details</div>
-                            <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
+                            <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(0,0,0)", transition: !open ? "0s" : "1s"}} />
                             <ul className={styles.work_bullets}>
                                 {elements.details.map(detail => (
                                     <li key={detail} >{detail}</li>

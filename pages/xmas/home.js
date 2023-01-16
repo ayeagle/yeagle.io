@@ -10,6 +10,9 @@ import UserSelect from "@components/xmas/UserSelect";
 import { getGroupObject } from "@components/xmas/DB/curr_group_data";
 import Gifts from "@components/xmas/Gifts";
 import XMAS_GetGroupObject from "@components/xmas/DB/XMAS_GetGroupObject";
+import NavBar from "@components/xmas/NavBar";
+import Explore from "@components/xmas/Explore";
+import AddGift from "@components/xmas/AddGift";
 
 let curr_group = getGroupObject()
 // let name = ''
@@ -21,7 +24,9 @@ export default function Home() {
 
     const [groupData, setGroupData] = useState('')
     const [groupName, setGroupName] = useState('')
-
+    const [oneOpen, setOneOpen] = useState(false)
+    const [currPage, setCurrPage] = useState('')
+    // const [pageRouter, setPageRouter] = useState()
 
     const validate = () => {
         // let promise = XMAS_ValidateLogin(userCheckVal)
@@ -46,6 +51,13 @@ export default function Home() {
         )
     }
 
+    
+
+
+        //       case "main":
+        //         return <Main />
+        
+
     useEffect(() => {
         setGroupName(localStorage.getItem('group_name'))
         validate()
@@ -61,15 +73,19 @@ export default function Home() {
 
     return (
         <>
-            <div>
+            <div style={{backgroundColor: oneOpen ? "rgba(0, 0, 0, 0.657)" : ''}}>
                 <div className={styles.gift_header_container}>
                     <div className={styles.gift_header}>
                         <div>{groupName}</div>
+                        <img src="/IMGassets/bow.png" className={styles.image} />
+
                         <div>{groupData != '' ? groupData.gifts[1].year : ''}</div>
                     </div>
                 </div>
-
-                <Gifts />
+                <NavBar  currPage={currPage} setCurrPage={setCurrPage} />
+                {/* {pageRouter} */}
+                <Explore  oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData}/>
+                <AddGift />
             </div>
         </>
     )

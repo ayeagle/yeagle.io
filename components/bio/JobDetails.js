@@ -102,13 +102,13 @@ export default function JobDetails({ elements, key }) {
                     <div style={{ height: workVH, transition: "1s" }} >
                         <div className={workStyle} >
                             <div className={styles.details_mini_header} >Work</div>
-                            <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
+                            <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(0,0,0)", transition: !open ? "0s" : "1s"}} />
                             <ul className={styles.work_bullets}>
                                 {elements.details.map(detail => (
                                     <li key={detail} >{detail}</li>
                                 ))}
                             </ul>
-                            <hr style={{ backgroundColor: !open ? "rgb(0,0,0)" : "#333", transition: "1s" }} />
+                            <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(0,0,0)", transition: !open ? "0s" : "1s"}} />
                             <div className={styles.details_mini_header} > Hard Skills</div>
                             <ul><li className={styles.work_bullets}> {elements.hard_skills}</li></ul>
                             <div className={styles.details_mini_header} > Soft Skills</div>

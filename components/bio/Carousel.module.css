@@ -8,10 +8,10 @@
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 2vw;
-    padding: 10px;
+    font-size: 1.5vw;
+    /* padding: 10px; */
     width: 9vw;
-    height: 5vw;    
+    height: 5vh;    
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -42,9 +42,9 @@
 
   .buttonr:hover span {
     /* padding-right: 100px; */
-    margin-left: -5vw;
+    margin-left: -2vw;
     z-index: 100;
-  font-size: 2.2vw;
+  font-size: 1.7vw;
 
   }
 
@@ -60,21 +60,21 @@
 
 
  .buttonl {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 2vw;
-  padding: 10px;
-  width: 9vw;
-    height: 5vw;    
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  /* -webkit-animation: falling 5s 0s infinite; */
-  z-index: 100;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.5vw;
+    /* padding: 10px; */
+    width: 9vw;
+    height: 5vh;    
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    /* -webkit-animation: falling 5s 0s infinite; */
+    z-index: 100;
 
 }
 
@@ -103,9 +103,9 @@
 }
 
 .buttonl:hover span {
-  margin-right: -5vw;
+  margin-right: -2vw;
   z-index: 100;
-  font-size: 2.2vw;
+  font-size: 1.7vw;
 
 }
 
@@ -123,10 +123,13 @@
 .carousel {
   display: inline-flex;
   flex-direction:row;
+  position: relative;
+  width: 100%;
+  top: 6vw;
   /* width: 100%; */
   /* height: auto; */
   /* overflow: hidden; */
-  position: sticky;
+  /* position: sticky; */
   /* transition: transform 2s ease; */
   /* padding: 0px; */
   /* margin: 20px; */
