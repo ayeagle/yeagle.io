@@ -5,23 +5,24 @@ export default function Typing({ content }) {
 
     const [displayText, setDisplayText] = useState("")
     const [index, setIndex] = useState(0)
-    const [spacer, setSpacer] = useState("|");
+    const [spacer, setSpacer] = useState(`|`);
     const [indexPauser, setIndexPauser] = useState(0)
 
     const extra = `&nbsp;`
+    
 
     useEffect(() => {
         if (indexPauser < 2 || index == content.length) {
 
             const interval = setInterval(() => {
 
-                if (spacer == `&nbsp;`) setSpacer("|")
-                else setSpacer(`&nbsp;`)
+                if (spacer == ` `) setSpacer(`\u00A0|`)
+                else setSpacer(` `)
 
                 setIndexPauser(indexPauser + 1)
                 if (indexPauser == 2) {
                     clearInterval(interval)
-                    setSpacer("|")
+                    setSpacer(`\u00A0|`)
                     // setIndex(0)
                 }
 
@@ -33,8 +34,8 @@ export default function Typing({ content }) {
         } else if (index <= content.length) {
             const interval = setInterval(() => {
                 if (content[index] == "<") {
-                    setDisplayText(displayText + content[index] + content[index+1] + content[index+2] + content[index+3])
-                    setIndex(index + 4)
+                    setDisplayText(displayText)
+                    setIndex(index + 5)
                 } else {
                     setDisplayText(displayText + content[index])
                     setIndex(index + 1)
@@ -52,8 +53,11 @@ export default function Typing({ content }) {
 
 
     return (
-        <div dangerouslySetInnerHTML={{ __html: displayText + extra + spacer }}>
+        <div  style={{display: "flex", flexDirection: "row", justifyContent: "center"}} >
+        {/* <div dangerouslySetInnerHTML={{ __html: displayText + extra}}><span style={{position: "absolute"}}>{spacer}</span> */}
+        <div style={{whiteSpace: "pre-line"}}>{displayText}<span style={{position: "absolute"}}>{spacer}</span></div>
 
         </div>
+
     )
 }

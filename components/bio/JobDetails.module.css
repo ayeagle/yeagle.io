@@ -32,7 +32,7 @@
     /* background-color:aqua; */
     transition: 2s;
     /* padding-bottom: 10vh; */
-    background-color: black;;
+    /* background-color: black;; */
 
 }
 
@@ -48,7 +48,7 @@
     /* left:0%; */
     font-size: 1.5vw;
     border: 3px solid rgb(60, 60, 60);
-    border-bottom: 0px solid rgb(0, 0, 0);
+    border-bottom: 0px solid rgba(0, 0, 0, 0);
     border-radius: 20px 20px 0 0;
     margin-top: 10vw;
     height: 15vw;
@@ -90,7 +90,7 @@
     opacity: 100% !important;
     box-shadow: none;
     /* transition: .5s; */
-    border: 3px solid rgb(60, 60, 60);
+    border: 5px solid rgb(60, 60, 60);
     border-top: 0px solid rgb(0, 0, 0);
     opacity: 100%;
     /* transition: 2s; */
@@ -160,17 +160,17 @@
     /* transition: 1.5s; */
     margin-bottom: 8vw;
     padding-bottom: 8vw;
-    border: 3px solid rgb(0, 0, 0);
+    border: 3px solid rgba(0, 0, 0, 0);
     /* border-top: 0px solid rgb(0, 0, 0); */
     border-radius: 0 0 20px 20px;
     padding: 1vw;
     /* display:none; */
     /* font-display:none; */
     /* display:block; */
-    background-color: rgba(0, 0, 0, 0);
+    /* background-color: rgba(0, 0, 0, 0); */
     z-index: -1;
     /* display:none; */
-    transition:  color .6s ease-out, height 1s, top 1s, border 1s ease-out, z-index 0s 5s;
+    transition:  color .6s ease-out, height 1s, top 1s, border .5s ease-out, z-index 0s 5s;
 
 }
 
@@ -189,7 +189,7 @@
     border-top: 0px solid rgb(0, 0, 0);
     border-radius: 0 0 20px 20px;
     padding: 1vw;
-    transition:  color 1s ease-in, height 1s, top 1s, border 1s ease-out;
+    transition:  color 1s ease-in, height 1s, top 1s, border 1.5s ease-in;
 }
 
 

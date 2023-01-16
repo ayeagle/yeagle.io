@@ -1,0 +1,125 @@
+.form {
+    position: relative;
+    width: 100%;
+    font-size: 2vw;
+    justify-content: space-between;
+    padding: 2vw;
+    color: black;
+}
+
+.inline_wrapper {
+    font-size: 2vw;
+    bottom: 0px;
+}
+
+.check_button {
+    height: 5vw;
+    width: 45%;
+    position: relative;
+    top: .3vw;
+    font-size: 2vw;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.input {
+    height: 5vw;
+    width: 60%;
+    position: relative;
+    top: .4vw;
+    font-size: 2vw;
+    border-radius: 10px;
+    padding-left: 1.5vw;
+}
+
+.warning {
+    position: relative;
+    width: 100%;
+    font-size: 1.5vw;
+    justify-content: space-between;
+    color: red;
+}
+
+.check_button:hover {
+    height: 5vw;
+    width: 45%;
+    position: relative;
+    top: .3vw;
+    font-size: 2vw;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    opacity: 80%;
+    border: 3px solid black;
+}
+
+.submit_buttonl {
+    height: 5vw;
+    width: 100%;
+    position: relative;
+    font-size: 2vw;
+    border-radius: 10px 0px 0px 0px;
+    border: 1px solid black;
+}
+
+.submit_buttonr {
+    height: 5vw;
+    width: 100%;
+    position: relative;
+    font-size: 2vw;
+    border-radius: 0px 10px 0px 0px;
+    border: 1px solid black;
+}
+
+.go_button {
+    height: 5vw;
+    width: 60%;
+    position: relative;
+    font-size: 2vw;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.go_button:hover {
+    background-color: #c5c5c5;
+    border: 3px solid black;
+}
+
+.login_signup_wrapper {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.submit_buttonl:hover {
+    opacity: 80%;
+    border: 3px solid black;
+}
+
+.submit_buttonr:hover {
+    opacity: 80%;
+    border: 3px solid black;
+}
+
+.login_container {
+    height: auto;
+    width: 80%;
+    left: 10%;
+    font-size: 3vw;
+    box-shadow: 0 0 20px #888888;
+    position: relative;
+    z-index: 10000;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.login_text {
+    text-decoration: none;
+    color: black;
+}
+
+.login_text:hover {
+    text-decoration: none;
+    color: black;
+}

@@ -39,6 +39,7 @@ const xmas_checkUser = require('./xmas_checkUser');
 const xmas_addNewUser = require('./xmas_addNewUser');
 const xmas_validateLogin = require('./xmas_validateLogin');
 const xmas_getGroupObject = require('./xmas_getGroupObject');
+const xmas_setTaken = require('./xmas_setTaken');
 
 
 
@@ -123,3 +124,6 @@ app.use('/xmas_getGroupObject',  (req, res, next) => {
   xmas_getGroupObject(req, res, next);
 });
 
+app.use('/xmas_setTaken',  (req, res, next) => {
+  xmas_setTaken(req, res, next);
+});

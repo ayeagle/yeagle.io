@@ -146,12 +146,12 @@ export default function Carousel() {
 
   return (
     <>
-      <div>
+      <div className={styles.carousel}>
     
         {/* <rect style={{height:"200px", top:"200px"}}/> */}
         {/* <div className={styles.carousel}> */}
         {elements.map((element, index) => (
-          <span
+          <div
             key={element.id}
             className={styles.carousel_element}
             style={{ ...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size, zIndex: ((Math.abs(index - currentIndex) * (-5)) + 1000) }}
@@ -162,15 +162,15 @@ export default function Carousel() {
             {element.author}
             <br></br>
             {element.role}
-          </span>
+          </div>
 
         ))}
-        <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
+      </div>
+      <div style={{ width: "100%", display: "flex", justifyContent: "center", position: "relative", margin: "0 auto", top: "10vw"}}>
           
-            <button className={styles.buttonr} buttonName={"\u25c0"} onClick={forwardClick}><span>{`\u25c0`}</span></button>
-     
-            <button className={styles.buttonl} buttonName={"\u25b6"} onClick={backClick} ><span>{`\u25b6`}</span></button>
-        </div>
+          <button className={styles.buttonr} buttonName={"\u25c0"} onClick={forwardClick}><span>{`\u25c0`}</span></button>
+   
+          <button className={styles.buttonl} buttonName={"\u25b6"} onClick={backClick} ><span>{`\u25b6`}</span></button>
       </div>
       {/* </div> */}
       {/* </rect> */}
@@ -178,3 +178,6 @@ export default function Carousel() {
   );
 
 }
+
+
+//elements[currentIndex].size 

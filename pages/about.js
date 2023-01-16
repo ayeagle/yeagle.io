@@ -84,36 +84,45 @@ export default function About() {
             </div>
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="2" width={width} />
-            <Spacer height="8vw"/>
-            <div style={{ position: "relative", height: "30em", width: "100%" }}>
+            <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: <br></br><br></br>
+            </h4>
+            <div style={{ position: "relative", height: "30em", width: "100%", top: "-20vw" }}>
                 <Carousel className={styles.caro} />
             </div>
-            <a href="/resume"><NavButton buttonName={"See my work"} /></a>
-            <Spacer height="8vw"/>
+            {/* <Spacer height={"5vw"}/> */}
+            {/* <a href="/resume"><NavButton buttonName={"See my work"} /></a> */}
             <SVGSpacers type="top" num="1" width={width} />
             <SVGSpacers type="bot" num="4" width={width} />
             <div style={{ height: "15vh", fill: "black", zIndex: 500 }} />
-            <h4 style={{ padding: "7vw", fontSize: "4vw" }}> A broad range of experiences across product, operations, analytics, and engineering
-                has given my product work diversity and perspective. <br></br><br></br>
-            </h4>
-            <a href="/portfolio"><NavButton buttonName={"See my Projects"} /></a>
+            <div   className={styles.left_right_wrapper}>
+                <div className={styles.left_container}>
+                    <h4 style={{ padding: "7vw", fontSize: "4vw" }}> A broad range of experiences across product, operations, analytics, and engineering
+                        has given my development work diversity and perspective.
+                    </h4>
+                </div>
+                <div className={styles.right_container}>
+                    <a href="/portfolio"><NavButton buttonName={"My Projects"} /></a>         
+                    <Spacer />     
+                    <a href="/resume"><NavButton buttonName={"My Resume"} /></a>
+                </div>
+            </div>
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
-            <Spacer height={"5vw"}/>
+            <Spacer height={"5vw"} />
 
-            <div style={{position: "relative"}}>
-                <div style={{position: "absolute", top: "2vh"}}>
+            <div style={{ position: "relative" }}>
+                <div style={{ position: "absolute", top: "2vh" }}>
 
-                    <div className={styles.image_text_center} style={{top:"26vw"}}>I'm also a drone videographer!</div>
+                    <div className={styles.image_text_center} style={{ top: "26vw" }}>I'm also a drone videographer!</div>
                     {/* <div height={600}> */}
-                   <Iceland width={width} height={height} className={styles.video} />
+                    <Iceland width={width} height={height} className={styles.video} />
                     {/* </div> */}
 
                 </div>
-                
+
             </div>
-            <Spacer height={"50vw"}/>
+            <Spacer height={"50vw"} />
 
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
