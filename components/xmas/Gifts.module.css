@@ -184,3 +184,22 @@ opacity: background-color 60%; */
     transition: .5s;
 }
 
+
+.sort_container {
+    width: 90%;
+    font-size: 1.5vw;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    left: 5%;
+    position: relative;
+    padding: 3vw;
+    border-radius: 10px;
+    border: 2px solid black;
+
+}
+
+.filter_inputs{
+    border-radius: 40px;
+    position: relative;
+}

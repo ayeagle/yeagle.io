@@ -10,7 +10,7 @@ import XMAS_AddNewUser from './DB/XMAS_AddNewUser';
 
 import UserPreferences from '@components/bio/UserPreferences';
 // import LogActivity from '@components/DBcomponents/LogActivity';
-import { getGroupObject } from './DB/curr_group_data';
+import { getGroupObject, updateGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 import Spacer from '@components/bio/Spacer';
 import XMAS_SetTaken from './DB/XMAS_SetTaken';
@@ -49,7 +49,7 @@ function getRandomColor(input) {
     return colors[input % colors.length]
 }
 
-export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGroupData,  dataChange, setDataChange}) {
+export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange }) {
 
     const [data, setData] = useState('')
     const [runOnce, setRunOnce] = useState(0)
@@ -60,10 +60,14 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
     // const [currGroup, setCurrGroup] = useState(getGroupObject())
     const [stale, setStale] = useState(false)
     const giftRef = useRef(null);
+    const [sortVal, setSortVal] = useState('')
 
     // let curr_group = await getGroupObject();
     console.log("this is the single gift object")
     console.log(singleGiftObject)
+
+    console.log("this is the sort value")
+    console.log(sortVal)
 
     // if (runOnce === 0) {
     //     // validate()
@@ -163,6 +167,40 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
         )
     }
 
+    const handleSelectionChange = (e) => {
+        let tempArray = groupData
+        switch (e.target.value) {
+            case "nameUp":
+                tempArray.gifts.sort((a, b) => (a.requester > b.requester) ? 1 : -1)
+                console.log(tempArray)
+                break
+            case "nameDown":
+                tempArray.gifts.sort((a, b) => (a.requester < b.requester) ? 1 : -1)
+                console.log(tempArray)
+                break
+            case "costUp":
+                tempArray.gifts.sort((a, b) => (a.cost > b.cost) ? 1 : -1)
+                console.log(tempArray)
+                break
+            case "costDown":
+                tempArray.gifts.sort((a, b) => (a.cost < b.cost) ? 1 : -1)
+                console.log(tempArray)
+                break
+            case "newest":
+                tempArray.gifts.sort((a, b) => (a.gift_id > b.gift_id) ? 1 : -1)
+                console.log(tempArray)
+                break
+            case "oldest":
+                tempArray.gifts.sort((a, b) => (a.gift_id < b.gift_id) ? 1 : -1)
+                console.log(tempArray)
+                break
+            default:
+                break
+
+        }
+        setSortVal(e.target.value)
+        setGroupData(tempArray)
+    }
     // let curr_group = getGroupObject()
 
     // const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -188,17 +226,45 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
 
     //add a span to the claim button to make it more dynamic, something like a checkmark or soemthing
 
-////////////////
+    ////////////////
 
 
 
-//INCLUDE ESCAPE OPTION TO LEAVE THE GRAYED OUT AREA
+    //INCLUDE ESCAPE OPTION TO LEAVE THE GRAYED OUT AREA
 
 
-////////////////
+    ////////////////
 
     return (
         <>
+            <div className={styles.sort_container}>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    Sort by...
+                    <select onChange={handleSelectionChange}>
+                        <option value="nameUp">Ascending Name</option>
+                        <option value="nameDown">Descending Name</option>
+
+                        <option value="costUp">Ascending Cost</option>
+                        <option value="costDown">Descending Cost</option>
+
+                        <option value="newest">Recently Added</option>
+                        <option value="oldest">Recently Added</option>
+
+                    </select>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    Certain Name
+                    <input className={styles.filter_inputs} />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    Certain Cost
+                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "auto" }}>
+                        <input className={styles.filter_inputs} style={{ width: "20%" }} />   <input className={styles.filter_inputs} style={{ width: "20%" }} />
+                    </div>
+
+                </div>
+
+            </div>
             {groupData != '' ?
                 (
                     <div className={styles.gift_container}>
@@ -209,7 +275,7 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
                                     <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ border: ".7vw solid " + item.color + "1)", backgroundColor: item.color + ".4)" }}>
                                         {/* <div className={styles.gift_detail}>{item.giver}</div> */}
 
-                                        <div className={styles.gift_detail} style={{borderBottom: "1px solid black"}}  >{item.requester}</div>
+                                        <div className={styles.gift_detail} style={{ borderBottom: "1px solid black" }}  >{item.requester}</div>
                                         {/* <div style={{ borderRight: "2.5px solid black", width: "0", minWidth: "0%" }} /> */}
                                         {item.gift_name.length <= 30 ?
                                             (
