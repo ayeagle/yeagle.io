@@ -1,7 +1,7 @@
 
 import Resizer from "@components/functional/Resizer";
 import { useEffect, useState } from "react";
-import styles from 'pages/xmas/xmas.module.css'
+import styles from 'pages/giftly/xmas.module.css'
 import Spacer from "@components/bio/Spacer";
 import LogActivity from "@components/DBcomponents/LogActivity";
 import Typing from "@components/bio/Typing";
@@ -15,7 +15,7 @@ import NavBar from "@components/xmas/NavBar";
 
 // let curr_group = getGroupObject()
 
-export default function Explore({oneOpen, setOneOpen, groupData, setGroupData}) {
+export default function Explore({oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange}) {
 
     // const [groupData, setGroupData] = useState('')
     const [groupName, setGroupName] = useState('')
@@ -50,20 +50,20 @@ export default function Explore({oneOpen, setOneOpen, groupData, setGroupData}) 
     }, [])
 
 
-    // console.log("groupdata")
-    // console.log(groupData)
-    // console.log("groupdata")
+    console.log("groupdata")
+    console.log(groupData)
+    console.log("groupdata")
 
 
     return (
         <>
                 <Spacer/>
                 <div>Gifts Up for Grabs</div>
-                <Gifts claimed={false} oneOpen={oneOpen} setOneOpen={setOneOpen}/>
+                <Gifts claimed={false} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
                 <Spacer/>
 
                 <div>Gifts Already Claimed</div>
-                <Gifts claimed={true} oneOpen={oneOpen} setOneOpen={setOneOpen}/>
+                <Gifts claimed={true} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
                 <Spacer height={"20vw"}/>
         </>
     )

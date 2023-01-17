@@ -15,6 +15,7 @@ import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 import Spacer from '@components/bio/Spacer';
 import XMAS_SetTaken from './DB/XMAS_SetTaken';
 import { useRef } from 'react';
+import Spinner from './Spinner';
 
 
 let curr_group = ''
@@ -48,7 +49,7 @@ function getRandomColor(input) {
     return colors[input % colors.length]
 }
 
-export default function Gifts({ claimed, oneOpen, setOneOpen }) {
+export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGroupData,  dataChange, setDataChange}) {
 
     const [data, setData] = useState('')
     const [runOnce, setRunOnce] = useState(0)
@@ -56,7 +57,7 @@ export default function Gifts({ claimed, oneOpen, setOneOpen }) {
     const [singleGiftOpen, setSingleGiftOpen] = useState(false)
     const [singleGiftObject, setSingleGiftObject] = useState("")
     const [isClaiming, setIsClaiming] = useState(false)
-    const [curr_group, setCurrGroup] = useState(getGroupObject())
+    // const [currGroup, setCurrGroup] = useState(getGroupObject())
     const [stale, setStale] = useState(false)
     const giftRef = useRef(null);
 
@@ -64,23 +65,25 @@ export default function Gifts({ claimed, oneOpen, setOneOpen }) {
     console.log("this is the single gift object")
     console.log(singleGiftObject)
 
-    if (runOnce === 0) {
-        // validate()
-        setRunOnce(2)
-        console.log('fetching object')
-        // curr_group = getGroupObject();
-        console.log('retrieved object')
-        console.log(curr_group)
-    }
+    // if (runOnce === 0) {
+    //     // validate()
+    //     setRunOnce(2)
+    //     console.log('fetching object')
+    //     curr_group = getGroupObject();
+
+    //     // setCurrGroup(getGroupObject())
+    //     console.log('retrieved object')
+    //     console.log(curr_group)
+    // }
 
     const giftClick = (gift_id) => {
         if (!oneOpen) {
-            console.log(gift_id + "this is the gift ID passed")
-            console.log("gift clicked")
+            // console.log(gift_id + "this is the gift ID passed")
+            // console.log("gift clicked")
             setSingleGiftStyle(styles.single_gift_box)
             setSingleGiftOpen(true)
             setOneOpen(true)
-            setSingleGiftObject(curr_group.gifts.find(gift => gift.gift_id === gift_id))
+            setSingleGiftObject(groupData.gifts.find(gift => gift.gift_id === gift_id))
         }
     }
 
@@ -111,6 +114,7 @@ export default function Gifts({ claimed, oneOpen, setOneOpen }) {
         wait(setSingleGiftOpen(false), 3000)
         setIsClaiming(false)
         setOneOpen(false)
+        setDataChange(true)
     }
 
     const claimNo = () => {
@@ -138,36 +142,21 @@ export default function Gifts({ claimed, oneOpen, setOneOpen }) {
 
         console.log("this is the taken value: " + taken)
         console.log("this is the unique_id value " + gift_id)
+        console.log("this is the unique_id value " + localStorage.getItem('current_user'))
+
         // XMAS_SetTaken(taken_value, gift_unique_id)
 
         // let promise = XMAS_ValidateLogin(userCheckVal)
-        let promise = XMAS_SetTaken(taken, gift_id)
+        let promise = XMAS_SetTaken(taken, gift_id, localStorage.getItem('current_user'))
 
         promise.then((data) => {
             console.log(data)
             console.log("//////////// that is the taken return value ////////////")
             setStale(true)
-            location.href = '/xmas/home'
+            location.href = '/giftly/home'
 
             if (!data) {
-                // setAddPrompt("That group name's available!")
-                // setGreenSwitch(true)
-                // // setCreateNew(false)
-                // move(true)
-                // // getGroup()
-                // curr_group.group_name = userCheckVal
-                // curr_group.num_users = numUsers
-                // console.log("this is the curr group after name add: ")
-                // // console.log(curr_group)
-
-                // // updateGroupObject(curr_group)
-                // localStorage.setItem('group_name', userCheckVal);
-
-                // redirect(<Create />)
             } else {
-                // setAddPrompt("Hmm looks like that group name is taken...")
-                // setGreenSwitch(false)
-                // setCreateNew(true)
             }
             console.log('home redirect was triggered')
         }
@@ -187,11 +176,14 @@ export default function Gifts({ claimed, oneOpen, setOneOpen }) {
 
     useEffect(() => {
         name = localStorage.getItem('current_user')
-        setCurrGroup(getGroupObject())
+        // setCurrGroup(getGroupObject())
         setStale(false)
 
-    }, [curr_group, setCurrGroup, giftRef])
+    }, [groupData, setGroupData, giftRef, setStale, stale, dataChange, setDataChange])
+    // console.log(currGroup)
     console.log(curr_group)
+    console.log(groupData)
+
     console.log("object just before render")
 
     //add a span to the claim button to make it more dynamic, something like a checkmark or soemthing
@@ -200,10 +192,10 @@ export default function Gifts({ claimed, oneOpen, setOneOpen }) {
 
     return (
         <>
-            {curr_group != '' ?
+            {groupData != '' ?
                 (
                     <div className={styles.gift_container}>
-                        {curr_group.gifts.map(function (item) {
+                        {groupData.gifts.map(function (item) {
                             if (item.requester !== name && item.taken === claimed && item.gift_id) {
                                 item.color = getRandomColor(item.gift_id)
                                 return (
@@ -230,7 +222,9 @@ export default function Gifts({ claimed, oneOpen, setOneOpen }) {
                         }
                     </div>
                 ) : (
-                    <div>Loading...</div>
+                    // <><Spinner/></>
+                    // <div>Loading...</div>
+                    <></>
                 )
             }
             {singleGiftOpen ?

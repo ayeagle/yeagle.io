@@ -23,16 +23,16 @@ xmas_setTaken = (req, res, next) => {
 
     const taken_value = req.body.taken_value;
     const gift_unique_id = req.body.gift_unique_id;
-
+    const giver_name = req.body.giver_name;
 
     console.log("this is in the middle")
 
     // const query = `SELECT * FROM xmas_groups WHERE name = ($1)`;
 
-    const query = `UPDATE gifts_data SET taken = ($1) WHERE unique_id = ($2)`;
+    const query = `UPDATE gifts_data SET taken = ($1), giver_name = ($3) WHERE unique_id = ($2)`;
 
 
-    const values = [taken_value, gift_unique_id ];
+    const values = [taken_value, gift_unique_id, giver_name];
 
     global.client.query(query, values, (err, result) => {
         console.log("the query function is running Pt1 ")
