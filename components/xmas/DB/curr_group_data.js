@@ -6,9 +6,9 @@ let curr_group_data =
         num_users: 0,
         gifts: [
             {
-                unique_id: '',
-                requester_name: '',
-                giver_name: '',
+                gift_id: '',
+                requester: '',
+                giver: '',
                 taken: true,
                 gift_name: '',
                 details: '',

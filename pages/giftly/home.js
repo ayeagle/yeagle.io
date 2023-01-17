@@ -124,7 +124,7 @@ export default function Home() {
                 <div className={styles.gift_header_container}>
                     <div className={styles.gift_header}>
                         {/* <img src="/IMGassets/bow.png" className={styles.image} /> */}
-                        <a href='/giftly/begin' style={{textDecoration: "none", color: "white"}}>
+                        <a href='/giftly/begin' style={{ textDecoration: "none", color: "white" }}>
                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
                                 <div >Change</div>
                                 <div >Groups</div>
