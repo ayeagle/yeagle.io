@@ -38,6 +38,7 @@ export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
                     gift_id: element.unique_id,
                     requester:element.requester_name,
                     giver: element.giver_name,
+                    gift_name: element.gift_name,
                     taken: element.taken,
                     details: element.details,
                     url: element.url,

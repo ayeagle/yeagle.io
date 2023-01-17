@@ -30,7 +30,7 @@ export default function Home() {
     const [dataChange, setDataChange] = useState(false)
 
 
-    const [currPageCode, setCurrPageCode] = useState(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>)
+    const [currPageCode, setCurrPageCode] = useState(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} />)
 
     // const [pageRouter, setPageRouter] = useState()
 
@@ -42,7 +42,7 @@ export default function Home() {
     //     // console.log('retrieved object')
     //     // console.log(curr_group)
     // }
-    if (dataChange){
+    if (dataChange) {
         setDataChange(false)
     }
 
@@ -64,13 +64,13 @@ export default function Home() {
             curr_group = data
             setGroupData(data)
             if (runOnce === 0) {
-                    // setRunOnce(2)
-                    // location.href = '/giftly/home'
-                    // console.log('fetching object')
-                    // // curr_group = getGroupObject();
-                    // console.log('retrieved object')
-                    // console.log(curr_group)
-                }
+                // setRunOnce(2)
+                // location.href = '/giftly/home'
+                // console.log('fetching object')
+                // // curr_group = getGroupObject();
+                // console.log('retrieved object')
+                // console.log(curr_group)
+            }
             // location.href = '/giftly/home'
 
             // getGroup()
@@ -82,7 +82,7 @@ export default function Home() {
     const sendPage = () => {
         switch (currPageName) {
             case 'explore':
-                setCurrPageCode(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>)
+                setCurrPageCode(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} />)
                 return
             case 'add':
                 setCurrPageCode(<AddGift />)
@@ -91,7 +91,7 @@ export default function Home() {
                 setCurrPageCode()
                 return
             default:
-                setCurrPageCode(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>)
+                setCurrPageCode(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} />)
                 return
         }
     }
@@ -123,11 +123,19 @@ export default function Home() {
             <div style={{ backgroundColor: oneOpen ? "rgba(0, 0, 0, 0.657)" : '' }}>
                 <div className={styles.gift_header_container}>
                     <div className={styles.gift_header}>
-                        <div >{groupName}</div>
                         {/* <img src="/IMGassets/bow.png" className={styles.image} /> */}
+                        <a href='/giftly/begin' style={{textDecoration: "none", color: "white"}}>
+                            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
+                                <div >Change</div>
+                                <div >Groups</div>
+                            </div>
+                        </a>
                         <div className={styles.giftly_style}>Giftly</div>
+                        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
+                            <div >{groupName}</div>
+                            <div>{groupData != '' ? groupData.gifts[1].year : ''}</div>
+                        </div>
 
-                        <div>{groupData != '' ? groupData.gifts[1].year : ''}</div>
                     </div>
                 </div>
                 <NavBar currPageName={currPageName} setCurrPageName={setCurrPageName} />
