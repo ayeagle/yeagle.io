@@ -13,20 +13,20 @@ import Gifts from "@components/xmas/Gifts";
 
 
 
-export default function NavBar( { currPage,setCurrPage } ) {
+export default function NavBar( { currPageName,setCurrPageName } ) {
 
-    const [activeHeader, setActiveHeader] = useState('home')
+    const [activeHeader, setActiveHeader] = useState('explore')
 
     const headerClick = (val) => {
         setActiveHeader(val)
-        setCurrPage(val)
+        setCurrPageName(val)
     }
 
 
     return (
         <>
            <div className={styles.container}>
-                    <div className={styles.nav_unit}  onClick={()=>headerClick('explore')} style={{color: activeHeader == 'home' ? 'white' : 'black', background: activeHeader == 'home' ? "black" : "white"}}>Explore</div>
+                    <div className={styles.nav_unit}  onClick={()=>headerClick('explore')} style={{color: activeHeader == 'explore' ? 'white' : 'black', background: activeHeader == 'explore' ? "black" : "white"}}>Explore</div>
                     <div className={styles.nav_unit}  onClick={()=>headerClick('add')} style={{color: activeHeader == 'add' ? 'white' : 'black', background: activeHeader == 'add' ? "black" : "white"}}>Add Gifts</div>
                     <div className={styles.nav_unit}  onClick={()=>headerClick('profile')} style={{color: activeHeader == 'profile' ? 'white' : 'black', background: activeHeader == 'profile' ? "black" : "white"}}>Your Profile</div>
             </div>

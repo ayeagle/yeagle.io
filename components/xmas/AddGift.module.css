@@ -1,36 +1,87 @@
+.add_gift_container {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+
+}
+
+.title {
+    padding: 0vw;
+    top: 5vw;
+    position: relative;
+}
+
 .form {
     position: relative;
-    width: 100%;
+    width: 70%;
+    left: 15%;
     font-size: 2vw;
     justify-content: space-between;
     padding: 2vw;
     color: black;
 }
 
+
 .inline_wrapper {
     font-size: 2vw;
     bottom: 0px;
-}
-
-.check_button {
-    height: 5vw;
-    width: 45%;
-    position: relative;
-    top: .3vw;
-    font-size: 2vw;
-    border-radius: 10px;
-    margin-left: 2%;
-    margin-right: 2%;
+    width: 100%;
+    /* justify-content: space-between; */
 }
 
 .input {
-    height: 5vw;
-    width: 60%;
+    height: 1vw;
+    padding: 1.5vw;
+    width: 100%;
     position: relative;
     top: .4vw;
-    font-size: 2vw;
-    border-radius: 10px;
+    font-size: 1.7vw;
+    /* border-radius: 10px; */
     padding-left: 1.5vw;
+    border: 0px;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+
+.input_long {
+    font-family: inherit;
+    /* height: 220vw; */
+    width: 100%;
+    min-width: 72%;
+    /* max-width: none; */
+    min-height: 3vw;
+    max-height: 3vw;
+
+    position: relative;
+    top: .vw;
+    font-size: 1.7vw;
+    /* border-radius: 10px; */
+    padding-left: 1.5vw;
+    border: 0px;
+    border-bottom: 1px solid black;
+    outline: none;
+    overflow-y: hidden;
+}
+
+
+.input_title {
+    position: relative;
+    text-align: left;
+    bottom: -2vw;
+    width: 100%;
+}
+
+.input_option {
+    /* width: 2vw; */
+    position: relative;
+    justify-content: right;
+    text-align: right;
+    /* right:px; */
+    bottom: -2vw;
+    font-size: 1.5vw;
+    opacity: 80%;
+    padding-left: 1vw;
 }
 
 .warning {
@@ -41,40 +92,10 @@
     color: red;
 }
 
-.check_button:hover {
-    height: 5vw;
-    width: 45%;
-    position: relative;
-    top: .3vw;
-    font-size: 2vw;
-    border-radius: 10px;
-    margin-left: 2%;
-    margin-right: 2%;
-    opacity: 80%;
-    border: 3px solid black;
-}
-
-.submit_buttonl {
-    height: 5vw;
-    width: 100%;
-    position: relative;
-    font-size: 2vw;
-    border-radius: 10px 0px 0px 0px;
-    border: 1px solid black;
-}
-
-.submit_buttonr {
-    height: 5vw;
-    width: 100%;
-    position: relative;
-    font-size: 2vw;
-    border-radius: 0px 10px 0px 0px;
-    border: 1px solid black;
-}
 
 .go_button {
     height: 5vw;
-    width: 60%;
+    width: 100%;
     position: relative;
     font-size: 2vw;
     border-radius: 10px;
@@ -90,16 +111,6 @@
     display: inline-flex;
     flex-direction: row;
     width: 100%;
-}
-
-.submit_buttonl:hover {
-    opacity: 80%;
-    border: 3px solid black;
-}
-
-.submit_buttonr:hover {
-    opacity: 80%;
-    border: 3px solid black;
 }
 
 .login_container {
@@ -122,4 +133,42 @@
 .login_text:hover {
     text-decoration: none;
     color: black;
+}
+
+.gift_added {
+    border: 2px solid black;
+    background-color: rgb(57, 176, 57);
+    padding: auto;
+    position: relative;
+    /* top: -20vw; */
+    left: 5%;
+    width: 90%;
+    padding: 2vw;
+    /* height: 8vw; */
+    z-index: 1000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gift_added_after {
+    border: 2px solid rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    background-color: rgba(57, 176, 57, 0);
+    padding: auto;
+    position: relative;
+    /* top: -20vw; */
+    left: 5%;
+    width: 90%;
+    padding: 2vw;
+
+    /* height: 8 vw; */
+    z-index: 1000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: -1;
+    transition: 3s ease-in;
 }

@@ -83,7 +83,7 @@ export default function UserSelect({ }) {
         // LogActivity(localStorage.getItem('uid'), "logged out")
         localStorage.setItem('current_user', name);
         localStorage.setItem('group_id', curr_group.group_id);
-        redirect('/xmas/home')
+        redirect('/giftly/home')
     }
 
 

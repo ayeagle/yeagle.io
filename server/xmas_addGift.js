@@ -16,16 +16,27 @@ xmas_addGift = (req, res, next) => {
         // Close the connection to the database
     }
 
-    console.log("---------------------- New XMAS Gift Creation Cycle --------------------")
+    console.log("---------------------- New gift add Creation Cycle --------------------")
     console.log(req.body)
-    const username = req.body.username;
-    const upassword = req.body.password;
-    const time = req.body.timestamp;
+    // const username = req.body.username;
+    // const upassword = req.body.password;
+    // const time = req.body.timestamp;
+
+    const user=         req.body.user
+    const group_id=     req.body.group_id
+    const giftName=     req.body.giftName
+    const giftURL=      req.body.giftURL
+    const giftCost=     req.body.giftCost
+    const giftDetails=  req.body.giftDetails
+    const taken= false;
+
+
+
     let uid = Math.floor(Math.random()*1000000)
     
     console.log("this is in the middle")
-    const query = "INSERT INTO users (uid, username, upassword, created_date) VALUES ($1, $2, $3, $4)";
-    const values = [uid, username, upassword, time];
+    const query = "INSERT INTO gifts_data (requester_name, group_id, gift_name, url, cost, details, taken) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+    const values = [user, group_id, giftName, giftURL, giftCost, giftDetails, taken];
 
     global.client.query(query, values, (err, result) => {
         console.log("the query function is running Pt1 ")

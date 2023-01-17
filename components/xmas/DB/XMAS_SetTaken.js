@@ -3,7 +3,7 @@ import { getGroupObject, updateGroupObject } from './curr_group_data';
  
 
 
-export default function XMAS_SetTaken(taken_value, gift_unique_id) {
+export default function XMAS_SetTaken(taken_value, gift_unique_id, giver_name) {
 
     // let timestamp = new Date().toISOString()
     let curr_group = getGroupObject()
@@ -19,7 +19,8 @@ export default function XMAS_SetTaken(taken_value, gift_unique_id) {
 
     return axios.post('http://ec2-44-210-111-39.compute-1.amazonaws.com:5432/xmas_setTaken', {
         taken_value:taken_value,
-        gift_unique_id:gift_unique_id
+        gift_unique_id:gift_unique_id,
+        giver_name: giver_name
     })
         .then(response => {
             console.log(response.data)
