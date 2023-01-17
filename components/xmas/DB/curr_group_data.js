@@ -10,6 +10,7 @@ let curr_group_data =
                 requester_name: '',
                 giver_name: '',
                 taken: true,
+                gift_name: '',
                 details: '',
                 url: '',
                 year: '',

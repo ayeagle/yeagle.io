@@ -188,7 +188,14 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
 
     //add a span to the claim button to make it more dynamic, something like a checkmark or soemthing
 
+////////////////
 
+
+
+//INCLUDE ESCAPE OPTION TO LEAVE THE GRAYED OUT AREA
+
+
+////////////////
 
     return (
         <>
@@ -199,16 +206,16 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
                             if (item.requester !== name && item.taken === claimed && item.gift_id) {
                                 item.color = getRandomColor(item.gift_id)
                                 return (
-                                    <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ border: "10px solid " + item.color + "1)", backgroundColor: item.color + ".4)" }}>
+                                    <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ border: ".7vw solid " + item.color + "1)", backgroundColor: item.color + ".4)" }}>
                                         {/* <div className={styles.gift_detail}>{item.giver}</div> */}
 
-                                        <div className={styles.gift_detail} >{item.requester}</div>
-                                        <div style={{ borderRight: "2.5px solid black", width: "0", minWidth: "0%" }} />
-                                        {item.details.length <= 30 ?
+                                        <div className={styles.gift_detail} style={{borderBottom: "1px solid black"}}  >{item.requester}</div>
+                                        {/* <div style={{ borderRight: "2.5px solid black", width: "0", minWidth: "0%" }} /> */}
+                                        {item.gift_name.length <= 30 ?
                                             (
-                                                <div className={styles.gift_detail} >{item.details}</div>
+                                                <div className={styles.gift_detail} >{item.gift_name}</div>
                                             ) : (
-                                                <div className={styles.gift_detail} >{item.details.substring(0, 30) + `\n...`}</div>
+                                                <div className={styles.gift_detail} >{item.gift_name.substring(0, 30) + `\n...`}</div>
                                             )
                                         }
                                         {/* {item.url != '' ? <> <div style={{borderRight: "2.5px solid black"}} /> <div className={styles.gift_detail} ><a href={item.url}>Link to product</a></div> </>: <div/>}
@@ -237,6 +244,11 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
                                 <div>For: {singleGiftObject.requester}</div> {singleGiftObject.url != '' ? <a href={singleGiftObject.url} target="_blank"><button className={styles.product_button}>Link to product</button></a> : <div>No Link {":("}</div>}
                             </div>
                             <br></br>
+                            <div className={styles.single_gift_details}>
+                                <div >
+                                    "{singleGiftObject.gift_name}"
+                                </div>
+                            </div>
                             <div className={styles.single_gift_details}>
                                 <div >
                                     "{singleGiftObject.details}"
