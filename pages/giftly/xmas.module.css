@@ -156,3 +156,9 @@
     height: 8vw;
 }
 
+
+.individual_home_header_columns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

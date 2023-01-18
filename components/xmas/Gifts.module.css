@@ -10,8 +10,9 @@
     /* position: static; */
     /* cursor: pointer; */
     padding: 4vw; 
-    border: 2px solid black;
+    border: 4px solid black;
     border-radius: 0 0 10px 10px ;
+    border-top: 2px solid black;
 
     /* border-top: 0px; */
 }
@@ -194,18 +195,30 @@
     left: 5%;
     position: relative;
     padding: 3vw;
+    padding-top: 10vw;
+    margin-top: -6vw;
     border-radius: 10px 10px 0 0 ;
-    border: 2px solid black;
+    border: 4px solid black;
     border-bottom: 0px;
 }
 
 .filter_inputs{
-    border-radius: 40px;
+    border-radius: 10px;
     position: relative;
+    font-size: 1.7vw;
+
 }
 
 .stack_filter_inputs {
     position: relative;
-    border-radius: 40px;
-    width: 20%;
+    border-radius: 10px;
+    width: 80%;
+    font-size: 1.7vw;
+
+}
+
+.filters_title {
+    font-size: 2vw;
+    padding: .5vw;
+
 }

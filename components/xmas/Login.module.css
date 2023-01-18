@@ -34,8 +34,14 @@
     position: relative;
     top: .4vw;
     font-size: 2vw;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     padding-left: 1.5vw;
+    background-color: inherit;
+    border: 0px;
+    border-bottom: 1px solid black;
+    outline: none;
+    z-index: 2;
+    background-color: rgba(0,0,0,0);
 }
 
 
@@ -175,4 +181,26 @@ background-color:#c5c5c5;
 .login_text:hover{
     text-decoration: none;
     color: black;
+}
+
+
+.label {
+    position: absolute;
+    z-index: 1;
+    color: rgb(112, 112, 112);
+    font-size: 1.7vw;
+    margin-top: 2vw;
+    margin-left: 1.5vw;
+    transition: .2s ease-out;
+    z-index: 1;
+}
+
+.label_float {
+    position: absolute;
+    z-index: 1;
+    color: rgb(112, 112, 112);
+    font-size: 1vw;
+    margin-top: 0vw;
+    margin-left: 1.5vw;
+    transition: .2s ease-out;
 }
