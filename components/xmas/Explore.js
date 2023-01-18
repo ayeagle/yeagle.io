@@ -49,18 +49,16 @@ export default function Explore({oneOpen, setOneOpen, groupData, setGroupData, d
         console.log("this is the group_name : " + groupName)
     }, [])
 
-
     console.log("groupdata")
     console.log(groupData)
     console.log("groupdata")
 
-
     return (
         <>
-                <Spacer/>
+                <Spacer height={"10vw"}/>
                 <div>Gifts Up for Grabs</div>
                 <Gifts claimed={false} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
-                <Spacer/>
+                <Spacer height={"10vw"}/>
 
                 <div>Gifts Already Claimed</div>
                 <Gifts claimed={true} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>

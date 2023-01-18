@@ -238,32 +238,31 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
     return (
         <>
             <div className={styles.sort_container}>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    Sort by...
-                    <select onChange={handleSelectionChange}>
-                        <option value="nameUp">Ascending Name</option>
-                        <option value="nameDown">Descending Name</option>
-
-                        <option value="costUp">Ascending Cost</option>
-                        <option value="costDown">Descending Cost</option>
-
-                        <option value="newest">Recently Added</option>
-                        <option value="oldest">Recently Added</option>
-
-                    </select>
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    Certain Name
-                    <input className={styles.filter_inputs} />
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    Certain Cost
-                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "auto" }}>
-                        <input className={styles.filter_inputs} style={{ width: "20%" }} />   <input className={styles.filter_inputs} style={{ width: "20%" }} />
+                <div style={{ flexDirection: "column", width: "33%"}}>
+                    <div className={styles.filter_inputs}>
+                        Sort by...<br/>
+                        <select className={styles.filter_inputs} onChange={handleSelectionChange}>
+                            <option value="nameUp">     Ascending Name</option>
+                            <option value="nameDown">   Descending Name</option>
+                            <option value="costUp">     Ascending Cost</option>
+                            <option value="costDown">   Descending Cost</option>
+                            <option value="newest">     Recently Added</option>
+                            <option value="oldest">     Recently Added</option>
+                        </select>
                     </div>
-
                 </div>
-
+                <div style={{ flexDirection: "column", width: "33%" }}>
+                    <div>
+                        Certain Name <br/>
+                        <input className={styles.filter_inputs} />
+                    </div>
+                </div>
+                <div style={{ flexDirection: "column", width: "33%"}}>
+                    Certain Cost
+                    <div style={{ flexDirection: "row" }}>
+                        <input className={styles.stack_filter_inputs}/>   <input className={styles.stack_filter_inputs} />
+                    </div>
+                </div>
             </div>
             {groupData != '' ?
                 (
