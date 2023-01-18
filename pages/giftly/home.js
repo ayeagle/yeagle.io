@@ -28,6 +28,7 @@ export default function Home() {
     const [currPageName, setCurrPageName] = useState('explore')
     const [runOnce, setRunOnce] = useState(0)
     const [dataChange, setDataChange] = useState(false)
+    const [userName, setUserName] = useState('')
 
 
     const [currPageCode, setCurrPageCode] = useState(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} />)
@@ -107,6 +108,7 @@ export default function Home() {
 
     useEffect(() => {
         setGroupName(localStorage.getItem('group_name'))
+        setUserName(localStorage.getItem('current_user'))
         validate()
         // setGroupData(curr_group)
         console.log("this is the group_name : " + groupName)
@@ -126,13 +128,13 @@ export default function Home() {
                         {/* <img src="/IMGassets/bow.png" className={styles.image} /> */}
                         <a href='/giftly/begin' style={{ textDecoration: "none", color: "white" }}>
                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
-                                <div >Change</div>
-                                <div >Groups</div>
+                                Change <br/>Groups
                             </div>
                         </a>
-                        <div className={styles.giftly_style}>Giftly</div>
+                        <div className={styles.giftly_style} style={{ display: "flex", flexDirection: "column", justifyContent: "center" }} >Giftly</div>
                         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
-                            <div >{groupName}</div>
+                            <div  >{userName}</div>
+                            <div  >{groupName}</div>
                             <div>{groupData != '' ? groupData.gifts[1].year : ''}</div>
                         </div>
 

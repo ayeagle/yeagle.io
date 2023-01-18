@@ -56,12 +56,13 @@ export default function Explore({oneOpen, setOneOpen, groupData, setGroupData, d
     return (
         <>
                 <Spacer height={"10vw"}/>
-                <div>Gifts Up for Grabs</div>
-                <Gifts claimed={false} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
+                <br></br>
+                <Gifts prompt={'Gifts Up for Grabs'} claimed={false} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
                 <Spacer height={"10vw"}/>
 
-                <div>Gifts Already Claimed</div>
-                <Gifts claimed={true} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
+                <br></br>
+
+                <Gifts prompt={'Gifts Already Claimed'} claimed={true} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
                 <Spacer height={"20vw"}/>
         </>
     )

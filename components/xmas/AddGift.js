@@ -34,6 +34,13 @@ export default function AddGift({ }) {
     const [giftDetails, setGiftDetails] = useState('')
 
 
+    const [giftFloat, setGiftFloat] = useState(false)
+    const [URLFloat, setURLFloat] = useState(false)
+    const [costFloat, setCostFloat] = useState(false)
+    const [detailsFloat, setDetailsFloat] = useState(false)
+
+
+
     console.log("////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")
     console.log(localStorage.getItem('current_user'))
     console.log(localStorage.getItem('group_name'))
@@ -41,8 +48,30 @@ export default function AddGift({ }) {
     console.log("////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")
 
     useEffect(() => {
+        if (giftName != '') {
+            setGiftFloat(true)
+        } else {
+            setGiftFloat(false)
+        }
 
-    }, [])
+        if (giftURL != '') {
+            setURLFloat(true)
+        } else {
+            setURLFloat(false)
+        }
+
+        if (giftCost != '') {
+            setCostFloat(true)
+        } else {
+            setCostFloat(false)
+        }
+
+        if (giftDetails != '') {
+            setDetailsFloat(true)
+        } else {
+            setDetailsFloat(false)
+        }
+    }, [giftURL, giftName, giftCost, giftDetails])
 
     const validate = () => {
 
@@ -93,6 +122,7 @@ export default function AddGift({ }) {
                         Add new gifts ideas below!
                     </div>
                     <br></br>
+                    <br></br>
 
                     <br></br>
                     <div className={styles.login_signup_wrapper}>
@@ -100,11 +130,11 @@ export default function AddGift({ }) {
                             {/* {prompt} */}
                             <div className={styles.inline_wrapper}>
                                 <div style={{ display: "flex", flexDirection: "row" }}>
-
+                                <label className={giftFloat ? styles.label_float : styles.label}>GIFT NAME</label>
                                     <input
                                         className={styles.input}
                                         type="string"
-                                        placeholder="Gift idea/name"
+                                        // placeholder="Gift idea/name"
                                         value={giftAdded ? '' : null}
                                         onChange={(e) => {
                                             setGiftName(e.target.value)
@@ -114,18 +144,18 @@ export default function AddGift({ }) {
                                                 // validate()                                
                                             }
                                         }} />
-                                    <div className={styles.input_option} style={{ color: greenSwitch ? "" : "red", transition: greenSwitch ? "3s ease-in" : "0s" }}>required</div>
+                                    {/* <div className={styles.input_option} style={{ color: greenSwitch ? "" : "red", transition: greenSwitch ? "3s ease-in" : "0s" }}>required</div> */}
                                 </div>
                                 <br></br>
                                 <br></br>
                             </div>
                             <div className={styles.inline_wrapper}>
                                 <div style={{ display: "flex", flexDirection: "row" }}>
-
+                                    <label className={URLFloat ? styles.label_float : styles.label}> LINK OR URL</label>
                                     <input
                                         className={styles.input}
                                         type="string"
-                                        placeholder="Link of gift or similar"
+                                        // placeholder="Link of gift or similar"
                                         value={giftAdded ? '' : null}
 
                                         onChange={(e) => {
@@ -136,45 +166,24 @@ export default function AddGift({ }) {
                                                 // validate()                                
                                             }
                                         }} />
-                                    <div className={styles.input_option} style={{ color: greenSwitch ? "" : "rgb(211, 134, 0)", transition: greenSwitch ? "3s ease-in" : "0s" }}>recommended</div>
+                                    {/* <div className={styles.input_option} style={{ color: greenSwitch ? "" : "rgb(211, 134, 0)", transition: greenSwitch ? "3s ease-in" : "0s" }}>recommended</div> */}
                                 </div>
                                 <br></br>
                                 <br></br>
 
                             </div>
-                            <div className={styles.inline_wrapper}>
-                                <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
 
-                                    <br />
-                                    <input
-                                        className={styles.input}
-                                        type="string"
-                                        placeholder="Approx. cost"
-                                        value={giftAdded ? '' : null}
-                                        onChange={(e) => {
-                                            setGiftCost(e.target.value)
-                                        }}
-                                        onKeyDown={event => {
-                                            if (event.key === 'Enter') {
-                                                // validate()                                
-                                            }
-                                        }} />
-                                    <div className={styles.input_option}>optional</div>
-                                </div>
-                            </div>
-                            <br></br>
-                            <br></br>
-
-                            <div className={styles.inline_wrapper}>
+                            <div className={styles.inline_wrapper} style={{marginTop: "-1vw", paddingBottom: "3vw"}}>
                                 <div style={{ display: "flex", flexDirection: "row" }}>
 
                                     <br />
+                                    <label className={detailsFloat ? styles.label_float : styles.label}>DETAILS</label>
                                     <textarea
                                         rows="1"
                                         className={styles.input_long}
                                         style={{ height: "10vh" }}
                                         type="text"
-                                        placeholder="Additional details"
+                                        // placeholder="Additional details"
                                         value={giftAdded ? '' : null}
                                         onChange={(e) => {
                                             setGiftDetails(e.target.value)
@@ -186,19 +195,38 @@ export default function AddGift({ }) {
                                                 // validate()                                
                                             }
                                         }} />
-                                    <div className={styles.input_option} style={{ color: greenSwitch ? "" : "rgb(211, 134, 0)", transition: greenSwitch ? "3s ease-in" : "0s" }}>recommended</div>
+                                    {/* <div className={styles.input_option} style={{ color: greenSwitch ? "" : "rgb(211, 134, 0)", transition: greenSwitch ? "3s ease-in" : "0s" }}>recommended</div> */}
                                     <br></br>
                                     <br></br>
 
                                 </div>
                             </div>
+                            <div className={styles.inline_wrapper}>
+                                <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
 
+                                    <br />
+                                    <label className={costFloat ? styles.label_float : styles.label}>APPROX COST    (OPTIONAL)</label>
+                                    <input
+                                        className={styles.input}
+                                        type="string"
+                                        // placeholder="Approx. cost"
+                                        value={giftAdded ? '' : null}
+                                        onChange={(e) => {
+                                            setGiftCost(e.target.value)
+                                        }}
+                                        onKeyDown={event => {
+                                            if (event.key === 'Enter') {
+                                                // validate()                                
+                                            }
+                                        }} />
+                                    {/* <div className={styles.input_option}>optional</div> */}
+                                </div>
+                            </div>
                             <br></br>
-
-                            {giftAdded ? <div className={styles.gift_added}>Gift successfully added!</div> : <div className={styles.gift_added_after}>Gift successfully added! </div>}
+                            {giftAdded ? <div className={styles.gift_added}><div>Gift successfully added</div><img src="/IMGassets/good_check.png" style={{width: "3vw", height: "3vw", marginLeft: "1vw", marginTop: "-.2vw"}}/></div> : <div className={styles.gift_added_after}><div>Gift successfully added! </div><img src="/IMGassets/good_check.png" style={{width: "3vw", height: "3vw", marginLeft: "1vw", marginTop: "-.2vw"}}s/></div>}
                             <div className={styles.warning} style={{ color: greenSwitch ? "black" : "red", transition: greenSwitch ? "3s ease-in" : "0s" }}>{addPrompt}</div>
                             <br></br>
-                            <button className={styles.go_button} onClick={validate} >Let's go!</button>
+                            <button className={styles.go_button} onClick={validate} style={{backgroundColor: giftFloat ? "rgb(100, 207, 50)" : "", transition: giftFloat ? "1.5s" : ".5s", }} >Let's go!</button>
                             <br></br>
                             <br></br>
                         </div>

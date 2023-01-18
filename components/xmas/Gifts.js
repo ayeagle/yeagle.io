@@ -49,7 +49,7 @@ function getRandomColor(input) {
     return colors[input % colors.length]
 }
 
-export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange }) {
+export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange }) {
 
     const [data, setData] = useState('')
     const [runOnce, setRunOnce] = useState(0)
@@ -217,18 +217,26 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
         // setCurrGroup(getGroupObject())
         setStale(false)
 
-    }, [groupData, setGroupData, giftRef, setStale, stale, dataChange, setDataChange])
-    // console.log(currGroup)
-    console.log(curr_group)
-    console.log(groupData)
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+               // close the element
+               exitGiftClick()
+            }
+        };
 
-    console.log("object just before render")
+    }, [groupData, setGroupData, giftRef, setStale, stale, dataChange, setDataChange, singleGiftOpen])
+    // console.log(currGroup)
+    // console.log(curr_group)
+    // console.log(groupData)
+
+    // console.log("object just before render")
 
     //add a span to the claim button to make it more dynamic, something like a checkmark or soemthing
 
     ////////////////
 
-
+  
 
     //INCLUDE ESCAPE OPTION TO LEAVE THE GRAYED OUT AREA
 
@@ -236,32 +244,37 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
     ////////////////
 
     return (
-        <>
+        <div>
+            <div style={{fontSize: "4vw"}}  >{prompt}</div>
+
             <div className={styles.sort_container}>
-                <div style={{ flexDirection: "column", width: "33%"}}>
-                    <div className={styles.filter_inputs}>
-                        Sort by...<br/>
-                        <select className={styles.filter_inputs} onChange={handleSelectionChange}>
-                            <option value="nameUp">     Ascending Name</option>
-                            <option value="nameDown">   Descending Name</option>
-                            <option value="costUp">     Ascending Cost</option>
-                            <option value="costDown">   Descending Cost</option>
-                            <option value="newest">     Recently Added</option>
-                            <option value="oldest">     Recently Added</option>
-                        </select>
-                    </div>
+                <div style={{ flexDirection: "column", width: "33%" }}>
+                    <div className={styles.filters_title} >Sort by...</div>
+                    <select className={styles.filter_inputs} onChange={handleSelectionChange}>
+                        <option value="nameUp">     Ascending Name</option>
+                        <option value="nameDown">   Descending Name</option>
+                        <option value="costUp">     Ascending Cost</option>
+                        <option value="costDown">   Descending Cost</option>
+                        <option value="newest">     Newest First</option>
+                        <option value="oldest">     Oldest First</option>
+                    </select>
                 </div>
                 <div style={{ flexDirection: "column", width: "33%" }}>
-                    <div>
-                        Certain Name <br/>
-                        <input className={styles.filter_inputs} />
-                    </div>
+                    <div className={styles.filters_title} >  Certain Name </div>
+                    <input className={styles.filter_inputs} />
                 </div>
-                <div style={{ flexDirection: "column", width: "33%"}}>
-                    Certain Cost
-                    <div style={{ flexDirection: "row" }}>
-                        <input className={styles.stack_filter_inputs}/>   <input className={styles.stack_filter_inputs} />
-                    </div>
+                <div style={{ flexDirection: "column", width: "17%" }}>
+
+                    {/* <div style={{ flexDirection: "row" }}> */}
+                    <div className={styles.filters_title}  >Min Price</div>
+                    <input className={styles.stack_filter_inputs} />
+                </div>
+
+                <div style={{ flexDirection: "column", width: "17%" }}>
+
+                    <div className={styles.filters_title} >Max Price </div>
+                    <input className={styles.stack_filter_inputs} />
+                    {/* </div> */}
                 </div>
             </div>
             {groupData != '' ?
@@ -283,6 +296,7 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
                                                 <div className={styles.gift_detail} >{item.gift_name.substring(0, 30) + `\n...`}</div>
                                             )
                                         }
+                                        
                                         {/* {item.url != '' ? <> <div style={{borderRight: "2.5px solid black"}} /> <div className={styles.gift_detail} ><a href={item.url}>Link to product</a></div> </>: <div/>}
                                     <div className={styles.claim_button}>Claim!</div> */}
 
@@ -301,8 +315,16 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
             }
             {singleGiftOpen ?
                 (
-                    <div className={styles.single_gift_page_container} onClick={exitGiftClick}>
-                        <div className={styles.single_gift_container} onClick={doNothing} style={{ border: "10px solid " + singleGiftObject.color + "1)" }}>
+                    <div
+                        className={styles.single_gift_page_container}
+                        onClick={exitGiftClick}
+                        onKeyDown={event => {
+                            if (event.key === 'Escape') {
+                                exitGiftClick()
+                            }
+                        }}
+                    >
+                        <div className={styles.single_gift_container} onClick={doNothing} style={{ border: "10px solid " + singleGiftObject.color + "1)" }} >
                             {/* <img src="/IMGassets/bow.png" className={styles.image} /> */}
 
                             <div className={styles.single_gift_header}>
@@ -316,7 +338,12 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
                             </div>
                             <div className={styles.single_gift_details}>
                                 <div >
-                                    "{singleGiftObject.details}"
+                                {singleGiftObject.details == '' ? 'No details provided :(' : (`"` + singleGiftObject.details + `"`)}
+                                </div>
+                            </div>
+                            <div className={styles.single_gift_details}>
+                                <div >
+                                    {singleGiftObject.cost == null ? 'No price provided :(' : singleGiftObject.cost}
                                 </div>
                             </div>
 
@@ -351,7 +378,7 @@ export default function Gifts({ claimed, oneOpen, setOneOpen, groupData, setGrou
                     <div></div>
                 )}
 
-        </>
+        </div>
     )
 }
 

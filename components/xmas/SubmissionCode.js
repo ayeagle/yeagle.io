@@ -30,6 +30,9 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
     const [numUsers, setNumUsers] = useState(0)
     const [groupData, setGroupData] = useState(curr_group)
 
+    const [userFloat, setUserFloat] = useState(false)
+    const [numFloat, setNumFloat] = useState(false)
+
 
     const redirect = (loc) => {
         setTimeout(() => {
@@ -60,6 +63,23 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
       validate()
     }
   }
+
+
+  useEffect(() => {
+    if (userCheckVal != '') {
+        setUserFloat(true)
+    } else {
+        setUserFloat(false)
+    }
+
+    if (numUsers != '') {
+        setNumFloat(true)
+    } else {
+        setNumFloat(false)
+    }
+
+}, [userCheckVal, numUsers])
+
 
 
 
@@ -139,12 +159,13 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
             <div className={styles.form}>
                 {prompt}
                 <div className={styles.inline_wrapper}>
-                    <label>
                         <br />
+                        <label className={userFloat ? styles.label_float : styles.label}>GROUP NAME</label>
+
                         <input
                             className={styles.input}
                             type="string"
-                            placeholder="group name"
+                            // placeholder="group name"
                             onChange={(e) => {
                                 setUserCheckVal(e.target.value)
                             }}
@@ -153,7 +174,6 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                                     validate()                                
                                 }
                              }} />
-                    </label>
                     <br></br>
                     <br></br>
 
@@ -161,12 +181,12 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
 
                 </div>
                 <div className={styles.inline_wrapper} style={{display: focus === 'login' ? "none" : ""}}>
-                    <label>
                         <br />
+                        <label className={numFloat ? styles.label_float : styles.label}>NUM USERS</label>
                         <input
                             className={styles.input}
                             type="number"
-                            placeholder="# of users"
+                            // placeholder="# of users"
                             onChange={(e) => {
                                 setNumUsers(e.target.value)
                             }}
@@ -175,12 +195,11 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                                     validate()                                
                                 }
                              }} />
-                    </label>
                 </div>
                 <br></br>
                 <div className={styles.warning} style={{ color: greenSwitch ? "green" : "red" }}>{addSecPrompt}</div>
                 <br></br>
-                <button className={styles.go_button} onClick={validate}>Let's go!</button>
+                <button className={styles.go_button} onClick={validate} style={{backgroundColor: userFloat && (numFloat || focus == 'login') ? "rgb(100, 207, 50)" : "", transition: userFloat && (numFloat || focus == 'login')  ? "1.5s" : ".5s", }}>Let's go!</button>
             </div>
 
         </>
