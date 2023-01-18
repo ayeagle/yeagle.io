@@ -3,13 +3,17 @@
     display: flex;
     /* overflow: wrap; */
     flex-wrap: wrap;
-    left: 10%;
-    width: 80%;
+    left: 5%;
+    width: 90%;
     justify-content: center;
     /* z-index: 500; */
     /* position: static; */
     /* cursor: pointer; */
+    padding: 4vw; 
+    border: 2px solid black;
+    border-radius: 0 0 10px 10px ;
 
+    /* border-top: 0px; */
 }
 
 
@@ -21,7 +25,7 @@
     /* border: 10px solid rgba(153,115,87,0.5); */
     border-radius: 20px;
     padding: .5vw;
-    top: 2vw;
+    /* top: 2vw; */
     margin-top: 1vw;
     height: auto;
     width: auto;
@@ -29,16 +33,13 @@
     flex-direction: column;
     margin: 1vw;
     justify-content: space-evenly
-        /* background-color: black;
-opacity: background-color 60%; */
+    /* background-color: black;
+    opacity: background-color 60%; */
 }
 
 .gift_box:hover {
     box-shadow: 0 0 40px #6f6f6f;
 }
-
-
-
 
 .gift_detail {
     font-size: 1.5vw;
@@ -50,7 +51,6 @@ opacity: background-color 60%; */
     align-content: center;
     flex-direction: column;
 }
-
 
 .single_gift_page_container {
     width: 100%;
@@ -188,18 +188,24 @@ opacity: background-color 60%; */
 .sort_container {
     width: 90%;
     font-size: 1.5vw;
-    flex-direction: row;
+    /* flex-direction: row; */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     left: 5%;
     position: relative;
     padding: 3vw;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0 ;
     border: 2px solid black;
-
+    border-bottom: 0px;
 }
 
 .filter_inputs{
     border-radius: 40px;
     position: relative;
+}
+
+.stack_filter_inputs {
+    position: relative;
+    border-radius: 40px;
+    width: 20%;
 }
