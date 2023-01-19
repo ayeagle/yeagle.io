@@ -62,6 +62,29 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     const giftRef = useRef(null);
     const [sortVal, setSortVal] = useState('')
     const [onlyMe, setOnlyMe] = useState(true)
+    const [one, setOne] = useState(0)
+    const [searchVal, setSearchVal] = useState('')
+    const [costMin, setCostMin] = useState(null)
+    const [costMax, setCostMax] = useState(null)
+
+
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log("////////////////")
+    console.log(typeof costMin)
+
+    console.log(costMin)
+    // const [name, setName] = useState('')
 
     // let curr_group = await getGroupObject();
     console.log("this is the single gift object")
@@ -168,7 +191,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         )
     }
 
-    const handleSelectionChange = (e) => {
+    const handleSortChange = (e) => {
         let tempArray = groupData
         switch (e.target.value) {
             case "nameUp":
@@ -201,6 +224,13 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         }
         setSortVal(e.target.value)
         setGroupData(tempArray)
+        console.log('********************************************')
+        console.log(groupData)
+    }
+
+
+    const handleNameSearchChange = (e) => {
+        setSearchVal(e.target.value)
     }
     // let curr_group = getGroupObject()
 
@@ -213,8 +243,10 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     //DATA NOT LOADING BEFORE THE RENDER
     // console.log(curr_group)
 
+
+
     useEffect(() => {
-        name = localStorage.getItem('current_user')
+        name = (localStorage.getItem('current_user'))
         // setCurrGroup(getGroupObject())
         setStale(false)
 
@@ -243,8 +275,10 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
 
 
     ////////////////
+    console.log('////////////////////////////////////////////////////////////////////////////////')
 
     console.log(groupData)
+    console.log(groupData.group_members)
     // console.log(groupData.gifts)
     // console.log(groupData.gifts.length)
 
@@ -266,7 +300,8 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                 }
                 <div style={{ flexDirection: "column", width: "33%" }}>
                     <div className={styles.filters_title} >Sort by...</div>
-                    <select className={styles.filter_inputs} onChange={handleSelectionChange}>
+                    <select className={styles.filter_inputs} onChange={handleSortChange}>
+                        <option value=""></option>
                         <option value="nameUp">     Ascending Name</option>
                         <option value="nameDown">   Descending Name</option>
                         <option value="costUp">     Ascending Cost</option>
@@ -274,39 +309,60 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                         <option value="newest">     Newest First</option>
                         <option value="oldest">     Oldest First</option>
                     </select>
-                </div><div style={{ flexDirection: "column", width: "33%" }}>
-                    <div className={styles.filters_title} >  Certain Name </div>
-                    <select className={styles.filter_inputs} onChange={handleSelectionChange}>
-                        <div>
-                            {groupData.group_members ? (
-                                groupData.group_members.map(function (mapped_name, index) {
-                                    if (mapped_name !== name ) {
-                                        return <option />
-
-                                    } else {
-                                        return <option key={name} value={mapped_name}>{mapped_name}</option>
-                                    }
-                                })
-                            ) : (<option />)
-                            }
-                        </div>
-                    </select>
                 </div>
                 <div style={{ flexDirection: "column", width: "33%" }}>
                     <div className={styles.filters_title} >  Certain Name </div>
-                    <input className={styles.filter_inputs} />
+                    <select className={styles.filter_inputs} onChange={handleNameSearchChange} style={{ width: "70%" }} >
+                        <option value=""></option>
+                        {groupData.group_members ? (
+                            groupData.group_members.map(function (mapped_name, index) {
+                                if (mapped_name == name) {
+                                    return
+                                } else {
+                                    return <option key={index} value={mapped_name}>{mapped_name}</option>
+                                }
+                            })
+                        ) : (<option>Something went wrong...</option>)
+                        }
+                    </select>
+                </div>
+                <div style={{ flexDirection: "column", width: "33%" }}>
+                    <div className={styles.filters_title} >  Search </div>
+                    <input className={styles.filter_inputs} placeholder=" WIP..." />
                 </div>
                 <div style={{ flexDirection: "column", width: "17%" }}>
 
                     {/* <div style={{ flexDirection: "row" }}> */}
                     <div className={styles.filters_title}  >Min Price</div>
-                    <input className={styles.stack_filter_inputs} />
+                    <input
+                        className={styles.stack_filter_inputs}
+                        type="number"
+                        onChange={(e) => {
+                            if (e.target.value.length === 0) {
+                                setCostMin(null)
+                            } else {
+                                setCostMin(e.target.value)
+                            }
+                        }}
+
+                    />
                 </div>
 
                 <div style={{ flexDirection: "column", width: "17%" }}>
 
                     <div className={styles.filters_title} >Max Price </div>
-                    <input className={styles.stack_filter_inputs} />
+                    <input
+                        className={styles.stack_filter_inputs}
+                        type="number"
+                        onChange={(e) => {
+                            if (e.target.value.length === 0) {
+                                setCostMax(null)
+                            } else {
+                                setCostMax(e.target.value)
+                            }
+                        }}
+
+                    />
                     {/* </div> */}
                 </div>
             </div>
@@ -316,12 +372,40 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
 
                         {groupData.gifts.length == 0 ? (
                             <div>
-                                Whoa looks like there's no gifts!
+                                Whoa looks like there's no gifts... let's change that! 
+                                <br/>
+                                <br/>
+
+                                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}  >
+                                    <button>Invite Others</button>
+                                    <button>Add Gifts</button>
+                                </div>
                             </div>
 
                         ) : (
                             groupData.gifts.map(function (item) {
-                                if (item.requester !== name && item.gift_id && item.taken === claimed && (onlyMe || item.giver == name)) {
+                                if (
+                                    item.requester !== name
+                                    && item.gift_id
+                                    && item.taken === claimed
+                                    && (
+                                        onlyMe
+                                        || item.giver == name
+                                    ) && (
+                                        searchVal == ''
+                                        || searchVal == item.requester
+                                    ) && (
+                                        costMin == null
+                                        // || costMin == 0
+                                        || costMin <= item.cost
+                                    ) && (
+                                        costMin == null
+                                        // || costMax == 0
+                                        || costMax >= item.cost
+                                    )
+
+
+                                ) {
                                     item.color = getRandomColor(item.gift_id)
                                     return (
                                         <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ border: ".7vw solid " + item.color + "1)", backgroundColor: item.color + ".4)" }}>
@@ -360,6 +444,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                 (
                     <div
                         className={styles.single_gift_page_container}
+                        style={{ top: window.pageYOffset }}
                         onClick={exitGiftClick}
                         onKeyDown={event => {
                             if (event.key === 'Escape') {
