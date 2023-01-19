@@ -15,7 +15,7 @@ import NavBar from "@components/xmas/NavBar";
 
 // let curr_group = getGroupObject()
 
-export default function Explore({oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange}) {
+export default function Explore({ oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange, setCurrPageName }) {
 
     // const [groupData, setGroupData] = useState('')
     const [groupName, setGroupName] = useState('')
@@ -55,15 +55,23 @@ export default function Explore({oneOpen, setOneOpen, groupData, setGroupData, d
 
     return (
         <>
-                <Spacer height={"10vw"}/>
-                <br></br>
-                <Gifts prompt={'Gifts Up for Grabs'} claimed={false} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
-                <Spacer height={"10vw"}/>
+            <Spacer height={"3vw"} />
+            <br></br>
+            <div className={styles.descript_container}>
+                "{groupData.description}"
+            </div>
+            <Spacer height={"8vw"} />
+            <div className={styles.master_container}>
+                <Gifts prompt={'Gifts Up for Grabs'} claimed={false} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} setCurrPageName={setCurrPageName} />
+            </div>
+            <Spacer height={"10vw"} />
 
-                <br></br>
+            <br></br>
+            <div className={styles.master_container}>
 
-                <Gifts prompt={'Gifts Already Claimed'} claimed={true} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange}/>
-                <Spacer height={"20vw"}/>
+                <Gifts prompt={'Gifts Already Claimed'} claimed={true} oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} setCurrPageName={setCurrPageName} />
+            </div>
+            <Spacer height={"20vw"} />
         </>
     )
 }

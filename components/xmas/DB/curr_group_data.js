@@ -2,8 +2,10 @@ let curr_group_data =
     {
         group_name: '',
         group_id: '',
+        description: '',
         group_members: [],
         num_users: 0,
+        year: 0,
         gifts: [
             // {
             //     gift_id: '',
