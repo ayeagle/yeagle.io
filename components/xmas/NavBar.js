@@ -12,8 +12,7 @@ import Gifts from "@components/xmas/Gifts";
 
 
 
-
-export default function NavBar( { currPageName,setCurrPageName } ) {
+export default function NavBar( { currPageName, setCurrPageName } ) {
 
     const [activeHeader, setActiveHeader] = useState('explore')
 
@@ -21,6 +20,11 @@ export default function NavBar( { currPageName,setCurrPageName } ) {
         setActiveHeader(val)
         setCurrPageName(val)
     }
+    
+
+    useEffect(() => {
+        setActiveHeader(currPageName)
+    }, [currPageName])
 
 
     return (

@@ -49,7 +49,7 @@ function getRandomColor(input) {
     return colors[input % colors.length]
 }
 
-export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange, }) {
+export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange, setCurrPageName }) {
 
     const [data, setData] = useState('')
     const [runOnce, setRunOnce] = useState(0)
@@ -66,6 +66,8 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     const [searchVal, setSearchVal] = useState('')
     const [costMin, setCostMin] = useState(null)
     const [costMax, setCostMax] = useState(null)
+    const [yOffSet, setYOffset] = useState('')
+    const [bool, setBool] = useState(true)
 
 
     console.log("////////////////")
@@ -136,8 +138,8 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         event.stopPropagation();
     }
 
-    const claimYes = () => {
-        updateTaken(true, singleGiftObject.gift_id)
+    const claimYes = (takenVal) => {
+        updateTaken(takenVal, singleGiftObject.gift_id)
         goAway()
         wait(setSingleGiftOpen(false), 3000)
         setIsClaiming(false)
@@ -172,10 +174,18 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         console.log("this is the unique_id value " + gift_id)
         console.log("this is the unique_id value " + localStorage.getItem('current_user'))
 
+        let userVal = ''
+
+        if (taken) {
+            userVal = localStorage.getItem('current_user')
+        } else {
+            userVal = null
+        }
+
         // XMAS_SetTaken(taken_value, gift_unique_id)
 
         // let promise = XMAS_ValidateLogin(userCheckVal)
-        let promise = XMAS_SetTaken(taken, gift_id, localStorage.getItem('current_user'))
+        let promise = XMAS_SetTaken(taken, gift_id, userVal)
 
         promise.then((data) => {
             console.log(data)
@@ -226,6 +236,8 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         setGroupData(tempArray)
         console.log('********************************************')
         console.log(groupData)
+        setBool(!bool)
+
     }
 
 
@@ -243,12 +255,22 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     //DATA NOT LOADING BEFORE THE RENDER
     // console.log(curr_group)
 
+    // window.addEventListener('scroll', function () {
+    //     setYOffset(window.pageYOffset)
+    //     // the page was scrolled (horizontally or vertically)
+    // });
+
+    const dispatchSearchVal = () => {
+
+    }
+
 
 
     useEffect(() => {
         name = (localStorage.getItem('current_user'))
         // setCurrGroup(getGroupObject())
         setStale(false)
+        setYOffset(window.pageYOffset)
 
         document.onkeydown = function (evt) {
             evt = evt || window.event;
@@ -259,6 +281,16 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         };
 
     }, [groupData, setGroupData, giftRef, setStale, stale, dataChange, setDataChange, singleGiftOpen])
+
+    useEffect(() => {
+
+        window.addEventListener('scroll', function () {
+            setYOffset(window.pageYOffset)
+            // the page was scrolled (horizontally or vertically)
+        });
+
+
+    }, [])
     // console.log(currGroup)
     // console.log(curr_group)
     // console.log(groupData)
@@ -285,6 +317,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
 
     return (
         <div>
+            <br/>
             <div style={{ fontSize: "4vw" }}  >{prompt}</div>
 
             <div className={styles.sort_container}>
@@ -311,7 +344,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                     </select>
                 </div>
                 <div style={{ flexDirection: "column", width: "33%" }}>
-                    <div className={styles.filters_title} >  Certain Name </div>
+                    <div className={styles.filters_title} >  For... </div>
                     <select className={styles.filter_inputs} onChange={handleNameSearchChange} style={{ width: "70%" }} >
                         <option value=""></option>
                         {groupData.group_members ? (
@@ -328,7 +361,14 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                 </div>
                 <div style={{ flexDirection: "column", width: "33%" }}>
                     <div className={styles.filters_title} >  Search </div>
-                    <input className={styles.filter_inputs} placeholder=" WIP..." />
+                    <input 
+                    className={styles.filter_inputs} 
+                    placeholder=" WIP..." 
+                    onChange={(e) => {
+                        dispatchSearchVal(e.target.value)
+                    }}
+                    
+                    />
                 </div>
                 <div style={{ flexDirection: "column", width: "17%" }}>
 
@@ -366,19 +406,19 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                     {/* </div> */}
                 </div>
             </div>
-            {groupData ?
+            {groupData && ( true || bool) ?
                 (
                     <div className={styles.gift_container}>
 
                         {groupData.gifts.length == 0 ? (
                             <div>
-                                Whoa looks like there's no gifts... let's change that! 
-                                <br/>
-                                <br/>
+                                Whoa looks like there's no gifts... let's change that!
+                                <br />
+                                <br />
 
                                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}  >
                                     <button>Invite Others</button>
-                                    <button>Add Gifts</button>
+                                    <button onClick={() => setCurrPageName('add')}>Add Gifts</button>
                                 </div>
                             </div>
 
@@ -396,11 +436,11 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                         || searchVal == item.requester
                                     ) && (
                                         costMin == null
-                                        // || costMin == 0
+                                        // || costMin == '0'
                                         || costMin <= item.cost
                                     ) && (
                                         costMin == null
-                                        // || costMax == 0
+                                        // || +costMax === 0
                                         || costMax >= item.cost
                                     )
 
@@ -490,24 +530,48 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                             <Spacer height={"9vw"} />
                             {/* <div className={styles.claim_button} onClick={claimGiftCheck}>Claim this gift!</div> */}
                             {isClaiming ? (
-                                <div className={styles.claim_button_after}>
+                                singleGiftObject.taken === false ? (
+                                    <div className={styles.claim_button_after}>
 
-                                    Claiming this gift will remove it from the pool for others. Do you want to proceed?
-                                    <br></br>                        <br></br>
+                                        Claiming this gift will remove it from the pool for others. Do you want to proceed?
+                                        <br></br>                        <br></br>
 
-                                    <div className={styles.single_gift_header}>
-                                        <div />
-                                        <div />
+                                        <div className={styles.single_gift_header}>
+                                            <div />
+                                            <div />
 
-                                        <button className={styles.product_button} onClick={claimYes} >Yes</button>
-                                        <button className={styles.product_button} onClick={claimNo} >No</button>
-                                        <div />
-                                        <div />
+                                            <button className={styles.product_button} onClick={() => claimYes(true)} >Yes</button>
+                                            <button className={styles.product_button} onClick={claimNo} >No</button>
+                                            <div />
+                                            <div />
 
+                                        </div>
                                     </div>
-                                </div>
+                                ) : (
+                                    <div className={styles.claim_button_after}>
+                                        Un-claiming this gift will release it back to the pool for others. Do you want to proceed?
+                                        <br></br>                        <br></br>
+                                        <div className={styles.single_gift_header}>
+                                            <div />
+                                            <div />
+                                            <button className={styles.product_button} onClick={() => claimYes(false)} >Yes</button>
+                                            <button className={styles.product_button} onClick={claimNo} >No</button>
+                                            <div />
+                                            <div />
+
+                                        </div>
+                                    </div>
+                                )
                             ) : (
-                                <div className={styles.claim_button} onClick={claimGiftCheck}>Claim this gift!</div>
+                                singleGiftObject.taken === true ? (
+                                    singleGiftObject.giver === name ? (
+                                        <div className={styles.claim_button} onClick={claimGiftCheck}>Unclaim gift?</div>
+                                    ) : (
+                                        <div className={styles.no_claim_button} >Looks like you didn't gift this one...</div>
+                                    )
+                                ) : (
+                                    <div className={styles.claim_button} onClick={claimGiftCheck}>Claim this gift!</div>
+                                )
                             )}
 
                         </div>

@@ -13,6 +13,10 @@ import XMAS_GetGroupObject from "@components/xmas/DB/XMAS_GetGroupObject";
 import NavBar from "@components/xmas/NavBar";
 import Explore from "@components/xmas/Explore";
 import AddGift from "@components/xmas/AddGift";
+import Profile from "@components/xmas/Profile"
+
+
+
 
 let curr_group = getGroupObject()
 // let name = ''
@@ -83,13 +87,13 @@ export default function Home() {
     const sendPage = () => {
         switch (currPageName) {
             case 'explore':
-                setCurrPageCode(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} />)
+                setCurrPageCode(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} setCurrPageName={setCurrPageName}/>)
                 return
             case 'add':
                 setCurrPageCode(<AddGift />)
                 return
             case 'profile':
-                setCurrPageCode()
+                setCurrPageCode(<Profile/>)
                 return
             default:
                 setCurrPageCode(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} />)
@@ -135,8 +139,7 @@ export default function Home() {
                         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
                             <div  >{userName}</div>
                             <div  >{groupName}</div>
-                            {/* <div>{groupData ? groupData.gifts[0].year : ''}</div> */}
-                            <div>Placeholder</div>
+                            <div>{groupData ? groupData.year : ''}</div>
                         </div>
 
                     </div>
@@ -146,6 +149,27 @@ export default function Home() {
                 {/* <Explore  oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData}/>
                 <AddGift /> */}
             </div>
+            <div style={{ backgroundColor: oneOpen ? "rgba(0, 0, 0, 0.657)" : '', bottom: "0px" }}>
+                <div className={styles.gift_header_container}>
+                    <div className={styles.gift_header}>
+                        {/* <img src="/IMGassets/bow.png" className={styles.image} /> */}
+                        <a href='/giftly/begin' style={{ textDecoration: "none", color: "white" }}>
+                            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
+                                blah blah <br/>blah
+                            </div>
+                        </a>
+                        <div className={styles.giftly_style} style={{ display: "flex", flexDirection: "column", justifyContent: "center" }} >Giftly</div>
+                        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
+                            <div  >blah</div>
+                            <div  >blahblah</div>
+                            {/* <div>{groupData ? groupData.gifts[0].year : ''}</div> */}
+                            <div>Placeholder</div>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+
         </>
     )
 }

@@ -36,6 +36,9 @@ export default function XMAS_GetGroupObject(xmas_group_name, xmas_group_id) {
                 temp.group_id = response.data[0].id
 
                 temp.group_members = response.data[0].participants
+                temp.year = response.data[0].year
+                temp.description = response.data[0].description
+                temp.group_name = response.data[0].name
 
                 // console.log("returned data")
                 // console.log(response)
