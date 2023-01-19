@@ -135,7 +135,8 @@ export default function Home() {
                         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}   >
                             <div  >{userName}</div>
                             <div  >{groupName}</div>
-                            <div>{groupData != '' ? groupData.gifts[1].year : ''}</div>
+                            {/* <div>{groupData ? groupData.gifts[0].year : ''}</div> */}
+                            <div>Placeholder</div>
                         </div>
 
                     </div>

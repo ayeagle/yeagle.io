@@ -1,8 +1,11 @@
+import { getGroupObject, updateGroupObject } from "./curr_group_data";
 import axios from "node_modules/axios/index";
 
 let testName = ''
 
 export default function XMAS_CheckUser(xmas_group_name) {
+
+    let temp = getGroupObject();
 
 
     console.log("check XMAS user method invoked");
@@ -18,6 +21,17 @@ export default function XMAS_CheckUser(xmas_group_name) {
             console.log(response.data)
             testName = response.data
             console.log("the XMAS user check request was successful")
+
+            temp.group_id = response.data.id
+            temp.group_members = response.data.participants
+            temp.group_name = response.data.name
+          
+            updateGroupObject(temp)
+
+            console.log("datasetting was successful")
+
+
+
             return response.data
         })
         .catch(error => {

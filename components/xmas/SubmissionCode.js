@@ -48,7 +48,8 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
         promise.then((data) => {
             setValidName(!data)
             setAddPrompt("Successful Login")
-            console.log("curr_group data available just before redirect")
+            console.log("curr_group data available just before redirect from get group data")
+            console.log(data)
             // curr_group = data
             // updateGroupObject(data)
         }
@@ -131,9 +132,8 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                     setCreateNew(false)                    
                     // console.log("curr_group data available just before redirect")
 
-                    // console.log(curr_group)
+                    console.log(curr_group)
                     console.log("about to redirect...")
-
                     // setGroupData(data)
 
                     localStorage.setItem('group_name', data.name);
