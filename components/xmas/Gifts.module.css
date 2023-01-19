@@ -206,7 +206,8 @@
     border-radius: 10px;
     position: relative;
     font-size: 1.7vw;
-
+    opacity: inherit;
+    appearance: none;
 }
 
 .stack_filter_inputs {

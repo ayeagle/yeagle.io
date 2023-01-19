@@ -98,7 +98,7 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
 
             if (isNew){
 
-                if (numUsers <= 2) {
+                if (numUsers <= 2 || numUsers > 40) {
                     // console.log("thats not valid num users ")
                     setAddSecPrompt("That's not a valid number of users!")
                     return
@@ -106,7 +106,7 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                     setAddSecPrompt("")
                 }
                 if (!data) {
-                    setAddPrompt("That group name's available!")
+                    setAddSecPrompt("That group name's available!")
                     setGreenSwitch(true)
                     // setCreateNew(false)
                     move(true)
@@ -121,7 +121,7 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
 
                     redirect(<Create/>)
                 } else {
-                    setAddPrompt("Hmm looks like that group name is taken...")
+                    setAddSecPrompt("Hmm looks like that group name is taken...")
                     setGreenSwitch(false)
                     setCreateNew(true)
                 }
