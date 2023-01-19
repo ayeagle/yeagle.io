@@ -11,10 +11,11 @@ import Gifts from "@components/xmas/Gifts";
 import { getGroupObject, updateGroupObject } from '@components/xmas/DB/curr_group_data';
 // import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 import InputUsers from '@components/xmas/InputUsers'
+import { CognitoHostedUIIdentityProvider } from "node_modules/@aws-amplify/auth/lib-esm/types/Auth";
 
 
 
-// let curr_group = getGroupObject()
+let curr_group = getGroupObject()
 
 
 
@@ -28,21 +29,21 @@ export default function Create() {
     const [limiter, setLimiter] = useState(0)
     const [groupData, setGroupData] = useState('')
 
-
-    console.log("this is the curr name: "+ curr_group[0].group_name)
+console.log(curr_group)
+    console.log("this is the curr name: "+ curr_group.group_name)
 
     return (
         <>
                     <br></br><br></br>
 
-                    Welcome {curr_group[0].group_name}!
+                    Welcome {curr_group.group_name}!
                     <br></br>
 
 
                         {/* What are the user's names? */}
                         <br></br>
 
-                        <InputUsers prompt={"What are your member's names?"} numUsers={curr_group[0].num_users}/>
+                        <InputUsers prompt={"What are your member's names?"} numUsers={curr_group.num_users}/>
                         
                         {/* what are their emails? */}
                     {/* </div> */}

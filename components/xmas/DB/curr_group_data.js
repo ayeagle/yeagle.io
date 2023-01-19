@@ -5,17 +5,17 @@ let curr_group_data =
         group_members: [],
         num_users: 0,
         gifts: [
-            {
-                gift_id: '',
-                requester: '',
-                giver: '',
-                taken: true,
-                gift_name: '',
-                details: '',
-                url: '',
-                year: '',
-                group_id: 0,
-            }
+            // {
+            //     gift_id: '',
+            //     requester: '',
+            //     giver: '',
+            //     taken: true,
+            //     gift_name: '',
+            //     details: '',
+            //     url: '',
+            //     year: 0,
+            //     group_id: 0,
+            // }
 
         ]
     }

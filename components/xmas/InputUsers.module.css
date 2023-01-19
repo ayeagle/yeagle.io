@@ -1,11 +1,55 @@
-.user_input{
+.input {
+    height: 1vw;
+    padding: 1.5vw;
+    width: 80%;
+    position: relative;
+    top: .4vw;
+    font-size: 1.7vw;
+    /* border-radius: 10px; */
+    padding-left: 1.5vw;
+    border: 0px;
+    border-bottom: 1px solid black;
+    outline: none;
+    z-index: 2;
+    background-color: rgba(0,0,0,0);
 
-background-color: rgb(235, 235, 235);
-border-radius: 10px;
-border: 1px solid black;
-width: 90%;
-font-size: 4vw;
-padding:1vw;
-/* transition: 3s; */
+}
 
+
+
+.label {
+    position: absolute;
+    z-index: 1;
+    color: rgb(112, 112, 112);
+    font-size: 1.7vw;
+    margin-top: 1vw;
+    margin-left: 1.5vw;
+    transition: .2s ease-out;
+    z-index: 1;
+}
+
+.label_float {
+    position: absolute;
+    z-index: 1;
+    color: rgb(112, 112, 112);
+    font-size: 1vw;
+    margin-top: -1vw;
+    margin-left: 1.5vw;
+    transition: .2s ease-out;
+}
+
+.go_button {
+    height: 5vw;
+    width: 80%;
+    top:3vw; 
+    margin: 3vw;
+    position: relative;
+    font-size: 2vw;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.go_button:hover {
+    background-color: #c5c5c5;
+    border: 3px solid black;
 }

@@ -40,8 +40,8 @@ const xmas_addNewUser = require('./xmas_addNewUser');
 const xmas_validateLogin = require('./xmas_validateLogin');
 const xmas_getGroupObject = require('./xmas_getGroupObject');
 const xmas_setTaken = require('./xmas_setTaken');  //this one is incomplete
-const xmas_addGift = require('./xmas_addGift');
-
+const xmas_addGift = require('./xmas_addGift');     
+const xmas_postGroupObject = require('./xmas_postGroupObject');
 
 ///////////////////////////////
 // app.use(express.urlencoded({ extended: true }));
@@ -131,3 +131,10 @@ app.use('/xmas_setTaken',  (req, res, next) => {
 app.use('/xmas_addGift',  (req, res, next) => {
   xmas_addGift(req, res, next);
 });
+
+app.use('/xmas_postGroupObject',  (req, res, next) => {
+  xmas_postGroupObject(req, res, next);
+});
+
+
+

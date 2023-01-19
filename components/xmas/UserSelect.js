@@ -14,7 +14,7 @@ import { getGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 
 // let curr_group = getGroupObject()
-let curr_group = ''
+let curr_group = getGroupObject()
 
 export default function UserSelect({ }) {
     const [userCheckVal, setUserCheckVal] = useState('')

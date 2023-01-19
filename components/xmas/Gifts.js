@@ -49,7 +49,7 @@ function getRandomColor(input) {
     return colors[input % colors.length]
 }
 
-export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange }) {
+export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange, }) {
 
     const [data, setData] = useState('')
     const [runOnce, setRunOnce] = useState(0)
@@ -61,6 +61,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     const [stale, setStale] = useState(false)
     const giftRef = useRef(null);
     const [sortVal, setSortVal] = useState('')
+    const [onlyMe, setOnlyMe] = useState(true)
 
     // let curr_group = await getGroupObject();
     console.log("this is the single gift object")
@@ -217,11 +218,11 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         // setCurrGroup(getGroupObject())
         setStale(false)
 
-        document.onkeydown = function(evt) {
+        document.onkeydown = function (evt) {
             evt = evt || window.event;
             if (evt.keyCode == 27) {
-               // close the element
-               exitGiftClick()
+                // close the element
+                exitGiftClick()
             }
         };
 
@@ -236,18 +237,33 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
 
     ////////////////
 
-  
+
 
     //INCLUDE ESCAPE OPTION TO LEAVE THE GRAYED OUT AREA
 
 
     ////////////////
 
+    console.log(groupData)
+    // console.log(groupData.gifts)
+    // console.log(groupData.gifts.length)
+
+
     return (
         <div>
-            <div style={{fontSize: "4vw"}}  >{prompt}</div>
+            <div style={{ fontSize: "4vw" }}  >{prompt}</div>
 
             <div className={styles.sort_container}>
+
+                {claimed ? (
+                    <div style={{ flexDirection: "column", width: "33%" }}>
+                        <div className={styles.filters_title} style={{ marginTop: "-1vw" }} >Only show gifts <br />claimed by me</div>
+                        <input type="checkbox" className={styles.checkbox} onClick={() => setOnlyMe(!onlyMe)} />
+                    </div>
+                ) : (
+                    <div></div>
+                )
+                }
                 <div style={{ flexDirection: "column", width: "33%" }}>
                     <div className={styles.filters_title} >Sort by...</div>
                     <select className={styles.filter_inputs} onChange={handleSelectionChange}>
@@ -257,6 +273,23 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                         <option value="costDown">   Descending Cost</option>
                         <option value="newest">     Newest First</option>
                         <option value="oldest">     Oldest First</option>
+                    </select>
+                </div><div style={{ flexDirection: "column", width: "33%" }}>
+                    <div className={styles.filters_title} >  Certain Name </div>
+                    <select className={styles.filter_inputs} onChange={handleSelectionChange}>
+                        <div>
+                            {groupData.group_members ? (
+                                groupData.group_members.map(function (mapped_name, index) {
+                                    if (mapped_name !== name ) {
+                                        return <option />
+
+                                    } else {
+                                        return <option key={name} value={mapped_name}>{mapped_name}</option>
+                                    }
+                                })
+                            ) : (<option />)
+                            }
+                        </div>
                     </select>
                 </div>
                 <div style={{ flexDirection: "column", width: "33%" }}>
@@ -277,42 +310,52 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                     {/* </div> */}
                 </div>
             </div>
-            {groupData != '' ?
+            {groupData ?
                 (
                     <div className={styles.gift_container}>
-                        {groupData.gifts.map(function (item) {
-                            if (item.requester !== name && item.taken === claimed && item.gift_id) {
-                                item.color = getRandomColor(item.gift_id)
-                                return (
-                                    <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ border: ".7vw solid " + item.color + "1)", backgroundColor: item.color + ".4)" }}>
-                                        {/* <div className={styles.gift_detail}>{item.giver}</div> */}
 
-                                        <div className={styles.gift_detail} style={{ borderBottom: "1px solid black" }}  >{item.requester}</div>
-                                        {/* <div style={{ borderRight: "2.5px solid black", width: "0", minWidth: "0%" }} /> */}
-                                        {item.gift_name.length <= 30 ?
-                                            (
-                                                <div className={styles.gift_detail} >{item.gift_name}</div>
-                                            ) : (
-                                                <div className={styles.gift_detail} >{item.gift_name.substring(0, 30) + `\n...`}</div>
-                                            )
-                                        }
-                                        
-                                        {/* {item.url != '' ? <> <div style={{borderRight: "2.5px solid black"}} /> <div className={styles.gift_detail} ><a href={item.url}>Link to product</a></div> </>: <div/>}
+                        {groupData.gifts.length == 0 ? (
+                            <div>
+                                Whoa looks like there's no gifts!
+                            </div>
+
+                        ) : (
+                            groupData.gifts.map(function (item) {
+                                if (item.requester !== name && item.gift_id && item.taken === claimed && (onlyMe || item.giver == name)) {
+                                    item.color = getRandomColor(item.gift_id)
+                                    return (
+                                        <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ border: ".7vw solid " + item.color + "1)", backgroundColor: item.color + ".4)" }}>
+                                            {/* <div className={styles.gift_detail}>{item.giver}</div> */}
+
+                                            <div className={styles.gift_detail} style={{ borderBottom: "1px solid black" }}  >{item.requester}</div>
+                                            {/* <div style={{ borderRight: "2.5px solid black", width: "0", minWidth: "0%" }} /> */}
+                                            {item.gift_name.length <= 30 ?
+                                                (
+                                                    <div className={styles.gift_detail} >{item.gift_name}</div>
+                                                ) : (
+                                                    <div className={styles.gift_detail} >{item.gift_name.substring(0, 30) + `\n...`}</div>
+                                                )
+                                            }
+
+                                            {/* {item.url != '' ? <> <div style={{borderRight: "2.5px solid black"}} /> <div className={styles.gift_detail} ><a href={item.url}>Link to product</a></div> </>: <div/>}
                                     <div className={styles.claim_button}>Claim!</div> */}
 
-                                    </div>
+                                        </div>
 
-                                )
-                            } else return
-                        })
+                                    )
+                                } else return
+                            })
+
+                        )
                         }
                     </div>
                 ) : (
                     // <><Spinner/></>
-                    // <div>Loading...</div>
-                    <></>
+                    <div>Loading...</div>
                 )
+
             }
+
             {singleGiftOpen ?
                 (
                     <div
@@ -338,7 +381,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                             </div>
                             <div className={styles.single_gift_details}>
                                 <div >
-                                {singleGiftObject.details == '' ? 'No details provided :(' : (`"` + singleGiftObject.details + `"`)}
+                                    {singleGiftObject.details == '' ? 'No details provided :(' : (`"` + singleGiftObject.details + `"`)}
                                 </div>
                             </div>
                             <div className={styles.single_gift_details}>
@@ -346,6 +389,16 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                     {singleGiftObject.cost == null ? 'No price provided :(' : singleGiftObject.cost}
                                 </div>
                             </div>
+                            {claimed ? (
+                                <div className={styles.single_gift_details}>
+                                    <div >
+                                        Claimed by: {singleGiftObject.giver == null ? 'No name provided :(' : singleGiftObject.giver}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div></div>
+                            )
+                            }
 
 
 
