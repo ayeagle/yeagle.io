@@ -39,6 +39,17 @@ xmas_getGroupObject = (req, res, next) => {
         done();
         console.log("the query function is running Pt2 ")
 
+
+        console.log("Successful post nice work")
+        console.log(result)
+        console.log("Successful post nice work pt 2")
+        console.log(result.rows)
+        console.log("Successful post nice work pt 3")
+        console.log(result.values)
+        console.log("Successful post nice work pt 4")
+
+
+
         console.log(result.rows[0])
 
         if (err) {

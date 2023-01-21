@@ -1,22 +1,10 @@
 import React, { Component, useState, useEffect, forceUpdate } from 'react'
 import styles from '@components/xmas/Gifts.module.css'
-
-// import { useNavigate } from 'react-router-dom';
-import { Redirect } from 'react-router';
-import About from 'pages/about';
-import XMAS_CheckUser from './DB/XMAS_CheckUser';
-import XMAS_ValidateLogin from './DB/XMAS_ValidateLogin';
-import XMAS_AddNewUser from './DB/XMAS_AddNewUser';
-
-import UserPreferences from '@components/bio/UserPreferences';
-// import LogActivity from '@components/DBcomponents/LogActivity';
 import { getGroupObject, updateGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 import Spacer from '@components/bio/Spacer';
 import XMAS_SetTaken from './DB/XMAS_SetTaken';
 import { useRef } from 'react';
-import Spinner from './Spinner';
-
 
 let curr_group = ''
 let name = ''
@@ -36,20 +24,11 @@ let colors = [
     'rgba(98, 108, 102,'
 ]
 
-function GETCOLOR() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return `rgba(${parseInt(color.substring(1, 3), 16)}, ${parseInt(color.substring(3, 5), 16)}, ${parseInt(color.substring(5, 7), 16)}`;
-}
-
 function getRandomColor(input) {
     return colors[input % colors.length]
 }
 
-export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange, setCurrPageName }) {
+export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, dataChange, setDataChange, setCurrPageName }) {
 
     const [data, setData] = useState('')
     const [runOnce, setRunOnce] = useState(0)
@@ -57,7 +36,6 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     const [singleGiftOpen, setSingleGiftOpen] = useState(false)
     const [singleGiftObject, setSingleGiftObject] = useState("")
     const [isClaiming, setIsClaiming] = useState(false)
-    // const [currGroup, setCurrGroup] = useState(getGroupObject())
     const [stale, setStale] = useState(false)
     const giftRef = useRef(null);
     const [sortVal, setSortVal] = useState('')
@@ -68,48 +46,38 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     const [costMax, setCostMax] = useState(null)
     const [yOffSet, setYOffset] = useState('')
     const [bool, setBool] = useState(true)
+    const [groupData, setGroupData] = useState('')
 
 
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log("////////////////")
-    console.log(typeof costMin)
+    useEffect(() => {
+        getGroup()
+    }, [])
 
-    console.log(costMin)
-    // const [name, setName] = useState('')
 
-    // let curr_group = await getGroupObject();
-    console.log("this is the single gift object")
-    console.log(singleGiftObject)
+    const getGroup = () => {
+        console.log("current user")
+        console.log(localStorage.getItem('current_user'))
+        console.log("group_id")
 
-    console.log("this is the sort value")
-    console.log(sortVal)
+        console.log(localStorage.getItem('group_id'))
 
-    // if (runOnce === 0) {
-    //     // validate()
-    //     setRunOnce(2)
-    //     console.log('fetching object')
-    //     curr_group = getGroupObject();
+        let promise = XMAS_GetGroupObject(localStorage.getItem('current_user'), localStorage.getItem('group_id'))
 
-    //     // setCurrGroup(getGroupObject())
-    //     console.log('retrieved object')
-    //     console.log(curr_group)
-    // }
+        promise.then((data) => {
+            curr_group = data
+            updateGroupObject(curr_group)
+            setGroupData(data)
+        }
+        )
+    }
+
+
+    ///////////// functional responsive /////////////////////
+    ///////////// functional responsive /////////////////////
+    ///////////// functional responsive /////////////////////
 
     const giftClick = (gift_id) => {
         if (!oneOpen) {
-            // console.log(gift_id + "this is the gift ID passed")
-            // console.log("gift clicked")
             setSingleGiftStyle(styles.single_gift_box)
             setSingleGiftOpen(true)
             setOneOpen(true)
@@ -123,18 +91,14 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         setSingleGiftOpen(false)
         setIsClaiming(false)
         setOneOpen(false)
-
-        // setSingleGiftObject(curr_group.gifts.find(gift => gift.unique_id === gift_id))
     }
 
     const doNothing = (event) => {
-        console.log("inner element clicked")
         event.stopPropagation();
     }
 
     const claimGiftCheck = (event) => {
         setIsClaiming(true)
-        console.log("inner element clicked")
         event.stopPropagation();
     }
 
@@ -155,48 +119,28 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         setTimeout(fn, delay);
     }
 
-    // Create a reference to the element with the specific ID
-
-    // Function to change styles of the element
     function goAway() {
-        if (giftRef && giftRef.current) {
-            //   giftRef.current.style.display = "none";
-            giftRef.current.style.top = "2000vw";
-            giftRef.current.style.transition = "5s";
-            giftRef.current.style.display = "none"
-
-        }
+        // if (giftRef && giftRef.current) {
+        //     giftRef.current.style.top = "2000vw";
+        //     giftRef.current.style.transition = "5s";
+        //     giftRef.current.style.display = "none"
+        // }
     }
 
     const updateTaken = (taken, gift_id) => {
 
-        console.log("this is the taken value: " + taken)
-        console.log("this is the unique_id value " + gift_id)
-        console.log("this is the unique_id value " + localStorage.getItem('current_user'))
-
         let userVal = ''
-
         if (taken) {
             userVal = localStorage.getItem('current_user')
         } else {
             userVal = null
         }
 
-        // XMAS_SetTaken(taken_value, gift_unique_id)
-
-        // let promise = XMAS_ValidateLogin(userCheckVal)
         let promise = XMAS_SetTaken(taken, gift_id, userVal)
 
         promise.then((data) => {
-            console.log(data)
-            console.log("//////////// that is the taken return value ////////////")
             setStale(true)
             location.href = '/giftly/home'
-
-            if (!data) {
-            } else {
-            }
-            console.log('home redirect was triggered')
         }
         )
     }
@@ -234,41 +178,25 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
         }
         setSortVal(e.target.value)
         setGroupData(tempArray)
-        console.log('********************************************')
-        console.log(groupData)
         setBool(!bool)
-
     }
-
 
     const handleNameSearchChange = (e) => {
         setSearchVal(e.target.value)
     }
-    // let curr_group = getGroupObject()
-
-    // const forceUpdate = React.useCallback(() => updateState({}), []);
-
-    // name = user
-    console.log("this is from within the gifts component")
-
-
-    //DATA NOT LOADING BEFORE THE RENDER
-    // console.log(curr_group)
-
-    // window.addEventListener('scroll', function () {
-    //     setYOffset(window.pageYOffset)
-    //     // the page was scrolled (horizontally or vertically)
-    // });
 
     const dispatchSearchVal = () => {
 
     }
 
+    ///////////// functional responsive /////////////////////
+    ///////////// functional responsive /////////////////////
+    ///////////// functional responsive /////////////////////
+
 
 
     useEffect(() => {
         name = (localStorage.getItem('current_user'))
-        // setCurrGroup(getGroupObject())
         setStale(false)
         setYOffset(window.pageYOffset)
 
@@ -283,36 +211,17 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     }, [groupData, setGroupData, giftRef, setStale, stale, dataChange, setDataChange, singleGiftOpen])
 
     useEffect(() => {
-
+        getGroup()
         window.addEventListener('scroll', function () {
             setYOffset(window.pageYOffset)
-            // the page was scrolled (horizontally or vertically)
-        });
-
+        })
 
     }, [])
-    // console.log(currGroup)
-    // console.log(curr_group)
-    // console.log(groupData)
 
-    // console.log("object just before render")
-
-    //add a span to the claim button to make it more dynamic, something like a checkmark or soemthing
-
-    ////////////////
-
-
-
-    //INCLUDE ESCAPE OPTION TO LEAVE THE GRAYED OUT AREA
-
-
-    ////////////////
-    console.log('////////////////////////////////////////////////////////////////////////////////')
-
+    console.log("this is group data before main gift component loading")
     console.log(groupData)
-    // console.log(groupData.group_members)
-    // console.log(groupData.gifts)
     // console.log(groupData.gifts.length)
+
 
 
     return (
@@ -410,7 +319,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                 (
                     <div className={styles.gift_container}>
 
-                        {groupData.gifts.length == 0 ? (
+                        {groupData.gifts.length === 0 ? (
                             <div>
                                 Whoa looks like there's no gifts... let's change that!
                                 <br />
@@ -448,7 +357,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                 ) {
                                     item.color = getRandomColor(item.gift_id)
                                     return (
-                                        <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{  backgroundColor: item.color + ".4)" }}> 
+                                        <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ backgroundColor: item.color + ".4)" }}>
                                             {/* <div className={styles.gift_detail}>{item.giver}</div> */}
 
                                             <div className={styles.gift_detail} style={{ borderBottom: "1px solid black" }}  >{item.requester}</div>
@@ -460,16 +369,10 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                                     <div className={styles.gift_detail} >{item.gift_name.substring(0, 30) + `\n...`}</div>
                                                 )
                                             }
-
-                                            {/* {item.url != '' ? <> <div style={{borderRight: "2.5px solid black"}} /> <div className={styles.gift_detail} ><a href={item.url}>Link to product</a></div> </>: <div/>}
-                                    <div className={styles.claim_button}>Claim!</div> */}
-
                                         </div>
-
                                     )
                                 } else return
                             })
-
                         )
                         }
                     </div>
@@ -477,9 +380,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                     // <><Spinner/></>
                     <div>Loading...</div>
                 )
-
             }
-
             {singleGiftOpen ?
                 (
                     <div
@@ -500,11 +401,11 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                 {singleGiftObject.url != '' ? (
                                     <a href={singleGiftObject.url} target="_blank"><button className={styles.product_button}>Link to product {"=>"}</button></a>
                                 ) : (
-                                    <div>No Link {":("}</div> 
-                                    )}
-                                    <button className={styles.change_data_button} onClick={exitGiftClick}>
-                                        <img className={styles.change_data_button_image} src='/IMGassets/exit.png' />
-                                        </button>
+                                    <div>No Link {":("}</div>
+                                )}
+                                <button className={styles.change_data_button} onClick={exitGiftClick}>
+                                    <img className={styles.change_data_button_image} src='/IMGassets/exit.png' />
+                                </button>
                             </div>
                             <br></br>
                             <div className={styles.single_gift_details}>
@@ -532,9 +433,6 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                 <div></div>
                             )
                             }
-
-
-
                             <Spacer height={"9vw"} />
                             {/* <div className={styles.claim_button} onClick={claimGiftCheck}>Claim this gift!</div> */}
                             {isClaiming ? (
@@ -587,7 +485,6 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                 ) : (
                     <div></div>
                 )}
-
         </div>
     )
 }
