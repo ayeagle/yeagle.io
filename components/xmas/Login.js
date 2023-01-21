@@ -1,90 +1,47 @@
 import React, { Component, useState, useEffect } from 'react'
 import styles from '@components/xmas/Login.module.css'
-
-// import { useNavigate } from 'react-router-dom';
-import { Redirect } from 'react-router';
-import About from 'pages/about';
-import XMAS_CheckUser from './DB/XMAS_CheckUser';
-import XMAS_ValidateLogin from './DB/XMAS_ValidateLogin';
-import XMAS_AddNewUser from './DB/XMAS_AddNewUser';
-
-// import LogActivity from '@components/DBcomponents/LogActivity';
-import { getGroupObject } from './DB/curr_group_data';
-import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 import SubmissionCode from './SubmissionCode';
-
 
 
 // let curr_group = getGroupObject()
 
 export default function Login({ setLoginOrSignUp, move }) {
-    const [userCheckVal, setUserCheckVal] = useState('')
-    const [userPasswordCheckVal, setUserPasswordCheckVal] = useState('')
-    const [validName, setValidName] = useState('')
-    const [addPrompt, setAddPrompt] = useState('')
-    const [addSecPrompt, setAddSecPrompt] = useState('')
-    const [greenSwitch, setGreenSwitch] = useState(false)
-    const [greenSecSwitch, setSecGreenSwitch] = useState(false)
-    const [viewPassword, setViewPassword] = useState('password')
-    const [createNew, setCreateNew] = useState(false)
+    // const [userCheckVal, setUserCheckVal] = useState('')
+    // const [userPasswordCheckVal, setUserPasswordCheckVal] = useState('')
+    // const [validName, setValidName] = useState('')
+    // const [addPrompt, setAddPrompt] = useState('')
+    // const [addSecPrompt, setAddSecPrompt] = useState('')
+    // const [greenSwitch, setGreenSwitch] = useState(false)
+    // const [greenSecSwitch, setSecGreenSwitch] = useState(false)
+    // const [viewPassword, setViewPassword] = useState('password')
+    // const [createNew, setCreateNew] = useState(false)
     const [focus, setFocus] = useState('login')
     const [submitCode, setSubmitCode] = useState()
 
-    const [userGenResult, setUserGenResult] = useState('')
-    // const [progress, setProgress] = useState(0)
+    // const [userGenResult, setUserGenResult] = useState('')
 
-
-    // const navigate = useNavigate()
-
-    let updater = 0
-    let newVal = 0;
+    // let updater = 0
+    // let newVal = 0;
 
     useEffect(() => {
-
-        setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'}  />)
-
-
+        setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'} />)
     }, [])
-
-    // console.log(typeof validName)
-
-    // function isValidName(string) {
-    //     var regex = /^[a-zA-Z0-9_]+$/;
-    //     return regex.test(string);
-    // }
-
-    // function isValidPassword(string) {
-    //     var regex = /^[a-zA-Z0-9*!.]+$/;
-    //     return regex.test(string);
-    // }
-
-
-
-
-    // const getGroup = () => {
-    //     // let promise = XMAS_ValidateLogin(userCheckVal)
-    //     let promise = XMAS_GetGroupObject(userCheckVal)
-    //     console.log("promise was executed")
-    // }
 
 
     const changeFocus = (current) => {
         if (focus === 'login' && current !== 'login') {
             setFocus('signup')
-            setSubmitCode(<SubmissionCode prompt={"Let's create a group!"} isNew={true} setCode={setSubmitCode} move={move} focus={'signup'}  />)
+            setSubmitCode(<SubmissionCode prompt={"Let's create a group!"} isNew={true} setCode={setSubmitCode} move={move} focus={'signup'} />)
             move(false)
 
         } else if (focus === 'signup' && current !== 'signup') {
 
             setFocus('login')
-            setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'}  />)
+            setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'} />)
             move(false)
 
         }
     }
-
-    // changeFocus()
-
 
 
     return (
@@ -96,17 +53,9 @@ export default function Login({ setLoginOrSignUp, move }) {
                     <button className={styles.submit_buttonr} style={{ color: focus === 'signup' ? 'white' : 'black', backgroundColor: focus === 'signup' ? 'black' : 'white' }} onClick={() => changeFocus('signup')}>Sign Up</button>
                 </div>
                 {submitCode}
-
-                {/* <button className={styles.submit_button} onClick={validate}>Log In</button> */}
                 <br></br>
-
-
                 <br></br>
             </div>
-
         </>
     )
 }
-
-
-    // onClick={() => redirect('/xmas/create')}

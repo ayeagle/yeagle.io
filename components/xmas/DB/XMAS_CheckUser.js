@@ -7,30 +7,17 @@ export default function XMAS_CheckUser(xmas_group_name) {
 
     let temp = getGroupObject();
 
+    console.log("Check User -- client-side invoked");
 
-    console.log("check XMAS user method invoked");
-
-        // console.log("CLIENT SIDE: session id value is " +userId + " and the type of this is " + typeof(userId))
-        // console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
-        // console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
-
-    return axios.post('http://ec2-44-210-111-39.compute-1.amazonaws.com:5432/xmas_checkUser', {
-        xmas_group_name:xmas_group_name
+    return axios.post('https://ec2-44-210-111-39.compute-1.amazonaws.com:5432/xmas_checkUser', {
+        xmas_group_name: xmas_group_name
     })
         .then(response => {
-            console.log(response.data)
-            testName = response.data
-            console.log("the XMAS user check request was successful")
-
             temp.group_id = response.data.id
             temp.group_members = response.data.participants
             temp.group_name = response.data.name
-          
+
             updateGroupObject(temp)
-
-            console.log("datasetting was successful")
-
-
 
             return response.data
         })
@@ -38,6 +25,4 @@ export default function XMAS_CheckUser(xmas_group_name) {
             console.error(error);
             console.log("XMAS user check UNSUCCESSFUL REQUEST")
         })
-
-
 }

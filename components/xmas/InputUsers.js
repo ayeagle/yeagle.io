@@ -1,32 +1,19 @@
-
-import Resizer from "@components/functional/Resizer";
 import { useEffect, useState } from "react";
 import styles from './InputUsers.module.css'
 import Spacer from "@components/bio/Spacer";
-import LogActivity from "@components/DBcomponents/LogActivity";
-import Typing from "@components/bio/Typing";
-import Login from "@components/xmas/Login";
 import UserSelect from "@components/xmas/UserSelect";
-import Gifts from "@components/xmas/Gifts";
 import { getGroupObject, updateGroupObject } from '@components/xmas/DB/curr_group_data';
 import XMAS_PostGroupObject from './DB/XMAS_PostGroupObject';
-// import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
-// import InputUsers from '@components/xmas/InputUsers'
-// import UserSelect from "@components/xmas/UserSelect";
-
-
 
 let curr_group = getGroupObject()
 
+export default function InputUsers({ prompt, groupData, setGroupData }) {
 
-export default function InputUsers({ prompt, groupData, setGroupData}) {
-
-    const [height, updateHeight] = useState(0)
-    const [width, updateWidth] = useState(0)
-    const [limiter, setLimiter] = useState(0)
+    // const [height, updateHeight] = useState(0)
+    // const [width, updateWidth] = useState(0)
+    // const [limiter, setLimiter] = useState(0)
     // const [groupData, setGroupData] = useState('')
     const [nameHold, setNameHold] = useState([''])
-
     const [nameFloat, setNameFloat] = useState([false])
     const [submitReady, setSubmitReady] = useState(false)
     const [dumb, setDumb] = useState(false)
@@ -92,7 +79,6 @@ export default function InputUsers({ prompt, groupData, setGroupData}) {
         window.location.href = loc;
         // setCode(loc)
         // }, 100);
-
     }
 
     const backClick = () => {
@@ -100,41 +86,35 @@ export default function InputUsers({ prompt, groupData, setGroupData}) {
     }
 
     const firstClick = () => {
-        // let promise = XMAS_ValidateLogin(userCheckVal)
         curr_group.group_members = nameHold
-
         setProgress(1)
         setSubmitReady(false)
     }
 
     const secClick = () => {
-        console.log("this is the sec click execution")
+        console.log("post group details")
+        console.log(curr_group.group_name)
+        console.log(nameHold)
+        console.log(desc)
 
         let promise = XMAS_PostGroupObject(curr_group.group_name, nameHold, desc)
 
-
         promise.then((data) => {
-
+            console.log("this is the data returned from the call ")
+            console.log(data)
+            localStorage.setItem('group_id', data)
             curr_group.group_members = nameHold
             curr_group.description = desc
-
             updateGroupObject(curr_group)
-            console.log("progress update dispatched ++++++++++++++++++++++")
             setGroupData(curr_group)
             redirect('/giftly/home')
         }
         )
     }
 
-    console.log(curr_group)
-    console.log("progress is equal to " + progress)
-
     useEffect(() => {
         if (progress == -1) redirect('/giftly/begin')
-
     }, [progress, setProgress])
-
-
 
     return (
         <div>
@@ -181,7 +161,7 @@ export default function InputUsers({ prompt, groupData, setGroupData}) {
                                 type="string"
                                 // placeholder={"user " + (i + 1)}
                                 onChange={(e) => {
-                                    setDesc(e)
+                                    setDesc(e.target.value)
                                     if (e.target.value.length > 0) {
                                         setSubmitReady(true)
                                     } else setSubmitReady(false)

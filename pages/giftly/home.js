@@ -1,28 +1,18 @@
 
-import Resizer from "@components/functional/Resizer";
 import { useEffect, useState } from "react";
 import styles from './xmas.module.css'
 import Spacer from "@components/bio/Spacer";
-import LogActivity from "@components/DBcomponents/LogActivity";
-import Typing from "@components/bio/Typing";
-import Login from "@components/xmas/Login";
-import UserSelect from "@components/xmas/UserSelect";
 import { getGroupObject, updateGroupObject } from "@components/xmas/DB/curr_group_data";
-import Gifts from "@components/xmas/Gifts";
 import XMAS_GetGroupObject from "@components/xmas/DB/XMAS_GetGroupObject";
 import NavBar from "@components/xmas/NavBar";
 import Explore from "@components/xmas/Explore";
 import AddGift from "@components/xmas/AddGift";
 import Profile from "@components/xmas/Profile"
-
-
-
+import Begin from "./begin";
+import { Route } from "react-router";
+import Typing from "@components/bio/Typing";
 
 let curr_group = getGroupObject()
-// let name = ''
-
-// let userCheckVal = localStorage.getItem('current_user')
-// let group_id = localStorage.getItem('group_id')
 
 export default function Home() {
 
@@ -34,52 +24,48 @@ export default function Home() {
     const [dataChange, setDataChange] = useState(false)
     const [userName, setUserName] = useState('')
 
-
     const [currPageCode, setCurrPageCode] = useState(<Explore oneOpen={oneOpen} setOneOpen={setOneOpen} groupData={groupData} setGroupData={setGroupData} dataChange={dataChange} setDataChange={setDataChange} />)
 
-    // const [pageRouter, setPageRouter] = useState()
+    console.log(curr_group)
 
-    // if (runOnce === 0) {
-    //     validate()
-    //     setRunOnce(2)
-    //     // console.log('fetching object')
-    //     // // curr_group = getGroupObject();
-    //     // console.log('retrieved object')
-    //     // console.log(curr_group)
+    // if(curr_group.group_id == ''){
+    //     useEffect(() => {
+    //         // window.location.href = "/giftly/begin" 
+    //     }, [])
+
+
+    //     return(
+    //         <>
+    //         <div className={styles.page_container}>
+    //             <div className={styles.left_element_wrapper}>
+    //                 <div className={styles.centering_unit}>
+    //                     {/* <Typing content={"Gift exchanges with friends and family made easy :D"} /> */}
+    //                 </div>
+    //             </div>
+    //             <div className={styles.right_element_wrapper}>
+    //                 <div className={styles.centering_unit}>
+    //                     {/* <Login move={setMoveToCreate}/> */}
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </>
+    //     )
     // }
+
+
+
     if (dataChange) {
         setDataChange(false)
     }
 
     const validate = () => {
-        // let promise = XMAS_ValidateLogin(userCheckVal)
+
         let promise = XMAS_GetGroupObject(localStorage.getItem('current_user'), localStorage.getItem('group_id'))
 
-
         promise.then((data) => {
-            // setValidName(!data)
-            // console.log(!data + " this is in the inverse data")
-            // console.log("data: " + data)
-            // // console.log("isNew: " + isNew)
-            // // setAddPrompt("Successful Login")
-            // console.log("curr_group data available just before redirect")
-            // console.log(curr_group)
-            // redirect(<UserSelect groupData={curr_group}/>)
             updateGroupObject(curr_group)
             curr_group = data
             setGroupData(data)
-            if (runOnce === 0) {
-                // setRunOnce(2)
-                // location.href = '/giftly/home'
-                // console.log('fetching object')
-                // // curr_group = getGroupObject();
-                // console.log('retrieved object')
-                // console.log(curr_group)
-            }
-            // location.href = '/giftly/home'
-
-            // getGroup()
-            // redirect('/xmas/create')
         }
         )
     }
@@ -101,28 +87,16 @@ export default function Home() {
         }
     }
 
-    //       case "main":
-    //         return <Main />
-
     useEffect(() => {
         sendPage()
-        // updateGroupObject(groupData)
-
     }, [currPageName, setCurrPageName, groupData, setGroupData, dataChange, setDataChange])
 
     useEffect(() => {
         setGroupName(localStorage.getItem('group_name'))
         setUserName(localStorage.getItem('current_user'))
         validate()
-        // setGroupData(curr_group)
         console.log("this is the group_name : " + groupName)
     }, [dataChange, setDataChange])
-
-
-    console.log("groupdata")
-    console.log(groupData)
-    console.log("groupdata")
-
 
     return (
         <>
@@ -173,8 +147,3 @@ export default function Home() {
         </>
     )
 }
-
-
-// currPage={currPage} setCurrPage={setCurrPage}
-
-//groupData.gifts[1].year
