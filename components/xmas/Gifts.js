@@ -310,14 +310,14 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
     console.log('////////////////////////////////////////////////////////////////////////////////')
 
     console.log(groupData)
-    console.log(groupData.group_members)
+    // console.log(groupData.group_members)
     // console.log(groupData.gifts)
     // console.log(groupData.gifts.length)
 
 
     return (
         <div>
-            <br/>
+            <br />
             <div style={{ fontSize: "4vw" }}  >{prompt}</div>
 
             <div className={styles.sort_container}>
@@ -361,13 +361,13 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                 </div>
                 <div style={{ flexDirection: "column", width: "33%" }}>
                     <div className={styles.filters_title} >  Search </div>
-                    <input 
-                    className={styles.filter_inputs} 
-                    placeholder=" WIP..." 
-                    onChange={(e) => {
-                        dispatchSearchVal(e.target.value)
-                    }}
-                    
+                    <input
+                        className={styles.filter_inputs}
+                        placeholder=" WIP..."
+                        onChange={(e) => {
+                            dispatchSearchVal(e.target.value)
+                        }}
+
                     />
                 </div>
                 <div style={{ flexDirection: "column", width: "17%" }}>
@@ -406,7 +406,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                     {/* </div> */}
                 </div>
             </div>
-            {groupData && ( true || bool) ?
+            {groupData && (true || bool) ?
                 (
                     <div className={styles.gift_container}>
 
@@ -448,7 +448,7 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                 ) {
                                     item.color = getRandomColor(item.gift_id)
                                     return (
-                                        <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{ border: ".7vw solid " + item.color + "1)", backgroundColor: item.color + ".4)" }}>
+                                        <div className={styles.gift_box} id={`gift-${item.unique_id}`} ref={giftRef} key={item.unique_id} onClick={() => giftClick(item.gift_id)} style={{  backgroundColor: item.color + ".4)" }}> 
                                             {/* <div className={styles.gift_detail}>{item.giver}</div> */}
 
                                             <div className={styles.gift_detail} style={{ borderBottom: "1px solid black" }}  >{item.requester}</div>
@@ -496,7 +496,15 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                             {/* <img src="/IMGassets/bow.png" className={styles.image} /> */}
 
                             <div className={styles.single_gift_header}>
-                                <div>For: {singleGiftObject.requester}</div> {singleGiftObject.url != '' ? <a href={singleGiftObject.url} target="_blank"><button className={styles.product_button}>Link to product</button></a> : <div>No Link {":("}</div>}
+                                <div>For: {singleGiftObject.requester}</div>
+                                {singleGiftObject.url != '' ? (
+                                    <a href={singleGiftObject.url} target="_blank"><button className={styles.product_button}>Link to product {"=>"}</button></a>
+                                ) : (
+                                    <div>No Link {":("}</div> 
+                                    )}
+                                    <button className={styles.change_data_button} onClick={exitGiftClick}>
+                                        <img className={styles.change_data_button_image} src='/IMGassets/exit.png' />
+                                        </button>
                             </div>
                             <br></br>
                             <div className={styles.single_gift_details}>
@@ -540,8 +548,8 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                             <div />
                                             <div />
 
-                                            <button className={styles.product_button} onClick={() => claimYes(true)} >Yes</button>
-                                            <button className={styles.product_button} onClick={claimNo} >No</button>
+                                            <button className={styles.product_button2} onClick={() => claimYes(true)} >Yes</button>
+                                            <button className={styles.product_button2} onClick={claimNo} >No</button>
                                             <div />
                                             <div />
 
@@ -554,8 +562,8 @@ export default function Gifts({ prompt, claimed, oneOpen, setOneOpen, groupData,
                                         <div className={styles.single_gift_header}>
                                             <div />
                                             <div />
-                                            <button className={styles.product_button} onClick={() => claimYes(false)} >Yes</button>
-                                            <button className={styles.product_button} onClick={claimNo} >No</button>
+                                            <button className={styles.product_button2} onClick={() => claimYes(false)} >Yes</button>
+                                            <button className={styles.product_button2} onClick={claimNo} >No</button>
                                             <div />
                                             <div />
 

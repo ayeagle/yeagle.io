@@ -44,7 +44,7 @@ export default function Begin() {
     // console.log("HERE IT IS THIS IS IT")
     // console.log(getGroupObject() )
 
-
+//need to UPDATE PAGE CONTAINER HEIGHT TO RESIZE WHEN NEW  USERS ARE BEING INOPUTTED
 
     return (
         <>

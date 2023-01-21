@@ -11,7 +11,7 @@ import XMAS_AddNewUser from './DB/XMAS_AddNewUser';
 // import LogActivity from '@components/DBcomponents/LogActivity';
 import { getGroupObject, updateGroupObject } from './DB/curr_group_data';
 import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
-import Create from '@components/xmas/Create'
+import InputUsers from '@components/xmas/InputUsers'
 import UserSelect from './UserSelect';
 
 
@@ -119,7 +119,8 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
                     // updateGroupObject(curr_group)
                     localStorage.setItem('group_name', userCheckVal);
 
-                    redirect(<Create/>)
+                    redirect(<InputUsers prompt={"What are your member's names?"} numUsers={curr_group.num_users} groupData={groupData} setGroupData={setGroupData} />
+                    )
                 } else {
                     setAddSecPrompt("Hmm looks like that group name is taken...")
                     setGreenSwitch(false)
@@ -142,7 +143,7 @@ export default function SubmissionCode({ prompt, isNew, setCode, move, focus}) {
 
                     // updateGroupObject(curr_group)
 
-                    redirect(<UserSelect groupData={groupData}/>)
+                    redirect(<UserSelect groupData={groupData} />)
 
                 } else {
                     setAddPrompt("Hmm I don't think that group exists...")

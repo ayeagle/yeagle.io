@@ -13,12 +13,13 @@ import XMAS_GetGroupObject from "@components/xmas/DB/XMAS_GetGroupObject";
 import NavBar from "@components/xmas/NavBar";
 
 
-// let curr_group = getGroupObject()
+let curr_group = getGroupObject()
 
 export default function Explore({ oneOpen, setOneOpen, groupData, setGroupData, dataChange, setDataChange, setCurrPageName }) {
 
     // const [groupData, setGroupData] = useState('')
     const [groupName, setGroupName] = useState('')
+    
     // const [oneOpen, setOneOpen] = useState(false)
 
     // const validate = () => {
@@ -46,6 +47,7 @@ export default function Explore({ oneOpen, setOneOpen, groupData, setGroupData, 
 
     useEffect(() => {
         setGroupName(localStorage.getItem('group_name'))
+        setGroupData(curr_group)
         console.log("this is the group_name : " + groupName)
     }, [])
 

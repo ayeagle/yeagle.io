@@ -19,19 +19,30 @@ import XMAS_PostGroupObject from './DB/XMAS_PostGroupObject';
 let curr_group = getGroupObject()
 
 
-export default function InputUsers({ prompt }) {
+export default function InputUsers({ prompt, groupData, setGroupData}) {
 
     const [height, updateHeight] = useState(0)
     const [width, updateWidth] = useState(0)
     const [limiter, setLimiter] = useState(0)
-    const [groupData, setGroupData] = useState('')
+    // const [groupData, setGroupData] = useState('')
     const [nameHold, setNameHold] = useState([''])
 
     const [nameFloat, setNameFloat] = useState([false])
     const [submitReady, setSubmitReady] = useState(false)
     const [dumb, setDumb] = useState(false)
     const [stylesState, setStyles] = useState([])
-    const [progress, setProgress] = useState(false)
+    const [progress, setProgress] = useState(0)
+    const [descFloat, setDescFloat] = useState(false)
+    const [desc, setDesc] = useState('')
+
+
+    useEffect(() => {
+        if (desc != '') {
+            setDescFloat(true)
+        } else {
+            setDescFloat(false)
+        }
+    }, [desc, setDesc])
 
     const inputEval = (e, i) => {
         let tempArray = nameFloat
@@ -84,55 +95,52 @@ export default function InputUsers({ prompt }) {
 
     }
 
-    const validate = () => {
+    const backClick = () => {
+        setProgress(progress - 1)
+    }
+
+    const firstClick = () => {
         // let promise = XMAS_ValidateLogin(userCheckVal)
-        let promise = XMAS_PostGroupObject(curr_group.group_name, nameHold, "this is a test")
+        curr_group.group_members = nameHold
+
+        setProgress(1)
+        setSubmitReady(false)
+    }
+
+    const secClick = () => {
+        console.log("this is the sec click execution")
+
+        let promise = XMAS_PostGroupObject(curr_group.group_name, nameHold, desc)
 
 
         promise.then((data) => {
 
             curr_group.group_members = nameHold
+            curr_group.description = desc
 
             updateGroupObject(curr_group)
-
-            setProgress(true)
-            // curr_group.
-            // setValidName(!data)
-            // console.log(!data + " this is in the inverse data")
-            // console.log("data: " + data)
-            // // console.log("isNew: " + isNew)
-            // // setAddPrompt("Successful Login")
-            // console.log("curr_group data available just before redirect")
-            // console.log(curr_group)
-            // redirect(<UserSelect groupData={curr_group}/>)
-
-            // redirect('/giftly/home')
-
-            // updateGroupObject(curr_group)
-            // curr_group = data
-            // setGroupData(data)
-            // if (runOnce === 0) {
-            //     // setRunOnce(2)
-            //     // location.href = '/giftly/home'
-            //     // console.log('fetching object')
-            //     // // curr_group = getGroupObject();
-            //     // console.log('retrieved object')
-            //     // console.log(curr_group)
-            // }
-            // location.href = '/giftly/home'
-
-            // getGroup()
-            // redirect('/giftly/home')
-
+            console.log("progress update dispatched ++++++++++++++++++++++")
+            setGroupData(curr_group)
+            redirect('/giftly/home')
         }
         )
     }
 
     console.log(curr_group)
+    console.log("progress is equal to " + progress)
+
+    useEffect(() => {
+        if (progress == -1) redirect('/giftly/begin')
+
+    }, [progress, setProgress])
+
+
 
     return (
         <div>
-            {progress == false ? (
+            <button className={styles.change_data_button} onClick={backClick}><img className={styles.change_data_button_image} src='/IMGassets/arrow.png' /></button>
+            <br></br>
+            {progress == 0 ? (
                 <>
                     {prompt}
                     < div >
@@ -147,21 +155,52 @@ export default function InputUsers({ prompt }) {
                                         // placeholder={"user " + (i + 1)}
                                         onChange={(e) => {
                                             inputEval(e, i)
-                                            // console.log(curr_group)
                                         }
                                         } />
                                 </div>
 
                             ))
                         }
-                        < button className={styles.go_button} onClick={validate} style={{ backgroundColor: submitReady ? "rgb(100, 207, 50)" : "", transition: submitReady ? "1.5s" : ".5s", }} >Let's go!</button>
+                        < button className={styles.go_button} onClick={firstClick} style={{ backgroundColor: submitReady ? "rgb(100, 207, 50)" : "", transition: submitReady ? "1.5s" : ".5s", }} >Let's go!</button>
                     </div >
                 </>
 
-            ) : (
-                // <div></div>
-                <UserSelect />
-            )
+            ) :
+                progress == 1 ? (
+                    // <div></div>
+                    <UserSelect setProgress={setProgress} progress={progress} />
+                ) : (
+                    <>
+                        <div className={styles.title_text}>What's the purpose for your gift exchange?</div>
+                        <div className={styles.sub_text}>e.g. Jennifer's secret santa!</div>
+                        <div className={styles.slowDown}>
+                            <br></br>
+                            <label className={descFloat ? styles.label_float : styles.label} >Group Description</label>
+                            <input
+                                className={styles.input}
+                                type="string"
+                                // placeholder={"user " + (i + 1)}
+                                onChange={(e) => {
+                                    setDesc(e)
+                                    if (e.target.value.length > 0) {
+                                        setSubmitReady(true)
+                                    } else setSubmitReady(false)
+                                    // console.log(curr_group)
+                                }
+                                } />
+                        </div>
+                        <Spacer height="5vw" />
+                        <div className={styles.sub_text} style={{ fontStyle: "italic" }}>This will be displayed on your homepage</div>
+
+                        < button
+                            className={styles.go_button}
+                            onClick={secClick}
+                            style={{ backgroundColor: submitReady ? "rgb(100, 207, 50)" : "", transition: submitReady ? "1.5s" : ".5s", }}
+                        >Let's go!</button>
+
+                    </>
+                )
+
             }
         </div>
     )
