@@ -39,6 +39,16 @@ export default function AddGift({ }) {
         setCurrUser(localStorage.getItem('current_user'))
     }, [])
 
+
+    const editInfo = () => {
+        
+    }
+
+
+
+
+
+
     return (
         <>
             <div className={styles.add_gift_container}>
@@ -59,16 +69,16 @@ export default function AddGift({ }) {
                                     Logged in as:
                                 </div>
                                 <div>
-                                    {currUser} <button className={styles.change_data_button}><img className={styles.change_data_button_image} src='/IMGassets/edit.png'/></button>
+                                    {currUser} <button className={styles.change_data_button}><img className={styles.change_data_button_image} src='/IMGassets/edit.png' /></button>
 
                                 </div>
-                           </div>
+                            </div>
                             <div className={styles.row_align}>
                                 <div>
                                     Group Name:
                                 </div>
                                 <div>
-                                    {curr_group.group_name} <button className={styles.change_data_button}><img className={styles.change_data_button_image} src='/IMGassets/edit.png'/></button>
+                                    {curr_group.group_name} <button className={styles.change_data_button}><img className={styles.change_data_button_image} src='/IMGassets/edit.png' /></button>
                                 </div>
                             </div>
                             <div className={styles.row_align}>
@@ -76,29 +86,26 @@ export default function AddGift({ }) {
                                     Group Description:
                                 </div>
                                 <div>
-                                    {curr_group.description} <button className={styles.change_data_button}><img className={styles.change_data_button_image} src='/IMGassets/edit.png'/></button>
+                                    {curr_group.description} <button className={styles.change_data_button}><img className={styles.change_data_button_image} src='/IMGassets/edit.png' /></button>
                                 </div>
                             </div>
-                            <div className={styles.row_align}>
-                                <div>
+                            <div className={styles.row_align}> 
+                                <div style={{width:"40%", textAlign:  "left"}}>
                                     Current Members:
-                                </div>
-                                <div>
+                                </div> 
+                                <div className={styles.name_container} >
                                     {curr_group.group_members.map(function (names, index) {
                                         return (
-                                            <div key={index}>{names}</div>
+                                            <div className={styles.name_option} key={index}>{names}</div>
                                         )
-                                    })
-                                    
-                                    }
-                                </div>
+                                    }) 
+
+                                    } 
+                                </div> <button className={styles.change_data_button}><img className={styles.change_data_button_image} style={{right: "0vw"}} src='/IMGassets/edit.png' /></button> 
                             </div>
                             <br></br>
                             {/* {prompt} */}
-                            <br></br>
-                            <br></br>
-                            <br></br>
-                            <br></br>
+
                         </div>
 
                     </div>

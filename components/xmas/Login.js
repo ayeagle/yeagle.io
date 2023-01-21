@@ -31,6 +31,8 @@ export default function Login({ setLoginOrSignUp, move }) {
     const [submitCode, setSubmitCode] = useState()
 
     const [userGenResult, setUserGenResult] = useState('')
+    // const [progress, setProgress] = useState(0)
+
 
     // const navigate = useNavigate()
 
@@ -39,7 +41,7 @@ export default function Login({ setLoginOrSignUp, move }) {
 
     useEffect(() => {
 
-        setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'} />)
+        setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'}  />)
 
 
     }, [])
@@ -58,6 +60,7 @@ export default function Login({ setLoginOrSignUp, move }) {
 
 
 
+
     // const getGroup = () => {
     //     // let promise = XMAS_ValidateLogin(userCheckVal)
     //     let promise = XMAS_GetGroupObject(userCheckVal)
@@ -68,13 +71,13 @@ export default function Login({ setLoginOrSignUp, move }) {
     const changeFocus = (current) => {
         if (focus === 'login' && current !== 'login') {
             setFocus('signup')
-            setSubmitCode(<SubmissionCode prompt={"Let's create a group!"} isNew={true} setCode={setSubmitCode} move={move} focus={'signup'} />)
+            setSubmitCode(<SubmissionCode prompt={"Let's create a group!"} isNew={true} setCode={setSubmitCode} move={move} focus={'signup'}  />)
             move(false)
 
         } else if (focus === 'signup' && current !== 'signup') {
 
             setFocus('login')
-            setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'} />)
+            setSubmitCode(<SubmissionCode prompt={"Enter your group's name"} isNew={false} setCode={setSubmitCode} move={move} focus={'login'}  />)
             move(false)
 
         }
@@ -87,6 +90,7 @@ export default function Login({ setLoginOrSignUp, move }) {
     return (
         <>
             <div className={styles.login_container}>
+
                 <div className={styles.login_signup_wrapper}>
                     <button className={styles.submit_buttonl} style={{ color: focus === 'login' ? 'white' : 'black', backgroundColor: focus === 'login' ? 'black' : 'white' }} onClick={() => changeFocus('login')}>Log In</button>
                     <button className={styles.submit_buttonr} style={{ color: focus === 'signup' ? 'white' : 'black', backgroundColor: focus === 'signup' ? 'black' : 'white' }} onClick={() => changeFocus('signup')}>Sign Up</button>

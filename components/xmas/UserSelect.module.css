@@ -15,7 +15,7 @@
         border: 1px solid black;
         margin-top: 2vw;
         padding: 1vw;
-        transition:1s;
+        transition:.2s;
 }
 
 .name_option:hover {
@@ -24,7 +24,7 @@
     background-color: rgb(80, 80, 156);
     color: white;
     transition-property: background-color color;
-    transition-duration: .5s, .1s;
+    transition-duration: .25s, .05s;
     /* transition-delay: .2s, 1s; */
     box-shadow: 0 0 20px #888888;
     width: 90%;

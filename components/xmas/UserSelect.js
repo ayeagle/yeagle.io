@@ -16,7 +16,7 @@ import XMAS_GetGroupObject from './DB/XMAS_GetGroupObject';
 // let curr_group = getGroupObject()
 let curr_group = getGroupObject()
 
-export default function UserSelect({ }) {
+export default function UserSelect({progress, setProgress }) {
     const [userCheckVal, setUserCheckVal] = useState('')
     const [userPasswordCheckVal, setUserPasswordCheckVal] = useState('')
     const [validName, setValidName] = useState('')
@@ -43,47 +43,18 @@ export default function UserSelect({ }) {
     }
 
 
-
-    // let curr_group = getGroupObject()
-
-
-    // async function validate () {
-    //     // let promise = XMAS_ValidateLogin(userCheckVal)
-    //     let promise = await XMAS_GetGroupObject(localStorage.getItem('group_name'), localStorage.getItem('group_id'))
-
-    //     // localStorage.setItem('group_name', data.name);
-    //     // localStorage.setItem('group_id', data.id);
-
-
-    //     promise.then((data) => {
-    //         setValidName(!data)
-    //         // console.log(!data + " this is in the inverse data")
-    //         // console.log("data: " + data)
-    //         // console.log("isNew: " + isNew)
-    //         setAddPrompt("Successful Login")
-    //         console.log("curr_group data available just before redirect")
-    //         // console.log(curr_group)
-    //         // redirect(<UserSelect groupData={curr_group}/>)
-    //         // updateGroupObject(curr_group)
-    //         curr_group = data
-    //         // getGroup()
-    //         // redirect('/xmas/create')
-
-    //     }
-    //     )
-    // }
-
-
-    // useEffect(() => {
-    //     // setData(curr_group)
-    // }, [])
-
     const userChoose = (name) => {
         console.log(name)
         // LogActivity(localStorage.getItem('uid'), "logged out")
         localStorage.setItem('current_user', name);
         localStorage.setItem('group_id', curr_group.group_id);
+
+        console.log("at the time of choosing a user, the progress was " + progress)
+        if(progress <= 1){
+            setProgress(progress + 1)
+        } else {
         redirect('/giftly/home')
+        }
     }
 
 
