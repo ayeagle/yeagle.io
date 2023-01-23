@@ -199,6 +199,10 @@ export default function Carousel() {
         forwardClick()
     }, []);
 
+
+
+    
+
     return (
         <>
             <div className={styles.carousel_container}>
@@ -233,7 +237,7 @@ export default function Carousel() {
                                 onClick={forwardClick} > {`\u25b6`}</div>
                             <div className={styles.loading_bar_inner} style={{ width: (loadingBar + '%') }} />
 
-                            "{element.content}"
+                            <div style={{transition: ".1s"}}>{element.content}</div>
                         </div>
                     </div>
 

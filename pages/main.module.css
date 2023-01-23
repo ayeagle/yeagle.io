@@ -1,7 +1,8 @@
 .master {
     background-color: rgb(20, 23, 41);
     color: rgb(197, 197, 197);
-    position: static;
+    z-index: 1000;
+    /* position: static; */
 }
 
 .pre {
@@ -22,6 +23,8 @@
     /* margin-top: -4em; */
     margin-bottom: -20vw;
     box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.174);
+    z-index: 1000;
+
 
 }
 
@@ -61,6 +64,8 @@
     height: 25vw;
     /* color: black; */
     top: 8vw;
+    z-index: 1000;
+
 }
 
 .image_text_center {
@@ -78,6 +83,8 @@
     color: white;
     top: 5em;
     /* top: 500px; */
+    z-index: 1000;
+
 }
 
 .text_left {
@@ -91,6 +98,8 @@
     left: 10%;
     padding: 5px;
     color: white;
+    z-index: 1000;
+
 }
 
 
@@ -105,6 +114,8 @@
     left: calc(100% - 40%);
     padding: 5px;
     color: white;
+    z-index: 1000;
+
 }
 
 .text_center {
@@ -118,6 +129,8 @@
     left: calc(100% - 40%);
     padding: 5px;
     color: rgba(255, 255, 255, 0);
+    z-index: 1000;
+
 }
 
 
@@ -386,8 +399,9 @@
     /* left:-40vw; */
     text-align: left;
     width: 100%;
+    z-index: 1000;
+
     /* transition: 1s; */
-    z-index: 100000
 }
 
 /* .left_container_after {
@@ -405,4 +419,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.canvas {
+    position: absolute;
+    z-index: 999;
+    background-color: transparent;
+    fill: transparent;
+    color: rgb(31, 143, 156);
+    left:0;
+    top:0;
+    /* height: 100%; */
+pointer-events: none;
 }
