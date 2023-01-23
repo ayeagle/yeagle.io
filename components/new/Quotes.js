@@ -236,8 +236,11 @@ export default function Carousel() {
                                 className={styles.right_click}
                                 onClick={forwardClick} > {`\u25b6`}</div>
                             <div className={styles.loading_bar_inner} style={{ width: (loadingBar + '%') }} />
+                            <img className={styles.quote_image} src="/NewIMGassets/white_quotes.png" style={{right: "50%"}}/>
 
                             <div style={{transition: ".1s"}}>{element.content}</div>
+                            <img className={styles.quote_image} src="/NewIMGassets/white_quotes.png" style={{transform:  "rotate(180deg)", left: "50%"}}/>
+
                         </div>
                     </div>
 

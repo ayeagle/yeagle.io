@@ -22,7 +22,15 @@ import PageBot from '@components/new/PageBot'
 import SimplexNoise from 'simplex-noise';
 import { createNoise2D } from 'simplex-noise';
 import JobSection from "@components/new/JobSection";
+import Socials from "@components/bio/Socials";
 
+let glideArray = Array(10)
+let startVal = .8
+let increment = .09
+
+for (let i = 0; i < glideArray.length; i ++){
+    glideArray[i] = startVal + increment*(i)
+}
 
 
 let master_backgroundColor = 'rgb(20, 23, 41)'
@@ -50,6 +58,11 @@ export default function Main() {
 
 
     // const noise =  noise2D
+
+    function sendEmail() {
+        window.open('mailto:alexyeagle@gmail.com,alex@yeagle.io?subject=Would love to chat!&body=Hey Alex I saw your website and...');
+    }
+
 
 
     useEffect(() => {
@@ -160,14 +173,6 @@ export default function Main() {
                         ctx.moveTo(positions[j][i - 1].x + (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3, positions[j][i - 1].y) + (Math.random() -.5)*(100-i)* Math.sin(i*j);
 
                     } else {
-                        console.log(positions)
-                        console.log(positions[j])
-                        console.log(positions[j][i])
-                        console.log("this is the j: " + j)
-                        console.log("this is the i: " + i)
-
-                        console.log(positions[j][i].x)
-
                         ctx.moveTo(positions[j][i].x, positions[j][i].y);
 
                     }
@@ -209,7 +214,6 @@ export default function Main() {
 
 
 
-
     return (
 
         <div className={styles.master}>
@@ -229,23 +233,19 @@ export default function Main() {
             </div>
 
 
-
-
-            <Spacer height={"15vh"} />
-            <JobSection/>
-
-            {/* <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: </h4> */}
-            <Quotes />
-            <Spacer height={"10vh"} />
-
             {/* <Spacer height={"5vw"}/> */}
             {/* <a href="/resume"><NavButton buttonName={"See my work"} /></a> */}
-            <SVGSpacers type="top" num="1" width={width} />
-            <SVGSpacers type="bot" num="4" width={width} />
-            <div style={{ height: "15vh", fill: "black", zIndex: 500 }} />
+            {/* <SVGSpacers type="top" num="1" width={width} />
+            <SVGSpacers type="bot" num="4" width={width} /> */}
+            {/* <div style={{ height: "15vh", fill: "black", zIndex: 500 }} /> */}
+
+            <Spacer />
+            <Spacer />
+            <Spacer />
+
             <div className={styles.left_right_wrapper}>
                 <div className={styles.left_container}>
-                    <h4 style={{ padding: "7vw", fontSize: "4vw", left: (Math.min(determineGlideIn(.7), 3) + 'vw') }}
+                    <h4 style={{ padding: "7vw", fontSize: "4vw", left: (Math.min(determineGlideIn(.5), 3) + 'vw') }}
                         className={styles.left_container}
 
                     // className={yOffset >= 500 ? styles.left_container_after : styles.left_container}
@@ -261,27 +261,30 @@ export default function Main() {
             </div>
             <Spacer />
 
-            <div style={{ position: "relative", textAlign: "right" }}>
+            <div style={{ position: "relative", textAlign: "center" }}>
 
-                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.1), 3) + 'vw') }}>Worked on hypergrowth solutions <br />backed by...</div>
-                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.15), 3) + 'vw') }}>2x Accel                </div>
-
-                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.2), 3) + 'vw') }}>1x FAANG                </div>
-                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.25), 3) + 'vw') }}>2x Seqouia                 </div>
-
-                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.3), 3) + 'vw') }}>1x 500 Startups                </div>
-
-                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.35), 3) + 'vw') }}>2x Y Combinator                </div>
-
-                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.45), 3) + 'vw') }}>2x First Round Capital                </div>
+                <div className={styles.vc} style={{ fontSize: "4vw", right: (Math.min(determineGlideIn(.6), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</div>
+                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </div>
+                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') }}>1x FAANG                </div>
+                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') }}>2x Seqouia                 </div>
+                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') }}>1x 500 Startups                </div>
+                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') }}>2x Y Combinator                </div>
+                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') }}>2x First Round Capital                </div>
 
             </div>
             <Spacer />
-            <SVGSpacers type="top" num="2" width={width} />
-            <SVGSpacers type="bot" num="3" width={width} />
+
+            <JobSection/>
+            <Spacer />
+
+            {/* <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: </h4> */}
+            <Quotes />
+            <Spacer height={"10vh"} />
+            {/* <SVGSpacers type="top" num="2" width={width} />
+            <SVGSpacers type="bot" num="3" width={width} /> */}
             <Spacer height={"5vw"} />
             <div style={{ position: "relative" }}>
-                <div style={{ position: "absolute", top: "2vh" }}>
+                <div >
 
                     <div className={styles.image_text_center} style={{ top: "26vw" }}>I'm also a drone videographer!</div>
                     {/* <div height={600}> */}
@@ -289,10 +292,24 @@ export default function Main() {
                     {/* </div> */}
                 </div>
             </div>
-            <Spacer height={"50vw"} />
+            <Spacer height={"5vw"} />
+            <Spacer height={"5vw"} />
+
+            <div >
+                <div>
+                    <Socials size={"3vw"} loc={"center"} />
+                    <div className={styles.contact_element}>+1 (559) 451 6174</div>
+                    <div className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</div>
+                    <div className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</div>
+                    <div className={styles.contact_element}>SF, CA</div>
+                    <br></br>
+                    <a><NavButton buttonName={"Get in touch"} handleClick={sendEmail} /></a>
+                </div>
+            </div>
+
 
             <Spacer />
-            <SVGSpacers type="top" num="2" width={width} />
+            {/* <SVGSpacers type="top" num="2" width={width} /> */}
             <div className={styles.box}>
                 <PageBot />
             </div>

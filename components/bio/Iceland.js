@@ -31,7 +31,7 @@ export default function Iceland() {
 
     return (
         <>
-        <iframe style={{pointerEvents: "none"}} width={width} height={width*.6}  src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=30" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <iframe style={{pointerEvents: "none", marginTop: "-2vw"}} width={width} height={width*.56}  src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=45" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </>
     )
 }
