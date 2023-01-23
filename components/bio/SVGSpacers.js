@@ -8,14 +8,14 @@ export default function SVGSpacers({ type, num, width, height }) {
         if (type == "top"){
         return (
             <>
-                <img className={styles.svg} src={`/SVGSpacers/${num}.svg`} width="100%" />
+                {/* <img className={styles.svg} src={`/SVGSpacers/${num}.svg`} width="100%" /> */}
             </>
 
         )
         } else {
             return (
                 <>
-                    <img className={styles.svg} src={`/SVGSpacers/${num}.svg`} width="100%" style={{ transform: 'rotate(180deg)' }} />
+                    {/* <img className={styles.svg} src={`/SVGSpacers/${num}.svg`} width="100%" style={{ transform: 'rotate(180deg)' }} /> */}
                 </>
 
             )

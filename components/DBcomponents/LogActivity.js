@@ -15,7 +15,7 @@ export default function LogActivity(userId, activity) {
         console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
 
 
-    axios.post('http://ec2-44-210-111-39.compute-1.amazonaws.com:5432/logActivity', {
+    axios.post('https://ec2-44-210-111-39.compute-1.amazonaws.com:5432/logActivity', {
         userId: userId,
         activity: activity,
         timestamp: timestamp
