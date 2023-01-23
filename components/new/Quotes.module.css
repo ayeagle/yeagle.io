@@ -241,3 +241,13 @@
 
     background: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.527));
 }
+
+.quote_image {
+    position: relative;
+    z-index: 10001;
+    width: 5vw;
+    height: auto;
+    /* right: 50%; */
+    /* display: bloc; */
+
+}

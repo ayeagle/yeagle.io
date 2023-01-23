@@ -43,6 +43,7 @@
     height: auto;
     position: absolute;
     left: 0;
+    /* background-color: ; */
     /* top: vh; */
     /* height: auto; */
     /* width: auto; */
@@ -431,4 +432,10 @@
     top:0;
     /* height: 100%; */
 pointer-events: none;
+}
+
+.vc {
+
+    position: relative;
+    font-size: 3vw;
 }
