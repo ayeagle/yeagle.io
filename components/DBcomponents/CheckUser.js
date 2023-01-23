@@ -13,7 +13,7 @@ export default function CheckUser(userName) {
         // console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
         // console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
 
-    return axios.post('http://ec2-44-210-111-39.compute-1.amazonaws.com:5432/checkUser', {
+    return axios.post('https://ec2-44-210-111-39.compute-1.amazonaws.com:5432/checkUser', {
         userName:userName
     })
         .then(response => {

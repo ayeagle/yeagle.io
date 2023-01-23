@@ -13,7 +13,7 @@ export default function ValidateLogin(userName, password) {
         // console.log("CLIENT SIDE: activity value is " +activity + " and the type of this is " + typeof(activity))
         // console.log("CLIENT SIDE: timestamp value is " +timestamp + " and the type of this is " + typeof(timestamp))
 
-    return axios.post('http://ec2-44-210-111-39.compute-1.amazonaws.com:5432/validateLogin', {
+    return axios.post('https://ec2-44-210-111-39.compute-1.amazonaws.com:5432/validateLogin', {
         userName:userName,
         password:password
     })
