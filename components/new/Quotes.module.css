@@ -144,7 +144,7 @@
     justify-content: center;
     font-size: 1.25em;
     color: white;
-    /* transition: left 3s ease; */
+    transition:  0s ;
     right: 0vw;
     padding: 4vw;
     /* border-radius: 20px; */
@@ -172,7 +172,7 @@
     justify-content: center;
     font-size: 1.25em;
     color: white;
-    transition: left 3s ease;
+    /* transition: left 3s ease; */
 
     padding: 4vw;
     /* border-radius: 20px; */

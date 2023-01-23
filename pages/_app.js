@@ -7,7 +7,6 @@ import About from './about';
 import genSessionUuid from "../components/DBcomponents/usergen"
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-// import { Router } from 'react-router-dom'
 // import { createBrowserHistory } from 'history'
 
 

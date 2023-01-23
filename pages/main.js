@@ -5,7 +5,7 @@ import NavBar from "@components/new/Navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
 import SVGSpacers from "@components/bio/SVGSpacers";
 import Resizer from "@components/functional/Resizer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './main.module.css';
 import Iceland from "@components/bio/Iceland";
@@ -19,6 +19,9 @@ import Spacer from "@components/bio/Spacer";
 import LogActivity from "@components/DBcomponents/LogActivity";
 import Quotes from '@components/new/Quotes'
 import PageBot from '@components/new/PageBot'
+import SimplexNoise from 'simplex-noise';
+import { createNoise2D } from 'simplex-noise';
+import JobSection from "@components/new/JobSection";
 
 
 
@@ -34,6 +37,7 @@ export default function Main() {
     // const dispatch = useDispatch();
     // const state = useSelector((state) => state);
     const [yOffset, setYOffset] = useState(0)
+    const [totalHeight, setTotalHeight] = useState(0)
 
     // console.log("this is the height (start) ==> " + height)
     //     console.log("this is the width (start) ==> " + width)
@@ -41,10 +45,18 @@ export default function Main() {
     const [limiter, setLimiter] = useState(0)
     const [trans, setTrans] = useState(styles.left_container)
 
+    const { createNoise2D } = require('simplex-noise');
+    const noise2D = createNoise2D();
+
+
+    // const noise =  noise2D
+
+
     useEffect(() => {
         // Update the height and width state when the component is mounted
-        updateHeight(window.innerHeight)
+        updateHeight(window.scrollHeight)
         updateWidth(window.innerWidth)
+        setTotalHeight(document.body.scrollHeight)
         console.log("this is the height (useeffect) ==> " + height)
         console.log("this is the width (useeffect) ==> " + width)
 
@@ -81,9 +93,9 @@ export default function Main() {
 
 
     const determineGlideIn = (start, end) => {
-        let retVal = (((yOffset/width) - start)) * 100
+        let retVal = (((yOffset / width) - start)) * 100
 
-        console.log(retVal)
+        // console.log(retVal)
         return retVal
     }
 
@@ -113,11 +125,99 @@ export default function Main() {
     console.log("this is the y : " + yOffset)
 
 
+    const canvasRef = useRef(null);
+    let count = 0
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'green';
+
+
+        let positions = Array(8).fill([])
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.body.scrollHeight;
+        }
+        window.addEventListener('resize', resizeCanvas)
+        resizeCanvas();
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = 'rgba(31, 143, 156,0)'
+            ctx.lineWidth = 1;
+            // ctx.lineCap = "round";
+
+            for (let j = 0; j < positions.length ; j++) {
+                for (let i = 0; i < positions[j].length; i++) {
+                    ctx.beginPath();
+                    if (i > 0) {
+                        ctx.lineWidth = Math.max(((i)/20), 1)
+                        ctx.strokeStyle = `rgba(31, 143, ${156 - i}, ${i*.01})`
+
+                        ctx.moveTo(positions[j][i - 1].x + (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3, positions[j][i - 1].y) + (Math.random() -.5)*(100-i)* Math.sin(i*j);
+
+                    } else {
+                        console.log(positions)
+                        console.log(positions[j])
+                        console.log(positions[j][i])
+                        console.log("this is the j: " + j)
+                        console.log("this is the i: " + i)
+
+                        console.log(positions[j][i].x)
+
+                        ctx.moveTo(positions[j][i].x, positions[j][i].y);
+
+                    }
+                    ctx.lineTo(positions[j][i].x, positions[j][i].y);
+                    ctx.stroke();
+
+
+                }
+            }
+        }
+
+        document.addEventListener('mousemove', event => {
+            for (let j = 0; j < positions.length ; j++) {
+                positions[j].push({ x: event.pageX +   Math.sin(event.pageX), y: event.pageY + Math.sin(event.pageY)});
+                // let x = event.clientX;
+                // let y = event.clientY;
+                // let angle = noise2D(x / 100, y / 100) * Math.PI * j ;
+                // let offsetX = Math.cos(angle) * 10;
+                // let offsetY = Math.sin(angle) * 10;
+                // positions[j].push({ x: x + offsetX, y: y + offsetY });
+                if (positions[j].length >= 100) positions[j].shift()
+            }
+
+        });
+
+        const interval = setInterval(() => {
+            for (let j = 0; j < positions.length; j++) {
+
+            positions[j].shift()
+
+            }
+        },100);
+
+        animate();
+        // return () => clearInterval(interval);
+
+    }, []);
+
+
+
+
+
     return (
+
         <div className={styles.master}>
             <Flood />
             <BasicPageTop />
             <NavBar />
+            <canvas ref={canvasRef} className={styles.canvas} style={{ height: { totalHeight } + "px" }} />
+
             <div className={styles.image_container}>
                 <img src="/IMGassets/me2.png" className={styles.image} />
             </div>
@@ -128,9 +228,11 @@ export default function Main() {
                     <br/>Builder`} />
             </div>
 
-            
+
+
 
             <Spacer height={"15vh"} />
+            <JobSection/>
 
             {/* <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: </h4> */}
             <Quotes />
@@ -144,7 +246,7 @@ export default function Main() {
             <div className={styles.left_right_wrapper}>
                 <div className={styles.left_container}>
                     <h4 style={{ padding: "7vw", fontSize: "4vw", left: (Math.min(determineGlideIn(.7), 3) + 'vw') }}
-                    className={styles.left_container}
+                        className={styles.left_container}
 
                     // className={yOffset >= 500 ? styles.left_container_after : styles.left_container}
 
@@ -159,32 +261,31 @@ export default function Main() {
             </div>
             <Spacer />
 
-            <div style={{position: "relative", textAlign: "right"}}>
+            <div style={{ position: "relative", textAlign: "right" }}>
 
-                    <div  style={{position: "relative", right: (Math.min(determineGlideIn(1.1), 3) + 'vw') }}>Worked on hypergrowth solutions <br/>backed by...</div>
-                    <div  style={{position: "relative", right: (Math.min(determineGlideIn(1.15), 3) + 'vw') }}>2x Accel                </div>
+                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.1), 3) + 'vw') }}>Worked on hypergrowth solutions <br />backed by...</div>
+                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.15), 3) + 'vw') }}>2x Accel                </div>
 
-                    <div  style={{position: "relative", right: (Math.min(determineGlideIn(1.2), 3) + 'vw') }}>1x FAANG                </div>
-                    <div  style={{position: "relative", right: (Math.min(determineGlideIn(1.25), 3) + 'vw') }}>2x Seqouia                 </div>
+                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.2), 3) + 'vw') }}>1x FAANG                </div>
+                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.25), 3) + 'vw') }}>2x Seqouia                 </div>
 
-                    <div  style={{position: "relative", right: (Math.min(determineGlideIn(1.3), 3) + 'vw') }}>1x 500 Startups                </div>
+                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.3), 3) + 'vw') }}>1x 500 Startups                </div>
 
-                    <div  style={{position: "relative", right: (Math.min(determineGlideIn(1.35), 3) + 'vw') }}>2x Y Combinator                </div>
+                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.35), 3) + 'vw') }}>2x Y Combinator                </div>
 
-                    <div  style={{position: "relative", right: (Math.min(determineGlideIn(1.45), 3) + 'vw') }}>2x First Round Capital                </div>
+                <div style={{ position: "relative", right: (Math.min(determineGlideIn(1.45), 3) + 'vw') }}>2x First Round Capital                </div>
 
-                </div>
+            </div>
             <Spacer />
             <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} />
             <Spacer height={"5vw"} />
-
             <div style={{ position: "relative" }}>
                 <div style={{ position: "absolute", top: "2vh" }}>
 
                     <div className={styles.image_text_center} style={{ top: "26vw" }}>I'm also a drone videographer!</div>
                     {/* <div height={600}> */}
-                    <Iceland width={width} height={height} className={styles.video} />
+                    <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} />
                     {/* </div> */}
                 </div>
             </div>
@@ -196,5 +297,6 @@ export default function Main() {
                 <PageBot />
             </div>
         </div>
+
     )
 }

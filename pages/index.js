@@ -6,7 +6,6 @@ import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkT
 import Main from '@components/pomodomo/Main'
 import Break from '@components/pomodomo/Break'
 import Finished from '@components/pomodomo/Finished'
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Waves from '@components/pomodomo/Waves'
 
 // import About from './About';  // this is the React component you want to render
