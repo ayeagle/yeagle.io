@@ -85,7 +85,7 @@ export default function BasicPageBottom() {
       <Socials size={"2vw"} loc={"right"} />
 
       <footer className={styles.footer}>
-        Made by me for you <img src="/bagel_logo.png" alt="Netlify Logo" className={styles.logo}/> All media is my own
+        Made by me for you <img src="/bagel_logo.png" alt="Netlify Logo" className={styles.logo} /> All media is my own
         {/* <div style={{ fontSize: "2vw", fontStyle: "italic" }}>All media is my own</div> */}
       </footer>    </>
   )

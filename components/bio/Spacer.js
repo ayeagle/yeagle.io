@@ -5,7 +5,7 @@ import React from "react"
 export default function Spacer({height="15vh"}) {
     return (
         <>
-            <div style={{ height: height, fill: "black", zIndex: 1}} />
+            <div style={{ height: height, fill: "black", zIndex: 1, transition: ".5s"}} />
         </>
     )
 }

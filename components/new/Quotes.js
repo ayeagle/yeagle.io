@@ -99,7 +99,7 @@ export default function Carousel() {
         left: '100%',
         color: 'rgba(0,0,0,0)',
         backgroundColor: 'rgba(0,0,0,0)',
-        // transition: '.5s',
+        transition: '1s',
         borderColor: 'rgba(0,0,0,0)',
         boxShadow: '0 0 20px 20px rgba(0, 0, 0, 0)',
         display: 'none'
@@ -118,7 +118,7 @@ export default function Carousel() {
         left: '-100%',
         color: 'rgba(0,0,0,0)',
         backgroundColor: 'rgba(0,0,0,0)',
-        // transition: '.5s',
+        transition: '1s',
         borderColor: 'rgba(0,0,0,0)',
         boxShadow: '0 0 20px 20px rgba(0, 0, 0, 0)',
         display: 'none'
@@ -205,6 +205,7 @@ export default function Carousel() {
 
     return (
         <>
+        {/* <div style={{position: "relative", transition: "auto"}}> */}
             <div className={styles.carousel_container} style={{zIndex: "-1"}}>
 
 
@@ -252,6 +253,7 @@ export default function Carousel() {
             </div>
             {/* </div> */}
             {/* </rect> */}
+            {/* </div> */}
         </>
     );
 
