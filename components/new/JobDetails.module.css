@@ -60,13 +60,13 @@
     width: 101%;
     /* left:0%; */
     font-size: 1.5vw;
-    /* border: 3px solid rgb(60, 60, 60); */
-    /* border-bottom: 0px solid rgba(0, 0, 0, 0); */
-    /* border-radius: 20px 20px 0 0; */
-    /* margin-top: 10vw; */
-    /* height: 15vw; */
+    border: 3px solid rgb(60, 60, 60);
+    border-bottom: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 20px 20px 0 0;
+    margin-top: 10vw;
+    height: 15vw;
     transition: 1.5s;
-    background-color: none;
+    background-color: black;
     color: white;
     z-index: 100;
     transition: 2s;
@@ -76,7 +76,7 @@
 .details_mini_header {
     text-align: left;
     padding-left: 3vw;
-    font-size: 2.7vw;
+    font-size: 2vw;
 }
 
 .skill_units {
@@ -150,7 +150,7 @@
     /* margin-top:3vw; */
     background-color: rgba(0, 0, 0, 0.299);
     padding-top: 20vw;
-    transition: 1s;
+    transition: .3s;
     opacity: 100%;
 }
 
@@ -178,7 +178,7 @@
     /* transition: 1.5s; */
     margin-bottom: 8vw;
     padding-bottom: 8vw;
-    /* border: 3px solid rgba(255, 255, 255, 0); */
+    border: 3px solid rgba(255, 255, 255, 0);
     /* border-top: 0px solid rgb(0, 0, 0); */
     border-radius: 0 0 20px 20px;
     padding: 1vw;
@@ -215,7 +215,7 @@
 
 .details_header_units {
     padding: 3vw;
-    font-size: 3vw;
+    font-size: 2vw;
     /* text-decoration: none; */
     color: white;
 

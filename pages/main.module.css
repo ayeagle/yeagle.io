@@ -1,7 +1,7 @@
 .master {
     background-color: rgb(20, 23, 41);
     color: rgb(197, 197, 197);
-    z-index: 1000;
+    z-index: 900;
     /* position: static; */
 }
 
@@ -23,7 +23,7 @@
     /* margin-top: -4em; */
     margin-bottom: -20vw;
     box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.174);
-    z-index: 1000;
+    z-index: 1010;
 
 
 }
@@ -34,7 +34,7 @@
     width: 35%;
     position: relative;
     /* box-shadow: 0 0 20px 20px white; */
-    
+
 }
 
 .video {
@@ -53,7 +53,7 @@
 }
 
 .image_text {
-    z-index: 100;
+    z-index: 1010;
     width: 35%;
     position: relative;
     font-size: 3vw;
@@ -65,7 +65,7 @@
     height: 25vw;
     /* color: black; */
     top: 8vw;
-    z-index: 1000;
+    z-index: 1010;
 
 }
 
@@ -84,7 +84,7 @@
     color: white;
     top: 5em;
     /* top: 500px; */
-    z-index: 1000;
+    z-index: 1010;
 
 }
 
@@ -99,7 +99,7 @@
     left: 10%;
     padding: 5px;
     color: white;
-    z-index: 1000;
+    z-index: 1010;
 
 }
 
@@ -115,7 +115,7 @@
     left: calc(100% - 40%);
     padding: 5px;
     color: white;
-    z-index: 1000;
+    z-index: 1010;
 
 }
 
@@ -130,7 +130,7 @@
     left: calc(100% - 40%);
     padding: 5px;
     color: rgba(255, 255, 255, 0);
-    z-index: 1000;
+    z-index: 1010;
 
 }
 
@@ -223,7 +223,6 @@
     opacity: 100% !important;
     /* box-shadow: none; */
     box-shadow: 0 0 20px rgb(255, 255, 255)
-
 }
 
 
@@ -333,6 +332,7 @@
     /* margin-top: -5.5em;
     margin-bottom: -5em; */
 }
+
 /*
 .contact_wrapper {
     transition: 1s;
@@ -400,7 +400,7 @@
     /* left:-40vw; */
     text-align: left;
     width: 100%;
-    z-index: 1000;
+    z-index: 1010;
 
     /* transition: 1s; */
 }
@@ -415,7 +415,7 @@
 } */
 
 .right_container {
-    right:0;
+    right: 0;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -428,14 +428,18 @@
     background-color: transparent;
     fill: transparent;
     color: rgb(31, 143, 156);
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
     /* height: 100%; */
-pointer-events: none;
+    pointer-events: none;
+    z-index: 1001;
+
 }
 
 .vc {
 
     position: relative;
     font-size: 3vw;
+    z-index: 1010;
+
 }
