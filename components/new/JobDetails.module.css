@@ -60,13 +60,13 @@
     width: 101%;
     /* left:0%; */
     font-size: 1.5vw;
-    border: 3px solid rgb(60, 60, 60);
-    border-bottom: 0px solid rgba(0, 0, 0, 0);
-    border-radius: 20px 20px 0 0;
-    margin-top: 10vw;
-    height: 15vw;
+    /* border: 3px solid rgb(60, 60, 60); */
+    /* border-bottom: 0px solid rgba(0, 0, 0, 0); */
+    /* border-radius: 20px 20px 0 0; */
+    /* margin-top: 10vw; */
+    /* height: 15vw; */
     transition: 1.5s;
-    background-color: black;
+    background-color: none;
     color: white;
     z-index: 100;
     transition: 2s;
@@ -76,7 +76,7 @@
 .details_mini_header {
     text-align: left;
     padding-left: 3vw;
-    font-size: 2vw;
+    font-size: 2.7vw;
 }
 
 .skill_units {
@@ -178,7 +178,7 @@
     /* transition: 1.5s; */
     margin-bottom: 8vw;
     padding-bottom: 8vw;
-    border: 3px solid rgba(0, 0, 0, 0);
+    /* border: 3px solid rgba(255, 255, 255, 0); */
     /* border-top: 0px solid rgb(0, 0, 0); */
     border-radius: 0 0 20px 20px;
     padding: 1vw;
@@ -186,24 +186,25 @@
     /* font-display:none; */
     /* display:block; */
     /* background-color: rgba(0, 0, 0, 0); */
-    z-index: -1;
+    /* z-index: -1; */
     /* display:none; */
     transition:  color .6s ease-out, height 1s, top 1s, border .5s ease-out, z-index 0s 5s;
+    /* transition: 3s; */
 
 }
 
 
 .work_details_open {
     position: relative;
-    top: 2vw;
+    top: 0vw;
     height: auto;
     left: -.5%;
-    width: 101%;
+    width: 100%;
 
     /* display: block; */
     padding-top: 5vw;
     margin-top: 5vw;
-    border: 3px solid rgb(60, 60, 60);
+    /* border: 3px solid rgb(255, 255, 255); */
     border-top: 0px solid rgb(0, 0, 0);
     border-radius: 0 0 20px 20px;
     padding: 1vw;
@@ -214,7 +215,7 @@
 
 .details_header_units {
     padding: 3vw;
-    font-size: 2vw;
+    font-size: 3vw;
     /* text-decoration: none; */
     color: white;
 

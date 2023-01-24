@@ -94,6 +94,7 @@ export default function JobSection() {
 
     const [open, setOpen] = useState(false)
     const [workStyle, setWorkStyle] = useState("styles.work_details_closed")
+    const [currOpen, setCurrOpen] = useState(0)
 
     // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
 
@@ -122,7 +123,6 @@ export default function JobSection() {
         // console.log("!!!!!!! this is the index being passed : " + index)
         // console.log("!!!!!!! this is the key value " + key)
 
-
         setOpen(!open)
         if (open) {
             setWorkStyle(styles.work_details_closed)
@@ -130,6 +130,8 @@ export default function JobSection() {
             setArrowStyle(styles.arrow_down)
 
         } else {
+            setCurrOpen(index)
+
             setWorkStyle(styles.work_details_open)
             // setWorkVH(elements.details_view_height)
             setWorkVH(elements.details_view_height)
@@ -164,7 +166,11 @@ export default function JobSection() {
         return () => clearInterval(interval);
     }, [currentIndex]);
 
-
+useEffect(() => {
+    setWorkStyle(styles.work_details_closed)
+    setWorkVH("7vw")
+    setArrowStyle(styles.arrow_down)
+},[])
 
     // const openClick = () => {
     //     // console.log("the onlclick is being used to change styles")
@@ -183,16 +189,38 @@ export default function JobSection() {
                     <div className={styles.jobs_container}>
 
                         <div className={styles.logo_container}>
-                            <div className={styles.arrow} onClick={openClick} >
+                            <div className={styles.arrow} onClick={() => openClick(index)} >
                                 <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
                             </div>
-                            <img src={elements.logo_pic} className={styles.logo} onClick={openClick} />
+                            <img src={elements.logo_pic} className={styles.logo} onClick={() => openClick(index)} />
 
                         </div>
                     </div>
 
 
                 ))}
+            </div>
+            <div style={{ height: workVH, transition: "1s" }} >
+                <div className={workStyle} >
+                    <div className={styles.details_header}>
+                        <a href={elements.company_url} target="_blank"><h3 className={styles.details_header_units}>{elements[currOpen].company} &#128279;</h3></a>
+                        <h3 className={styles.details_header_units}>{elements[currOpen].role}</h3>
+                        <h3 className={styles.details_header_units}>{elements[currOpen].tenure}</h3>
+                    </div>
+                    <div className={styles.details_mini_header} >Work</div>
+                    <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} />
+                    <ul className={styles.work_bullets}>
+                        {elements[currOpen].details.map(detail => (
+                            <li key={detail} >{detail}</li>
+                        ))}
+                    </ul>
+                    <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} />
+                    <div className={styles.details_mini_header} > Hard Skills</div>
+                    <ul><li className={styles.work_bullets}> {elements[currOpen].hard_skills}</li></ul>
+                    <div className={styles.details_mini_header} > Soft Skills</div>
+                    <ul><li className={styles.work_bullets}> {elements[currOpen].soft_skills}</li></ul>
+                    <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} />
+                </div>
             </div>
 
         </>
