@@ -59,7 +59,7 @@
     z-index: 500;
     position: relative;
     width: 100%;
-    margin-top: 3vw;
+    /* margin-top: 3vw; */
     font-weight: 200;
     font-size: 3vw;
 
@@ -70,7 +70,7 @@
     color: white;
     /* transition: left 3s ease; */
 
-    padding: 4vw;
+    /* padding: 4vw; */
     /* border-radius: 20px; */
     /* border: 10px solid; */
     /* box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.174); */
@@ -96,7 +96,7 @@
     width: 50%;
     height: 100%;
     left:0%;
-    z-index: 200;
+    z-index: 2000;
     opacity:0%;
     display: flex;
     flex-direction: column;
@@ -112,7 +112,7 @@
     width: 50%;
     height: 100%;
     right:0%;
-    z-index: 200;
+    z-index: 2000;
     opacity:0%;
     display: flex;
     flex-direction: column;
