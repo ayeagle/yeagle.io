@@ -220,8 +220,8 @@ export default function Carousel() {
                         className={styles.carousel}
                         style={{ ...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size , position: "relative", zIndex: 5000}}
                     >
-                        <div className={styles.carousel_element_left} style={{ fontSize: "2vw", zIndex: 5000 }}>
-                            <img src={element.pic} style={{ width: "15vw", height: "15vw", borderRadius: "100%" , zIndex: 5000}} />
+                        <div className={styles.carousel_element_left} style={{ fontSize: "2.5vw", zIndex: 5000 }}>
+                            <img src={element.pic} style={{ width: "20vw", height: "20vw", borderRadius: "100%" , zIndex: 5000}} />
 
                             {element.author}
                             <br></br>

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './JobDetails.module.css'
 import Button from '@components/pomodomo/Button';
 import JobDetails from './JobDetails';
 
 
-export default function JobSection({open, setOpen}) {
+export default function JobSection({ open, setOpen }) {
 
     const elements = [
         {
@@ -19,8 +19,8 @@ export default function JobSection({open, setOpen}) {
                 "Synthesize user signal into roadmap-actionable dashboards and reporting",
                 "Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR"],
             logo_pic: "/NewIMGassets/meta_2.png",
-            hard_skills: [["PostgresQL", 86], ["Presto", 60],["React", 46], ["Scuba", 30], ["Python Scripting", 20]],
-            soft_skills: [["Leadership w/o Authority", 67], ["Feature/Fix Efficiency", 55], ["Finding PMF", 40]],
+            hard_skills: [["PostgresQL", 86], ["Presto", 60], ["React", 46], ["Scuba", 30], ["Python Scripting", 20]],
+            soft_skills: [["Influence w/o Authority", 67], ["Feature/Fix Efficiency", 55], ["Finding PMF", 40]],
             top_move_perc: "-20%",
             details_view_height: "45vw",
 
@@ -59,7 +59,7 @@ export default function JobSection({open, setOpen}) {
                 "Acquired, onboarded, and conducted user research with 18 pre-launch customers",
                 "Uncovered and prioritized customer pains against technical feasibility on a daily basis"],
             logo_pic: "/NewIMGassets/guide_2.jpg",
-            hard_skills: [["Excel", 60], ["Salesforce", 45],["Product/Design Tooling", 30], ["SQL", 15]],
+            hard_skills: [["Excel", 60], ["Salesforce", 45], ["Product/Design Tooling", 30], ["SQL", 15]],
             soft_skills: [["Product Strategy", 83], ["Growth Strategy", 75], ["Operating in Uncertainty", 43]],
             top_move_perc: "-65%",
             details_view_height: "40vw",
@@ -77,7 +77,7 @@ export default function JobSection({open, setOpen}) {
 
             logo_pic: "/NewIMGassets/sift_2.png",
             hard_skills: [["Salesforce", 49], ["Excel", 32]],
-            soft_skills: [["Leadership", 84], ["Process Optimization", 69],["Project Scoping", 42], ["Collaboration", 33],],
+            soft_skills: [["Leadership", 84], ["Process Optimization", 69], ["Project Scoping", 42], ["Collaboration", 33],],
             top_move_perc: "-65%",
             details_view_height: "30vw",
 
@@ -110,8 +110,8 @@ export default function JobSection({open, setOpen}) {
 
 
 
-    const giftRef = useRef([null],[null],[null],[null]);
-    
+    const giftRef = useRef([null], [null], [null], [null]);
+
 
     // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
 
@@ -168,7 +168,7 @@ export default function JobSection({open, setOpen}) {
     }
 
     // console.log(yOffset)
-    if(Math.abs((yOffset / yTotal)-.275) <= .01 && !open && once == 0){
+    if (Math.abs((yOffset / yTotal) - .275) <= .01 && !open && once == 0) {
         openClick(0)
         setOnce(1)
     }
@@ -225,7 +225,7 @@ export default function JobSection({open, setOpen}) {
                                 onMouseEnter={() => hoverIndexSet(index)}
 
                             >
-                                <div className={styles.arrow_details_header}>
+                                <div className={styles.arrow_details_header} >
                                     <a href={elements.company_url} target="_blank"><h3 className={styles.details_header_units}>{elements.company} &#128279;</h3></a>
                                     <h3 className={styles.details_header_units}>{elements.role}</h3>
                                     <h3 className={styles.details_header_units}>{elements.tenure}</h3>
@@ -244,10 +244,10 @@ export default function JobSection({open, setOpen}) {
                 <div className={workStyle} >
                     <div style={{ display: "flex", flexDirection: "column", zIndex: 1000, width: "100%" }}>
 
-                        <div style={{ display: "flex", flexDirection: "row" }} className={styles.internal_details_header_units}>
-                            <a href={elements.company_url} target="_blank"><div className={styles.internal_details_header_units}>{elements[currOpen].company} &#128279;</div></a>
-                            <div className={styles.internal_details_header_units}>{elements[currOpen].role}</div>
-                            <div className={styles.internal_details_header_units}>{elements[currOpen].tenure}</div>
+                        <div style={{ display: "flex", flexDirection: "row", color: !open ? "rgba(0,0,0,0)" : "blue", transition: !open ? "1s" : "2s" }} className={styles.internal_details_header_units}>
+                            <a href={elements.company_url} target="_blank"><div className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].company} &#128279;</div></a>
+                            <div className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].role}</div>
+                            <div className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].tenure}</div>
 
                         </div>
                         <br />
@@ -256,7 +256,7 @@ export default function JobSection({open, setOpen}) {
                         <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
                             <div className={styles.left_wrap}>
 
-                                <div className={styles.details_mini_header} > Hard Skills</div>
+                                <div className={styles.details_mini_header} > Hard Skill XP</div>
                                 <div>
                                     <div className={styles.work_bullets}>
                                         {/* {elements[currOpen].hard_skills} */}
@@ -268,8 +268,8 @@ export default function JobSection({open, setOpen}) {
                                         ))}
                                     </div>
                                 </div>
-                                <br/>
-                                <div className={styles.details_mini_header} > Soft Skills</div>
+                                <br />
+                                <div className={styles.details_mini_header} > Soft Skill XP</div>
                                 <div>
                                     <div className={styles.work_bullets}>
                                         {/* {elements[currOpen].hard_skills} */}
