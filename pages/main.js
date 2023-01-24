@@ -25,7 +25,7 @@ import JobSection from "@components/new/JobSection";
 import Socials from "@components/bio/Socials";
 
 let glideArray = Array(10)
-let startVal = .8
+let startVal = .4
 let increment = .09
 
 for (let i = 0; i < glideArray.length; i ++){
@@ -240,12 +240,11 @@ export default function Main() {
             {/* <div style={{ height: "15vh", fill: "black", zIndex: 500 }} /> */}
 
             <Spacer />
-            <Spacer />
-            <Spacer />
+            
 
             <div className={styles.left_right_wrapper}>
                 <div className={styles.left_container}>
-                    <h4 style={{ padding: "7vw", fontSize: "4vw", left: (Math.min(determineGlideIn(.5), 3) + 'vw') }}
+                    <h4 style={{ padding: "7vw", fontSize: "4vw", left: (Math.min(determineGlideIn(.1) * 6, 3) + 'vw') }}
                         className={styles.left_container}
 
                     // className={yOffset >= 500 ? styles.left_container_after : styles.left_container}
