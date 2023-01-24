@@ -4,7 +4,7 @@ import Button from '@components/pomodomo/Button';
 import JobDetails from './JobDetails';
 
 
-export default function JobSection() {
+export default function JobSection({open, setOpen}) {
 
     const elements = [
         {
@@ -92,7 +92,7 @@ export default function JobSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [caroLive, setCaroLive] = useState(false)
 
-    const [open, setOpen] = useState(false)
+    // const [open, setOpen] = useState(false)
     const [workStyle, setWorkStyle] = useState("styles.work_details_closed")
     const [currOpen, setCurrOpen] = useState(0)
     const [yOffset, setYOffset] = useState(0)
