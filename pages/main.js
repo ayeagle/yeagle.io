@@ -28,8 +28,8 @@ let glideArray = Array(10)
 let startVal = .4
 let increment = .09
 
-for (let i = 0; i < glideArray.length; i ++){
-    glideArray[i] = startVal + increment*(i)
+for (let i = 0; i < glideArray.length; i++) {
+    glideArray[i] = startVal + increment * (i)
 }
 
 
@@ -72,6 +72,7 @@ export default function Main() {
         setTotalHeight(document.body.scrollHeight)
         console.log("this is the height (useeffect) ==> " + height)
         console.log("this is the width (useeffect) ==> " + width)
+
 
         function handleWindowResize() {
             // Update the height and width state when the window is resized
@@ -140,20 +141,30 @@ export default function Main() {
 
     const canvasRef = useRef(null);
     let count = 0
+    let interVar = 100
+
+
+    let xstore = 0
+    let ystore = 0
+
+    let positions = Array(3).fill([])
+
+
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = 'green';
 
 
-        let positions = Array(8).fill([])
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = document.body.scrollHeight;
+
         }
         window.addEventListener('resize', resizeCanvas)
         resizeCanvas();
+
 
         function animate() {
 
@@ -161,55 +172,125 @@ export default function Main() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.strokeStyle = 'rgba(31, 143, 156,0)'
             ctx.lineWidth = 1;
+
             // ctx.lineCap = "round";
 
-            for (let j = 0; j < positions.length ; j++) {
+            // for (let j = 0; j < positions.length ; j++) {
+            //     for (let i = 0; i < positions[j].length; i++) {
+            //         ctx.beginPath();
+            //         if (i > 0) {
+            //             ctx.lineWidth = Math.max(((i)/20), 1)
+            //             ctx.strokeStyle = `rgba(31, 143, ${156 - i}, ${i*.01})`
+
+            //             ctx.bezierCurveTo(positions[j][i - 1].x + (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3, positions[j][i - 1].y) + (Math.random() -.5)*(100-i)* Math.sin(i*j);
+
+            //         } else {
+            //             ctx.bezierCurveTo(positions[j][i].x, positions[j][i].y);
+
+            //         }
+            //         ctx.lineTo(positions[j][i].x, positions[j][i].y);
+            //         ctx.stroke();
+
+
+            //     }
+            // }
+
+            for (let j = 0; j < positions.length; j++) {
                 for (let i = 0; i < positions[j].length; i++) {
                     ctx.beginPath();
-                    if (i > 0) {
-                        ctx.lineWidth = Math.max(((i)/20), 1)
-                        ctx.strokeStyle = `rgba(31, 143, ${156 - i}, ${i*.01})`
+                    if (i > 1) {
+                        ctx.lineWidth = Math.max(((i) / 20), 1);
+                        ctx.strokeStyle = `rgba(31, 143, ${156 - i}, ${i * .01})`;
 
-                        ctx.moveTo(positions[j][i - 1].x + (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3, positions[j][i - 1].y) + (Math.random() -.5)*(100-i)* Math.sin(i*j);
+                        // calculate control point coordinates
+                        let controlPoint1X = positions[j][i - 2].x + (interVar - i) / 2 * Math.sin(i * j);//+ (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3;
+                        let controlPoint1Y = positions[j][i - 2].y - (interVar - i) / 2 * Math.cos(i * j);//+ (Math.random() -.5)*(100-i)* Math.sin(i*j);
+                        let controlPoint2X = positions[j][i - 1].x + (interVar - i) / 2 * Math.cos(i * j);//+ (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3;
+                        let controlPoint2Y = positions[j][i - 1].y + (interVar - i) / 2 * Math.sin(i * j);//+ (Math.random() -.5)*(100-i)* Math.sin(i*j);
 
-                    } else {
-                        ctx.moveTo(positions[j][i].x, positions[j][i].y);
-
+                        ctx.moveTo(positions[j][i - 2].x, positions[j][i - 2].y);
+                        ctx.bezierCurveTo(controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, positions[j][i].x, positions[j][i].y);
+                        ctx.stroke();
                     }
-                    ctx.lineTo(positions[j][i].x, positions[j][i].y);
-                    ctx.stroke();
-
-
                 }
             }
+
         }
 
         document.addEventListener('mousemove', event => {
-            for (let j = 0; j < positions.length ; j++) {
-                positions[j].push({ x: event.pageX +   Math.sin(event.pageX), y: event.pageY + Math.sin(event.pageY)});
+            for (let j = 0; j < positions.length; j++) {
+                positions[j].push({ x: event.pageX + Math.sin(event.pageX), y: event.pageY + Math.sin(event.pageY) });
+                xstore = event.pageX + Math.sin(event.pageX)
+                ystore = event.pageY + Math.sin(event.pageY)
+
+                console.log("this is the xy store")
+                console.log(xstore)
+                console.log(ystore)
                 // let x = event.clientX;
                 // let y = event.clientY;
                 // let angle = noise2D(x / 100, y / 100) * Math.PI * j ;
                 // let offsetX = Math.cos(angle) * 10;
                 // let offsetY = Math.sin(angle) * 10;
                 // positions[j].push({ x: x + offsetX, y: y + offsetY });
-                if (positions[j].length >= 100) positions[j].shift()
+                if (positions[j].length >= interVar) positions[j].shift()
+                // clearTimeout(timeout);
+                // timeout = setTimeout(deleteLines(), 100);
             }
 
         });
 
         const interval = setInterval(() => {
+
             for (let j = 0; j < positions.length; j++) {
+                // console.log("this is the positions object data")
+                // console.log(positions)
+                if (positions[j].length > 2) {
+                    // console.log(xstore)
+                    // console.log(positions[j][positions.length - 1].x)
+                    // console.log(ystore)
+                    // console.log(positions[j][positions.length - 1].y)
+                    console.log(positions[j])
 
-            positions[j].shift()
+                    // if (
+                    //     Math.abs(
+                    //         positions[j][positions.length - 2].x
+                    //         - positions[j][positions.length - 3].x
+                    //     ) < 100
+                    //     &&
+                    //     Math.abs(
+                    //         positions[j][positions.length - 2].y
+                    //         - positions[j][positions.length - 3].y
+                    //     ) < 100) {
+                    //     positions[j].shift()
+                    // }
 
+                    if (
+                        Math.abs(
+                            positions[j][0].x
+                            - positions[j][1].x
+                        ) < 200
+                        &&
+                        Math.abs(
+                            positions[j][0].y
+                            - positions[j][1].y
+                        ) < 200) {
+                        positions[j].shift()
+                    }
+                }
             }
-        },100);
+        }, 50);
+
+
+
 
         animate();
-        // return () => clearInterval(interval);
+        return () => clearInterval(interval);
+        
+
 
     }, []);
+
+    // const deleteLines = () => {
 
 
 
@@ -240,7 +321,7 @@ export default function Main() {
             {/* <div style={{ height: "15vh", fill: "black", zIndex: 500 }} /> */}
 
             <Spacer />
-            
+
 
             <div className={styles.left_right_wrapper}>
                 <div className={styles.left_container}>
@@ -273,7 +354,7 @@ export default function Main() {
             </div>
             <Spacer />
 
-            <JobSection/>
+            <JobSection />
             <Spacer />
 
             {/* <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: </h4> */}

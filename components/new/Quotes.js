@@ -205,7 +205,7 @@ export default function Carousel() {
 
     return (
         <>
-            <div className={styles.carousel_container}>
+            <div className={styles.carousel_container} style={{zIndex: "-1"}}>
 
 
                 {/* <button className={styles.buttonr} buttonName={"\u25c0"} onClick={forwardClick}><span>{`\u25c0`}</span></button>
