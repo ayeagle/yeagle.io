@@ -55,6 +55,7 @@ export default function Main() {
 
     const { createNoise2D } = require('simplex-noise');
     const noise2D = createNoise2D();
+    const [open, setOpen] = useState(false)
 
 
     // const noise =  noise2D
@@ -70,7 +71,7 @@ export default function Main() {
         updateHeight(window.scrollHeight)
         updateWidth(window.innerWidth)
         // setTotalHeight(document.body.scrollHeight)
-        setTotalHeight(window.outerWidth)
+        setTotalHeight(window.outerHeight)
 
         console.log("this is the height (useeffect) ==> " + height)
         console.log("this is the width (useeffect) ==> " + width)
@@ -165,7 +166,9 @@ export default function Main() {
 
         }
         window.addEventListener('resize', resizeCanvas)
+            
         resizeCanvas();
+        
 
 
         function animate() {
@@ -287,10 +290,10 @@ export default function Main() {
 
         animate();
         return () => clearInterval(interval);
-        
 
 
-    }, []);
+
+    }, [open]);
 
     // const deleteLines = () => {
 
@@ -356,11 +359,11 @@ export default function Main() {
             </div>
             <Spacer height={"5vh"} />
 
-            <JobSection />
+            <JobSection open={open} setOpen={setOpen}/>
             <Spacer />
 
             {/* <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: </h4> */}
-            <Quotes />
+            <Quotes style={{position: "relative"}}/>
             <Spacer height={"10vh"} />
             {/* <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} /> */}
@@ -377,9 +380,9 @@ export default function Main() {
             <Spacer height={"5vw"} />
             <Spacer height={"10vw"} />
 
-            <div style={{zIndex: "1"}}>
-                <div>
-                    <Socials size={"3vw"} loc={"center"} />
+            <div style={{ zIndex: "100", position: "relative"}}>
+                <div style={{ zIndex: "100", position: "relative" }}>
+                    <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }}/>
                     <div className={styles.contact_element}>+1 (559) 451 6174</div>
                     <div className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</div>
                     <div className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</div>
@@ -392,7 +395,7 @@ export default function Main() {
 
             <Spacer />
             {/* <SVGSpacers type="top" num="2" width={width} /> */}
-            <div className={styles.box}>
+            <div className={styles.box} style={{ zIndex: "100", position: "relative" }}>
                 <PageBot />
             </div>
         </div>

@@ -206,7 +206,7 @@ export default function Carousel() {
     return (
         <>
         {/* <div style={{position: "relative", transition: "auto"}}> */}
-            <div className={styles.carousel_container} style={{zIndex: "-1"}}>
+            <div className={styles.carousel_container}>
 
 
                 {/* <button className={styles.buttonr} buttonName={"\u25c0"} onClick={forwardClick}><span>{`\u25c0`}</span></button>
@@ -218,10 +218,10 @@ export default function Carousel() {
                     <div
                         key={element.id}
                         className={styles.carousel}
-                        style={{ ...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size, zIndex: ((Math.abs(index - currentIndex) * (-5)) + 1000) }}
+                        style={{ ...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size , position: "relative", zIndex: 5000}}
                     >
-                        <div className={styles.carousel_element_left} style={{ fontSize: "2vw" }}>
-                            <img src={element.pic} style={{ width: "15vw", height: "15vw", borderRadius: "100%" }} />
+                        <div className={styles.carousel_element_left} style={{ fontSize: "2vw", zIndex: 5000 }}>
+                            <img src={element.pic} style={{ width: "15vw", height: "15vw", borderRadius: "100%" , zIndex: 5000}} />
 
                             {element.author}
                             <br></br>
@@ -239,7 +239,7 @@ export default function Carousel() {
                             <div className={styles.loading_bar_inner} style={{ width: (loadingBar + '%') }} />
                             <img className={styles.quote_image} src="/NewIMGassets/white_quotes.png" style={{right: "50%"}}/>
 
-                            <div style={{transition: ".1s"}}>{element.content}</div>
+                            <div style={{transition: ".1s", position: "relative", zIndex: 300}}>{element.content}</div>
                             <img className={styles.quote_image} src="/NewIMGassets/white_quotes.png" style={{transform:  "rotate(180deg)", left: "50%"}}/>
 
                         </div>
