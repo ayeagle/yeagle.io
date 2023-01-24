@@ -69,7 +69,9 @@ export default function Main() {
         // Update the height and width state when the component is mounted
         updateHeight(window.scrollHeight)
         updateWidth(window.innerWidth)
-        setTotalHeight(document.body.scrollHeight)
+        // setTotalHeight(document.body.scrollHeight)
+        setTotalHeight(window.outerWidth)
+
         console.log("this is the height (useeffect) ==> " + height)
         console.log("this is the width (useeffect) ==> " + width)
 
@@ -136,7 +138,7 @@ export default function Main() {
         // }
     }, [yOffset])
 
-    console.log("this is the y : " + yOffset)
+    // console.log("this is the y : " + yOffset)
 
 
     const canvasRef = useRef(null);
@@ -223,9 +225,9 @@ export default function Main() {
                 xstore = event.pageX + Math.sin(event.pageX)
                 ystore = event.pageY + Math.sin(event.pageY)
 
-                console.log("this is the xy store")
-                console.log(xstore)
-                console.log(ystore)
+                // console.log("this is the xy store")
+                // console.log(xstore)
+                // console.log(ystore)
                 // let x = event.clientX;
                 // let y = event.clientY;
                 // let angle = noise2D(x / 100, y / 100) * Math.PI * j ;
@@ -249,7 +251,7 @@ export default function Main() {
                     // console.log(positions[j][positions.length - 1].x)
                     // console.log(ystore)
                     // console.log(positions[j][positions.length - 1].y)
-                    console.log(positions[j])
+                    // console.log(positions[j])
 
                     if (
                         Math.abs(
@@ -278,7 +280,7 @@ export default function Main() {
                     // }
                 }
             }
-        }, 50);
+        }, 30);
 
 
 
@@ -339,9 +341,9 @@ export default function Main() {
                     <a href="/resume"><NavButton buttonName={"My Resume"} /></a>
                 </div>
             </div>
-            <Spacer />
+            <Spacer height={"5vh"} />
 
-            <div style={{ position: "relative", textAlign: "center" }}>
+            <div style={{ position: "relative", textAlign: "center" }} id="resume">
 
                 <div className={styles.vc} style={{ fontSize: "4vw", right: (Math.min(determineGlideIn(.6), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</div>
                 <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </div>
@@ -352,7 +354,7 @@ export default function Main() {
                 <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') }}>2x First Round Capital                </div>
 
             </div>
-            <Spacer />
+            <Spacer height={"5vh"} />
 
             <JobSection />
             <Spacer />
@@ -373,9 +375,9 @@ export default function Main() {
                 </div>
             </div>
             <Spacer height={"5vw"} />
-            <Spacer height={"5vw"} />
+            <Spacer height={"10vw"} />
 
-            <div >
+            <div style={{zIndex: "1"}}>
                 <div>
                     <Socials size={"3vw"} loc={"center"} />
                     <div className={styles.contact_element}>+1 (559) 451 6174</div>

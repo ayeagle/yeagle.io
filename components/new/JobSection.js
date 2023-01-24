@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import styles from './JobDetails.module.css'
 import Button from '@components/pomodomo/Button';
 import JobDetails from './JobDetails';
@@ -8,7 +8,7 @@ export default function JobSection() {
 
     const elements = [
         {
-            id: 1,
+            id: 0,
             company: "Facebook",
             company_url: "https://www.metacareers.com/",
             role: "Product Development",
@@ -19,14 +19,14 @@ export default function JobSection() {
                 "Synthesize user signal into roadmap-actionable dashboards and reporting",
                 "Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR"],
             logo_pic: "/NewIMGassets/meta_2.png",
-            hard_skills: "PostgresQL, Presto, Scuba, Python Scripting",
-            soft_skills: "PMF, Feature/Fix Efficiency, Leadership w/o Authority",
+            hard_skills: [["PostgresQL", 86], ["Presto", 60],["React", 46], ["Scuba", 30], ["Python Scripting", 20]],
+            soft_skills: [["Leadership w/o Authority", 67], ["Feature/Fix Efficiency", 55], ["Finding PMF", 40]],
             top_move_perc: "-20%",
             details_view_height: "45vw",
 
         },
         {
-            id: 2,
+            id: 1,
             company: "CaptivateIQ",
             company_url: "https://www.captivateiq.com/",
             role: "Product Solutions Consultant",
@@ -38,8 +38,8 @@ export default function JobSection() {
                 "Train new users and team-members on data manipulation and modeling best practices"],
 
             logo_pic: "/NewIMGassets/CIQ_4.png",
-            hard_skills: "SQL, Excel, Python",
-            soft_skills: "Problem Solving, Product Strategy, Collaboration",
+            hard_skills: [["Excel", 83], ["SQL", 69], ["Python", 29]],
+            soft_skills: [["Problem Solving", 82], ["Product Strategy", 72], ["Collaboration", 40]],
             top_move_perc: "-140%",
             details_view_height: "40vw",
 
@@ -59,14 +59,14 @@ export default function JobSection() {
                 "Acquired, onboarded, and conducted user research with 18 pre-launch customers",
                 "Uncovered and prioritized customer pains against technical feasibility on a daily basis"],
             logo_pic: "/NewIMGassets/guide_2.jpg",
-            hard_skills: "Excel, Product/Design Tooling",
-            soft_skills: "Product Strategy, Growth Strategy",
+            hard_skills: [["Excel", 60], ["Salesforce", 45],["Product/Design Tooling", 30], ["SQL", 15]],
+            soft_skills: [["Product Strategy", 83], ["Growth Strategy", 75], ["Operating in Uncertainty", 43]],
             top_move_perc: "-65%",
             details_view_height: "40vw",
 
         },
         {
-            id: 2,
+            id: 3,
             company: "Sift",
             company_url: "https://sift.com/",
             role: "Business Development Lead",
@@ -76,8 +76,8 @@ export default function JobSection() {
                 "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output "],
 
             logo_pic: "/NewIMGassets/sift_2.png",
-            hard_skills: "Excel, Salesforce",
-            soft_skills: "Collaboration, Project Scoping",
+            hard_skills: [["Salesforce", 49], ["Excel", 32]],
+            soft_skills: [["Leadership", 84], ["Process Optimization", 69],["Project Scoping", 42], ["Collaboration", 33],],
             top_move_perc: "-65%",
             details_view_height: "30vw",
 
@@ -95,10 +95,25 @@ export default function JobSection() {
     const [open, setOpen] = useState(false)
     const [workStyle, setWorkStyle] = useState("styles.work_details_closed")
     const [currOpen, setCurrOpen] = useState(0)
+    const [yOffset, setYOffset] = useState(0)
+    const [yTotal, setYTotal] = useState(0)
+    const [once, setOnce] = useState(0)
+
+    useEffect(() => {
+        window.addEventListener('scroll', function () {
+            setYOffset(window.pageYOffset)
+            setYTotal(document.body.scrollHeight)
+            // console.log(yOffset / yTotal)
+        })
+    }, [yOffset])
+
+
+
+
+    const giftRef = useRef([null],[null],[null],[null]);
+    
 
     // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
-
-
 
 
     // const [currQuote, setCurrQuote] = useState(0)
@@ -114,7 +129,17 @@ export default function JobSection() {
     // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
     // console.log("elements.viewheight: " + elements.details_view_height)
     // console.log("workvh state: " + elements.workVH)
+    const hoverIndexSet = (index) => {
+        setCurrOpen(index)
 
+        // if (giftRef[index] && giftRef[index].current) {
+        //     giftRef[index].current.style.width = "0%";
+        // }
+
+        // console.log(index)
+        // console.log(elements[index])
+        // console.log(elements[index].id)
+    }
 
 
     const openClick = (index) => {
@@ -137,10 +162,16 @@ export default function JobSection() {
             setWorkVH(elements.details_view_height)
 
             setArrowStyle(styles.arrow_up)
+            setCurrOpen(index)
 
         }
     }
 
+    // console.log(yOffset)
+    if(Math.abs((yOffset / yTotal)-.275) <= .01 && !open && once == 0){
+        openClick(0)
+        setOnce(1)
+    }
 
 
     const forwardClick = () => {
@@ -166,11 +197,11 @@ export default function JobSection() {
         return () => clearInterval(interval);
     }, [currentIndex]);
 
-useEffect(() => {
-    setWorkStyle(styles.work_details_closed)
-    setWorkVH("7vw")
-    setArrowStyle(styles.arrow_down)
-},[])
+    useEffect(() => {
+        setWorkStyle(styles.work_details_closed)
+        setWorkVH("7vw")
+        setArrowStyle(styles.arrow_down)
+    }, [])
 
     // const openClick = () => {
     //     // console.log("the onlclick is being used to change styles")
@@ -189,7 +220,16 @@ useEffect(() => {
                     <div className={styles.jobs_container}>
 
                         <div className={styles.logo_container}>
-                            <div className={styles.arrow} onClick={() => openClick(index)} >
+                            <div className={styles.arrow}
+                                onClick={() => openClick(index)}
+                                onMouseEnter={() => hoverIndexSet(index)}
+
+                            >
+                                <div className={styles.arrow_details_header}>
+                                    <a href={elements.company_url} target="_blank"><h3 className={styles.details_header_units}>{elements.company} &#128279;</h3></a>
+                                    <h3 className={styles.details_header_units}>{elements.role}</h3>
+                                    <h3 className={styles.details_header_units}>{elements.tenure}</h3>
+                                </div>
                                 <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
                             </div>
                             <img src={elements.logo_pic} className={styles.logo} onClick={() => openClick(index)} />
@@ -200,26 +240,62 @@ useEffect(() => {
 
                 ))}
             </div>
-            <div style={{ height: workVH, transition: "1s" }} >
+            <div style={{ height: workVH, zIndex: 1000 }} >
                 <div className={workStyle} >
-                    <div className={styles.details_header}>
-                        <a href={elements.company_url} target="_blank"><h3 className={styles.details_header_units}>{elements[currOpen].company} &#128279;</h3></a>
-                        <h3 className={styles.details_header_units}>{elements[currOpen].role}</h3>
-                        <h3 className={styles.details_header_units}>{elements[currOpen].tenure}</h3>
+                    <div style={{ display: "flex", flexDirection: "column", zIndex: 1000, width: "100%" }}>
+
+                        <div style={{ display: "flex", flexDirection: "row" }} className={styles.internal_details_header_units}>
+                            <a href={elements.company_url} target="_blank"><div className={styles.internal_details_header_units}>{elements[currOpen].company} &#128279;</div></a>
+                            <div className={styles.internal_details_header_units}>{elements[currOpen].role}</div>
+                            <div className={styles.internal_details_header_units}>{elements[currOpen].tenure}</div>
+
+                        </div>
+                        <br />
+                        <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "2s" }} />
+
+                        <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+                            <div className={styles.left_wrap}>
+
+                                <div className={styles.details_mini_header} > Hard Skills</div>
+                                <div>
+                                    <div className={styles.work_bullets}>
+                                        {/* {elements[currOpen].hard_skills} */}
+                                        {elements[currOpen].hard_skills.map((item) => (
+                                            <div style={{ display: "flex", flexDirection: "row" }}>
+                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id} className={styles.skill_bar} style={{ backgroundColor: `hsl(${500 - item[1] * 2}, 50%, 50%)`, width: open ? (item[1] * .8 + "%") : "0%", transition: open == true && currOpen == elements[currOpen].id ? "2s ease-out " : ".8s" }}></div>
+                                                <div key={item[0]} style={{ marginLeft: open ? "5vw" : "5vw", }}>{item[0]}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <br/>
+                                <div className={styles.details_mini_header} > Soft Skills</div>
+                                <div>
+                                    <div className={styles.work_bullets}>
+                                        {/* {elements[currOpen].hard_skills} */}
+                                        {elements[currOpen].soft_skills.map((item, index) => (
+                                            <div style={{ display: "flex", flexDirection: "row" }}>
+                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id} className={styles.skill_bar} style={{ display: currOpen == elements[currOpen].id ? '' : 'none', backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`, width: open == true && currOpen == elements[currOpen].id ? (item[1] * .8 + "%") : "0%", transition: open ? "2s ease-out " : ".8s" }}></div>
+                                                <div key={item[0]} style={{ marginLeft: open ? "5vw" : "5vw", }}>{item[0]}</div>
+                                            </div>))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className={styles.right_wrap}>
+                                <div className={styles.details_mini_header} >Work</div>
+
+                                <ul className={styles.work_bullets}>
+                                    {elements[currOpen].details.map(detail => (
+                                        <li key={detail} >{detail}</li>
+                                    ))}
+                                </ul>
+                                {/* <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} /> */}
+
+                                {/* <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} /> */}
+                            </div>
+                        </div>
                     </div>
-                    <div className={styles.details_mini_header} >Work</div>
-                    <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} />
-                    <ul className={styles.work_bullets}>
-                        {elements[currOpen].details.map(detail => (
-                            <li key={detail} >{detail}</li>
-                        ))}
-                    </ul>
-                    <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} />
-                    <div className={styles.details_mini_header} > Hard Skills</div>
-                    <ul><li className={styles.work_bullets}> {elements[currOpen].hard_skills}</li></ul>
-                    <div className={styles.details_mini_header} > Soft Skills</div>
-                    <ul><li className={styles.work_bullets}> {elements[currOpen].soft_skills}</li></ul>
-                    <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} />
                 </div>
             </div>
 
