@@ -251,31 +251,31 @@ export default function Main() {
                     // console.log(positions[j][positions.length - 1].y)
                     console.log(positions[j])
 
-                    // if (
-                    //     Math.abs(
-                    //         positions[j][positions.length - 2].x
-                    //         - positions[j][positions.length - 3].x
-                    //     ) < 100
-                    //     &&
-                    //     Math.abs(
-                    //         positions[j][positions.length - 2].y
-                    //         - positions[j][positions.length - 3].y
-                    //     ) < 100) {
-                    //     positions[j].shift()
-                    // }
-
                     if (
                         Math.abs(
-                            positions[j][0].x
-                            - positions[j][1].x
-                        ) < 200
+                            positions[j][positions.length - 2].x
+                            - positions[j][positions.length - 3].x
+                        ) < 400
                         &&
                         Math.abs(
-                            positions[j][0].y
-                            - positions[j][1].y
-                        ) < 200) {
+                            positions[j][positions.length - 2].y
+                            - positions[j][positions.length - 3].y
+                        ) < 400) {
                         positions[j].shift()
                     }
+
+                    // if (
+                    //     Math.abs(
+                    //         positions[j][0].x
+                    //         - positions[j][1].x
+                    //     ) < 200
+                    //     &&
+                    //     Math.abs(
+                    //         positions[j][0].y
+                    //         - positions[j][1].y
+                    //     ) < 200) {
+                    //     positions[j].shift()
+                    // }
                 }
             }
         }, 50);
