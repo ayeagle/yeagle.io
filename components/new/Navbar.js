@@ -72,8 +72,6 @@ export default function NavBar() {
             case "/contact":
                 upCO(contactStyle + " active")
                 return
-
-
         }
 
     }, [])
@@ -99,7 +97,7 @@ export default function NavBar() {
                             <a className="nav-link" href="/coding">{`<`}Dev XP{`/>`}</a>
                         </li>
                         <li className={contactStyle}>
-                            <a className="nav-link" href="/contact">{`<`}Contact{`/>`}</a>
+                            <a className="nav-link" href="#contact">{`<`}Contact{`/>`}</a>
                         </li>
                         <li className={contactStyle}>
                             {/* <Socials size={"x-large"} loc={"right"}/> */}
