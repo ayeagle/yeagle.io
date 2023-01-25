@@ -56,6 +56,7 @@ export default function Main() {
     const { createNoise2D } = require('simplex-noise');
     const noise2D = createNoise2D();
     const [open, setOpen] = useState(false)
+    const [boopBoop, setBoopBoop] = useState(false)
 
 
     // const noise =  noise2D
@@ -108,10 +109,20 @@ export default function Main() {
 
     const [temp, setTemp] = useState('')
 
+    const determineFadeIn = () => {
+        let retVal = (yOffset - 50)/3
+        // console.log(retVal)
+        return retVal
+    }
 
-    const determineGlideIn = (start, end) => {
-        let retVal = (((yOffset / width) - start)) * 100
 
+    const determineGlideIn = (start, end, special) => {
+        let retVal = 0
+        if (special == true) {
+            retVal = Math.floor(yOffset/100)*10
+        } else {
+            retVal = (((yOffset / width) - start)) * 100
+        }
         // console.log(retVal)
         return retVal
     }
@@ -144,13 +155,18 @@ export default function Main() {
 
     const canvasRef = useRef(null);
     let count = 0
-    let interVar = 100
+    let interVar = 200
 
 
     let xstore = 0
     let ystore = 0
 
     let positions = Array(3).fill([])
+
+    const outsideResizeCanvas = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = document.body.scrollHeight;
+    }
 
 
     useEffect(() => {
@@ -166,9 +182,9 @@ export default function Main() {
 
         }
         window.addEventListener('resize', resizeCanvas)
-            
+
         resizeCanvas();
-        
+
 
 
         function animate() {
@@ -204,8 +220,8 @@ export default function Main() {
                 for (let i = 0; i < positions[j].length; i++) {
                     ctx.beginPath();
                     if (i > 1) {
-                        ctx.lineWidth = Math.max(((i) / 20), 1);
-                        ctx.strokeStyle = `rgba(31, 143, ${156 - i}, ${i * .01})`;
+                        ctx.lineWidth = Math.max(((i) / 80), 1);
+                        ctx.strokeStyle = `rgba(70, 30, ${155 - i}, ${i * .01})`;
 
                         // calculate control point coordinates
                         let controlPoint1X = positions[j][i - 2].x + (interVar - i) / 2 * Math.sin(i * j);//+ (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3;
@@ -258,13 +274,13 @@ export default function Main() {
 
                     if (
                         Math.abs(
-                            positions[j][positions.length - 2].x
-                            - positions[j][positions.length - 3].x
+                            positions[j][positions.length - 1].x
+                            - positions[j][positions.length - 2].x
                         ) < 400
                         &&
                         Math.abs(
-                            positions[j][positions.length - 2].y
-                            - positions[j][positions.length - 3].y
+                            positions[j][positions.length - 1].y
+                            - positions[j][positions.length - 2].y
                         ) < 400) {
                         positions[j].shift()
                     }
@@ -293,7 +309,7 @@ export default function Main() {
 
 
 
-    }, [open]);
+    }, [open, boopBoop]);
 
     // const deleteLines = () => {
 
@@ -330,7 +346,7 @@ export default function Main() {
 
             <div className={styles.left_right_wrapper}>
                 <div className={styles.left_container}>
-                    <h4 style={{ padding: "7vw", fontSize: "4vw", left: (Math.min(determineGlideIn(.1) * 6, 3) + 'vw') }}
+                    <h4 style={{ padding: "7vw", fontSize: "4vw", opacity: (determineFadeIn() + '%') }}
                         className={styles.left_container}
 
                     // className={yOffset >= 500 ? styles.left_container_after : styles.left_container}
@@ -359,16 +375,32 @@ export default function Main() {
             </div>
             <Spacer height={"5vh"} />
 
-            <JobSection open={open} setOpen={setOpen}/>
+            <JobSection open={open} setOpen={setOpen} />
             <Spacer />
 
+            <div>
+            Front end stuff!!!
+
+            </div>
+
+            <div>
+            Back end stuff!!!
+
+            </div>
+<div>
+
+    PROJECTS
+</div>
+
+
+
             {/* <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: </h4> */}
-            <Quotes style={{position: "relative"}}/>
+            <Quotes style={{ position: "relative" }} />
             <Spacer height={"10vh"} />
             {/* <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} /> */}
             <Spacer height={"5vw"} />
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative" }} onMouseOver={() => setBoopBoop(!boopBoop)}>
                 <div >
 
                     <div className={styles.image_text_center} style={{ top: "26vw" }}>I'm also a drone videographer!</div>
@@ -380,9 +412,9 @@ export default function Main() {
             <Spacer height={"5vw"} />
             <Spacer height={"10vw"} />
 
-            <div style={{ zIndex: "100", position: "relative"}}>
+            <div id="contact" style={{ zIndex: "100", position: "relative" }}>
                 <div style={{ zIndex: "100", position: "relative" }}>
-                    <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }}/>
+                    <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }} />
                     <div className={styles.contact_element}>+1 (559) 451 6174</div>
                     <div className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</div>
                     <div className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</div>
@@ -395,7 +427,7 @@ export default function Main() {
 
             <Spacer />
             {/* <SVGSpacers type="top" num="2" width={width} /> */}
-            <div className={styles.box} style={{ zIndex: "100", position: "relative" }}>
+            <div style={{ zIndex: "100", position: "relative" }}>
                 <PageBot />
             </div>
         </div>

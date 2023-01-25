@@ -190,7 +190,7 @@ export default function Carousel() {
     useEffect(() => {
         const interval = setInterval(() => {
             if (loadingBar >= 100) setLoadingBar(0)
-            else setLoadingBar(loadingBar + .1265)
+            else setLoadingBar(loadingBar + .126)
         }, 10);
         return () => clearInterval(interval);
     }, [loadingBar, currentIndex, setLoadingBar]);

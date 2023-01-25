@@ -11,6 +11,7 @@
     /* background: #eb5c00; */
     position: relative;
     /* color: black; */
+    padding-bottom: 1vw;
 
   }
 
@@ -32,26 +33,17 @@
     flex-direction: row;
     justify-content: center;
     font-size: 2.5vw;
-    opacity: 80%;
+    
+    /* opacity: 80%; */
     padding: 6px;
-    color:white;
-    fill: white;
-    flood-color: white;
     text-decoration: none;
+    color: rgb(197, 197, 197);
     /* width: 100%; */
     /* transition: .5s; */
     margin-bottom: 10px;
     /* max-width: max-content; */
   }
 
-
-  /* .bottom:link {
-    color: #ff0000;
-  } */
-
-  /* .bottom:visited {
-    color: #00ff00;
-  } */
 
   .bottom :hover {
     opacity: 500%;
