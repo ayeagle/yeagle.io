@@ -9,7 +9,7 @@ import { useEffect, useState, useRef } from "react";
 import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './main.module.css';
 import Iceland from "@components/bio/Iceland";
-import NavButton from "@components/bio/NavButton";
+import NavButton from "@components/new/NavButton";
 import Carousel from "@components/bio/Carousel";
 import Typing from "@components/bio/Typing";
 import Flood from "@components/bio/Flood";
@@ -36,6 +36,46 @@ for (let i = 0; i < glideArray.length; i++) {
 let master_backgroundColor = 'rgb(20, 23, 41)'
 let master_color = 'rgb(197, 197, 197)'
 
+
+let courses = [
+    {
+        id: 0,
+        name: "course1",
+        link: "dasddas",
+        details: [
+            ["sdsadasd"],
+            ['dsadsasd'],
+            ['sdasdsads']
+        ]
+    },
+    {
+        id: 1,
+        name: "course4",
+        link: "dasddas",
+        details: [
+            ["sdsadasd"],
+            ['dsadsasd'],
+            ['sdasdsads']
+        ]
+    },
+    {
+        id: 2,
+        name: "course4",
+        link: "dasddas",
+        details: [
+            ["sdsadasd"],
+            ['dsadsasd'],
+            ['sdasdsads']
+        ]
+    }
+]
+
+
+
+
+
+
+
 export default function Main() {
 
 
@@ -57,7 +97,7 @@ export default function Main() {
     const noise2D = createNoise2D();
     const [open, setOpen] = useState(false)
     const [boopBoop, setBoopBoop] = useState(false)
-
+    const [currCourse, setCurrCourse] = useState(0)
 
     // const noise =  noise2D
 
@@ -109,8 +149,8 @@ export default function Main() {
 
     const [temp, setTemp] = useState('')
 
-    const determineFadeIn = () => {
-        let retVal = (yOffset - 50)/3
+    const determineFadeIn = (subVal, rate) => {
+        let retVal = (yOffset - subVal) / rate
         // console.log(retVal)
         return retVal
     }
@@ -119,7 +159,7 @@ export default function Main() {
     const determineGlideIn = (start, end, special) => {
         let retVal = 0
         if (special == true) {
-            retVal = Math.floor(yOffset/100)*10
+            retVal = Math.floor(yOffset / 100) * 10
         } else {
             retVal = (((yOffset / width) - start)) * 100
         }
@@ -194,40 +234,18 @@ export default function Main() {
             ctx.strokeStyle = 'rgba(31, 143, 156,0)'
             ctx.lineWidth = 1;
 
-            // ctx.lineCap = "round";
-
-            // for (let j = 0; j < positions.length ; j++) {
-            //     for (let i = 0; i < positions[j].length; i++) {
-            //         ctx.beginPath();
-            //         if (i > 0) {
-            //             ctx.lineWidth = Math.max(((i)/20), 1)
-            //             ctx.strokeStyle = `rgba(31, 143, ${156 - i}, ${i*.01})`
-
-            //             ctx.bezierCurveTo(positions[j][i - 1].x + (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3, positions[j][i - 1].y) + (Math.random() -.5)*(100-i)* Math.sin(i*j);
-
-            //         } else {
-            //             ctx.bezierCurveTo(positions[j][i].x, positions[j][i].y);
-
-            //         }
-            //         ctx.lineTo(positions[j][i].x, positions[j][i].y);
-            //         ctx.stroke();
-
-
-            //     }
-            // }
-
             for (let j = 0; j < positions.length; j++) {
                 for (let i = 0; i < positions[j].length; i++) {
                     ctx.beginPath();
                     if (i > 1) {
                         ctx.lineWidth = Math.max(((i) / 80), 1);
-                        ctx.strokeStyle = `rgba(70, 30, ${155 - i}, ${i * .01})`;
+                        ctx.strokeStyle = `rgba(70, 110, ${255 - i}, ${i * .01})`;
 
                         // calculate control point coordinates
-                        let controlPoint1X = positions[j][i - 2].x + (interVar - i) / 2 * Math.sin(i * j);//+ (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3;
-                        let controlPoint1Y = positions[j][i - 2].y - (interVar - i) / 2 * Math.cos(i * j);//+ (Math.random() -.5)*(100-i)* Math.sin(i*j);
-                        let controlPoint2X = positions[j][i - 1].x + (interVar - i) / 2 * Math.cos(i * j);//+ (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3;
-                        let controlPoint2Y = positions[j][i - 1].y + (interVar - i) / 2 * Math.sin(i * j);//+ (Math.random() -.5)*(100-i)* Math.sin(i*j);
+                        let controlPoint1X = positions[j][i - 2].x + (interVar - i) / 5 * Math.cos(i * j);//+ (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3;
+                        let controlPoint1Y = positions[j][i - 2].y - (interVar - i) / 5 * Math.sin(i * j);//+ (Math.random() -.5)*(100-i)* Math.sin(i*j);
+                        let controlPoint2X = positions[j][i - 1].x + (interVar - i) / 5 * Math.sin(i * j);//+ (Math.random()  - .5)*(100-i)* Math.sin(i*j)/3;
+                        let controlPoint2Y = positions[j][i - 1].y + (interVar - i) / 5 * Math.cos(i * j);//+ (Math.random() -.5)*(100-i)* Math.sin(i*j);
 
                         ctx.moveTo(positions[j][i - 2].x, positions[j][i - 2].y);
                         ctx.bezierCurveTo(controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, positions[j][i].x, positions[j][i].y);
@@ -244,18 +262,8 @@ export default function Main() {
                 xstore = event.pageX + Math.sin(event.pageX)
                 ystore = event.pageY + Math.sin(event.pageY)
 
-                // console.log("this is the xy store")
-                // console.log(xstore)
-                // console.log(ystore)
-                // let x = event.clientX;
-                // let y = event.clientY;
-                // let angle = noise2D(x / 100, y / 100) * Math.PI * j ;
-                // let offsetX = Math.cos(angle) * 10;
-                // let offsetY = Math.sin(angle) * 10;
-                // positions[j].push({ x: x + offsetX, y: y + offsetY });
                 if (positions[j].length >= interVar) positions[j].shift()
-                // clearTimeout(timeout);
-                // timeout = setTimeout(deleteLines(), 100);
+
             }
 
         });
@@ -319,116 +327,147 @@ export default function Main() {
     return (
 
         <div className={styles.master}>
-            <Flood />
             <BasicPageTop />
             <NavBar />
             <canvas ref={canvasRef} className={styles.canvas} style={{ height: { totalHeight } + "px" }} />
 
-            <div className={styles.image_container}>
-                <img src="/IMGassets/me2.png" className={styles.image} />
-            </div>
-            <div className={styles.image_text}>
-                {/* <Typing content={"Self-taught developer and product enthusiast with a passion for building customer-obsessed solutions."} /> */}
-                <Typing content={`Self-taught developer
+            <div className={styles.mini_master}>
+
+                <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
+                <div className={styles.image_container}>
+                    <img src="/IMGassets/me2.png" className={styles.image} />
+                </div>
+                <h3 className={styles.image_text}>
+                    {/* <Typing content={"Self-taught developer and product enthusiast with a passion for building customer-obsessed solutions."} /> */}
+                    <Typing content={`Self-taught developer
                     <br/>Product enthusiast
-                    <br/>Builder`} />
-            </div>
+                    <br/>Behavioral economist
+                    <br/>Avid learner
+                    <br/>Builder
+                    <br/>and more...`} />
+                </h3>
 
+                <Spacer />
+                <h3>INSERT SCROLLER</h3>
 
-            {/* <Spacer height={"5vw"}/> */}
-            {/* <a href="/resume"><NavButton buttonName={"See my work"} /></a> */}
-            {/* <SVGSpacers type="top" num="1" width={width} />
-            <SVGSpacers type="bot" num="4" width={width} /> */}
-            {/* <div style={{ height: "15vh", fill: "black", zIndex: 500 }} /> */}
+                <div className={styles.left_right_wrapper}>
+                    <div className={styles.left_container}>
+                        <h2 style={{ padding: "7vw", opacity: (determineFadeIn(50, 3) + '%') }}
+                            className={styles.left_container}
+                        >  A broad range of experiences across product, operations, analytics, and engineering has given my development work diversity and perspective.
+                        </h2>
+                    </div>
+                    <div className={styles.right_container}>
+                        <a href="#resume" style={{ opacity: (determineFadeIn(50, 4) + '%') }}><NavButton buttonName={"Resume"} /></a>
+                        <Spacer height={"5vw"} />
+                        <a href="/portfolio" style={{ opacity: (determineFadeIn(125, 4) + '%') }}><NavButton buttonName={"Projects"} /></a>
+                        <Spacer height={"5vw"} />
+                        <a href="#resume" style={{ opacity: (determineFadeIn(200, 4) + '%') }}><NavButton buttonName={"Contact"} /></a>
 
-            <Spacer />
-
-
-            <div className={styles.left_right_wrapper}>
-                <div className={styles.left_container}>
-                    <h4 style={{ padding: "7vw", fontSize: "4vw", opacity: (determineFadeIn() + '%') }}
-                        className={styles.left_container}
-
-                    // className={yOffset >= 500 ? styles.left_container_after : styles.left_container}
-
-                    >  A broad range of experiences across product, operations, analytics, and engineering has given my development work diversity and perspective.
-                    </h4>
+                    </div>
                 </div>
-                <div className={styles.right_container}>
-                    <a href="/portfolio"><NavButton buttonName={"My Projects"} /></a>
-                    <Spacer />
-                    <a href="/resume"><NavButton buttonName={"My Resume"} /></a>
-                </div>
-            </div>
-            <Spacer height={"5vh"} />
+                <Spacer height={"20vh"} />
 
-            <div style={{ position: "relative", textAlign: "center" }} id="resume">
+                <div style={{ position: "relative", textAlign: "center" }} id="resume">
 
-                <div className={styles.vc} style={{ fontSize: "4vw", right: (Math.min(determineGlideIn(.6), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</div>
-                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </div>
-                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') }}>1x FAANG                </div>
-                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') }}>2x Seqouia                 </div>
-                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') }}>1x 500 Startups                </div>
-                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') }}>2x Y Combinator                </div>
-                <div className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') }}>2x First Round Capital                </div>
-
-            </div>
-            <Spacer height={"5vh"} />
-
-            <JobSection open={open} setOpen={setOpen} />
-            <Spacer />
-
-            <div>
-            Front end stuff!!!
-
-            </div>
-
-            <div>
-            Back end stuff!!!
-
-            </div>
-<div>
-
-    PROJECTS
-</div>
-
-
-
-            {/* <h4 style={{ padding: "7vw", fontSize: "4vw" }}> Hear what others have to say: </h4> */}
-            <Quotes style={{ position: "relative" }} />
-            <Spacer height={"10vh"} />
-            {/* <SVGSpacers type="top" num="2" width={width} />
-            <SVGSpacers type="bot" num="3" width={width} /> */}
-            <Spacer height={"5vw"} />
-            <div style={{ position: "relative" }} onMouseOver={() => setBoopBoop(!boopBoop)}>
-                <div >
-
-                    <div className={styles.image_text_center} style={{ top: "26vw" }}>I'm also a drone videographer!</div>
-                    {/* <div height={600}> */}
-                    <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} />
-                    {/* </div> */}
-                </div>
-            </div>
-            <Spacer height={"5vw"} />
-            <Spacer height={"10vw"} />
-
-            <div id="contact" style={{ zIndex: "100", position: "relative" }}>
-                <div style={{ zIndex: "100", position: "relative" }}>
-                    <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }} />
-                    <div className={styles.contact_element}>+1 (559) 451 6174</div>
-                    <div className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</div>
-                    <div className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</div>
-                    <div className={styles.contact_element}>SF, CA</div>
+                    <h3 className={styles.vc} style={{ right: (Math.min(determineGlideIn(.3), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</h3>
+                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </h2>
+                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') }}>1x FAANG                </h2>
+                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') }}>2x Seqouia                 </h2>
+                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') }}>1x 500 Startups                </h2>
+                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') }}>2x Y Combinator                </h2>
+                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') }}>2x First Round Capital                </h2>
                     <br></br>
-                    <a><NavButton buttonName={"Get in touch"} handleClick={sendEmail} /></a>
+                    <br></br>
+
                 </div>
-            </div>
+
+                <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
+
+                <div className={styles.learned_container} style={{ top: "1vw", zIndex: 1 }}>
+                    <div className={styles.learned_left}>
+
+                        {courses.map((course, index) => (
+                            <div
+                                key={course.id}
+                                className={styles.course_box}
+                                style={{
+                                    zIndex: 500,
+                                    backgroundColor: currCourse == index ? "rgb(14, 43, 80)" : "rgb(76, 18, 89)",
+                                    transition: "2s",
+                                    borderRight: currCourse == index ? "none" : "5px solid black",
+                                    borderBottom: index == courses.length - 1 ? "5px solid black" : "none"
+                                }}
+                                onClick={() => setCurrCourse(index)}>
+                                {course.name}
+                            </div>
+                        ))}
+                    </div>
+                    <div className={styles.learned_right}>
+                        <div className={styles.details_box}>
+                            {courses[0].details.map((detail, index) => (
+                                <div key={index} style={{ zIndex: 500 }}>{detail}</div>
+                            ))}
+                        </div>
+
+                    </div>
+                </div>
+
+                <Spacer height={"5vh"} />
+                <Spacer height={"5vh"} />
 
 
-            <Spacer />
-            {/* <SVGSpacers type="top" num="2" width={width} /> */}
-            <div style={{ zIndex: "100", position: "relative" }}>
-                <PageBot />
+                <div>
+                    Front end stuff!!!
+
+                </div>
+
+                <div>
+                    Back end stuff!!!
+
+                </div>
+                <div>
+
+                    PROJECTS
+                </div>
+
+                <Quotes style={{ position: "relative" }} />
+                <Spacer height={"10vh"} />
+                {/* <SVGSpacers type="top" num="2" width={width} />
+            <SVGSpacers type="bot" num="3" width={width} /> */}
+                <Spacer height={"5vw"} />
+                <div style={{ position: "relative" }} >
+                    <div >
+
+                        <div className={styles.image_text_center} style={{ top: "26vw" }}>I'm also a drone videographer!</div>
+                        {/* <div height={600}> */}
+                        {/* <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} /> */}
+                        {/* </div> */}
+                        <iframe style={{ pointerEvents: "none", marginTop: "-2vw" }} width={width * .8} height={width * .56 * .8} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=45" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+
+                    </div>
+                </div>
+                <Spacer height={"5vw"} />
+                <Spacer height={"10vw"} />
+
+                <div id="contact" style={{ zIndex: "100", position: "relative" }}>
+                    <div style={{ zIndex: "10", position: "relative" }}>
+                        <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }} />
+                        <h2 className={styles.contact_element}>+1 (559) 451 6174</h2>
+                        <h2 className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</h2>
+                        <h2 className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</h2>
+                        <h2 className={styles.contact_element}>SF, CA</h2>
+                        <br></br>
+                    </div>
+                </div>
+                <a><NavButton buttonName={"Get in touch"} handleClick={sendEmail} style={{ zIndex: "-1", position: "relative" }} /></a>
+
+
+                <Spacer />
+                {/* <SVGSpacers type="top" num="2" width={width} /> */}
+                <div style={{ zIndex: "100", position: "relative" }}>
+                    <PageBot />
+                </div>
             </div>
         </div>
 
