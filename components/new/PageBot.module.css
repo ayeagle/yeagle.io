@@ -32,10 +32,10 @@
     /* height: 5vh */
     flex-direction: row;
     justify-content: center;
-    font-size: 2.5vw;
+    /* font-size: 2.5vw; */
     
     /* opacity: 80%; */
-    padding: 6px;
+    /* padding: 6px; */
     text-decoration: none;
     color: rgb(197, 197, 197);
     /* width: 100%; */
