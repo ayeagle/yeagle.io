@@ -22,8 +22,8 @@ export default function JobSection({ open, setOpen }) {
             logo_pic: "/NewIMGassets/meta_2.png",
             hard_skills: [["PostgresQL", 86], ["Presto", 60], ["React", 46], ["Scuba", 30], ["Python Scripting", 20]],
             soft_skills: [["Influence w/o Authority", 67], ["Feature/Fix Efficiency", 55], ["Finding PMF", 40]],
-            top_move_perc: "-20%",
-            details_view_height: "45vw",
+            // top_move_perc: "-20%",
+            // details_view_height: "45vw",
 
         },
         {
@@ -42,8 +42,8 @@ export default function JobSection({ open, setOpen }) {
             logo_pic: "/NewIMGassets/CIQ_4.png",
             hard_skills: [["Excel", 83], ["SQL", 69], ["Python", 29]],
             soft_skills: [["Problem Solving", 82], ["Product Strategy", 72], ["Collaboration", 40]],
-            top_move_perc: "-140%",
-            details_view_height: "40vw",
+            // top_move_perc: "-140%",
+            // details_view_height: "40vw",
 
 
         },
@@ -64,8 +64,8 @@ export default function JobSection({ open, setOpen }) {
             logo_pic: "/NewIMGassets/guide_2.jpg",
             hard_skills: [["Excel", 60], ["Salesforce", 45], ["Product/Design Tooling", 30], ["SQL", 15]],
             soft_skills: [["Product Strategy", 83], ["Growth Strategy", 75], ["Operating in Uncertainty", 43]],
-            top_move_perc: "-65%",
-            details_view_height: "40vw",
+            // top_move_perc: "-65%",
+            // details_view_height: "40vw",
 
         },
         {
@@ -81,9 +81,9 @@ export default function JobSection({ open, setOpen }) {
 
             logo_pic: "/NewIMGassets/sift_2.png",
             hard_skills: [["Salesforce", 49], ["Excel", 32]],
-            soft_skills: [["Leadership", 84], ["Process Optimization", 69], ["Project Scoping", 42], ["Collaboration", 33],],
-            top_move_perc: "-65%",
-            details_view_height: "30vw",
+            soft_skills: [["Leadership", 84], ["Process Optimization", 69], ["Project Scoping", 42], ["Collaboration", 33]],
+            // top_move_perc: "-65%",
+            // details_view_height: "30vw",
 
         },
 
@@ -135,7 +135,8 @@ export default function JobSection({ open, setOpen }) {
     // console.log("workvh state: " + elements.workVH)
     const hoverIndexSet = (index) => {
         setCurrOpen(index)
-
+        console.log("this is the state of open")
+        console.log(open)
         // if (giftRef[index] && giftRef[index].current) {
         //     giftRef[index].current.style.width = "0%";
         // }
@@ -155,7 +156,7 @@ export default function JobSection({ open, setOpen }) {
         setOpen(!open)
         if (open) {
             setWorkStyle(styles.work_details_closed)
-            setWorkVH("7vw")
+            // setWorkVH("7vw")
             setArrowStyle(styles.arrow_down)
 
         } else {
@@ -163,7 +164,7 @@ export default function JobSection({ open, setOpen }) {
 
             setWorkStyle(styles.work_details_open)
             // setWorkVH(elements.details_view_height)
-            setWorkVH(elements.details_view_height)
+            // setWorkVH(elements.details_view_height)
 
             setArrowStyle(styles.arrow_up)
             setCurrOpen(index)
@@ -230,9 +231,9 @@ export default function JobSection({ open, setOpen }) {
 
                             >
                                 <div className={styles.arrow_details_header} >
-                                    <a href={elements.company_url} target="_blank"><h3 className={styles.details_header_units}>{elements.company} &#128279;</h3></a>
-                                    <h3 className={styles.details_header_units}>{elements.role}</h3>
-                                    <h3 className={styles.details_header_units}>{elements.tenure}</h3>
+                                    <a href={elements.company_url} target="_blank"><h5 className={styles.details_header_units}>{elements.company} &#128279;</h5></a>
+                                    <h5 className={styles.details_header_units}>{elements.role}</h5>
+                                    <h5 className={styles.details_header_units}>{elements.tenure}</h5>
                                 </div>
                                 <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
                             </div>
@@ -244,50 +245,50 @@ export default function JobSection({ open, setOpen }) {
 
                 ))}
             </div>
-            <div style={{ height: workVH, zIndex: 1000 }} >
+            <div style={{ zIndex: 50, transition: "2s"}} >
                 <div className={workStyle} >
-                    <div style={{ display: "flex", flexDirection: "column", zIndex: 1000, width: "100%" }}>
+                    <div style={{ display: "flex", flexDirection: "column", zIndex: 1, width: "100%"}}>
 
                         <div style={{ display: "flex", flexDirection: "row", color: !open ? "rgba(0,0,0,0)" : "blue", transition: !open ? "1s" : "2s" }} className={styles.internal_details_header_units}>
-                            <a href={elements.company_url} target="_blank"><div className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].company} &#128279;</div></a>
-                            <div className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].role}</div>
-                            <div className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].tenure}</div>
+                            <a href={elements.company_url} target="_blank"><h4 className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].company} </h4></a>
+                            <h4 className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].role}</h4>
+                            <h4 className={styles.internal_details_header_units} style={{ color: !open ? "rgba(0,0,0,0)" : "", transition: !open ? ".5s" : "2s" }}>{elements[currOpen].tenure}</h4>
 
                         </div>
                         <br />
-                        <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "2s" }} />
+                        <hr style={{ backgroundColor: "rgb(255,255,255)" }} ></hr>
 
-                        <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+                        <div style={{ display: "flex", flexDirection: "row", width: "100%", zIndex: 20 }}>
                             <div className={styles.left_wrap}>
 
-                                <div className={styles.details_mini_header} > Hard Skill XP</div>
+                                <h4 className={styles.details_mini_header} > Hard Skill XP</h4>
                                 <div>
                                     <div className={styles.work_bullets}>
                                         {/* {elements[currOpen].hard_skills} */}
                                         {elements[currOpen].hard_skills.map((item, index) => (
                                             <div style={{ display: "flex", flexDirection: "row" }}>
                                                 <div ref={giftRef[currOpen]} key={elements[currOpen].id + index + 3 + item[0]} className={styles.skill_bar} style={{ backgroundColor: `hsl(${500 - item[1] * 2}, 50%, 50%)`, width: open ? (item[1] * .8 + "%") : "0%", transition: open == true && currOpen == elements[currOpen].id ? "2s ease-out " : ".8s" }}></div>
-                                                <div key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "5vw" : "5vw", }}>{item[0]}</div>
+                                                <p key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "5vw" : "5vw", }}>{item[0]}</p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                                 <br />
-                                <div className={styles.details_mini_header} > Soft Skill XP</div>
+                                <h4 className={styles.details_mini_header} > Soft Skill XP</h4>
                                 <div>
                                     <div className={styles.work_bullets}>
                                         {/* {elements[currOpen].hard_skills} */}
                                         {elements[currOpen].soft_skills.map((item, index) => (
                                             <div style={{ display: "flex", flexDirection: "row" }}>
-                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id + index + 3 + item[0]} className={styles.skill_bar} style={{ display: currOpen == elements[currOpen].id ? '' : 'none', backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`, width: open == true && currOpen == elements[currOpen].id ? (item[1] * .8 + "%") : "0%", transition: open ? "2s ease-out " : ".8s" }}></div>
-                                                <div key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "5vw" : "5vw", }}>{item[0]}</div>
+                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id + index + 3 + item[0]} className={styles.skill_bar} style={{ display: currOpen == elements[currOpen].id ? '' : 'none', backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`, width: open == true && currOpen == elements[currOpen].id ? (item[1] * .6 + "%") : "0%", transition: open ? "2s ease-out " : ".8s" }}></div>
+                                                <p key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "5vw" : "5vw" }}>{item[0]}</p>
                                             </div>))}
                                     </div>
                                 </div>
                             </div>
 
                             <div className={styles.right_wrap}>
-                                <div className={styles.details_mini_header} >Work</div>
+                                <h4 className={styles.details_mini_header} >Work</h4>
 
                                 <ul className={styles.work_bullets}>
                                     {elements[currOpen].details.map((detail, index) => (
