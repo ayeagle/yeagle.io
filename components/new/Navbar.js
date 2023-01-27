@@ -92,7 +92,7 @@ export default function NavBar() {
                             <a className="nav-link" href="#resume"> {`<`}Resume{` />`}</a>
                         </h4>
                         <h4 className={portStyle} style={{padding: ".5vw"}}>
-                            <a className="nav-link" href="/portfolio">{`<`}Portfolio{` />`}</a>
+                            <a className="nav-link" href="#projects">{`<`}Projects{` />`}</a>
                         </h4>
                         {/* <h4 className={codingStyle} style={{padding: ".5vw"}}>
                             <a className="nav-link" href="/coding">{`<`}Dev XP{`/>`}</a>

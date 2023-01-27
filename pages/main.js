@@ -435,7 +435,7 @@ export default function Main() {
 
     return (
 
-        <div className={styles.master}>
+        <div className={styles.master} id="top">
             <BasicPageTop />
             <NavBar />
             <canvas ref={canvasRef} className={styles.canvas} style={{ height: { totalHeight } + "px" }} />
@@ -481,9 +481,9 @@ export default function Main() {
                     </div>
                 </div>
                 <Spacer height={"20vh"} />
-                <h1>Resume</h1>
+                <h1 id="resume">Resume </h1>
         <Spacer height={"5vh"} />
-                <div style={{ position: "relative", textAlign: "center" }} id="resume">
+                <div style={{ position: "relative", textAlign: "center" }} >
                     <div className={border1} />
                     <div className={border2} />
                     <div className={border3} />
@@ -507,7 +507,7 @@ export default function Main() {
 
                 <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
                 <Spacer height={"10vh"} />
-        <h1>Projects</h1>
+        <h1  id="projects" >Projects</h1>
         <Spacer height={"5vh"} />
 
                 <div className={styles.project_container_left}>

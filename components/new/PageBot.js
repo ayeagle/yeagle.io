@@ -73,10 +73,10 @@ export default function BasicPageBottom() {
         {/* <ul className="navbar-nav"> */}
 
         <span className={styles.bottom}>
-          <h4 className={createStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="#main">{`<`}Top{`/>`}</a></h4>
+          <h4 className={createStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="#top">{`<`}Top{`/>`}</a></h4>
           <h4 className={resumeStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="#resume">{`<`}Resume{`/>`}</a></h4>
           {/* <h4 className={codingStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/coding">{`<`}Dev XP{`/>`}</a></h4> */}
-          <h4 className={portStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/portfolio">{`<`}Portfolio{`/>`}</a> </h4>
+          <h4 className={portStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="#projects">{`<`}Projects{`/>`}</a> </h4>
           <h4 className={contactStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="#contact">{`<`}Contact{`/>`}</a></h4>
         </span>
         {/* </ul> */}
