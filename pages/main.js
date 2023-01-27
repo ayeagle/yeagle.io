@@ -24,6 +24,21 @@ import { createNoise2D } from 'simplex-noise';
 import JobSection from "@components/new/JobSection";
 import Socials from "@components/bio/Socials";
 
+
+
+
+/////////////////////////////
+/*
+Specifically NOT component-itized for numerous reasons
+sorry
+
+
+
+
+*/
+/////////////////////////////
+
+
 let glideArray = Array(10)
 let startVal = .4
 let increment = .09
@@ -98,6 +113,63 @@ export default function Main() {
     const [open, setOpen] = useState(false)
     const [boopBoop, setBoopBoop] = useState(false)
     const [currCourse, setCurrCourse] = useState(0)
+    const [runOnce, setRunOnce] = useState(false)
+    const [scrollerState, setScrollerState] = useState(styles.scroller_inner_state1)
+    const [borderStage, setBorderStage] = useState('_stage1')
+    const [border1, setBorder1] = useState(styles.corner_border_top_left)
+    const [border2, setBorder2] = useState(styles.corner_border_top_right)
+    const [border3, setBorder3] = useState(styles.corner_border_bottom_left)
+    const [border4, setBorder4] = useState(styles.corner_border_bottom_right)
+    const [flip, setFlip] = useState(false)
+
+
+    const targetRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            console.log("observer was invoked")
+
+            if (entries[0].isIntersecting) {
+                // Do something when the target comes into view
+                borderChange()
+            }
+        }
+        );
+        observer.observe(targetRef.current);
+
+        return () => {
+            observer.unobserve(targetRef.current);
+        };
+    }, []);
+
+
+    const borderChange = () => {
+        console.log("border change was invoked")
+        setFlip(!flip)
+        if (flip) {
+
+            setBorder1(styles.corner_border_top_left_stage1)
+            setBorder2(styles.corner_border_top_right_stage1)
+            setBorder3(styles.corner_border_bottom_left_stage1)
+            setBorder4(styles.corner_border_bottom_right_stage1)
+
+        } else {
+            setBorder1(styles.corner_border_top_left)
+            setBorder2(styles.corner_border_top_right)
+            setBorder3(styles.corner_border_bottom_left)
+            setBorder4(styles.corner_border_bottom_right)
+
+        }
+    }
+
+    // useEffect(() => {
+    //     console.log("this is th y offset")
+    //     console.log(yOffset)
+
+
+
+    // }, [yOffset])
+
 
     // const noise =  noise2D
 
@@ -105,6 +177,14 @@ export default function Main() {
         window.open('mailto:alexyeagle@gmail.com,alex@yeagle.io?subject=Would love to chat!&body=Hey Alex I saw your website and...');
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setScrollerState(styles.scroller_inner_state2)
+        }, [7000])
+        setTimeout(() => {
+            setScrollerState(styles.scroller_inner_state1)
+        }, [15000])
+    }, [])
 
 
     useEffect(() => {
@@ -150,7 +230,7 @@ export default function Main() {
     const [temp, setTemp] = useState('')
 
     const determineFadeIn = (subVal, rate) => {
-        let retVal = (yOffset - subVal) / rate
+        let retVal = ((yOffset / width) * 100 - subVal * .1) / rate
         // console.log(retVal)
         return retVal
     }
@@ -317,12 +397,18 @@ export default function Main() {
 
 
 
-    }, [open, boopBoop]);
+    }, [open, boopBoop, currCourse]);
 
     // const deleteLines = () => {
+    if (Math.abs(yOffset - 3000) <= 100 && runOnce == 0) {
+        setBoopBoop(!boopBoop)
+        setRunOnce(1)
+        setTimeout(() => {
+            setRunOnce(0)
+        }, [5000])
+    }
 
-
-
+    console.log(yOffset)
 
     return (
 
@@ -333,54 +419,70 @@ export default function Main() {
 
             <div className={styles.mini_master}>
 
-                <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
-                <div className={styles.image_container}>
-                    <img src="/IMGassets/me2.png" className={styles.image} />
-                </div>
-                <h3 className={styles.image_text}>
-                    {/* <Typing content={"Self-taught developer and product enthusiast with a passion for building customer-obsessed solutions."} /> */}
-                    <Typing content={`Self-taught developer
+                <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(100, 157, 224)" }}>Alex</strong> and I'm a...</h1>
+                <Spacer />
+
+                <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+
+                    <div className={styles.image_container}>
+                        <img src="/IMGassets/me2.png" className={styles.image} />
+                    </div>
+                    <div className={styles.scroller}><div className={scrollerState}><br /><br />&#x21d3;</div></div>
+                    <h3 className={styles.image_text}>
+                        {/* <Typing content={"Self-taught developer and product enthusiast with a passion for building customer-obsessed solutions."} /> */}
+                        <Typing content={`Self-taught developer
                     <br/>Product enthusiast
                     <br/>Behavioral economist
                     <br/>Avid learner
                     <br/>Builder
                     <br/>and more...`} />
-                </h3>
+                    </h3>
+                </div>
+                <Spacer />
+
+
 
                 <Spacer />
-                <h3>INSERT SCROLLER</h3>
 
                 <div className={styles.left_right_wrapper}>
                     <div className={styles.left_container}>
-                        <h2 style={{ padding: "7vw", opacity: (determineFadeIn(50, 3) + '%') }}
+                        <h3 style={{ padding: "7vw", opacity: (determineFadeIn(0, .3) + '%') }}
                             className={styles.left_container}
                         >  A broad range of experiences across product, operations, analytics, and engineering has given my development work diversity and perspective.
-                        </h2>
+                        </h3>
                     </div>
                     <div className={styles.right_container}>
-                        <a href="#resume" style={{ opacity: (determineFadeIn(50, 4) + '%') }}><NavButton buttonName={"Resume"} /></a>
+                        <a href="#resume" style={{ opacity: (determineFadeIn(0, .3) + '%'), left: "-4.5vw", position: "relative" }}><NavButton buttonName={"Resume"} /></a>
                         <Spacer height={"5vw"} />
-                        <a href="/portfolio" style={{ opacity: (determineFadeIn(125, 4) + '%') }}><NavButton buttonName={"Projects"} /></a>
+                        <a href="/portfolio" style={{ opacity: (determineFadeIn(75, .2) + '%'), left: "-4.5vw", position: "relative" }}><NavButton buttonName={"Projects"} /></a>
                         <Spacer height={"5vw"} />
-                        <a href="#resume" style={{ opacity: (determineFadeIn(200, 4) + '%') }}><NavButton buttonName={"Contact"} /></a>
+                        <a href="#resume" style={{ opacity: (determineFadeIn(150, .1) + '%'), left: "-4.5vw", position: "relative" }} ><NavButton buttonName={"Contact"} /></a>
 
                     </div>
                 </div>
                 <Spacer height={"20vh"} />
 
-                <div style={{ position: "relative", textAlign: "center" }} id="resume">
+                <div style={{ position: "relative", textAlign: "center" }} id="resume" ref={targetRef}>
 
-                    <h3 className={styles.vc} style={{ right: (Math.min(determineGlideIn(.3), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</h3>
-                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </h2>
-                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') }}>1x FAANG                </h2>
-                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') }}>2x Seqouia                 </h2>
-                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') }}>1x 500 Startups                </h2>
-                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') }}>2x Y Combinator                </h2>
-                    <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') }}>2x First Round Capital                </h2>
-                    <br></br>
-                    <br></br>
+                    <div className={border1} />
+                    <div className={border2} />
+                    <div className={border3} />
+                    <div className={border4} />
 
+
+
+                    <div >
+                        <h3 className={styles.vc} style={{ right: (Math.min(determineGlideIn(.3), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</h3>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') }}>1x FAANG                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') }}>2x Seqouia                 </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') }}>1x 500 Startups                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') }}>2x Y Combinator                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') }}>2x First Round Capital                </h2>
+
+                    </div>
                 </div>
+                <Spacer height={"20vh"} />
 
                 <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
 
@@ -439,28 +541,35 @@ export default function Main() {
                 <div style={{ position: "relative" }} >
                     <div >
 
-                        <div className={styles.image_text_center} style={{ top: "26vw" }}>I'm also a drone videographer!</div>
+                        <h3 className={styles.image_text_center} style={{ top: "45%", fontWeight: 200 }}>I'm also a drone videographer!</h3>
                         {/* <div height={600}> */}
                         {/* <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} /> */}
                         {/* </div> */}
-                        <iframe style={{ pointerEvents: "none", marginTop: "-2vw" }} width={width * .8} height={width * .56 * .8} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=45" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
-
+                        <div className={styles.video} onHover={() => setBoopBoop(!boopBoop)}>
+                            <iframe className={styles.video_inner} style={{ pointerEvents: "none" }} width={width} height={width >= 2000 ? width * .375 : width * .45} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=45" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        </div>
                     </div>
                 </div>
                 <Spacer height={"5vw"} />
                 <Spacer height={"10vw"} />
+                <div style={{ height: "auto", width: "auto", position: "relative" }}>
 
-                <div id="contact" style={{ zIndex: "100", position: "relative" }}>
-                    <div style={{ zIndex: "10", position: "relative" }}>
-                        <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }} />
-                        <h2 className={styles.contact_element}>+1 (559) 451 6174</h2>
-                        <h2 className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</h2>
-                        <h2 className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</h2>
-                        <h2 className={styles.contact_element}>SF, CA</h2>
-                        <br></br>
+                    <div className={border1} />
+                    <div className={border2} />
+                    <div className={border3} />
+                    <div className={border4} />
+                    <div id="contact" style={{ zIndex: "100", position: "relative" }}>
+                        <div style={{ zIndex: "10", position: "relative" }}>
+                            <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }} />
+                            <h2 className={styles.contact_element}>+1 (559) 451 6174</h2>
+                            <h2 className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</h2>
+                            <h2 className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</h2>
+                            <h2 className={styles.contact_element}>SF, CA</h2>
+                            <br></br>
+                        </div>
                     </div>
+                    <a><NavButton buttonName={"Get in touch"} handleClick={sendEmail} style={{ zIndex: "-1", position: "relative" }} /></a>
                 </div>
-                <a><NavButton buttonName={"Get in touch"} handleClick={sendEmail} style={{ zIndex: "-1", position: "relative" }} /></a>
 
 
                 <Spacer />
