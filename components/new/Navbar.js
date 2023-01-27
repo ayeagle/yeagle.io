@@ -81,27 +81,28 @@ export default function NavBar() {
         <>
             {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous" /> */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-black" style={{ background: "none", zIndex: 1000, position: "sticky", top: 0 }}>
-                <h3><a style={{color: "rgb(197, 197, 197)"}} href="/main">Alex Yeagle</a></h3>
+                <h3><a style={{color: "rgb(197, 197, 197)", paddingRight: "2vw"}} href="/main">Alex Yeagle</a></h3>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav" style={{ top: "2px", position: "relative" }}>
                     <ul className="navbar-nav">
+                        
                         <h4 className={resumeStyle} style={{padding: ".5vw"}}>
-                            <a className="nav-link" href="#resume"> {`<`}Resume{`/>`}</a>
+                            <a className="nav-link" href="#resume"> {`<`}Resume{` />`}</a>
                         </h4>
                         <h4 className={portStyle} style={{padding: ".5vw"}}>
-                            <a className="nav-link" href="/portfolio">{`<`}Portfolio{`/>`}</a>
+                            <a className="nav-link" href="/portfolio">{`<`}Portfolio{` />`}</a>
                         </h4>
-                        <h4 className={codingStyle} style={{padding: ".5vw"}}>
+                        {/* <h4 className={codingStyle} style={{padding: ".5vw"}}>
                             <a className="nav-link" href="/coding">{`<`}Dev XP{`/>`}</a>
-                        </h4>
+                        </h4> */}
                         <h4 className={contactStyle} style={{padding: ".5vw"}}>
-                            <a className="nav-link" href="#contact">{`<`}Contact{`/>`}</a>
+                            <a className="nav-link" href="#contact">{`<`}Contact{` />`}</a>
                         </h4>
-                        <h4 className={contactStyle} style={{padding: ".5vw"}}>
-                            {/* <Socials size={"x-large"} loc={"right"}/> */}
-                        </h4>
+                        {/* <h4 className={contactStyle} style={{padding: ".5vw"}}>
+                            <Socials size={"x-large"} loc={"right"}/>
+                        </h4> */}
                         <h4 className={contactStyle} style={{ padding: ".5vw", position: width < 992 ? "relative" : "absolute", margin: width < 992 ? "0 auto" : "", right: width < 992 ? "" : "0px" }}>
                             <Socials size={"x-large"} loc={"right"} className="nav-link" />
                         </h4>

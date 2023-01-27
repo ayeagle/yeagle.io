@@ -29,7 +29,7 @@ export default function GenSessionUuid() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
-  console.log(state.uuid + " : state before useffect")
+  // console.log(state.uuid + " : state before useffect")
 
 
   useEffect(() => {

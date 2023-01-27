@@ -123,44 +123,67 @@ export default function Main() {
     const [flip, setFlip] = useState(false)
 
 
-    const targetRef = useRef(null);
+    const targetRef1 = useRef(null);
+    const targetRef2 = useRef(null);
+
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            console.log("observer was invoked")
-
             if (entries[0].isIntersecting) {
-                // Do something when the target comes into view
-                borderChange()
+                setBorderAfter()
+            } else {
+                setBorderNeutral()
             }
         }
-        );
-        observer.observe(targetRef.current);
+        )
+        observer.observe(targetRef1.current);
+        observer.observe(targetRef2.current);
 
         return () => {
-            observer.unobserve(targetRef.current);
+            observer.unobserve(targetRef1.current);
+            observer.unobserve(targetRef2.current);
         };
     }, []);
 
 
-    const borderChange = () => {
-        console.log("border change was invoked")
-        setFlip(!flip)
-        if (flip) {
 
-            setBorder1(styles.corner_border_top_left_stage1)
-            setBorder2(styles.corner_border_top_right_stage1)
-            setBorder3(styles.corner_border_bottom_left_stage1)
-            setBorder4(styles.corner_border_bottom_right_stage1)
 
-        } else {
-            setBorder1(styles.corner_border_top_left)
-            setBorder2(styles.corner_border_top_right)
-            setBorder3(styles.corner_border_bottom_left)
-            setBorder4(styles.corner_border_bottom_right)
 
-        }
+
+
+    const setBorderNeutral = () => {
+        setBorder1(styles.corner_border_top_left)
+        setBorder2(styles.corner_border_top_right)
+        setBorder3(styles.corner_border_bottom_left)
+        setBorder4(styles.corner_border_bottom_right)
     }
+    const setBorderAfter = () => {
+        setBorder1(styles.corner_border_top_left_stage1)
+        setBorder2(styles.corner_border_top_right_stage1)
+        setBorder3(styles.corner_border_bottom_left_stage1)
+        setBorder4(styles.corner_border_bottom_right_stage1)
+    }
+    console.log("flip value is normal at : " + flip)
+    // const borderChange = () => {
+    //     console.log("border change was invoked")
+    //     console.log("flip value is... + " + flip)
+
+    //     // setFlip(!flip)
+    //     if (flip) {
+    //         setBorder1(styles.corner_border_top_left_stage1)
+    //         setBorder2(styles.corner_border_top_right_stage1)
+    //         setBorder3(styles.corner_border_bottom_left_stage1)
+    //         setBorder4(styles.corner_border_bottom_right_stage1)
+    //     } else {
+    //         setBorder1(styles.corner_border_top_left)
+    //         setBorder2(styles.corner_border_top_right)
+    //         setBorder3(styles.corner_border_bottom_left)
+    //         setBorder4(styles.corner_border_bottom_right)
+
+    //     }
+    //     setFlip(!flip)
+
+    // }
 
     // useEffect(() => {
     //     console.log("this is th y offset")
@@ -420,9 +443,9 @@ export default function Main() {
             <div className={styles.mini_master}>
 
                 <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(100, 157, 224)" }}>Alex</strong> and I'm a...</h1>
-                <Spacer />
+                <Spacer height="5vw" />
 
-                <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
 
                     <div className={styles.image_container}>
                         <img src="/IMGassets/me2.png" className={styles.image} />
@@ -440,11 +463,8 @@ export default function Main() {
                 </div>
                 <Spacer />
 
-
-
-                <Spacer />
-
                 <div className={styles.left_right_wrapper}>
+
                     <div className={styles.left_container}>
                         <h3 style={{ padding: "7vw", opacity: (determineFadeIn(0, .3) + '%') }}
                             className={styles.left_container}
@@ -452,18 +472,18 @@ export default function Main() {
                         </h3>
                     </div>
                     <div className={styles.right_container}>
-                        <a href="#resume" style={{ opacity: (determineFadeIn(0, .3) + '%'), left: "-4.5vw", position: "relative" }}><NavButton buttonName={"Resume"} /></a>
+                        <a href="#resume" style={{ opacity: (determineFadeIn(0, .3) + '%'), left: "-7vw", position: "relative" }}><NavButton buttonName={"Resume"} /></a>
                         <Spacer height={"5vw"} />
-                        <a href="/portfolio" style={{ opacity: (determineFadeIn(75, .2) + '%'), left: "-4.5vw", position: "relative" }}><NavButton buttonName={"Projects"} /></a>
+                        <a href="/portfolio" style={{ opacity: (determineFadeIn(75, .2) + '%'), left: "-7vw", position: "relative" }}><NavButton buttonName={"Projects"} /></a>
                         <Spacer height={"5vw"} />
-                        <a href="#resume" style={{ opacity: (determineFadeIn(150, .1) + '%'), left: "-4.5vw", position: "relative" }} ><NavButton buttonName={"Contact"} /></a>
+                        <a href="#resume" style={{ opacity: (determineFadeIn(150, .1) + '%'), left: "-7vw", position: "relative" }} ><NavButton buttonName={"Contact"} /></a>
 
                     </div>
                 </div>
                 <Spacer height={"20vh"} />
-
-                <div style={{ position: "relative", textAlign: "center" }} id="resume" ref={targetRef}>
-
+                <h1>Resume</h1>
+        <Spacer height={"5vh"} />
+                <div style={{ position: "relative", textAlign: "center" }} id="resume">
                     <div className={border1} />
                     <div className={border2} />
                     <div className={border3} />
@@ -471,8 +491,9 @@ export default function Main() {
 
 
 
+
                     <div >
-                        <h3 className={styles.vc} style={{ right: (Math.min(determineGlideIn(.3), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</h3>
+                        <h3 ref={targetRef1} className={styles.vc} style={{ right: (Math.min(determineGlideIn(.3), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</h3>
                         <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </h2>
                         <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') }}>1x FAANG                </h2>
                         <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') }}>2x Seqouia                 </h2>
@@ -482,57 +503,83 @@ export default function Main() {
 
                     </div>
                 </div>
-                <Spacer height={"20vh"} />
+                <Spacer height={"10vh"} />
 
                 <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
+                <Spacer height={"10vh"} />
+        <h1>Projects</h1>
+        <Spacer height={"5vh"} />
 
-                <div className={styles.learned_container} style={{ top: "1vw", zIndex: 1 }}>
-                    <div className={styles.learned_left}>
+                <div className={styles.project_container_left}>
+                    <img className={styles.project_image_left} src="newIMGassets/giftee.png" />
 
-                        {courses.map((course, index) => (
-                            <div
-                                key={course.id}
-                                className={styles.course_box}
-                                style={{
-                                    zIndex: 500,
-                                    backgroundColor: currCourse == index ? "rgb(14, 43, 80)" : "rgb(76, 18, 89)",
-                                    transition: "2s",
-                                    borderRight: currCourse == index ? "none" : "5px solid black",
-                                    borderBottom: index == courses.length - 1 ? "5px solid black" : "none"
-                                }}
-                                onClick={() => setCurrCourse(index)}>
-                                {course.name}
-                            </div>
-                        ))}
+                    <div className={styles.project_image_blocker_left}></div>
+
+                    <div className={styles.project_details_wrapper_left}>
+                        <h3 className={styles.project_header_left}> Giftee.io </h3>
+
+                        <h4 className={styles.project_details_left}>  SSL encrypted fullstack application to make gift exchanges with friends and family easier. </h4>
+
+                        <div className={styles.project_technicals_left}>
+                            <h5>React</h5>
+                            <h5>NextJS</h5>
+                            <h5>Express</h5>
+                            <h5>RDS</h5>
+                            <h5>EC2</h5>
+
+
+                        </div>
+
+
                     </div>
-                    <div className={styles.learned_right}>
-                        <div className={styles.details_box}>
-                            {courses[0].details.map((detail, index) => (
-                                <div key={index} style={{ zIndex: 500 }}>{detail}</div>
-                            ))}
+                </div>
+
+                <Spacer height={"10vh"} />
+
+                <div className={styles.project_container_right}>
+                    <div className={styles.project_details_wrapper_right}>
+                        <h3 className={styles.project_header_right}> Pomodomo </h3>
+
+                        <h4 className={styles.project_details_right}>  A web-hosted customizable pomodoro timer with built in APIs for dad jokes and celebratory gifs during break sessions.  </h4>
+
+                        <div className={styles.project_technicals_right}>
+                            <h5>React</h5>
+                            <h5>Redux</h5>
+                            <h5>NextJS</h5>
+                            <h5>Axios</h5>
+                            <h5>SVGs</h5>
                         </div>
 
                     </div>
-                </div>
-
-                <Spacer height={"5vh"} />
-                <Spacer height={"5vh"} />
-
-
-                <div>
-                    Front end stuff!!!
+                    <img className={styles.project_image_right} src="newIMGassets/pomodomo.png" />
+                    <div className={styles.project_image_blocker_right}></div>
 
                 </div>
+                <Spacer height={"10vh"} />
 
-                <div>
-                    Back end stuff!!!
+                <div className={styles.project_container_left}>
+                    <img className={styles.project_image_left} src="newIMGassets/personal.png" />
 
+                    <div className={styles.project_image_blocker_left}></div>
+
+                    <div className={styles.project_details_wrapper_left}>
+                        <h3 className={styles.project_header_left}> Personal Site v1 </h3>
+
+                        <h4 className={styles.project_details_left}> Version one of personal website focused on responsive animation and stateful components.  </h4>
+
+                        <div className={styles.project_technicals_left}>
+                            <h5>React</h5>
+                            <h5>NextJS</h5>
+                            <h5>Express</h5>
+                            <h5>RDS</h5>
+                            <h5>EC2</h5>                        </div>
+
+
+                    </div>
                 </div>
-                <div>
-
-                    PROJECTS
-                </div>
-
+                <Spacer height={"15vh"} />
+                <h1>Feedback</h1>
+        <Spacer height={"5vh"} />
                 <Quotes style={{ position: "relative" }} />
                 <Spacer height={"10vh"} />
                 {/* <SVGSpacers type="top" num="2" width={width} />
@@ -546,13 +593,13 @@ export default function Main() {
                         {/* <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} /> */}
                         {/* </div> */}
                         <div className={styles.video} onHover={() => setBoopBoop(!boopBoop)}>
-                            <iframe className={styles.video_inner} style={{ pointerEvents: "none" }} width={width} height={width >= 2000 ? width * .375 : width * .45} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=45" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe className={styles.video_inner} style={{ pointerEvents: "none", borderRadius: "40px" }} width={width} height={width >= 2000 ? width * .375 : width * .45} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=45" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
                 </div>
                 <Spacer height={"5vw"} />
                 <Spacer height={"10vw"} />
-                <div style={{ height: "auto", width: "auto", position: "relative" }}>
+                <div style={{ height: "auto", width: "50vw", margin: "0 auto", position: "relative" }}>
 
                     <div className={border1} />
                     <div className={border2} />
@@ -561,10 +608,10 @@ export default function Main() {
                     <div id="contact" style={{ zIndex: "100", position: "relative" }}>
                         <div style={{ zIndex: "10", position: "relative" }}>
                             <Socials size={"3vw"} loc={"center"} style={{ zIndex: "100", position: "relative" }} />
-                            <h2 className={styles.contact_element}>+1 (559) 451 6174</h2>
-                            <h2 className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</h2>
-                            <h2 className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</h2>
-                            <h2 className={styles.contact_element}>SF, CA</h2>
+                            <h3 ref={targetRef2} className={styles.contact_element}>+1 (559) 451 6174</h3>
+                            <h3 className={styles.contact_element} onClick={sendEmail}  >alexyeagle@gmail.com</h3>
+                            <h3 className={styles.contact_element} onClick={sendEmail}  >alex@yeagle.io</h3>
+                            <h3 className={styles.contact_element}>SF, CA</h3>
                             <br></br>
                         </div>
                     </div>

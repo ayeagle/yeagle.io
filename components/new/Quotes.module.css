@@ -48,6 +48,7 @@
     transition: 1s;
 
     z-index: 99999;
+    border-radius: 10px;
 
 
 }
@@ -80,7 +81,7 @@
 .loading_bar_inner {
     top: 0vw;
     position: relative;
-    left:0%;
+    /* left:0%; */
     width:20%;
     background-color: white;
     border-radius: 10px;
