@@ -82,7 +82,7 @@ export default function BasicPageBottom() {
         {/* </ul> */}
       </div>
       <footer className={styles.footer}>
-        Made by me for you <img src="/bagel_logo.png" alt="Netlify Logo" className={styles.logo} /> All media is my own
+        Designed and built by  <img src="/bagel_logo.png" alt="Netlify Logo" className={styles.logo} /> Alex Yeagle
         {/* <div style={{ fontSize: "2vw", fontStyle: "italic" }}>All media is my own</div> */}
       </footer>    </>
   )

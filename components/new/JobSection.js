@@ -19,11 +19,12 @@ export default function JobSection({ open, setOpen }) {
                 ["Operationalize signal collection and prioritization for the experimental pre-launch pillar of the FB app", 2],
                 ["Synthesize user signal into roadmap-actionable dashboards and reporting", 3],
                 ["Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR", 4]],
-            logo_pic: "/NewIMGassets/meta_2.png",
+            logo_pic: "/NewIMGassets/METAL.png",
             hard_skills: [["PostgresQL", 86], ["Presto", 60], ["React", 46], ["Scuba", 30], ["Python Scripting", 20]],
             soft_skills: [["Influence w/o Authority", 67], ["Feature/Fix Efficiency", 55], ["Finding PMF", 40]],
-            // top_move_perc: "-20%",
+            top_move_perc: "4.5vw",
             // details_view_height: "45vw",
+//            logo_pic: "/NewIMGassets/meta_2.png",
 
         },
         {
@@ -39,11 +40,12 @@ export default function JobSection({ open, setOpen }) {
                 ["Collaborate with product and engineering teams to streamline performance and expand platform functionality", 3],
                 ["Train new users and team-members on data manipulation and modeling best practices", 4]],
 
-            logo_pic: "/NewIMGassets/CIQ_4.png",
+            logo_pic: "/NewIMGassets/CIQL.png",
             hard_skills: [["Excel", 83], ["SQL", 69], ["Python", 29]],
             soft_skills: [["Problem Solving", 82], ["Product Strategy", 72], ["Collaboration", 40]],
-            // top_move_perc: "-140%",
+            top_move_perc: "2.5vw",
             // details_view_height: "40vw",
+//            logo_pic: "/NewIMGassets/CIQ_4.png",
 
 
         },
@@ -61,11 +63,13 @@ export default function JobSection({ open, setOpen }) {
                 ["Reduced activation time from 1.5 weeks to 45 minutes while increasing first week engagement by 200%+", 4],
                 ["Acquired, onboarded, and conducted user research with 18 pre-launch customers", 5],
                 ["Uncovered and prioritized customer pains against technical feasibility on a daily basis",6]],
-            logo_pic: "/NewIMGassets/guide_2.jpg",
+            logo_pic: "/NewIMGassets/GUIDEL.png",
             hard_skills: [["Excel", 60], ["Salesforce", 45], ["Product/Design Tooling", 30], ["SQL", 15]],
             soft_skills: [["Product Strategy", 83], ["Growth Strategy", 75], ["Operating in Uncertainty", 43]],
-            // top_move_perc: "-65%",
+            top_move_perc: "2vw",
             // details_view_height: "40vw",
+            // logo_pic: "/NewIMGassets/guide_2.jpg",
+// 
 
         },
         {
@@ -79,11 +83,12 @@ export default function JobSection({ open, setOpen }) {
                 ["Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)", 1],
                 ["Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ", 2]],
 
-            logo_pic: "/NewIMGassets/sift_2.png",
+            logo_pic: "/NewIMGassets/SIFTL.png",
             hard_skills: [["Salesforce", 49], ["Excel", 32]],
             soft_skills: [["Leadership", 84], ["Process Optimization", 69], ["Project Scoping", 42], ["Collaboration", 33]],
-            // top_move_perc: "-65%",
+            top_move_perc:"5.5vw",
             // details_view_height: "30vw",
+// /            logo_pic: "/NewIMGassets/sift_2.png",
 
         },
 
@@ -237,10 +242,34 @@ export default function JobSection({ open, setOpen }) {
                                 </div>
                                 <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
                             </div>
-                            <img src={elements.logo_pic} className={styles.logo} onClick={() => openClick(index)} />
+                            <img src={elements.logo_pic} style={{paddingTop: elements.top_move_perc}} className={styles.logo} onClick={() => openClick(index)} />
 
                         </div>
+{/* 
+                        <div className={styles.logo_container}>
+                            <div className={styles.arrow}
+                                onClick={() => openClick(index)}
+                                onMouseEnter={() => hoverIndexSet(index)}
+
+                            >
+                                <div className={styles.arrow_details_header} >
+                                    <a href={elements.company_url} target="_blank"><h5 className={styles.details_header_units}>{elements.company} &#128279;</h5></a>
+                                    <h5 className={styles.details_header_units}>{elements.role}</h5>
+                                    <h5 className={styles.details_header_units}>{elements.tenure}</h5>
+                                </div>
+                         
+
+                                <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
+                            </div>
+                            <div className={styles.job_box}>
+                                <a href={elements.company_url} target="_blank"><h5 className={styles.details_header_units}>{elements.company} &#128279;</h5></a>
+                                    <h5 className={styles.details_header_units}>{elements.role}</h5>
+                                    <h5 className={styles.details_header_units}>{elements.tenure}</h5>
+
+                                </div>
+                        </div> */}
                     </div>
+                    
 
 
                 ))}
