@@ -61,7 +61,6 @@ export default function JobSection({ open, setOpen }) {
                 ["Executed 23 growth experiments in 20Q1, tracking towards a 1m user growth rate for 2020", 2],
                 ["Analyzed usage data weekly to inform adoption strategy", 3],
                 ["Reduced activation time from 1.5 weeks to 45 minutes while increasing first week engagement by 200%+", 4],
-                ["Acquired, onboarded, and conducted user research with 18 pre-launch customers", 5],
                 ["Uncovered and prioritized customer pains against technical feasibility on a daily basis",6]],
             logo_pic: "/NewIMGassets/GUIDEL.png",
             hard_skills: [["Excel", 60], ["Salesforce", 45], ["Product/Design Tooling", 30], ["SQL", 15]],
@@ -229,11 +228,12 @@ export default function JobSection({ open, setOpen }) {
                 {elements.map((elements, index) => (
                     <div className={styles.jobs_container}>
 
-                        <div className={styles.logo_container}>
+                        <div className={styles.logo_container}  style={{border: currOpen == index && open ? "1px solid white" : "", boxShadow: currOpen == index && open ? "0 0 40px 40px rgba(0, 0, 0, 0.274)" : ""}}
+>
                             <div className={styles.arrow}
                                 onClick={() => openClick(index)}
                                 onMouseEnter={() => hoverIndexSet(index)}
-
+                                style={{border: "1px solid white"}}
                             >
                                 <div className={styles.arrow_details_header} >
                                     <a href={elements.company_url} target="_blank"><h5 className={styles.details_header_units}>{elements.company} &#128279;</h5></a>
@@ -245,33 +245,7 @@ export default function JobSection({ open, setOpen }) {
                             <img src={elements.logo_pic} style={{paddingTop: elements.top_move_perc}} className={styles.logo} onClick={() => openClick(index)} />
 
                         </div>
-{/* 
-                        <div className={styles.logo_container}>
-                            <div className={styles.arrow}
-                                onClick={() => openClick(index)}
-                                onMouseEnter={() => hoverIndexSet(index)}
-
-                            >
-                                <div className={styles.arrow_details_header} >
-                                    <a href={elements.company_url} target="_blank"><h5 className={styles.details_header_units}>{elements.company} &#128279;</h5></a>
-                                    <h5 className={styles.details_header_units}>{elements.role}</h5>
-                                    <h5 className={styles.details_header_units}>{elements.tenure}</h5>
-                                </div>
-                         
-
-                                <img className={arrowStyle} src="/IMGassets/down_arrow.png" style={{ height: "5vw" }} />
-                            </div>
-                            <div className={styles.job_box}>
-                                <a href={elements.company_url} target="_blank"><h5 className={styles.details_header_units}>{elements.company} &#128279;</h5></a>
-                                    <h5 className={styles.details_header_units}>{elements.role}</h5>
-                                    <h5 className={styles.details_header_units}>{elements.tenure}</h5>
-
-                                </div>
-                        </div> */}
                     </div>
-                    
-
-
                 ))}
             </div>
             <div style={{ zIndex: 50, transition: "2s"}} >

@@ -121,6 +121,7 @@ export default function Main() {
     const [border3, setBorder3] = useState(styles.corner_border_bottom_left)
     const [border4, setBorder4] = useState(styles.corner_border_bottom_right)
     const [flip, setFlip] = useState(false)
+    const [icelandStart, setIcelandStart] = useState(45)
 
 
     const targetRef1 = useRef(null);
@@ -144,7 +145,6 @@ export default function Main() {
             observer.unobserve(targetRef2.current);
         };
     }, []);
-
 
 
 
@@ -189,8 +189,9 @@ export default function Main() {
     //     console.log("this is th y offset")
     //     console.log(yOffset)
 
-
-
+    setTimeout(() => {
+        setIcelandStart(icelandStart + 1)
+    }, [180000])
     // }, [yOffset])
 
 
@@ -442,7 +443,7 @@ export default function Main() {
 
             <div className={styles.mini_master}>
 
-                <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(100, 157, 224)" }}>Alex</strong> and I'm a...</h1>
+                <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
                 <Spacer height="5vw" />
 
                 <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
@@ -481,8 +482,13 @@ export default function Main() {
                     </div>
                 </div>
                 <Spacer height={"20vh"} />
-                <h1 id="resume">Resume </h1>
-        <Spacer height={"5vh"} />
+                <div className={styles.section_header_wrapper}>
+                    <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw"}}>01</h2>
+                    <h2 id="resume">Resume </h2>
+                    <div style={{ position: "relative", marginLeft: "3vw", width: "40%", height: ".1px", backgroundColor: "white", margin: "1vw", bottom: "-1.5vw"}} />
+                </div>
+                {/* <h1 id="resume">Resume </h1> */}
+                <Spacer height={"10vh"} />
                 <div style={{ position: "relative", textAlign: "center" }} >
                     <div className={border1} />
                     <div className={border2} />
@@ -503,12 +509,19 @@ export default function Main() {
 
                     </div>
                 </div>
-                <Spacer height={"10vh"} />
+                <Spacer height={"15vh"} />
 
                 <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
-                <Spacer height={"10vh"} />
-        <h1  id="projects" >Projects</h1>
-        <Spacer height={"5vh"} />
+                <Spacer height={"calc(25vh - 15vw)"} />
+                <Quotes style={{ position: "relative" }} />
+                <Spacer height={"15vh"} />
+
+                <div className={styles.section_header_wrapper}>
+                    <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw"}}>02</h2>
+                    <h2 id="projects">Projects </h2>
+                    <div style={{ position: "relative", marginLeft: "3vw", width: "40%", height: ".1px", backgroundColor: "white", margin: "1vw", bottom: "-1.5vw"}} />
+                </div>                
+                <Spacer height={"5vh"} />
 
                 <div className={styles.project_container_left}>
                     <img className={styles.project_image_left} src="newIMGassets/giftee.png" />
@@ -578,9 +591,7 @@ export default function Main() {
                     </div>
                 </div>
                 <Spacer height={"15vh"} />
-                <h1>Feedback</h1>
-        <Spacer height={"5vh"} />
-                <Quotes style={{ position: "relative" }} />
+
                 <Spacer height={"10vh"} />
                 {/* <SVGSpacers type="top" num="2" width={width} />
             <SVGSpacers type="bot" num="3" width={width} /> */}
@@ -593,12 +604,19 @@ export default function Main() {
                         {/* <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} /> */}
                         {/* </div> */}
                         <div className={styles.video} onHover={() => setBoopBoop(!boopBoop)}>
-                            <iframe className={styles.video_inner} style={{ pointerEvents: "none", borderRadius: "40px" }} width={width} height={width >= 2000 ? width * .375 : width * .45} src="https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=45" align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe className={styles.video_inner} style={{ pointerEvents: "none", borderRadius: "40px" }} width={width} height={width >= 2000 ? width * .375 : width * .45} src={`https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=${icelandStart}`} align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
                 </div>
                 <Spacer height={"5vw"} />
                 <Spacer height={"10vw"} />
+                <div className={styles.section_header_wrapper}>
+                    <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw"}}>03</h2>
+                    <h2 id="contact">Contact </h2>
+                    <div style={{ position: "relative", marginLeft: "3vw", width: "40%", height: ".1px", backgroundColor: "white", margin: "1vw", bottom: "-1.5vw"}} />
+                </div>     
+                <Spacer height={"10vw"} />
+
                 <div style={{ height: "auto", width: "50vw", margin: "0 auto", position: "relative" }}>
 
                     <div className={border1} />
