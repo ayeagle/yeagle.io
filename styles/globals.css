@@ -120,7 +120,7 @@ h4 {
 }
 
 h5 {
-  font-size: calc(20px + .2vw);
+  font-size: calc(20px + .1vw);
   font-weight: 200;
 
 }
@@ -134,4 +134,51 @@ p {
 li {
   font-size: calc(10px + .5vw);
   font-weight: 200;
+}
+
+
+@media (max-width: 800px) {
+
+
+
+  h1 { 
+    font-size: calc(3vh);
+    font-weight: 400;
+  }
+  
+  h2 {
+    font-size: calc(2.5vh);
+    font-weight: 300;
+  
+  }
+  
+  h3 {
+    font-size: calc(2vh);
+    font-weight: 300;
+  
+  }
+  
+  h4 {
+    font-size: calc(1.5vh);
+    font-weight: 200;
+  
+  }
+  
+  h5 {
+    font-size: calc(1vh);
+    font-weight: 200;
+  
+  }
+  
+  
+  p {
+    font-size: calc(10px + .5vw);
+    font-weight: 200;
+  }
+  
+  li {
+    font-size: calc(10px + .5vw);
+    font-weight: 200;
+  }
+  
 }
