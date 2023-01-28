@@ -456,7 +456,7 @@ export default function Main() {
             <div className={styles.mini_master}>
 
                 <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
-                <Spacer height="5vw" />
+                <Spacer height={width < 800 ? "5vw" : "5vw"} />
 
                 <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "center" }}>
 
@@ -474,7 +474,7 @@ export default function Main() {
                     <br/>and more...`} />
                     </h4>
                 </div>
-                <Spacer />
+                <Spacer height={width < 800 ? "5vw" : "5vw"} />
 
                 <div className={styles.left_right_wrapper}>
 
@@ -493,14 +493,14 @@ export default function Main() {
 
                     </div>
                 </div>
-                <Spacer height={"20vh"} />
+                <Spacer height={width < 800 ? "10vh" : "5vh"} />
                 <div className={styles.section_header_wrapper}>
                     <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw"}}>01</h2>
                     <h2 id="resume">Resume </h2>
                     <div style={{ position: "relative", marginLeft: "3vw", width: "40%", height: ".1px", backgroundColor: "white", margin: "1vw", bottom: "-1.5vw"}} />
                 </div>
                 {/* <h1 id="resume">Resume </h1> */}
-                <Spacer height={"10vh"} />
+                <Spacer height={width < 800 ? "10vh" : "10vh"} />
                 <div style={{ height: "auto", width: "50vw", margin: "0 auto", position: "relative" }}>
                     <div className={border1} />
                     <div className={border2} />
@@ -521,10 +521,11 @@ export default function Main() {
 
                     </div>
                 </div>
-                <Spacer height={"15vh"} />
+                <Spacer height={width < 800 ? "10vh" : "10vh"} />
 
                 <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
-                <Spacer height={"calc(25vh - 15vw)"} />
+                <Spacer height={width < 800 ? "20vh" : "5vh"} />
+
                 <Quotes style={{ position: "relative" }} ref={jobsRef}/>
                 <Spacer height={"15vh"} />
 
@@ -604,7 +605,7 @@ export default function Main() {
                 </div>
                 <Spacer height={"15vh"} />
                 <div style={{ position: "relative" }} >
-                    <div >
+                    <div style={{display: width <  800 ? "none" : ""}}>
 
                         <h3 className={styles.image_text_center} style={{ top: "45%", fontWeight: 200 }}>I'm also a drone videographer!</h3>
                         {/* <div height={600}> */}
