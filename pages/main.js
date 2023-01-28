@@ -126,6 +126,7 @@ export default function Main() {
 
     const targetRef1 = useRef(null);
     const targetRef2 = useRef(null);
+    const jobsRef = useRef(null);
 
 
     useEffect(() => {
@@ -137,8 +138,19 @@ export default function Main() {
             }
         }
         )
+
+        // const jobsObserver = new IntersectionObserver((entries) => {
+        //     if (entries[0].isIntersecting) {
+        //         setBorderAfter()
+        //     } else {
+        //         setBorderNeutral()
+        //     }
+        // }
+        // )
+
         observer.observe(targetRef1.current);
         observer.observe(targetRef2.current);
+        // jobsObserver.observe(jobsRef.current);
 
         return () => {
             observer.unobserve(targetRef1.current);
@@ -489,7 +501,7 @@ export default function Main() {
                 </div>
                 {/* <h1 id="resume">Resume </h1> */}
                 <Spacer height={"10vh"} />
-                <div style={{ position: "relative", textAlign: "center" }} >
+                <div style={{ height: "auto", width: "50vw", margin: "0 auto", position: "relative" }}>
                     <div className={border1} />
                     <div className={border2} />
                     <div className={border3} />
@@ -500,12 +512,12 @@ export default function Main() {
 
                     <div >
                         <h3 ref={targetRef1} className={styles.vc} style={{ right: (Math.min(determineGlideIn(.3), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</h3>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') }}>2x Accel                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') }}>1x FAANG                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') }}>2x Seqouia                 </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') }}>1x 500 Startups                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') }}>2x Y Combinator                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') }}>2x First Round Capital                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') , opacity: (determineFadeIn(200, .3) + '%')}}>2x Accel                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') , opacity: (determineFadeIn(300, .3) + '%')}}>1x FAANG                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') , opacity: (determineFadeIn(400, .3) + '%') }}>2x Seqouia                 </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') , opacity: (determineFadeIn(500, .3) + '%') }}>1x 500 Startups                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') , opacity: (determineFadeIn(600, .3) + '%') }}>2x Y Combinator                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') , opacity: (determineFadeIn(700, .3) + '%') }}>2x First Round Capital                </h2>
 
                     </div>
                 </div>
@@ -513,7 +525,7 @@ export default function Main() {
 
                 <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
                 <Spacer height={"calc(25vh - 15vw)"} />
-                <Quotes style={{ position: "relative" }} />
+                <Quotes style={{ position: "relative" }} ref={jobsRef}/>
                 <Spacer height={"15vh"} />
 
                 <div className={styles.section_header_wrapper}>
@@ -591,11 +603,6 @@ export default function Main() {
                     </div>
                 </div>
                 <Spacer height={"15vh"} />
-
-                <Spacer height={"10vh"} />
-                {/* <SVGSpacers type="top" num="2" width={width} />
-            <SVGSpacers type="bot" num="3" width={width} /> */}
-                <Spacer height={"5vw"} />
                 <div style={{ position: "relative" }} >
                     <div >
 

@@ -22,7 +22,7 @@ export default function JobSection({ open, setOpen }) {
             logo_pic: "/NewIMGassets/METAL.png",
             hard_skills: [["PostgresQL", 86], ["Presto", 60], ["React", 46], ["Scuba", 30], ["Python Scripting", 20]],
             soft_skills: [["Influence w/o Authority", 67], ["Feature/Fix Efficiency", 55], ["Finding PMF", 40]],
-            top_move_perc: "4.5vw",
+            top_move_perc: "5vw",
             // details_view_height: "45vw",
 //            logo_pic: "/NewIMGassets/meta_2.png",
 
@@ -43,7 +43,7 @@ export default function JobSection({ open, setOpen }) {
             logo_pic: "/NewIMGassets/CIQL.png",
             hard_skills: [["Excel", 83], ["SQL", 69], ["Python", 29]],
             soft_skills: [["Problem Solving", 82], ["Product Strategy", 72], ["Collaboration", 40]],
-            top_move_perc: "2.5vw",
+            top_move_perc: "3vw",
             // details_view_height: "40vw",
 //            logo_pic: "/NewIMGassets/CIQ_4.png",
 
@@ -65,7 +65,7 @@ export default function JobSection({ open, setOpen }) {
             logo_pic: "/NewIMGassets/GUIDEL.png",
             hard_skills: [["Excel", 60], ["Salesforce", 45], ["Product/Design Tooling", 30], ["SQL", 15]],
             soft_skills: [["Product Strategy", 83], ["Growth Strategy", 75], ["Operating in Uncertainty", 43]],
-            top_move_perc: "2vw",
+            top_move_perc: "2.5vw",
             // details_view_height: "40vw",
             // logo_pic: "/NewIMGassets/guide_2.jpg",
 // 
@@ -85,7 +85,7 @@ export default function JobSection({ open, setOpen }) {
             logo_pic: "/NewIMGassets/SIFTL.png",
             hard_skills: [["Salesforce", 49], ["Excel", 32]],
             soft_skills: [["Leadership", 84], ["Process Optimization", 69], ["Project Scoping", 42], ["Collaboration", 33]],
-            top_move_perc:"5.5vw",
+            top_move_perc:"6vw",
             // details_view_height: "30vw",
 // /            logo_pic: "/NewIMGassets/sift_2.png",
 
@@ -228,12 +228,12 @@ export default function JobSection({ open, setOpen }) {
                 {elements.map((elements, index) => (
                     <div className={styles.jobs_container}>
 
-                        <div className={styles.logo_container}  style={{border: currOpen == index && open ? "1px solid white" : "", boxShadow: currOpen == index && open ? "0 0 40px 40px rgba(0, 0, 0, 0.274)" : ""}}
+                        <div className={styles.logo_container}  style={{border: currOpen == index && open ? "3px solid rgb(0, 187, 224)" : "", boxShadow: currOpen == index && open ? "0 0 40px 40px rgba(0, 0, 0, 0.274)" : "", transition: ".3s"}}
 >
                             <div className={styles.arrow}
                                 onClick={() => openClick(index)}
                                 onMouseEnter={() => hoverIndexSet(index)}
-                                style={{border: "1px solid white"}}
+                                // style={{border: "1px solid white"}}
                             >
                                 <div className={styles.arrow_details_header} >
                                     <a href={elements.company_url} target="_blank"><h5 className={styles.details_header_units}>{elements.company} &#128279;</h5></a>
