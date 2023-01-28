@@ -68,7 +68,7 @@
 
 .logo_container {
     width: 100%;
-    height: 20vw;
+    height: 17.5vw;
     position: relative;
     overflow: hidden;
     opacity: 100% !important;
@@ -80,7 +80,7 @@
 
 
 .logo {
-    width: 20vw;
+    width: 17.5vw;
     padding: 3vw;
     height: auto;
     z-index: 0;
@@ -109,9 +109,6 @@
     opacity: 0%;
     transition: .5s;
     border-radius: 50px;
-    /* padding: 3vw; */
-
-
 }
 
 .arrow:hover {
@@ -119,8 +116,6 @@
     padding-top: 30%;
     transition: .3s;
     opacity: 100%;
-    padding: -3vw;
-
 }
 
 .arrow_down {

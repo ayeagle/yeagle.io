@@ -208,11 +208,9 @@ export default function Quotes({boopBoop, setBoopBoop}) {
                         <div className={styles.carousel_element_left} style={{ fontSize: "2.5vw", zIndex: 5000 }}>
                             <img src={element.pic} style={{ width: "20vw", height: "20vw", borderRadius: "100%" , zIndex: 5000}} />
 
-                            {element.author}
-                            <br></br>
-                            {element.role}
-                            <br></br>
-                            {element.company}
+                            <h3>{element.author}</h3>
+                            <h4>{element.role}</h4>
+                            <h4>@ {element.company}</h4>
                         </div>
                         <div className={styles.carousel_element_right} >
                             <div

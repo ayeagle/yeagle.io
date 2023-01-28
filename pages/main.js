@@ -458,13 +458,13 @@ export default function Main() {
                 <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
                 <Spacer height="5vw" />
 
-                <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+                <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "center" }}>
 
                     <div className={styles.image_container}>
                         <img src="/IMGassets/me2.png" className={styles.image} />
                     </div>
                     <div className={styles.scroller}><div className={scrollerState}><br /><br />&#x21d3;</div></div>
-                    <h3 className={styles.image_text}>
+                    <h4 className={styles.image_text}>
                         {/* <Typing content={"Self-taught developer and product enthusiast with a passion for building customer-obsessed solutions."} /> */}
                         <Typing content={`Self-taught developer
                     <br/>Product enthusiast
@@ -472,7 +472,7 @@ export default function Main() {
                     <br/>Avid learner
                     <br/>Builder
                     <br/>and more...`} />
-                    </h3>
+                    </h4>
                 </div>
                 <Spacer />
 
@@ -611,7 +611,7 @@ export default function Main() {
                         {/* <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} /> */}
                         {/* </div> */}
                         <div className={styles.video} onHover={() => setBoopBoop(!boopBoop)}>
-                            <iframe className={styles.video_inner} style={{ pointerEvents: "none", borderRadius: "40px" }} width={width} height={width >= 2000 ? width * .375 : width * .45} src={`https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=${icelandStart}`} align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe className={styles.video_inner} style={{ pointerEvents: "none", borderRadius: "40px" }} width={width} height={width >= 2000 ? width * .375 : width * .398} src={`https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=${icelandStart}`} align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
                 </div>

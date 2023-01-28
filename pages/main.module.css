@@ -10,7 +10,7 @@
 
 .mini_master {
     position: relative;
-    width: 80vw;
+    width: 70vw;
     margin: 0 auto;
     min-width: 400px;
     max-width: 1500px;
@@ -54,8 +54,8 @@
 
 .video {
     z-index: 1;
-    width: 80vw;
-    height: 44.8 vw;
+    width: 70vw;
+    height: 39.2 vw;
     /* height: auto; */
     /* position: absolute; */
     padding-top: -10vw;
@@ -79,8 +79,8 @@
 
 .video_inner {
     z-index: 1;
-    width: 80vw;
-    height: 44.8 vw;
+    width: 70vw;
+    height: 39.2 vw;
     /* height: auto; */
     /* position: absolute; */
     padding-top: -10vw;
@@ -96,7 +96,7 @@
 
 .image_text {
     z-index: 1010;
-    width: 30%;
+    width: 40%;
     position: relative;
     /* font-size: 3vw; */
     text-align: left;
@@ -104,8 +104,9 @@
     /* top: 10%; */
     /* left: 55%; */
     /* left: calc(100% - 50%); */
-    padding: 5px;
+    /* padding: 5px; */
     height: 25vw;
+    left:-3%;
     /* color: black; */
     top: 8vw;
     z-index: 1010;
