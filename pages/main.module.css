@@ -778,7 +778,7 @@
 .project_details_left {
     position: relative;
     background-color: rgb(20, 23, 41);
-    padding: 1vw;
+    padding: 2vw;
 border-radius: 5px;
 box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
 /* border:    3px solid rgb(0, 187, 224); */
@@ -861,7 +861,7 @@ box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
 .project_details_right {
     position: relative;
     background-color: rgb(20, 23, 41);
-    padding: 1vw;
+    padding: 2vw;
 border-radius: 5px;
 box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
 /* border:    3px solid rgb(0, 187, 224); */
