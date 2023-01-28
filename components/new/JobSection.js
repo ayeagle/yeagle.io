@@ -177,7 +177,7 @@ export default function JobSection({ open, setOpen }) {
     }
 
     // console.log(yOffset)
-    if (Math.abs((yOffset / yTotal) - .275) <= .01 && !open && once == 0) {
+    if (Math.abs((yOffset / yTotal) - .15) <= .01 && !open && once == 0) {
         openClick(0)
         setOnce(1)
     }

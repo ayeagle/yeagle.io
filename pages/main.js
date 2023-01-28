@@ -40,8 +40,8 @@ sorry
 
 
 let glideArray = Array(10)
-let startVal = .4
-let increment = .09
+let startVal = .1
+let increment = .05
 
 for (let i = 0; i < glideArray.length; i++) {
     glideArray[i] = startVal + increment * (i)
@@ -476,7 +476,7 @@ export default function Main() {
                 </div>
                 <Spacer height={width < 800 ? "5vw" : "5vw"} />
 
-                <div className={styles.left_right_wrapper}>
+                {/* <div className={styles.left_right_wrapper}>
 
                     <div className={styles.left_container}>
                         <h3 style={{ padding: "7vw", opacity: (determineFadeIn(0, .3) + '%') }}
@@ -492,7 +492,7 @@ export default function Main() {
                         <a href="#resume" style={{ opacity: (determineFadeIn(150, .1) + '%'), left: "-7vw", position: "relative" }} ><NavButton buttonName={"Contact"} /></a>
 
                     </div>
-                </div>
+                </div> */}
                 <Spacer height={width < 800 ? "10vh" : "5vh"} />
                 <div className={styles.section_header_wrapper}>
                     <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw"}}>01</h2>
@@ -511,13 +511,13 @@ export default function Main() {
 
 
                     <div >
-                        <h3 ref={targetRef1} className={styles.vc} style={{ right: (Math.min(determineGlideIn(.3), 0) + 'vw') }}>Worked on hypergrowth solutions backed by...</h3>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') , opacity: (determineFadeIn(200, .3) + '%')}}>2x Accel                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') , opacity: (determineFadeIn(300, .3) + '%')}}>1x FAANG                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') , opacity: (determineFadeIn(400, .3) + '%') }}>2x Seqouia                 </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') , opacity: (determineFadeIn(500, .3) + '%') }}>1x 500 Startups                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') , opacity: (determineFadeIn(600, .3) + '%') }}>2x Y Combinator                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') , opacity: (determineFadeIn(700, .3) + '%') }}>2x First Round Capital                </h2>
+                        <h3  className={styles.vc} style={{  }}>Worked on hypergrowth solutions backed by...</h3>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') , opacity: (determineFadeIn(100, .3) + '%')}}>2x Accel                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') , opacity: (determineFadeIn(125, .2) + '%')}}>1x FAANG                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') , opacity: (determineFadeIn(150, .2) + '%') }}>2x Seqouia                 </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') , opacity: (determineFadeIn(175, .2) + '%') }}>1x 500 Startups                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') , opacity: (determineFadeIn(200, .2) + '%') }}>2x Y Combinator                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') , opacity: (determineFadeIn(225, .2) + '%') }} ref={targetRef1}>2x First Round Capital                </h2>
 
                     </div>
                 </div>
@@ -564,20 +564,20 @@ export default function Main() {
 
                 <div className={styles.project_container_right}>
                     <div className={styles.project_details_wrapper_right}>
-                        <h3 className={styles.project_header_right}> Pomodomo </h3>
+                        <h3 className={styles.project_header_right}> Meta Data Engineering </h3>
 
-                        <h4 className={styles.project_details_right}>  A web-hosted customizable pomodoro timer with built in APIs for dad jokes and celebratory gifs during break sessions.  </h4>
+                        <h4 className={styles.project_details_right}> Created 10+ Dataswarm (Meta's version of Apache Airflow) pipelines to collect system/task data to power an ecosystem of dashboards reporting on bug health and engineering throughput.</h4>
 
                         <div className={styles.project_technicals_right}>
-                            <h5>React</h5>
-                            <h5>Redux</h5>
-                            <h5>NextJS</h5>
-                            <h5>Axios</h5>
-                            <h5>SVGs</h5>
+                            <h5>Presto</h5>
+                            <h5>Python</h5>
+                            <h5>PHP</h5>
+                            <h5>Dataswarm</h5>
+                            <h5>Hive</h5>
                         </div>
 
                     </div>
-                    <img className={styles.project_image_right} src="newIMGassets/pomodomo.png" />
+                    <img className={styles.project_image_right} src="newIMGassets/dataswarm.png" />
                     <div className={styles.project_image_blocker_right}></div>
 
                 </div>
@@ -602,6 +602,27 @@ export default function Main() {
 
 
                     </div>
+                </div>
+                <Spacer height={"10vh"} />
+
+                <div className={styles.project_container_right}>
+                    <div className={styles.project_details_wrapper_right}>
+                        <h3 className={styles.project_header_right}> Pomodomo (Project 1) </h3>
+
+                        <h4 className={styles.project_details_right}>  A web-hosted customizable pomodoro timer with built in APIs for dad jokes and celebratory gifs during break sessions.  </h4>
+
+                        <div className={styles.project_technicals_right}>
+                            <h5>React</h5>
+                            <h5>Redux</h5>
+                            <h5>NextJS</h5>
+                            <h5>Axios</h5>
+                            <h5>SVGs</h5>
+                        </div>
+
+                    </div>
+                    <img className={styles.project_image_right} src="newIMGassets/pomodomo.png" />
+                    <div className={styles.project_image_blocker_right}></div>
+
                 </div>
                 <Spacer height={"15vh"} />
                 <div style={{ position: "relative" }} >
