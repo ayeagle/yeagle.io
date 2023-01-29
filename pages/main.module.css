@@ -106,7 +106,7 @@
     /* left: calc(100% - 50%); */
     /* padding: 5px; */
     height: 25vw;
-    left:-3%;
+    left: -3%;
     /* color: black; */
     top: 8vw;
     z-index: 1010;
@@ -735,8 +735,8 @@
 }
 
 .project_image_blocker_left {
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     position: absolute;
     width: 50%;
     height: 100%;
@@ -770,7 +770,7 @@
     /* left: 60%; */
     width: 100%;
     text-align: right;
-    color:  rgb(0, 187, 224);
+    color: rgb(0, 187, 224);
     z-index: 50;
 
 }
@@ -779,11 +779,11 @@
     position: relative;
     background-color: rgb(20, 23, 41);
     padding: 2vw;
-border-radius: 5px;
-box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
-/* border:    3px solid rgb(0, 187, 224); */
+    border-radius: 5px;
+    box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
+    /* border:    3px solid rgb(0, 187, 224); */
 
-/* width: 60%; */
+    /* width: 60%; */
     /* left: 50%; */
 }
 
@@ -813,15 +813,15 @@ box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
 .project_image_right {
     position: relative;
     width: 50%;
-    left:50%;
+    left: 50%;
     height: auto;
     border-radius: 10px;
     /* z-index:1; */
 }
 
 .project_image_blocker_right {
-    top:0;
-    right:0;
+    top: 0;
+    right: 0;
     position: absolute;
     width: 50%;
     height: 100%;
@@ -853,7 +853,7 @@ box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
     position: relative;
     width: 100%;
     text-align: left;
-    color:  rgb(0, 187, 224);
+    color: rgb(0, 187, 224);
     z-index: 50;
 
 }
@@ -862,11 +862,11 @@ box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
     position: relative;
     background-color: rgb(20, 23, 41);
     padding: 2vw;
-border-radius: 5px;
-box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
-/* border:    3px solid rgb(0, 187, 224); */
+    border-radius: 5px;
+    box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
+    /* border:    3px solid rgb(0, 187, 224); */
 
-/* width: 60%; */
+    /* width: 60%; */
     /* left: 50%; */
 }
 
@@ -880,11 +880,21 @@ box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
 }
 
 
-.section_header_wrapper{
+.section_header_wrapper {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-content: left;
+}
 
+.section_header_line {
+    position: relative;
+    margin-left: 3vw;
+    width: 60%;
+    height: 1px;
+    background-color: white;
+    margin: 1vw;
+    bottom: -1.5vw;
+    z-index: 10;
 }
