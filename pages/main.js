@@ -11,7 +11,7 @@ import styles from './main.module.css';
 import Iceland from "@components/bio/Iceland";
 import NavButton from "@components/new/NavButton";
 import Carousel from "@components/bio/Carousel";
-import Typing from "@components/bio/Typing";
+import Typing from "@components/new/Typing";
 import Flood from "@components/bio/Flood";
 import Flood2 from "@components/bio/Flood2";
 import { useSelector, useDispatch } from "react-redux";
