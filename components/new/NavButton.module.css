@@ -1,6 +1,6 @@
 .button {
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   /* color: #FFFFFF; */
@@ -23,7 +23,7 @@
   transition: 1.5s;
   box-shadow: 10px 10px 0 0 white;
   padding: 1.5vw;
-  background-color: rgba(255, 255, 255, .05)
+  /* background-color: rgba(255, 255, 255, .05) */
 }
 
 .button span {

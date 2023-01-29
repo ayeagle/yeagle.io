@@ -6,6 +6,11 @@ export default function Socials({size,loc, orientation}) {
     // console.log(size + "?this is the size prop")
     // console.log(loc + "?this is the loc prop")
 
+    function sendEmail() {
+        window.open('mailto:alexyeagle@gmail.com,alex@yeagle.io?subject=Would love to chat!&body=Hey Alex I saw your website and...');
+    }
+
+
     return (
         <>
             {/* <icons.FaFacebook /> */}
@@ -16,6 +21,8 @@ export default function Socials({size,loc, orientation}) {
                 <div className={styles.social} style={{fontSize:size, justifyContent:loc}}> <a href="https://www.linkedin.com/in/ayeagle/" target="_blank"><icons.FaLinkedin style={{fill:"white"}}/></a></div>
                 <div className={styles.social} style={{fontSize:size, justifyContent:loc}}> <a href="https://github.com/ayeagle" target="_blank"><icons.FaGithub style={{fill:"white"}}/></a></div>
                 <div className={styles.social} style={{fontSize:size, justifyContent:loc}}> <a href="https://www.instagram.com/alexyeagle/" target="_blank"><icons.FaInstagram style={{fill:"white"}}/></a></div>
+                <div className={styles.social} style={{fontSize:size, justifyContent:loc}} onClick={sendEmail}><a> <icons.FaEnvelope style={{fill:"white"}}/></a></div>
+
             </div>
         </>
     )

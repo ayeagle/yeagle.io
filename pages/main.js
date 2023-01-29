@@ -85,6 +85,9 @@ let courses = [
     }
 ]
 
+function sendEmail() {
+    window.open('mailto:alexyeagle@gmail.com,alex@yeagle.io?subject=Would love to chat!&body=Hey Alex I saw your website and...');
+}
 
 
 
@@ -115,7 +118,6 @@ export default function Main() {
     const [currCourse, setCurrCourse] = useState(0)
     const [runOnce, setRunOnce] = useState(false)
     const [scrollerState, setScrollerState] = useState(styles.scroller_inner_state1)
-    const [borderStage, setBorderStage] = useState('_stage1')
     const [border1, setBorder1] = useState(styles.corner_border_top_left)
     const [border2, setBorder2] = useState(styles.corner_border_top_right)
     const [border3, setBorder3] = useState(styles.corner_border_bottom_left)
@@ -129,39 +131,9 @@ export default function Main() {
     const jobsRef = useRef(null);
 
 
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                setBorderAfter()
-            } else {
-                setBorderNeutral()
-            }
-        }
-        )
-
-        // const jobsObserver = new IntersectionObserver((entries) => {
-        //     if (entries[0].isIntersecting) {
-        //         setBorderAfter()
-        //     } else {
-        //         setBorderNeutral()
-        //     }
-        // }
-        // )
-
-        observer.observe(targetRef1.current);
-        observer.observe(targetRef2.current);
-        // jobsObserver.observe(jobsRef.current);
-
-        return () => {
-            observer.unobserve(targetRef1.current);
-            observer.unobserve(targetRef2.current);
-        };
-    }, []);
-
-
-
-
-
+    /*//////////////////
+    random functions
+    //////////////////*/
 
     const setBorderNeutral = () => {
         setBorder1(styles.corner_border_top_left)
@@ -175,43 +147,48 @@ export default function Main() {
         setBorder3(styles.corner_border_bottom_left_stage1)
         setBorder4(styles.corner_border_bottom_right_stage1)
     }
-    console.log("flip value is normal at : " + flip)
-    // const borderChange = () => {
-    //     console.log("border change was invoked")
-    //     console.log("flip value is... + " + flip)
 
-    //     // setFlip(!flip)
-    //     if (flip) {
-    //         setBorder1(styles.corner_border_top_left_stage1)
-    //         setBorder2(styles.corner_border_top_right_stage1)
-    //         setBorder3(styles.corner_border_bottom_left_stage1)
-    //         setBorder4(styles.corner_border_bottom_right_stage1)
-    //     } else {
-    //         setBorder1(styles.corner_border_top_left)
-    //         setBorder2(styles.corner_border_top_right)
-    //         setBorder3(styles.corner_border_bottom_left)
-    //         setBorder4(styles.corner_border_bottom_right)
+    const determineFadeIn = (subVal, rate) => {
+        let retVal = ((yOffset / width) * 100 - subVal * .1) / rate
+        return retVal
+    }
 
-    //     }
-    //     setFlip(!flip)
-
-    // }
-
-    // useEffect(() => {
-    //     console.log("this is th y offset")
-    //     console.log(yOffset)
+    const determineGlideIn = (start, end, special) => {
+        let retVal = 0
+        if (special == true) {
+            retVal = Math.floor(yOffset / 100) * 10
+        } else {
+            retVal = (((yOffset / width) - start)) * 100
+        }
+        return retVal
+    }
 
     setTimeout(() => {
         setIcelandStart(icelandStart + 1)
     }, [180000])
-    // }, [yOffset])
 
+    /*//////////////////
+    UseEffect functions
+    //////////////////*/
 
-    // const noise =  noise2D
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                setBorderAfter()
+            } else {
+                setBorderNeutral()
+            }
+        }
+        )
 
-    function sendEmail() {
-        window.open('mailto:alexyeagle@gmail.com,alex@yeagle.io?subject=Would love to chat!&body=Hey Alex I saw your website and...');
-    }
+        observer.observe(targetRef1.current);
+        observer.observe(targetRef2.current);
+
+        return () => {
+            observer.unobserve(targetRef1.current);
+            observer.unobserve(targetRef2.current);
+        };
+    }, []);
 
     useEffect(() => {
         setTimeout(() => {
@@ -222,29 +199,19 @@ export default function Main() {
         }, [15000])
     }, [])
 
-
     useEffect(() => {
-        // Update the height and width state when the component is mounted
         updateHeight(window.scrollHeight)
         updateWidth(window.innerWidth)
-        // setTotalHeight(document.body.scrollHeight)
         setTotalHeight(window.outerHeight)
 
-        console.log("this is the height (useeffect) ==> " + height)
-        console.log("this is the width (useeffect) ==> " + width)
-
-
         function handleWindowResize() {
-            // Update the height and width state when the window is resized
             updateHeight(window.innerHeight)
             updateWidth(window.innerWidth)
         }
 
-        // Add the event listener
         window.addEventListener('resize', handleWindowResize)
 
         let userId = 20 //document.cookie.substr( document.cookie.indexOf("=")+1, document.cookie.indexOf("=") + 36)
-        // let activity = "loading the about page"
         let timestamp = new Date().toISOString()
 
         if (limiter <= 3) {
@@ -252,36 +219,18 @@ export default function Main() {
             LogActivity(userId, "loaded about page")
         }
 
+        setTimeout(() => {
+            setScrollerState(styles.scroller_inner_state2)
+        }, [7000])
+        setTimeout(() => {
+            setScrollerState(styles.scroller_inner_state1)
+        }, [15000])
 
-
-
-
-
-        // Clean up the event listener when the component unmounts
         return () => {
             window.removeEventListener('resize', handleWindowResize)
         }
     }, [])
 
-    const [temp, setTemp] = useState('')
-
-    const determineFadeIn = (subVal, rate) => {
-        let retVal = ((yOffset / width) * 100 - subVal * .1) / rate
-        // console.log(retVal)
-        return retVal
-    }
-
-
-    const determineGlideIn = (start, end, special) => {
-        let retVal = 0
-        if (special == true) {
-            retVal = Math.floor(yOffset / 100) * 10
-        } else {
-            retVal = (((yOffset / width) - start)) * 100
-        }
-        // console.log(retVal)
-        return retVal
-    }
 
     useEffect(() => {
         window.addEventListener('scroll', function () {
@@ -289,59 +238,24 @@ export default function Main() {
         })
     }, [yOffset, trans])
 
-    useEffect(() => {
-
-        // setTemp(determineGlideIn(300, 20))
-
-        // if (yOffset >= 300) {
-        //     // setTrans(styles.left_container_after)
-        //     // setTemp('A broad range of experiences across product, operations, analytics, and engineering has given my development work diversity and perspective.')
-        //     console.log("AAAFFTTTTEERRRR")
-        //     console.log(temp)
-
-        // } else {
-        //     // setTrans(styles.left_container)
-        //     console.log("BBEEEERFFFFOOOOORRREEE")
-        //     // setTemp('')
-        // }
-    }, [yOffset])
-
-    // console.log("this is the y : " + yOffset)
-
-
     const canvasRef = useRef(null);
     let count = 0
     let interVar = 200
-
-
     let xstore = 0
     let ystore = 0
-
     let positions = Array(3).fill([])
-
-    const outsideResizeCanvas = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = document.body.scrollHeight;
-    }
-
 
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = 'green';
 
-
-
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = document.body.scrollHeight;
-
         }
         window.addEventListener('resize', resizeCanvas)
-
         resizeCanvas();
-
-
 
         function animate() {
 
@@ -369,7 +283,6 @@ export default function Main() {
                     }
                 }
             }
-
         }
 
         document.addEventListener('mousemove', event => {
@@ -377,25 +290,13 @@ export default function Main() {
                 positions[j].push({ x: event.pageX + Math.sin(event.pageX), y: event.pageY + Math.sin(event.pageY) });
                 xstore = event.pageX + Math.sin(event.pageX)
                 ystore = event.pageY + Math.sin(event.pageY)
-
                 if (positions[j].length >= interVar) positions[j].shift()
-
             }
-
         });
 
         const interval = setInterval(() => {
-
             for (let j = 0; j < positions.length; j++) {
-                // console.log("this is the positions object data")
-                // console.log(positions)
                 if (positions[j].length > 2) {
-                    // console.log(xstore)
-                    // console.log(positions[j][positions.length - 1].x)
-                    // console.log(ystore)
-                    // console.log(positions[j][positions.length - 1].y)
-                    // console.log(positions[j])
-
                     if (
                         Math.abs(
                             positions[j][positions.length - 1].x
@@ -408,34 +309,15 @@ export default function Main() {
                         ) < 400) {
                         positions[j].shift()
                     }
-
-                    // if (
-                    //     Math.abs(
-                    //         positions[j][0].x
-                    //         - positions[j][1].x
-                    //     ) < 200
-                    //     &&
-                    //     Math.abs(
-                    //         positions[j][0].y
-                    //         - positions[j][1].y
-                    //     ) < 200) {
-                    //     positions[j].shift()
-                    // }
                 }
             }
         }, 30);
 
-
-
-
         animate();
         return () => clearInterval(interval);
-
-
-
     }, [open, boopBoop, currCourse]);
 
-    // const deleteLines = () => {
+    //don't worry about this........
     if (Math.abs(yOffset - 3000) <= 100 && runOnce == 0) {
         setBoopBoop(!boopBoop)
         setRunOnce(1)
@@ -444,108 +326,86 @@ export default function Main() {
         }, [5000])
     }
 
-    console.log(yOffset)
-
     return (
 
         <div className={styles.master} id="top">
-
-
-            <div className={styles.sticky_left}>
-                <Socials orientation={"column"}/>
+            <div className={styles.sticky_left} style={{ display: width < 992 ? "none" : "", zIndex: 20 }}>
+                <Socials orientation={"column"} size={"1.7vw"} />
+                <div style={{ width: "1px", height: "10vw", backgroundColor: "white", position: "relative", left: "50%" }} />
             </div>
-            {/* <div className={styles.sticky_right}>
-                <div style={{transform: "rotate(90deg)", justifyContent: "center"}}>alexyeagle@gmail.com</div>
-                <div style={{width: "1px", height: "10vw", backgroundColor: "white"}}   />
-            </div> */}
-
             <BasicPageTop />
             <NavBar />
             <canvas ref={canvasRef} className={styles.canvas} style={{ height: { totalHeight } + "px" }} />
 
-            <div className={styles.mini_master}>
 
+
+            <div className={styles.mini_master}>
+            <Spacer height={width < 900 ? "5vw" : "5vw"} />
                 <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
                 <Spacer height={width < 900 ? "5vw" : "5vw"} />
 
-                <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "center" }}>
 
+                <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "center" }}>
                     <div className={styles.image_container}>
                         <img src="/IMGassets/me2.png" className={styles.image} />
                     </div>
                     <div className={styles.scroller}><div className={scrollerState}><br /><br />&#x21d3;</div></div>
-                    <h4 className={styles.image_text}>
-                        {/* <Typing content={"Self-taught developer and product enthusiast with a passion for building customer-obsessed solutions."} /> */}
+                    <h3 className={styles.image_text} style={{fontSize: width < 900 ? "3vw" : "2.5vw"}}>
                         <Typing content={`Self-taught developer
                     <br/>Product enthusiast
                     <br/>Behavioral economist
                     <br/>Avid learner
                     <br/>Builder
                     <br/>and more...`} />
-                    </h4>
+                    </h3>
                 </div>
-                <Spacer height={width < 900 ? "5vw" : "5vw"} />
 
-                {/* <div className={styles.left_right_wrapper}>
 
-                    <div className={styles.left_container}>
-                        <h3 style={{ padding: "7vw", opacity: (determineFadeIn(0, .3) + '%') }}
-                            className={styles.left_container}
-                        >  A broad range of experiences across product, operations, analytics, and engineering has given my development work diversity and perspective.
-                        </h3>
-                    </div>
-                    <div className={styles.right_container}>
-                        <a href="#resume" style={{ opacity: (determineFadeIn(0, .3) + '%'), left: "-7vw", position: "relative" }}><NavButton buttonName={"Resume"} /></a>
-                        <Spacer height={"5vw"} />
-                        <a href="/portfolio" style={{ opacity: (determineFadeIn(75, .2) + '%'), left: "-7vw", position: "relative" }}><NavButton buttonName={"Projects"} /></a>
-                        <Spacer height={"5vw"} />
-                        <a href="#resume" style={{ opacity: (determineFadeIn(150, .1) + '%'), left: "-7vw", position: "relative" }} ><NavButton buttonName={"Contact"} /></a>
 
-                    </div>
-                </div> */}
-                <Spacer height={width < 900 ? "10vh" : "5vh"} />
+                <Spacer height={width < 900 ? "20vh" : "15vh"} />
                 <div className={styles.section_header_wrapper}>
-                    <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700}}>01</h2>
+                    <h2 style={{ position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700 }}>01</h2>
                     <h2 id="resume">Resume </h2>
                     <div className={styles.section_header_line} />
                 </div>
-                {/* <h1 id="resume">Resume </h1> */}
+
                 <Spacer height={width < 900 ? "10vh" : "10vh"} />
                 <div style={{ height: "auto", width: "50vw", margin: "0 auto", position: "relative" }}>
                     <div className={border1} />
                     <div className={border2} />
                     <div className={border3} />
                     <div className={border4} />
-
-
-
-
                     <div >
-                        <h3  className={styles.vc} style={{  }}>Worked on hypergrowth solutions backed by...</h3>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw') , opacity: (determineFadeIn(100, .3) + '%')}}>2x Accel                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw') , opacity: (determineFadeIn(125, .2) + '%')}}>1x FAANG                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw') , opacity: (determineFadeIn(150, .2) + '%') }}>2x Seqouia                 </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw') , opacity: (determineFadeIn(175, .2) + '%') }}>1x 500 Startups                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw') , opacity: (determineFadeIn(200, .2) + '%') }}>2x Y Combinator                </h2>
-                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw') , opacity: (determineFadeIn(225, .2) + '%') }} ref={targetRef1}>2x First Round Capital                </h2>
-
+                        <h3 className={styles.vc} style={{}}>Worked on hypergrowth solutions backed by...</h3>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[1]), 0) + 'vw'), opacity: (determineFadeIn(100, .3) + '%') }}>2x Accel                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[2]), 0) + 'vw'), opacity: (determineFadeIn(125, .2) + '%') }}>1x FAANG                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[3]), 0) + 'vw'), opacity: (determineFadeIn(150, .2) + '%') }}>2x Seqouia                 </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[4]), 0) + 'vw'), opacity: (determineFadeIn(175, .2) + '%') }}>1x 500 Startups                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[5]), 0) + 'vw'), opacity: (determineFadeIn(200, .2) + '%') }}>2x Y Combinator                </h2>
+                        <h2 className={styles.vc} style={{ right: (Math.min(determineGlideIn(glideArray[6]), 0) + 'vw'), opacity: (determineFadeIn(225, .2) + '%') }} ref={targetRef1}>2x First Round Capital                </h2>
                     </div>
                 </div>
+
+
+
                 <Spacer height={width < 900 ? "10vh" : "10vh"} />
-
                 <JobSection style={{ zIndex: -1 }} open={open} setOpen={setOpen} />
-                <Spacer height={width < 900 ? "40vh" : "5vh"} />
 
-                <Quotes style={{ position: "relative" }} ref={jobsRef}/>
-                <Spacer height={"15vh"} />
 
+
+                <Spacer height={width < 900 ? "25vh" : "0vh"} />
+                <Quotes style={{ position: "relative" }} ref={jobsRef} />
+
+
+
+                <Spacer height={width < 900 ? "40vh" : "15vh"} />
                 <div className={styles.section_header_wrapper}>
-                    <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700}}>02</h2>
+                    <h2 style={{ position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700 }}>02</h2>
                     <h2 id="projects">Projects </h2>
                     <div className={styles.section_header_line} />
-                </div>                
-                <Spacer height={"5vh"} />
+                </div>
 
+                <Spacer height={"5vh"} />
                 <div className={styles.project_container_left}>
                     <img className={styles.project_image_left} src="newIMGassets/giftee.png" />
 
@@ -553,31 +413,22 @@ export default function Main() {
 
                     <div className={styles.project_details_wrapper_left}>
                         <h3 className={styles.project_header_left}> Giftee.io </h3>
-
                         <h4 className={styles.project_details_left}>  SSL encrypted fullstack application to make gift exchanges with friends and family easier. </h4>
-
                         <div className={styles.project_technicals_left}>
                             <h5>React</h5>
                             <h5>NextJS</h5>
                             <h5>Express</h5>
                             <h5>RDS</h5>
                             <h5>EC2</h5>
-
-
                         </div>
-
-
                     </div>
                 </div>
 
                 <Spacer height={"10vh"} />
-
                 <div className={styles.project_container_right}>
                     <div className={styles.project_details_wrapper_right}>
                         <h3 className={styles.project_header_right}> Meta Data Engineering </h3>
-
                         <h4 className={styles.project_details_right}> Created 10+ Dataswarm (Meta's version of Apache Airflow) pipelines to collect system/task data to power an ecosystem of dashboards reporting on bug health and engineering throughput.</h4>
-
                         <div className={styles.project_technicals_right}>
                             <h5>Presto</h5>
                             <h5>Python</h5>
@@ -585,42 +436,33 @@ export default function Main() {
                             <h5>Dataswarm</h5>
                             <h5>Hive</h5>
                         </div>
-
                     </div>
                     <img className={styles.project_image_right} src="newIMGassets/dataswarm.png" />
                     <div className={styles.project_image_blocker_right}></div>
-
                 </div>
-                <Spacer height={"10vh"} />
 
+                <Spacer height={"10vh"} />
                 <div className={styles.project_container_left}>
                     <img className={styles.project_image_left} src="newIMGassets/personal.png" />
-
                     <div className={styles.project_image_blocker_left}></div>
-
                     <div className={styles.project_details_wrapper_left}>
                         <h3 className={styles.project_header_left}> Personal Site v1 </h3>
-
                         <h4 className={styles.project_details_left}> Version one of personal website focused on responsive animation and stateful components.  </h4>
-
                         <div className={styles.project_technicals_left}>
                             <h5>React</h5>
                             <h5>NextJS</h5>
                             <h5>Express</h5>
                             <h5>RDS</h5>
-                            <h5>EC2</h5>                        </div>
-
-
+                            <h5>EC2</h5>
+                        </div>
                     </div>
                 </div>
-                <Spacer height={"10vh"} />
 
+                <Spacer height={"10vh"} />
                 <div className={styles.project_container_right}>
                     <div className={styles.project_details_wrapper_right}>
                         <h3 className={styles.project_header_right}> Pomodomo (Project 1) </h3>
-
                         <h4 className={styles.project_details_right}>  A web-hosted customizable pomodoro timer with built in APIs for dad jokes and celebratory gifs during break sessions.  </h4>
-
                         <div className={styles.project_technicals_right}>
                             <h5>React</h5>
                             <h5>Redux</h5>
@@ -628,34 +470,33 @@ export default function Main() {
                             <h5>Axios</h5>
                             <h5>SVGs</h5>
                         </div>
-
                     </div>
                     <img className={styles.project_image_right} src="newIMGassets/pomodomo.png" />
                     <div className={styles.project_image_blocker_right}></div>
-
                 </div>
+
+
+
                 <Spacer height={"15vh"} />
                 <div style={{ position: "relative" }} >
-                    <div style={{display: width <  900 ? "none" : ""}}>
-
+                    <div style={{ display: width < 900 ? "none" : "" }}>
                         <h3 className={styles.image_text_center} style={{ top: "45%", fontWeight: 200 }}>I'm also a drone videographer!</h3>
-                        {/* <div height={600}> */}
-                        {/* <Iceland width={width} height={height} className={styles.video} style={{ pointerEvents: "none" }} /> */}
-                        {/* </div> */}
                         <div className={styles.video} onHover={() => setBoopBoop(!boopBoop)}>
                             <iframe className={styles.video_inner} style={{ pointerEvents: "none", borderRadius: "40px" }} width={width} height={width >= 2000 ? width * .375 : width * .398} src={`https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=${icelandStart}`} align-content={"center"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
                 </div>
-                <Spacer height={"5vw"} />
-                <Spacer height={"10vw"} />
+
+
+
+                <Spacer height={"15vw"} />
                 <div className={styles.section_header_wrapper}>
-                    <h2 style={{position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700}}>03</h2>
+                    <h2 style={{ position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700 }}>03</h2>
                     <h2 id="contact">Contact </h2>
                     <div className={styles.section_header_line}></div>
-                </div>     
-                <Spacer height={"10vw"} />
+                </div>
 
+                <Spacer height={"10vw"} />
                 <div style={{ height: "auto", width: "50vw", margin: "0 auto", position: "relative" }}>
 
                     <div className={border1} />
@@ -676,8 +517,7 @@ export default function Main() {
                 </div>
 
 
-                <Spacer />
-                {/* <SVGSpacers type="top" num="2" width={width} /> */}
+                <Spacer height={"15vw"} />
                 <div style={{ zIndex: "100", position: "relative" }}>
                     <PageBot />
                 </div>

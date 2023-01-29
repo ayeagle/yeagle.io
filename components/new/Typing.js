@@ -58,9 +58,9 @@ export default function Typing({ content }) {
 
 
     return (
-        <div  style={{display: "flex", flexDirection: "row", justifyContent: "center"}} >
+        <div  style={{display: "flex", flexDirection: "row", justifyContent: "left", width: "100%"}} >
         {/* <div dangerouslySetInnerHTML={{ __html: displayText + extra}}><span style={{position: "absolute"}}>{spacer}</span> */}
-        <div style={{whiteSpace: "pre-line"}}>{displayText}<span style={{position: "absolute"}}>{spacer}</span></div>
+        <div style={{whiteSpace: "pre-line", width: "100%"}}>{displayText}<span style={{position: "absolute"}}>{spacer}</span></div>
 
         </div>
 

@@ -77,6 +77,24 @@ export default function Quotes({boopBoop, setBoopBoop}) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [caroLive, setCaroLive] = useState(false)
     const [loadingBar, setLoadingBar] = useState(1)
+    const [height, updateHeight] = useState(0)
+    const [width, updateWidth] = useState(0)
+
+
+
+    useEffect(() => {
+        updateHeight(window.scrollHeight)
+        updateWidth(window.innerWidth)
+
+        function handleWindowResize() {
+            updateHeight(window.innerHeight)
+            updateWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', handleWindowResize)
+        return () => {
+            window.removeEventListener('resize', handleWindowResize)
+        }
+    }, [])
 
 
 
@@ -204,7 +222,7 @@ export default function Quotes({boopBoop, setBoopBoop}) {
                     <div
                         key={element.id}
                         className={styles.carousel}
-                        style={{ ...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: element.size , position: "relative", zIndex: 5000}}
+                        style={{ ...(index === currentIndex ? currStyle : (index < currentIndex ? preStyle : postStyle)), fontSize: width < 900 ? `calc(${element.size} + 1vw)`: element.size , position: "relative", zIndex: 5000, flexDirection: width < 900 ? "column" : ""}}
                     >
                         <div className={styles.carousel_element_left} style={{ fontSize: "2.5vw", zIndex: 5000 }}>
                             <img src={element.pic} style={{ width: "20vw", height: "20vw", borderRadius: "100%" , zIndex: 5000}} />
@@ -213,7 +231,7 @@ export default function Quotes({boopBoop, setBoopBoop}) {
                             <h4>{element.role}</h4>
                             <h4>@ {element.company}</h4>
                         </div>
-                        <div className={styles.carousel_element_right} >
+                        <div className={styles.carousel_element_right} style={{height: width  < 900 ? "55vw" : "45vw"}}>
                             <div
                                 className={styles.left_click}
                                 onClick={backClick}>{`\u25c0`}</div>

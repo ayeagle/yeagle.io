@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Socials from "../bio/Socials";
+import Socials from "../new/Socials";
 // import LoginButton from "./LoginButton";
 
 export default function NavBar() {
@@ -81,11 +81,11 @@ export default function NavBar() {
         <>
             {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous" /> */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-black" style={{ background: "none", zIndex: 1000, position: "sticky", top: 0 }}>
-                <h3><a style={{color: "rgb(197, 197, 197)", paddingRight: "2vw"}} href="/main">Alex Yeagle</a></h3>
+                <h3><a style={{color: "rgb(197, 197, 197)", paddingRight: "2vw", textDecoration: "none"}} href="/main">Alex Yeagle</a></h3>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav" style={{ top: "2px", position: "relative" }}>
+                <div className="collapse navbar-collapse" id="navbarNav" style={{ top: "2px", position: "relative"}}>
                     <ul className="navbar-nav">
                         
                         <h4 className={resumeStyle} style={{padding: ".5vw"}}>
@@ -103,7 +103,7 @@ export default function NavBar() {
                         {/* <h4 className={contactStyle} style={{padding: ".5vw"}}>
                             <Socials size={"x-large"} loc={"right"}/>
                         </h4> */}
-                        <h4 className={contactStyle} style={{ padding: ".5vw", position: width < 992 ? "relative" : "absolute", margin: width < 992 ? "0 auto" : "", right: width < 992 ? "" : "0px" }}>
+                        <h4 className={contactStyle} style={{ display: width< 992 ? "":"none", padding: ".5vw", position: width < 992 ? "relative" : "absolute", margin: width < 992 ? "0 auto" : "", right: width < 992 ? "" : "0px" }}>
                             <Socials size={"x-large"} loc={"right"} className="nav-link" />
                         </h4>
                     </ul>

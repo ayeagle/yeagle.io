@@ -28,7 +28,7 @@
     /* top: 3em; */
     position: relative;
     font-weight: 200;
-    width: 90%;
+    /* width: 90%; */
     margin-top: 3vw;
     background-color: rgb(20, 23, 41);
     /* background-color: inherit; */
@@ -38,7 +38,7 @@
     font-size: 1.25em;
     color: white;
     transition:  0s ;
-    right: 0vw;
+margin: 2vw;    
     padding: 4vw;
     /* border-radius: 20px; */
     /* border: 10px solid; */
@@ -46,7 +46,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 45vw;
     transition: 1s;
 
     z-index: 99999;

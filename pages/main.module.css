@@ -19,7 +19,7 @@
 
 .title {
     position: relative;
-    bottom: -8vw;
+    bottom: 0vw;
     font-weight: 200;
     z-index: 500;
 }
@@ -31,13 +31,13 @@
     z-index: 0;
     position: relative;
     left: 0;
-    border-radius: 30px;
+    border-radius: 20px;
     /* top: -7vh; */
     /* height: auto; */
     /* width: auto; */
-    top: -10vw;
+    top: 0vw;
     /* margin-top: -4em; */
-    margin-bottom: -20vw;
+    /* margin-bottom: -20vw; */
     box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.31);
     z-index: 1010;
 
@@ -45,9 +45,13 @@
 }
 
 .image_container {
-    top: 18vw;
+    /* top: 18vw; */
+    top: 0vw;
     width: 45%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     /* box-shadow: 0 0 20px 20px white; */
 
 }
@@ -96,19 +100,21 @@
 
 .image_text {
     z-index: 1010;
-    width: 40%;
+    width: 50%;
     position: relative;
     /* font-size: 3vw; */
     text-align: left;
-    justify-content: left;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     /* top: 10%; */
     /* left: 55%; */
     /* left: calc(100% - 50%); */
     /* padding: 5px; */
     height: 25vw;
-    left: -3%;
+    /* left: -3%; */
     /* color: black; */
-    top: 8vw;
+    top: 0vw;
     z-index: 1010;
     /* color:rgb(0, 187, 224) */
 }
@@ -136,7 +142,7 @@
     top: 10vw;
     position: relative;
     height: 10vw;
-    width: 5%;
+    width: 20%;
     z-index: 200;
     border-radius: 20px;
     display: flex;
@@ -369,7 +375,7 @@
     transform: translate(-50%, -50%);
     width: 50vw;
     height: 15vw;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
     opacity: 0%;
     background-color: black !important;
@@ -412,7 +418,7 @@
     transform: translate(-50%, -50%);
     width: 80vw;
     height: 15vw;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
     opacity: 100% !important;
     box-shadow: none;
@@ -730,7 +736,7 @@
     position: relative;
     width: 50%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 20px;
     /* z-index:1; */
 }
 
@@ -740,7 +746,7 @@
     position: absolute;
     width: 50%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: rgba(0, 187, 224, 0.328);
     /* z-index: 1; */
     transition: .5s;
@@ -815,7 +821,7 @@
     width: 50%;
     left: 50%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 20px;
     /* z-index:1; */
 }
 
@@ -825,7 +831,7 @@
     position: absolute;
     width: 50%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: rgba(0, 187, 224, 0.328);
     /* z-index: 1; */
     transition: .5s;
@@ -912,9 +918,11 @@
 .sticky_right {
     position: fixed;
     bottom: 2vw;
-    right: 0;
+    left: 95%;
+    height: 10vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     /* transform: rotate(90deg) */
     /* width: 5vw; */
     /* height: 30vw; */
