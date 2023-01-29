@@ -106,6 +106,25 @@ export default function JobSection({ open, setOpen }) {
     const [yOffset, setYOffset] = useState(0)
     const [yTotal, setYTotal] = useState(0)
     const [once, setOnce] = useState(0)
+    const [height, updateHeight] = useState(0)
+    const [width, updateWidth] = useState(0)
+
+
+
+    useEffect(() => {
+        updateHeight(window.scrollHeight)
+        updateWidth(window.innerWidth)
+
+        function handleWindowResize() {
+            updateHeight(window.innerHeight)
+            updateWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', handleWindowResize)
+        return () => {
+            window.removeEventListener('resize', handleWindowResize)
+        }
+    }, [])
+
 
     useEffect(() => {
         window.addEventListener('scroll', function () {
@@ -226,7 +245,7 @@ export default function JobSection({ open, setOpen }) {
             <div className={styles.jobs_wrapper}>
 
                 {elements.map((elements, index) => (
-                    <div className={styles.jobs_container}>
+                    <div className={styles.jobs_container} style={{width: width > 2300 ? "": "25%"}}>
 
                         <div className={styles.logo_container}  style={{border: currOpen == index && open ? "3px solid rgb(0, 187, 224)" : "", boxShadow: currOpen == index && open ? "0 0 40px 40px rgba(0, 0, 0, 0.274)" : "", transition: ".3s"}}
 >
