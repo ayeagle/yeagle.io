@@ -11,7 +11,7 @@ const elements = [
         author: "Nic Gochis",
         role: "Product Solutions Manager",
         company: "CaptivateIQ",
-        size: "1.5vw",
+        size: "1.65vw",
         pic: "IMGassets/nic.jpeg",
 
         position: 0,
@@ -23,7 +23,7 @@ const elements = [
         role: "Director of Product Management",
         company: "Facebook",
 
-        size: "1.3vw",
+        size: "1.45vw",
         pic: "IMGassets/erin.jpeg",
 
         position: 0,
@@ -35,7 +35,7 @@ const elements = [
         role: "Product Solutions Manager",
         company: "CaptivateIQ",
 
-        size: "1.3vw",
+        size: "1.5vw",
         pic: "IMGassets/richard.jpeg",
 
         position: 0,
@@ -47,7 +47,7 @@ const elements = [
         role: "Senior SWE",
         company: "Facebook",
 
-        size: "1.1vw",
+        size: "1.3vw",
         pic: "IMGassets/chetan.jpeg",
 
         position: 0,
@@ -76,7 +76,7 @@ export default function Quotes({boopBoop, setBoopBoop}) {
     const [mover, setMover] = useState(1000)
     const [currentIndex, setCurrentIndex] = useState(0);
     const [caroLive, setCaroLive] = useState(false)
-    const [loadingBar, setLoadingBar] = useState('')
+    const [loadingBar, setLoadingBar] = useState(1)
 
 
 
@@ -174,14 +174,15 @@ export default function Quotes({boopBoop, setBoopBoop}) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (loadingBar >= 100) setLoadingBar(0)
-            else setLoadingBar(loadingBar + .126)
+            if (loadingBar >= 100) return
+            else setLoadingBar(loadingBar + .12)
         }, 10);
         return () => clearInterval(interval);
     }, [loadingBar, currentIndex, setLoadingBar]);
 
     useEffect(() => {
         forwardClick()
+        setLoadingBar(0)
     }, []);
 
 

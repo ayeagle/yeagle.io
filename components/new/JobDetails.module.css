@@ -75,7 +75,7 @@
     box-shadow: none;
     opacity: 100%;
     z-index: 1100;
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
 
@@ -108,7 +108,7 @@
     position: absolute;
     opacity: 0%;
     transition: .5s;
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
 .arrow:hover {
