@@ -22,7 +22,7 @@ import PageBot from '@components/new/PageBot'
 import SimplexNoise from 'simplex-noise';
 import { createNoise2D } from 'simplex-noise';
 import JobSection from "@components/new/JobSection";
-import Socials from "@components/bio/Socials";
+import Socials from "@components/new/Socials";
 
 
 
@@ -449,6 +449,16 @@ export default function Main() {
     return (
 
         <div className={styles.master} id="top">
+
+
+            <div className={styles.sticky_left}>
+                <Socials orientation={"column"}/>
+            </div>
+            {/* <div className={styles.sticky_right}>
+                <div style={{transform: "rotate(90deg)", justifyContent: "center"}}>alexyeagle@gmail.com</div>
+                <div style={{width: "1px", height: "10vw", backgroundColor: "white"}}   />
+            </div> */}
+
             <BasicPageTop />
             <NavBar />
             <canvas ref={canvasRef} className={styles.canvas} style={{ height: { totalHeight } + "px" }} />
