@@ -393,7 +393,7 @@ export default function Main() {
 
 
 
-                <Spacer height={width < 900 ? "25vh" : "0vh"} />
+                <Spacer height={width < 900 ? "40vh" : "0vh"} />
                 <Quotes style={{ position: "relative" }} ref={jobsRef} />
 
 
