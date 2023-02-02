@@ -85,6 +85,21 @@ let courses = [
     }
 ]
 
+
+let other_projects = [
+    {
+        id: 0,
+        name: "Pomodomo",
+        description: "kjhshjd kjahs kjhsa kdjhsa kjbd sakdhbas kdjbasndmbsa kdjasgdh sakjdbas dlshdasj dbmsakbdmnas ",
+        code: [
+            ["Typescript"],
+            ['dsadsasd'],
+            ['sdasdsads']
+        ]
+    },
+
+]
+
 function sendEmail() {
     window.open('mailto:alexyeagle@gmail.com,alex@yeagle.io?subject=Would love to chat!&body=Hey Alex I saw your website and...');
 }
@@ -340,7 +355,7 @@ export default function Main() {
 
 
             <div className={styles.mini_master}>
-            <Spacer height={width < 900 ? "5vw" : "5vw"} />
+                <Spacer height={width < 900 ? "5vw" : "5vw"} />
                 <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
                 <Spacer height={width < 900 ? "5vw" : "5vw"} />
 
@@ -350,7 +365,7 @@ export default function Main() {
                         <img src="/IMGassets/me2.png" className={styles.image} />
                     </div>
                     <div className={styles.scroller}><div className={scrollerState}><br /><br />&#x21d3;</div></div>
-                    <h3 className={styles.image_text} style={{fontSize: width < 900 ? "3vw" : "2.5vw"}}>
+                    <h3 className={styles.image_text} style={{ fontSize: width < 900 ? "3vw" : "2.5vw" }}>
                         <Typing content={`Self-taught developer
                     <br/>Product enthusiast
                     <br/>Behavioral economist
@@ -474,6 +489,25 @@ export default function Main() {
                     <img className={styles.project_image_right} src="newIMGassets/pomodomo.png" />
                     <div className={styles.project_image_blocker_right}></div>
                 </div>
+
+
+                <Spacer height={"10vh"} />
+                <div className={styles.other_projects}>
+                    {other_projects.map((units, index) => (
+                        <div key={units.id} className={styles.other_projects_unit_container}>
+                            <div >{units.name}</div>
+                            <div >{units.description}</div>
+                            <div >{units.code}</div>
+                        </div>
+                    )
+                    )}
+
+
+
+                </div>
+
+
+
 
 
 
