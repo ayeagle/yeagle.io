@@ -93,7 +93,9 @@ let other_projects = [
         name: "Personal Site v1",
         description: "Original version of personal website",
         code:
-            ["React", 'Redux', 'SVGs']
+            ["React", 'Redux', 'SVGs'],
+        website: "",
+        github: "",
 
     },
     {
@@ -101,7 +103,9 @@ let other_projects = [
         name: "Pomodomo",
         description: "Custom Pomodoro timer with APIs",
         code:
-            ["React", 'NextJS', 'Express']
+            ["React", 'NextJS', 'Express'],
+        website: "",
+        github: "",
 
     },
     {
@@ -109,7 +113,9 @@ let other_projects = [
         name: "DelayPI",
         description: "Service for registering future message sends.",
         code:
-            ["Typescript"]
+            ["Typescript"],
+        website: "",
+        github: "",
     },
 
 ]
@@ -532,31 +538,25 @@ export default function Main() {
                     {other_projects.map((units, index) => (
                         <div key={units.id} className={styles.other_projects_unit_container}>
                             <h3 style={{ position: "relative", fontSize: "2vw", color: "rgb(0, 187, 224)", top: "0%" }}>{units.name}</h3>
-                            <div style={{ position: "relative", fontSize: "1.3vw", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", bottom: "0%"  }}>
+                            <div style={{ position: "relative", fontSize: "1.3vw", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
                                 {units.code.map((item) => (
                                     <h5 style={{ position: "relative", fontSize: "1.3vw", display: "flex", flexDirection: "row", flexWrap: "wrap", padding: ".5vw" }}>
-
                                         {item}
                                     </h5>
                                 ))}
                             </div>
-                            <Spacer height="1vw" />
-                            <h5 style={{ position: "relative", fontSize: "1.3vw", top: "8%"  }}>{units.description}</h5>
-                            <Spacer height="1vw" />
+                            <Spacer height=".5vw" />
+                            <h5 style={{ position: "relative", fontSize: "1.3vw", top: "8%" }}>{units.description}</h5>
+                            <Spacer height=".5vw" />
                             <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "right", padding: "2vw" }}>
-                                <div style={{ paddingRight: "1vw" }}> <a href="https://www.yeaglesbagels.com/about" target="_blank"><icons.FaCodeBranch style={{ fill: "white" }} /></a></div>
-                                <div ><a href="https://github.com/ayeagle" target="_blank"><icons.FaGithub style={{ fill: "white" }} /></a></div>
+                                <div style={{ paddingRight: "1vw" }}> <a href={units.website} target="_blank"><icons.FaCodeBranch style={{ fill: "white" }} /></a></div>
+                                <div ><a href={units.github} target="_blank"><icons.FaGithub style={{ fill: "white" }} /></a></div>
                             </div>
 
                         </div>
                     )
                     )}
-
-
-
                 </div>
-
-
 
 
 
