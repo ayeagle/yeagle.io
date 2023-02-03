@@ -23,6 +23,7 @@ import SimplexNoise from 'simplex-noise';
 import { createNoise2D } from 'simplex-noise';
 import JobSection from "@components/new/JobSection";
 import Socials from "@components/new/Socials";
+import * as icons from 'react-icons/fa';
 
 
 
@@ -32,7 +33,7 @@ import Socials from "@components/new/Socials";
 Specifically NOT component-itized for numerous reasons
 sorry
 
-
+see my other react projects for more effective componentization
 
 
 */
@@ -83,6 +84,40 @@ let courses = [
             ['sdasdsads']
         ]
     }
+]
+
+
+let other_projects = [
+    {
+        id: 0,
+        name: "Personal Site v1",
+        description: "Original version of personal website",
+        code:
+            ["React", 'Redux', 'SVGs'],
+        website: "",
+        github: "",
+
+    },
+    {
+        id: 1,
+        name: "Pomodomo",
+        description: "Custom Pomodoro timer with APIs",
+        code:
+            ["React", 'NextJS', 'Express'],
+        website: "",
+        github: "",
+
+    },
+    {
+        id: 2,
+        name: "DelayPI",
+        description: "Service for registering future message sends.",
+        code:
+            ["Typescript"],
+        website: "",
+        github: "",
+    },
+
 ]
 
 function sendEmail() {
@@ -340,7 +375,7 @@ export default function Main() {
 
 
             <div className={styles.mini_master}>
-            <Spacer height={width < 900 ? "5vw" : "5vw"} />
+                <Spacer height={width < 900 ? "5vw" : "5vw"} />
                 <h1 className={styles.title}>Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong> and I'm a...</h1>
                 <Spacer height={width < 900 ? "5vw" : "5vw"} />
 
@@ -350,12 +385,11 @@ export default function Main() {
                         <img src="/IMGassets/me2.png" className={styles.image} />
                     </div>
                     <div className={styles.scroller}><div className={scrollerState}><br /><br />&#x21d3;</div></div>
-                    <h3 className={styles.image_text} style={{fontSize: width < 900 ? "3vw" : "2.5vw"}}>
+                    <h3 className={styles.image_text} style={{ fontSize: width < 900 ? "3vw" : "2.5vw" }}>
                         <Typing content={`Self-taught developer
                     <br/>Product enthusiast
                     <br/>Behavioral economist
                     <br/>Avid learner
-                    <br/>Builder
                     <br/>and more...`} />
                     </h3>
                 </div>
@@ -412,6 +446,8 @@ export default function Main() {
                     <div className={styles.project_image_blocker_left}></div>
 
                     <div className={styles.project_details_wrapper_left}>
+                        <h5 className={styles.project_header_left} style={{ color: "inherit" }}> Featured Project</h5>
+
                         <h3 className={styles.project_header_left}> Giftee.io </h3>
                         <h4 className={styles.project_details_left}>  SSL encrypted fullstack application to make gift exchanges with friends and family easier. </h4>
                         <div className={styles.project_technicals_left}>
@@ -427,6 +463,8 @@ export default function Main() {
                 <Spacer height={"10vh"} />
                 <div className={styles.project_container_right}>
                     <div className={styles.project_details_wrapper_right}>
+                        <h5 className={styles.project_header_right} style={{ color: "inherit" }}> Featured Project</h5>
+
                         <h3 className={styles.project_header_right}> Meta Data Engineering </h3>
                         <h4 className={styles.project_details_right}> Created 10+ Dataswarm (Meta's version of Apache Airflow) pipelines to collect system/task data to power an ecosystem of dashboards reporting on bug health and engineering throughput.</h4>
                         <div className={styles.project_technicals_right}>
@@ -443,6 +481,25 @@ export default function Main() {
 
                 <Spacer height={"10vh"} />
                 <div className={styles.project_container_left}>
+                    <img className={styles.project_image_left} src="newIMGassets/fillbot.png" />
+                    <div className={styles.project_image_blocker_left}></div>
+                    <div className={styles.project_details_wrapper_left}>
+                        <h5 className={styles.project_header_left} style={{ color: "inherit" }}> Featured Project</h5>
+
+                        <h3 className={styles.project_header_left}> Fillbot </h3>
+                        <h4 className={styles.project_details_left}> Chrome extension to fill, track, and organize unique versions of your main email when signing up for services. </h4>
+                        <div className={styles.project_technicals_left}>
+                            <h5>React</h5>
+                            <h5>Typescript</h5>
+                            <h5>Chrome APIs</h5>
+                            <h5>Webpacks</h5>
+
+                        </div>
+                    </div>
+                </div>
+
+                {/* <Spacer height={"10vh"} />
+                <div className={styles.project_container_left}>
                     <img className={styles.project_image_left} src="newIMGassets/personal.png" />
                     <div className={styles.project_image_blocker_left}></div>
                     <div className={styles.project_details_wrapper_left}>
@@ -456,9 +513,9 @@ export default function Main() {
                             <h5>EC2</h5>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <Spacer height={"10vh"} />
+                {/* <Spacer height={"10vh"} />
                 <div className={styles.project_container_right}>
                     <div className={styles.project_details_wrapper_right}>
                         <h3 className={styles.project_header_right}> Pomodomo (Project 1) </h3>
@@ -473,7 +530,34 @@ export default function Main() {
                     </div>
                     <img className={styles.project_image_right} src="newIMGassets/pomodomo.png" />
                     <div className={styles.project_image_blocker_right}></div>
+                </div> */}
+
+
+                <Spacer height={"10vh"} />
+                <div className={styles.other_projects}>
+                    {other_projects.map((units, index) => (
+                        <div key={units.id} className={styles.other_projects_unit_container}>
+                            <h3 style={{ position: "relative", fontSize: "2vw", color: "rgb(0, 187, 224)", top: "0%" }}>{units.name}</h3>
+                            <div style={{ position: "relative", fontSize: "1.3vw", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
+                                {units.code.map((item) => (
+                                    <h5 style={{ position: "relative", fontSize: "1.3vw", display: "flex", flexDirection: "row", flexWrap: "wrap", padding: ".5vw" }}>
+                                        {item}
+                                    </h5>
+                                ))}
+                            </div>
+                            <Spacer height=".5vw" />
+                            <h5 style={{ position: "relative", fontSize: "1.3vw", top: "8%" }}>{units.description}</h5>
+                            <Spacer height=".5vw" />
+                            <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "right", padding: "2vw" }}>
+                                <div style={{ paddingRight: "1vw" }}> <a href={units.website} target="_blank"><icons.FaCodeBranch style={{ fill: "white" }} /></a></div>
+                                <div ><a href={units.github} target="_blank"><icons.FaGithub style={{ fill: "white" }} /></a></div>
+                            </div>
+
+                        </div>
+                    )
+                    )}
                 </div>
+
 
 
 
