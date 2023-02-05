@@ -6,6 +6,9 @@
     /* overflow: auto; */
     /* height: 150%; */
     overscroll-behavior: none;
+    font-family: Helvetica Neue, sans-serif;
+    letter-spacing: 1.5px;
+
 }
 
 .mini_master {
@@ -892,6 +895,7 @@
     flex-direction: row;
     justify-content: left;
     align-content: left;
+    z-index: 20;
 }
 
 .section_header_line {
@@ -950,4 +954,6 @@
     justify-content: center;
     padding: .5vw;
     z-index: 40;
+    border-radius: 5px;
+
 }
