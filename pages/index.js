@@ -3,10 +3,11 @@ import Second from '../components/pomodomo/second'
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive } from 'src/actions/cartAction'
-import Main from '@components/pomodomo/Main'
+// import Main from '@components/pomodomo/Main'
 import Break from '@components/pomodomo/Break'
 import Finished from '@components/pomodomo/Finished'
 import Waves from '@components/pomodomo/Waves'
+import Main from './main'
 
 // import About from './About';  // this is the React component you want to render
 
@@ -35,8 +36,10 @@ export default function Index() {
   const [limiter, setLimiter] = useState(0)
 
 
-  return(
-    <About/>
+  return (
+    // <About/>
+    <Main />
+
   )
   // return (
   //   <Router>
@@ -44,31 +47,31 @@ export default function Index() {
   //   </Router>
   // );
 
-//   const sendPage = () => {
-//     switch (state.page) {
-//       case "main":
-//         return <Main />
+  //   const sendPage = () => {
+  //     switch (state.page) {
+  //       case "main":
+  //         return <Main />
 
-//       case "work":
-//         return <Second />
+  //       case "work":
+  //         return <Second />
 
-//       case "break":
-//         return <Break />
+  //       case "break":
+  //         return <Break />
 
-//       case "finished":
-//         return <Finished />
+  //       case "finished":
+  //         return <Finished />
 
-//       default:
-//         return <Main />
+  //       default:
+  //         return <Main />
 
-//     }
-//   }
+  //     }
+  //   }
 
-//   return(
-//     <>
-//     <Waves/>
-//     {sendPage()}
-//     </>
-//   )
+  //   return(
+  //     <>
+  //     <Waves/>
+  //     {sendPage()}
+  //     </>
+  //   )
 
 }
