@@ -283,27 +283,27 @@ export default function JobSection({ open, setOpen }) {
                         <div style={{ display: "flex", flexDirection: "row", width: "100%", zIndex: 20 }}>
                             <div className={styles.left_wrap}>
 
-                                <h4 className={styles.details_mini_header} > Hard Skill XP</h4>
+                                <h4 className={styles.details_mini_header} > Hard Skills</h4>
                                 <div>
                                     <div className={styles.work_bullets}>
                                         {/* {elements[currOpen].hard_skills} */}
                                         {elements[currOpen].hard_skills.map((item, index) => (
-                                            <div style={{ display: "flex", flexDirection: "row" }}>
-                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id + index + 3 + item[0]} className={styles.skill_bar} style={{ backgroundColor: `hsl(${500 - item[1] * 2}, 50%, 50%)`, width: open ? (item[1] * .8 + "%") : "0%", transition: open == true && currOpen == elements[currOpen].id ? "2s ease-out " : ".8s" }}></div>
-                                                <p key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "5vw" : "5vw", }}>{item[0]}</p>
+                                            <div style={{ display: "flex", flexDirection: "column" }}>
+                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id + index + 3 + item[0]} className={styles.skill_bar} style={{ backgroundColor: `hsl(${500 - item[1] * 2}, 50%, 50%)`, width: open ? (item[1] + "%") : "0%", transition: open == true && currOpen == elements[currOpen].id ? "2s ease-out " : ".8s" }}></div>
+                                                <p key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "3vw" : "3vw", }}>{item[0]}</p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                                 <br />
-                                <h4 className={styles.details_mini_header} > Soft Skill XP</h4>
+                                <h4 className={styles.details_mini_header} > Soft Skills</h4>
                                 <div>
                                     <div className={styles.work_bullets}>
                                         {/* {elements[currOpen].hard_skills} */}
                                         {elements[currOpen].soft_skills.map((item, index) => (
-                                            <div style={{ display: "flex", flexDirection: "row" }}>
-                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id + index + 3 + item[0]} className={styles.skill_bar} style={{ display: currOpen == elements[currOpen].id ? '' : 'none', backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`, width: open == true && currOpen == elements[currOpen].id ? (item[1] * .6 + "%") : "0%", transition: open ? "2s ease-out " : ".8s" }}></div>
-                                                <p key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "5vw" : "5vw" }}>{item[0]}</p>
+                                            <div style={{ display: "flex", flexDirection: "column" }}>
+                                                <div ref={giftRef[currOpen]} key={elements[currOpen].id + index + 3 + item[0]} className={styles.skill_bar} style={{ display: currOpen == elements[currOpen].id ? '' : 'none', backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`, width: open == true && currOpen == elements[currOpen].id ? (item[1] + "%") : "0%", transition: open ? "2s ease-out " : ".8s" }}></div>
+                                                <p key={elements[currOpen].id + item[0]} style={{ marginLeft: open ? "3vw" : "3vw" }}>{item[0]}</p>
                                             </div>))}
                                     </div>
                                 </div>
