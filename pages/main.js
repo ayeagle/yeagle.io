@@ -366,7 +366,7 @@ export default function Main() {
         <div className={styles.master} id="top">
             <div className={styles.sticky_left} style={{ display: width < 992 ? "none" : "", zIndex: 20 }}>
                 <Socials orientation={"column"} size={"1.7vw"} />
-                <div style={{ width: "1px", height: "10vw", backgroundColor: "white", position: "relative", left: "50%" }} />
+                <div style={{ width: "1px", height: "10vw", backgroundColor: "white", marginTop: "1vw", position: "relative", left: "50%" }} />
             </div>
             <BasicPageTop />
             <NavBar />
@@ -429,7 +429,7 @@ export default function Main() {
 
 
 
-                <Spacer height={width < 900 ? "40vh" : "0vh"} />
+                <Spacer height={width < 1100 ? width < 700 ? "50vh" : "35vh" : "0vw"} />
                 <Quotes style={{ position: "relative" }} ref={jobsRef} />
 
                 <div id="projects">

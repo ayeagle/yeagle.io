@@ -258,7 +258,7 @@ z-index: 0;
     /* position: absolute; */
     z-index: -1;
     transition: 2s;
-    top: 1vw;
+    top: 0vw;
     /* margin-right: 5vw;  */
     left: 3vw;
     /* padding-left: 2vw; */
