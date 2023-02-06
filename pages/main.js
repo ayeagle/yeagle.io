@@ -396,10 +396,12 @@ export default function Main() {
 
 
 
-                <Spacer height={width < 900 ? "20vh" : "15vh"} />
+                <div id="resume">
+                    <Spacer height={width < 900 ? "20vh" : "15vh"} />
+                </div>
                 <div className={styles.section_header_wrapper}>
                     <h2 style={{ position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700 }}>01</h2>
-                    <h2 id="resume">Resume </h2>
+                    <h2 >Resume </h2>
                     <div className={styles.section_header_line} />
                 </div>
 
@@ -430,9 +432,10 @@ export default function Main() {
                 <Spacer height={width < 900 ? "40vh" : "0vh"} />
                 <Quotes style={{ position: "relative" }} ref={jobsRef} />
 
+                <div id="projects">
+                    <Spacer height={width < 900 ? "40vh" : "15vh"} />
+                </div>
 
-
-                <Spacer height={width < 900 ? "40vh" : "15vh"} />
                 <div className={styles.section_header_wrapper}>
                     <h2 style={{ position: "relative", paddingRight: "2vw", fontSize: "2vw", color: "rgb(31, 143, 156)", fontWeight: 700 }}>02</h2>
                     <h2 id="projects">Projects </h2>
@@ -537,7 +540,7 @@ export default function Main() {
                 <div className={styles.other_projects}>
                     {other_projects.map((units, index) => (
                         <div key={units.id} className={styles.other_projects_unit_container}>
-                            <h3 style={{ position: "Absolute", fontSize: "2vw", color: "rgb(0, 187, 224)", top: "10%",  margin: "1vw" }}>{units.name}</h3>
+                            <h3 style={{ position: "Absolute", fontSize: "2vw", color: "rgb(0, 187, 224)", top: "10%", margin: "1vw" }}>{units.name}</h3>
                             <Spacer height="10vw" />
                             <h5 style={{ position: "relative", fontSize: "1.3vw", top: "8%" }}>{units.description}</h5>
                             <Spacer height="6vw" />
@@ -549,7 +552,7 @@ export default function Main() {
                                     </h5>
                                 ))}
                             </div>
-        
+
                             <div style={{ position: "relative", display: "flex", flexDirection: "row", justifyContent: "right", padding: "2vw" }}>
                                 <div style={{ paddingRight: "1vw", fontSize: "1.5vw" }}> <a href={units.website} target="_blank"><icons.FaCodeBranch style={{ fill: "white" }} /></a></div>
                                 <div style={{ paddingLeft: "1vw", fontSize: "1.5vw" }} ><a href={units.github} target="_blank"><icons.FaGithub style={{ fill: "white" }} /></a></div>
