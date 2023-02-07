@@ -1,7 +1,5 @@
 import { MetaHTMLAttributes } from "react"
-import Footer from "@components/pomodomo/Footer"
 import styles from './PageBot.module.css'
-import Socials from "../bio/Socials"
 import { useState, useEffect } from "react"
 
 

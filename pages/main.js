@@ -1,26 +1,13 @@
-import Waves from "@components/pomodomo/Waves";
-import Break from '@components/pomodomo/Break';
-import Button from "@components/pomodomo/Button";
+
 import NavBar from "@components/new/Navbar";
 import BasicPageTop from "@components/bio/BasicPageTop";
-import SVGSpacers from "@components/bio/SVGSpacers";
-import Resizer from "@components/functional/Resizer";
 import { useEffect, useState, useRef } from "react";
-import PNGSpacers from "@components/bio/PNGSpacers";
 import styles from './main.module.css';
-import Iceland from "@components/bio/Iceland";
 import NavButton from "@components/new/NavButton";
-import Carousel from "@components/bio/Carousel";
 import Typing from "@components/new/Typing";
-import Flood from "@components/bio/Flood";
-import Flood2 from "@components/bio/Flood2";
-import { useSelector, useDispatch } from "react-redux";
 import Spacer from "@components/bio/Spacer";
-import LogActivity from "@components/DBcomponents/LogActivity";
 import Quotes from '@components/new/Quotes'
 import PageBot from '@components/new/PageBot'
-import SimplexNoise from 'simplex-noise';
-import { createNoise2D } from 'simplex-noise';
 import JobSection from "@components/new/JobSection";
 import Socials from "@components/new/Socials";
 import * as icons from 'react-icons/fa';
@@ -251,7 +238,7 @@ export default function Main() {
 
         if (limiter <= 3) {
             setLimiter(limiter + 1)
-            LogActivity(userId, "loaded about page")
+            // LogActivity(userId, "loaded about page")
         }
 
         setTimeout(() => {
