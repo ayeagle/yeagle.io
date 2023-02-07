@@ -1,25 +1,14 @@
 import Head from 'next/head'
-import Second from '../components/pomodomo/second'
 import React, { useState, useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux";
-import { updateBreakTime, updateIterations, updateReady, updatePage, updateWorkTime, updateTotalTime, updateTimeRemain, updateTimeActive } from 'src/actions/cartAction'
-// import Main from '@components/pomodomo/Main'
-import Break from '@components/pomodomo/Break'
-import Finished from '@components/pomodomo/Finished'
-import Waves from '@components/pomodomo/Waves'
+
 import Main from './main'
-
-// import About from './About';  // this is the React component you want to render
-
-import About from './about';
 
 
 export default function Index() {
 
   // return <About/>
 
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  //just ignore this files existence plz thankyou
 
   console.log("minor change is in effect now")
   console.log("removed the stupid fucking about import")
@@ -41,37 +30,5 @@ export default function Index() {
     <Main />
 
   )
-  // return (
-  //   <Router>
-  //     <Route path="/about" component={About} />
-  //   </Router>
-  // );
-
-  //   const sendPage = () => {
-  //     switch (state.page) {
-  //       case "main":
-  //         return <Main />
-
-  //       case "work":
-  //         return <Second />
-
-  //       case "break":
-  //         return <Break />
-
-  //       case "finished":
-  //         return <Finished />
-
-  //       default:
-  //         return <Main />
-
-  //     }
-  //   }
-
-  //   return(
-  //     <>
-  //     <Waves/>
-  //     {sendPage()}
-  //     </>
-  //   )
 
 }

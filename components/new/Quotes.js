@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Quotes.module.css'
-import Button from '@components/pomodomo/Button';
 
 
 

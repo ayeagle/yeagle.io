@@ -1,13 +1,10 @@
 import { MetaHTMLAttributes } from "react"
-import Header from "@components/pomodomo/Header"
 import Head from 'next/head'
-import GenSessionUuid from "@components/DBcomponents/usergen"
 
 
 export default function BasicPageTop() {
   return (
     <>
-      <GenSessionUuid />
       <Head>
         <meta property="og:image" content="https://imgur.com/2oR6Isd" />
         <meta property="og:title" content="Yeagle's Bagels" />

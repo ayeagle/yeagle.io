@@ -1,5 +1,4 @@
 import { MetaHTMLAttributes } from "react"
-import Header from "@components/pomodomo/Header"
 import Head from 'next/head'
 import GenSessionUuid from "@components/DBcomponents/usergen"
 
