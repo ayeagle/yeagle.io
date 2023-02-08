@@ -471,7 +471,7 @@ export default function Main() {
 
                 <Spacer height={"10vh"} />
                 <div className={styles.project_container_left}>
-                    <img className={styles.project_image_left} src="newIMGassets/fillbot.png" />
+                    <img className={styles.project_image_left} src="newIMGassets/flytrap.png" />
                     <div className={styles.project_image_blocker_left}></div>
                     <div className={styles.project_details_wrapper_left}>
                         <h5 className={styles.project_header_left} style={{ color: "inherit" }}> Featured Project</h5>
