@@ -192,7 +192,7 @@ export default function Quotes({boopBoop, setBoopBoop}) {
     useEffect(() => {
         const interval = setInterval(() => {
             if (loadingBar >= 100) return
-            else setLoadingBar(loadingBar + .12)
+            else setLoadingBar(loadingBar + .15)
         }, 10);
         return () => clearInterval(interval);
     }, [loadingBar, currentIndex, setLoadingBar]);
