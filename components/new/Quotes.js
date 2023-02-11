@@ -22,7 +22,7 @@ const elements = [
         role: "Director of Product Management",
         company: "Facebook",
 
-        size: "1.45vw",
+        size: "1.3vw",
         pic: "IMGassets/erin.jpeg",
 
         position: 0,
@@ -46,7 +46,7 @@ const elements = [
         role: "Senior SWE",
         company: "Facebook",
 
-        size: "1.3vw",
+        size: "1.15vw",
         pic: "IMGassets/chetan.jpeg",
 
         position: 0,
