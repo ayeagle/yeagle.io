@@ -454,7 +454,7 @@ export default function Main() {
                         <h5 className={styles.project_header_left} style={{ color: "inherit" }}> Featured Project</h5>
 
                         <h3 className={styles.project_header_left}> Giftee.io </h3>
-                        <h4 className={styles.project_details_left}>  SSL encrypted fullstack application to make gift exchanges with friends and family easier. </h4>
+                        <h4 className={styles.project_details_left}>  Fullstack application to make gift exchanges with friends and family easier. </h4>
                         <div className={styles.project_technicals_left}>
                             <h5>React</h5>
                             <h5>NextJS</h5>
@@ -471,7 +471,7 @@ export default function Main() {
                         <h5 className={styles.project_header_right} style={{ color: "inherit" }}> Featured Project</h5>
 
                         <h3 className={styles.project_header_right}> Meta Data Engineering </h3>
-                        <h4 className={styles.project_details_right}> Created 10+ Dataswarm (Meta's version of Apache Airflow) pipelines to collect system/task data to power an ecosystem of dashboards reporting on bug health and engineering throughput.</h4>
+                        <h4 className={styles.project_details_right}> Created data pipelines that collect task/system insights and dashboards reporting on bug health and engineering throughput.</h4>
                         <div className={styles.project_technicals_right}>
                             <h5>Presto</h5>
                             <h5>Python</h5>
