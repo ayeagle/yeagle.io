@@ -458,7 +458,7 @@ export default function Main() {
                         <div className={styles.project_technicals_left}>
                             <h5>React</h5>
                             <h5>NextJS</h5>
-                            <h5>Express</h5>
+                            <h5>NodeJS</h5>
                             <h5>RDS</h5>
                             <h5>EC2</h5>
                         </div>
