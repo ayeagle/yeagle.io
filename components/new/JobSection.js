@@ -19,7 +19,7 @@ export default function JobSection({ open, setOpen }) {
                 ["Synthesize user signal into roadmap-actionable dashboards and reporting", 3],
                 ["Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR", 4]],
             logo_pic: "/NewIMGassets/METAL.png",
-            hard_skills: [["PostgresQL", 86], ["React", 72], ["Presto", 40], ["Scuba", 30], ["Python Scripting", 20]],
+            hard_skills: [["Postgres/Presto", 86], ["JS/React", 67], ["Hack/PHP", 40], ["Python", 30]],
             soft_skills: [["Influence w/o Authority", 67], ["Feature/Fix Efficiency", 55], ["Finding PMF", 25]],
             top_move_perc: "5vw",
             // details_view_height: "45vw",

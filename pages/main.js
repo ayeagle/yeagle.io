@@ -475,7 +475,6 @@ export default function Main() {
                         <div className={styles.project_technicals_right}>
                             <h5>Presto</h5>
                             <h5>Python</h5>
-                            <h5>PHP</h5>
                             <h5>Dataswarm</h5>
                             <h5>Hive</h5>
                         </div>
@@ -483,17 +482,34 @@ export default function Main() {
                     <img className={styles.project_image_right} src="newIMGassets/dataswarm.png" />
                     <div className={styles.project_image_blocker_right}></div>
                 </div>
-
                 <Spacer height={"10vh"} />
                 <div className={styles.project_container_left}>
-                    <img className={styles.project_image_left} src="newIMGassets/flytrap.png" />
-                    <div className={styles.project_image_blocker_left}></div>
                     <div className={styles.project_details_wrapper_left}>
                         <h5 className={styles.project_header_left} style={{ color: "inherit" }}> Featured Project</h5>
 
-                        <h3 className={styles.project_header_left}> Flytrap </h3>
-                        <h4 className={styles.project_details_left}> Chrome extension to fill, track, and organize unique versions of your main email when signing up for services. </h4>
+                        <h3 className={styles.project_header_left}>Actionable Feedback Tool</h3>
+                        <h4 className={styles.project_details_left}>An internal Meta tool that helps users action their product feedback, and provides summary stats for engineer fixes.</h4>
                         <div className={styles.project_technicals_left}>
+                            <h5>Hack/PHP</h5>
+                            <h5>Python</h5>
+                            <h5>Presto</h5>
+                            <h5>React</h5>
+                        </div>
+                    </div>
+                    <img className={styles.project_image_left} src="newIMGassets/AFT.png" />
+                    <div className={styles.project_image_blocker_left}></div>
+                </div>
+
+                <Spacer height={"10vh"} />
+                <div className={styles.project_container_right}>
+                    <img className={styles.project_image_right} src="newIMGassets/flytrap.png" />
+                    <div className={styles.project_image_blocker_right}></div>
+                    <div className={styles.project_details_wrapper_right}>
+                        <h5 className={styles.project_header_right} style={{ color: "inherit" }}> Featured Project</h5>
+
+                        <h3 className={styles.project_header_right}> Flytrap </h3>
+                        <h4 className={styles.project_details_right}> Chrome extension to fill, track, and organize unique versions of your main email when signing up for services. </h4>
+                        <div className={styles.project_technicals_right}>
                             <h5>React</h5>
                             <h5>Typescript</h5>
                             <h5>Chrome APIs</h5>
@@ -502,7 +518,7 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
-
+  
                 {/* <Spacer height={"10vh"} />
                 <div className={styles.project_container_left}>
                     <img className={styles.project_image_left} src="newIMGassets/personal.png" />
