@@ -496,7 +496,7 @@ export default function Main() {
                             <h5>React</h5>
                         </div>
                     </div>
-                    <img className={styles.project_image_left} src="newIMGassets/AFT.png" />
+                    <img className={styles.project_image_left} src="newIMGassets/aft_2.png" />
                     <div className={styles.project_image_blocker_left}></div>
                 </div>
 
