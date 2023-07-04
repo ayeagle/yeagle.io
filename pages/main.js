@@ -12,21 +12,12 @@ import JobSection from "../components/new/JobSection";
 import Socials from "../components/new/Socials";
 import * as icons from 'react-icons/fa';
 
-
-//guh
-
-///guh number 2
-
-//guh 3
-
 /////////////////////////////
 /*
 Specifically NOT component-itized for numerous reasons
 sorry
 
 see my other react projects for more effective componentization
-
-
 */
 /////////////////////////////
 
