@@ -1,15 +1,15 @@
 
-import NavBar from "@components/new/Navbar";
-import BasicPageTop from "@components/bio/BasicPageTop";
+import NavBar from "../components/new/Navbar";
+import BasicPageTop from "../components/bio/BasicPageTop";
 import { useEffect, useState, useRef } from "react";
 import styles from './main.module.css';
-import NavButton from "@components/new/NavButton";
-import Typing from "@components/new/Typing";
-import Spacer from "@components/bio/Spacer";
-import Quotes from '@components/new/Quotes'
-import PageBot from '@components/new/PageBot'
-import JobSection from "@components/new/JobSection";
-import Socials from "@components/new/Socials";
+import NavButton from "../components/new/NavButton";
+import Typing from "../components/new/Typing";
+import Spacer from "../components/bio/Spacer";
+import Quotes from '../components/new/Quotes'
+import PageBot from '../components/new/PageBot'
+import JobSection from "../components/new/JobSection";
+import Socials from "../components/new/Socials";
 import * as icons from 'react-icons/fa';
 
 
