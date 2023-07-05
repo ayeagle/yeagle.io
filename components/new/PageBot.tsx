@@ -5,13 +5,11 @@ import { useState, useEffect } from "react"
 
 export default function BasicPageBottom() {
 
-
-
-  const [portStyle, upP] = useState("nav-item")
-  const [codingStyle, upC] = useState("nav-item")
-  const [resumeStyle, upR] = useState("nav-item")
-  const [createStyle, upCW] = useState("nav-item")
-  const [contactStyle, upCO] = useState("nav-item")
+  const [portStyle, upP] = useState<string>("nav-item")
+  const [codingStyle, upC] = useState<string>("nav-item")
+  const [resumeStyle, upR] = useState<string>("nav-item")
+  const [createStyle, upCW] = useState<string>("nav-item")
+  const [contactStyle, upCO] = useState<string>("nav-item")
 
   useEffect(() => {
     console.log(window.location.pathname)
