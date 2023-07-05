@@ -1,194 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./JobDetails.module.css";
+import {JobDetailsItem, JobSectionDetails, jobDetailsArray} from './JobSectionData'
 
-type JobDetailsItem = [string, number];
-
-export type JobSectionDetails = {
-  id: number;
-  company: string;
-  company_url: string;
-  role: string;
-  tenure: string;
-  details: Array<JobDetailsItem>;
-  logo_pic: string;
-  hard_skills: Array<JobDetailsItem>;
-  soft_skills: Array<JobDetailsItem>;
-  top_move_perc: string;
-};
 
 export default function JobSection(
   open: boolean,
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 ) {
-  const jobDetailsArray: Array<JobSectionDetails> = [
-    {
-      id: 0,
-      company: "Facebook",
-      company_url: "https://www.metacareers.com/",
-      role: "Product Development",
-      tenure: "2022-Present",
-      details: [
-        [
-          "Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
-          0,
-        ],
-        [
-          "Lead the product strategy and execution for deprecation of Neighborhoods, a hyper-local FB product with 5 million MAUs",
-          1,
-        ],
-        [
-          "Operationalize signal collection and prioritization for the experimental pre-launch pillar of the FB app",
-          2,
-        ],
-        [
-          "Synthesize user signal into roadmap-actionable dashboards and reporting",
-          3,
-        ],
-        [
-          "Drive cross functional quality and launch-readiness initiatives with eng, product, design, QA, privacy, legal and UXR",
-          4,
-        ],
-      ],
-      logo_pic: "/NewIMGassets/METAL.png",
-      hard_skills: [
-        ["Postgres/Presto", 86],
-        ["JS/React", 67],
-        ["Hack/PHP", 40],
-        ["Python", 30],
-      ],
-      soft_skills: [
-        ["Influence w/o Authority", 67],
-        ["Feature/Fix Efficiency", 55],
-        ["Finding PMF", 25],
-      ],
-      top_move_perc: "5vw",
-    },
-    {
-      id: 1,
-      company: "CaptivateIQ",
-      company_url: "https://www.captivateiq.com/",
-      role: "Product Solutions Consultant",
-      tenure: "2021-2022",
-      details: [
-        [
-          "Project manage calculation model design and build schedule for MM-ENT companies",
-          0,
-        ],
-        [
-          "Leverage data architecture, manipulation, and scripting to parse and synthesize multiple data sources into clear and accurate commission outputs",
-          1,
-        ],
-        [
-          "Use a host of in-house formulas based on SQL, Excel, and Python to build performant calculation models",
-          2,
-        ],
-        [
-          "Collaborate with product and engineering teams to streamline performance and expand platform functionality",
-          3,
-        ],
-        [
-          "Train new users and team-members on data manipulation and modeling best practices",
-          4,
-        ],
-      ],
-
-      logo_pic: "/NewIMGassets/CIQL.png",
-      hard_skills: [
-        ["Excel", 83],
-        ["SQL", 70],
-      ],
-      soft_skills: [
-        ["Critical Problem Solving", 85],
-        ["Product Strategy", 72],
-        ["Collaboration", 40],
-      ],
-      top_move_perc: "3vw",
-    },
-    {
-      id: 2,
-      company: "Guide.co",
-      company_url: "https://guide.co/",
-      role: "Product Growth Lead",
-      tenure: "2019-2020",
-      details: [
-        [
-          "Worked weekly with eng team and C-suite to uncover PMF and bring an early-access platform to market",
-          0,
-        ],
-        [
-          "Collaborated on sourcing, design, and execution of product growth features",
-          1,
-        ],
-        [
-          "Executed 23 growth experiments in 20Q1, tracking towards a 1m user growth rate for 2020",
-          2,
-        ],
-        ["Analyzed usage data weekly to inform adoption strategy", 3],
-        [
-          "Reduced activation time from 1.5 weeks to 45 minutes while increasing first week engagement by 200%+",
-          4,
-        ],
-        [
-          "Uncovered and prioritized customer pains against technical feasibility on a daily basis",
-          6,
-        ],
-      ],
-      logo_pic: "/NewIMGassets/GUIDEL.png",
-      hard_skills: [
-        ["Excel", 60],
-        ["Salesforce", 45],
-        ["Product/Design Tooling", 30],
-        ["SQL", 15],
-      ],
-      soft_skills: [
-        ["Product Strategy", 83],
-        ["Growth Strategy", 75],
-        ["Operating in Uncertainty", 43],
-      ],
-      top_move_perc: "2.5vw",
-    },
-    {
-      id: 3,
-      company: "Sift",
-      company_url: "https://sift.com/",
-      role: "Business Development Lead",
-      tenure: "2018-2019",
-      details: [
-        [
-          "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
-          0,
-        ],
-        [
-          "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
-          1,
-        ],
-        [
-          "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
-          2,
-        ],
-      ],
-
-      logo_pic: "/NewIMGassets/SIFTL.png",
-      hard_skills: [
-        ["Salesforce", 49],
-        ["Excel", 32],
-      ],
-      soft_skills: [
-        ["Leadership", 84],
-        ["Process Optimization", 69],
-        ["Project Scoping", 42],
-        ["Collaboration", 33],
-      ],
-      top_move_perc: "6vw",
-    },
-  ];
 
   const [currQuote, setCurrQuote] = useState(0);
   const [mover, setMover] = useState(1000);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [caroLive, setCaroLive] = useState(false);
-
-  // const [open, setOpen] = useState(false)
   const [workStyle, setWorkStyle] = useState("styles.work_details_closed");
   const [currOpen, setCurrOpen] = useState(0);
   const [yOffset, setYOffset] = useState(0);
@@ -220,54 +43,28 @@ export default function JobSection(
   }, [yOffset]);
 
   const giftRef: Array<null | any> = [null, null, null, null];
-
-  // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
-
-  // const [currQuote, setCurrQuote] = useState(0)
-  // const [mover, setMover] = useState(1000)
-  // const [currentIndex, setCurrentIndex] = useState(0);
-  // const [caroLive, setCaroLive] = useState(false)
-
-  // const [open, setOpen] = useState(false)
-  // const [workStyle, setWorkStyle] = useState(styles.work_details_closed)
   const [workVH, setWorkVH] = useState("7vw");
   const [arrowStyle, setArrowStyle] = useState(styles.arrow_down);
 
-  // console.log("On the current load of the page, the workstyle is set to: " + workStyle)
-  // console.log("jobDetailsArray.viewheight: " + jobDetailsArray.details_view_height)
-  // console.log("workvh state: " + jobDetailsArray.workVH)
   const hoverIndexSet = (index: number) => {
     setCurrOpen(index);
     console.log("this is the state of open");
     console.log(open);
-    // if (giftRef[index] && giftRef[index].current) {
-    //     giftRef[index].current.style.width = "0%";
-    // }
-
-    // console.log(index)
-    // console.log(jobDetailsArray[index])
-    // console.log(jobDetailsArray[index].id)
   };
 
   const openClick = (index: number) => {
     setOpen(!open);
     if (open) {
       setWorkStyle(styles.work_details_closed);
-      // setWorkVH("7vw")
       setArrowStyle(styles.arrow_down);
     } else {
       setCurrOpen(index);
-
       setWorkStyle(styles.work_details_open);
-      // setWorkVH(jobDetailsArray.details_view_height)
-      // setWorkVH(jobDetailsArray.details_view_height)
-
       setArrowStyle(styles.arrow_up);
       setCurrOpen(index);
     }
   };
 
-  // console.log(yOffset)
   if (Math.abs(yOffset / yTotal - 0.15) <= 0.01 && !open && once == 0) {
     openClick(0);
     setOnce(1);
@@ -299,15 +96,6 @@ export default function JobSection(
     setWorkVH("7vw");
     setArrowStyle(styles.arrow_down);
   }, []);
-
-  // const openClick = () => {
-  //     // console.log("the onlclick is being used to change styles")
-  //     // console.log("current style before change is : " + workStyle)
-
-  //     setOpen(!open)
-  //     if (open) setWorkStyle(styles.work_details_closed)
-  //     else setWorkStyle(styles.work_details_open)
-  // }
 
   return (
     <>
@@ -428,7 +216,6 @@ export default function JobSection(
                 <h4 className={styles.details_mini_header}> Hard Skills</h4>
                 <div>
                   <div className={styles.work_bullets}>
-                    {/* {jobDetailsArray[currOpen].hard_skills} */}
                     {jobDetailsArray[currOpen].hard_skills.map((item, index) => (
                       <div style={{ display: "flex", flexDirection: "column" }}>
                         <div
