@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Socials from "../new/Socials";
+import Socials from "./Socials";
 // import LoginButton from "./LoginButton";
+import { Property } from 'csstype';
 
 export default function NavBar() {
 

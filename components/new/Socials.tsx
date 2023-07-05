@@ -10,7 +10,7 @@ export type SocialProps = {
 }
 
 
-export default function Socials({size, loc, orientation}: {size?: number; loc?: string; orientation?: any;}) {
+export default function Socials({size, loc, orientation, className}: {size?: string; loc?: string; orientation?: any; className?: string}) {
     // console.log(size + "?this is the size prop")
     // console.log(loc + "?this is the loc prop")
 
