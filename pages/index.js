@@ -6,14 +6,6 @@ import Main from './main'
 
 export default function Index() {
 
-  // return <About/>
-
-  //just ignore this files existence plz thankyou
-
-  console.log("minor change is in effect now")
-  console.log("removed the stupid fucking about import")
-
-
   const [count, setCount] = useState(0);
   const [workTime, setWorkTime] = useState(0);   //set these to state. values?
   const [breakTime, setBreakTime] = useState(0);
