@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./JobDetails.module.css";
-import JobDetails from "./JobDetails";
 
 type JobDetailsItem = [string, number];
 
