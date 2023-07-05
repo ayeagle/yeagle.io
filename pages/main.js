@@ -22,9 +22,9 @@ see my other react projects for more effective componentization
 /////////////////////////////
 
 
-const glideArray = Array(10)
-const startVal = .1
-const increment = .05
+let glideArray = Array(10)
+let startVal = .1
+let increment = .05
 
 for (let i = 0; i < glideArray.length; i++) {
     glideArray[i] = startVal + increment * (i)
