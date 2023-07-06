@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./JobDetails.module.css";
-import {JobDetailsItem, JobSectionDetails, jobDetailsArray} from './JobSectionData'
+import {
+  JobDetailsItem,
+  JobSectionDetails,
+  jobDetailsArray,
+} from "../componentData/JobSectionData";
 
-
-export default function JobSection(
+export default function JobSection({open, setOpen} : {
   open: boolean,
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
-) {
-
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+}) {
   const [currQuote, setCurrQuote] = useState(0);
   const [mover, setMover] = useState(1000);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -216,31 +218,38 @@ export default function JobSection(
                 <h4 className={styles.details_mini_header}> Hard Skills</h4>
                 <div>
                   <div className={styles.work_bullets}>
-                    {jobDetailsArray[currOpen].hard_skills.map((item, index) => (
-                      <div style={{ display: "flex", flexDirection: "column" }}>
+                    {jobDetailsArray[currOpen].hard_skills.map(
+                      (item, index) => (
                         <div
-                          ref={giftRef[currOpen]}
-                          key={jobDetailsArray[currOpen].id + index + 3 + item[0]}
-                          className={styles.skill_bar}
-                          style={{
-                            backgroundColor: `hsl(${
-                              500 - item[1] * 2
-                            }, 50%, 50%)`,
-                            width: open ? item[1] + "%" : "0%",
-                            transition:
-                              open == true && currOpen == jobDetailsArray[currOpen].id
-                                ? "2s ease-out "
-                                : ".8s",
-                          }}
-                        ></div>
-                        <p
-                          key={jobDetailsArray[currOpen].id + item[0]}
-                          style={{ marginLeft: open ? "3vw" : "3vw" }}
+                          style={{ display: "flex", flexDirection: "column" }}
                         >
-                          {item[0]}
-                        </p>
-                      </div>
-                    ))}
+                          <div
+                            ref={giftRef[currOpen]}
+                            key={
+                              jobDetailsArray[currOpen].id + index + 3 + item[0]
+                            }
+                            className={styles.skill_bar}
+                            style={{
+                              backgroundColor: `hsl(${
+                                500 - item[1] * 2
+                              }, 50%, 50%)`,
+                              width: open ? item[1] + "%" : "0%",
+                              transition:
+                                open == true &&
+                                currOpen == jobDetailsArray[currOpen].id
+                                  ? "2s ease-out "
+                                  : ".8s",
+                            }}
+                          ></div>
+                          <p
+                            key={jobDetailsArray[currOpen].id + item[0]}
+                            style={{ marginLeft: open ? "3vw" : "3vw" }}
+                          >
+                            {item[0]}
+                          </p>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
                 <br />
@@ -248,31 +257,40 @@ export default function JobSection(
                 <div>
                   <div className={styles.work_bullets}>
                     {/* {jobDetailsArray[currOpen].hard_skills} */}
-                    {jobDetailsArray[currOpen].soft_skills.map((item, index) => (
-                      <div style={{ display: "flex", flexDirection: "column" }}>
+                    {jobDetailsArray[currOpen].soft_skills.map(
+                      (item, index) => (
                         <div
-                          ref={giftRef[currOpen]}
-                          key={jobDetailsArray[currOpen].id + index + 3 + item[0]}
-                          className={styles.skill_bar}
-                          style={{
-                            display:
-                              currOpen == jobDetailsArray[currOpen].id ? "" : "none",
-                            backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`,
-                            width:
-                              open == true && currOpen == jobDetailsArray[currOpen].id
-                                ? item[1] + "%"
-                                : "0%",
-                            transition: open ? "2s ease-out " : ".8s",
-                          }}
-                        ></div>
-                        <p
-                          key={jobDetailsArray[currOpen].id + item[0]}
-                          style={{ marginLeft: open ? "3vw" : "3vw" }}
+                          style={{ display: "flex", flexDirection: "column" }}
                         >
-                          {item[0]}
-                        </p>
-                      </div>
-                    ))}
+                          <div
+                            ref={giftRef[currOpen]}
+                            key={
+                              jobDetailsArray[currOpen].id + index + 3 + item[0]
+                            }
+                            className={styles.skill_bar}
+                            style={{
+                              display:
+                                currOpen == jobDetailsArray[currOpen].id
+                                  ? ""
+                                  : "none",
+                              backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`,
+                              width:
+                                open == true &&
+                                currOpen == jobDetailsArray[currOpen].id
+                                  ? item[1] + "%"
+                                  : "0%",
+                              transition: open ? "2s ease-out " : ".8s",
+                            }}
+                          ></div>
+                          <p
+                            key={jobDetailsArray[currOpen].id + item[0]}
+                            style={{ marginLeft: open ? "3vw" : "3vw" }}
+                          >
+                            {item[0]}
+                          </p>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </div>
