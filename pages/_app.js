@@ -3,7 +3,7 @@ console.log("Oh wow look at you, you little hacker! Inspecting elements and stuf
 
 import React from "react"
 
-function Application({ Component: React.MixedElement, pageProps }) {
+function Application({ Component, pageProps }) {
 
   return (
     <Component {...pageProps} />
