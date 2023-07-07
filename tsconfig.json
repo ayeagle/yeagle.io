@@ -115,7 +115,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, ],
+, "pages/main.js", "pages/_app.js", ],
   "exclude": [
     "node_modules"
   ]

@@ -14,8 +14,7 @@
   /* padding-left: 1.2vw;
   padding-right: 1.2vw; */
   border: 2px solid rgb(0, 187, 224);
-  transition: .5s;
-
+  transition: 0.5s;
 }
 
 .button:hover {
@@ -32,19 +31,16 @@
   position: relative;
   transition: 0.5s;
   z-index: 1000;
-
-
 }
 
 .button span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
   right: -30px;
   transition: 0.5s;
   z-index: 1000;
-
 }
 
 .button:hover span {
@@ -56,6 +52,4 @@
   opacity: 1;
   right: 0;
   z-index: 1000;
-
-
 }
