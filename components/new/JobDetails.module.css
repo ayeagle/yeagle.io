@@ -73,6 +73,7 @@
   z-index: 1100;
   border-radius: 20px;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .logo {
@@ -107,6 +108,7 @@
   opacity: 0%;
   transition: 0.5s;
   border-radius: 20px;
+  text-align: center;
 }
 
 .arrow:hover {
