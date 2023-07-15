@@ -73,7 +73,6 @@ export default function NavBar() {
 
   return (
     <>
-      {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous" /> */}
       <nav
         className="navbar navbar-expand-lg navbar-dark bg-black"
         style={{ background: "none", zIndex: 1000, position: "sticky", top: 0 }}
