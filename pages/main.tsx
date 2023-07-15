@@ -15,7 +15,7 @@ import Scroller from "../components/new/Scroller";
 import BorderController from "../components/new/BorderController";
 import ContactSection from "../components/new/ContactSection";
 import RapsheetController from "../components/new/RapsheetController";
-import CanvasAnimation from "../components/new/CanvasAnimation";
+// import CanvasAnimation from "../components/new/CanvasAnimation";
 
 /////////////////////////////
 /*
