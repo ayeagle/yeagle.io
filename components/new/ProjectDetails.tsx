@@ -8,7 +8,7 @@ import styles from "./ProjectDetails.module.css";
 import Spacer from "../bio/Spacer";
 import * as icons from "react-icons/fa";
 
-export default function ProjectDetails(): any {
+export default function ProjectDetails(): JSX.Element {
   return (
     <div>
       {mainProjects.map((project: MainProjectDetails) => (
