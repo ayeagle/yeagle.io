@@ -1,8 +1,8 @@
-import { MutableRefObject, useEffect, useState } from "react";
+import { MutableRefObject, RefObject, useEffect, useState } from "react";
 import styles from "./BorderController.module.css";
 
 export default function BorderController(
-  ref: MutableRefObject<HTMLDivElement>
+  ref: RefObject<HTMLDivElement>
 ): JSX.Element {
   const [border1, setBorder1] = useState(styles.corner_border_top_left);
   const [border2, setBorder2] = useState(styles.corner_border_top_right);

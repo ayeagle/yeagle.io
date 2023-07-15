@@ -1,0 +1,12 @@
+.canvas {
+    position: absolute;
+    z-index: 999;
+    background-color: transparent;
+    fill: transparent;
+    color: rgb(31, 143, 156);
+    left: 0;
+    top: 0;
+    /* height: 100%; */
+    pointer-events: none;
+    z-index: 1;
+}

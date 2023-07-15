@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject, RefObject } from "react";
 import BorderController from "./BorderController";
 import Socials from "./Socials";
 import NavButton from "./NavButton";
@@ -10,7 +10,7 @@ function sendEmail() {
     );
   }
 
-export default function ContactSection(ref: MutableRefObject<HTMLDivElement>): JSX.Element {
+export default function ContactSection(ref: RefObject<HTMLDivElement>): JSX.Element {
 
     return(
         <><div
