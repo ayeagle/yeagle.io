@@ -1,7 +1,7 @@
 import { MetaHTMLAttributes } from "react";
 import Head from "next/head";
 
-export default function BasicPageTop() {
+export default function PageTop() {
   return (
     <>
       <Head>

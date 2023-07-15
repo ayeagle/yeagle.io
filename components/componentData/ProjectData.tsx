@@ -39,32 +39,55 @@ export type MainProjectDetails = {
   name: string;
   description: string;
   code: Array<string>;
+  orientation: string;
+  image_link: string;
   website: string;
   github: string;
 };
 
 export const mainProjects: Array<MainProjectDetails> = [
   {
+    id: 1,
+    name: "Giftee.io",
+    description:
+      "Fullstack application to make gift exchanges with friends and family easier.",
+    code: ["React", "Typescript", "RDS", "EC2"],
+    orientation: "left",
+    image_link: "newIMGassets/giftee.png",
+    website: "",
+    github: "",
+  },
+  {
     id: 2,
-    name: "DelayPI",
-    description: "Service for registering future message sends.",
-    code: ["Typescript"],
+    name: "Meta Data Engineering",
+    description:
+      "  Created data pipelines that collect task/system insights and dashboards reporting on bug health and engineering throughput.",
+    code: ["Presto", "Python", "Dataswarm", "Hive", "PHP"],
+    orientation: "right",
+    image_link: "newIMGassets/dataswarm.png",
+    website: "",
+    github: "",
+  },
+  {
+    id: 3,
+    name: "Actionable Feedback Tool",
+    description:
+      "An internal Meta tool that helps users action their product feedback, and provides summary stats for engineer fixes.",
+    code: ["React", "Hack/PHP", "Python", "Presto"],
+    orientation: "left",
+    image_link: "newIMGassets/aft_2.png",
+    website: "",
+    github: "",
+  },
+  {
+    id: 4,
+    name: "Flytrap",
+    description:
+      "Chrome extension to fill, track, and organize unique versions of your main email when signing up for services.",
+    code: ["React", "Typescript", "Chrome APIs"],
+    orientation: "right",
+    image_link: "newIMGassets/flytrap.png",
     website: "",
     github: "",
   },
 ];
-
-// <div className={styles.project_details_wrapper_left}>
-//     <h5 className={styles.project_header_left} style={{ color: "inherit" }}> Featured Project</h5>
-
-//     <h3 className={styles.project_header_left}> Giftee.io </h3>  --- NAME
-//     <h4 className={styles.project_details_left}>  Fullstack application to make gift exchanges with friends and family easier. </h4> --- description
-//     <div className={styles.project_technicals_left}>   --- code
-//         <h5>React</h5>
-//         <h5>NextJS</h5>
-//         <h5>NodeJS</h5>
-//         <h5>RDS</h5>
-//         <h5>EC2</h5>
-//     </div>
-// </div>
-// </div>
