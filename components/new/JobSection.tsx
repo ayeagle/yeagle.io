@@ -106,8 +106,8 @@ export default function JobSection({
     <>
       <div className={styles.jobs_wrapper}>
         {jobDetailsArray.map((jobDetailsElement, index) => {
-          if(index === 0){
-            return <></>
+          if (index === 0) {
+            return <></>;
           }
           return (
             <div
@@ -245,7 +245,10 @@ export default function JobSection({
                                 500 - item[1] * 2
                               }, 50%, 50%)`,
                               height: "10px",
-                              width: open ? item[1] + "%" : "0%",
+                              width:
+                                open && currOpen === jobDetailsArray[currOpen].id
+                                  ? item[1] + "%"
+                                  : "0%",
                               transition:
                                 open == true &&
                                 currOpen == jobDetailsArray[currOpen].id

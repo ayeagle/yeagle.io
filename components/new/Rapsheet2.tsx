@@ -92,13 +92,13 @@ export default function RapsheetController(
   }, [ref]);
 
   return (
-    <div>
-      <h3 className={styles.vc}>
+    <>
+      <h2 className={styles.vc}>
         Worked on hypergrowth solutions backed by...
-      </h3>
+      </h2 >
       {glideArray.map((item) => {
         return (
-          <h2
+          <h3
             className={currStyle}
             key={item.index}
             style={{
@@ -106,9 +106,9 @@ export default function RapsheetController(
             }}
           >
             {item.title}
-          </h2>
+          </h3>
         );
       })}
-    </div>
+    </>
   );
 }

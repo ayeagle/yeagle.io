@@ -1,9 +1,11 @@
 .vc {
   position: relative;
   z-index: 1010;
+  
 }
 
 .item_before {
+  font-style: normal;
   position: relative;
   z-index: 1010;
   transition: 3s;
@@ -12,6 +14,8 @@
 }
 
 .item_after {
+  font-style: normal;
+  font-weight: 200;
   position: relative;
   z-index: 1010;
   transition: 3s;
