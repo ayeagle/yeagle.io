@@ -319,7 +319,7 @@ export default function Main() {
           >
             01
           </h2>
-          <h2>Resume </h2>
+          <h1>Resume </h1>
           <div className={styles.section_header_line} />
         </div>
         <Spacer height={width < 900 ? "10vh" : "10vh"} />
@@ -355,7 +355,7 @@ export default function Main() {
           >
             02
           </h2>
-          <h2 id="projects">Projects </h2>
+          <h1 id="projects">Projects </h1>
           <div className={styles.section_header_line} />
         </div>
         <ProjectDetails />
@@ -400,7 +400,7 @@ export default function Main() {
           >
             03
           </h2>
-          <h2 id="contact">Contact </h2>
+          <h1 id="contact">Contact </h1>
           <div className={styles.section_header_line}></div>
         </div>
         <Spacer height={"10vw"} />

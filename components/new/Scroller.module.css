@@ -52,7 +52,7 @@
 
 @media (max-width: 900px) {
   .scroller {
-    /* display: none; */
+    display: none;
     top: 10vw;
     position: relative;
     /* height: 10vw; */
