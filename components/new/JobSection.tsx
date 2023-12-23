@@ -6,9 +6,12 @@ import {
   jobDetailsArray,
 } from "../componentData/JobSectionData";
 
-export default function JobSection({open, setOpen} : {
-  open: boolean,
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+export default function JobSection({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [currQuote, setCurrQuote] = useState(0);
   const [mover, setMover] = useState(1000);
@@ -166,8 +169,6 @@ export default function JobSection({open, setOpen} : {
           >
             <div
               style={{
-                display: "flex",
-                flexDirection: "row",
                 color: !open ? "rgba(0,0,0,0)" : "blue",
                 transition: !open ? "1s" : "2s",
               }}
@@ -206,14 +207,7 @@ export default function JobSection({open, setOpen} : {
             <br />
             <hr style={{ backgroundColor: "rgb(255,255,255)" }}></hr>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                width: "100%",
-                zIndex: 20,
-              }}
-            >
+            <div className={styles.outer_wrap}>
               <div className={styles.left_wrap}>
                 <h4 className={styles.details_mini_header}> Hard Skills</h4>
                 <div>
@@ -233,6 +227,7 @@ export default function JobSection({open, setOpen} : {
                               backgroundColor: `hsl(${
                                 500 - item[1] * 2
                               }, 50%, 50%)`,
+                              height: "10px",
                               width: open ? item[1] + "%" : "0%",
                               transition:
                                 open == true &&
@@ -274,6 +269,7 @@ export default function JobSection({open, setOpen} : {
                                   ? ""
                                   : "none",
                               backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`,
+                              height: "10px",
                               width:
                                 open == true &&
                                 currOpen == jobDetailsArray[currOpen].id

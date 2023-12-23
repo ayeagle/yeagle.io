@@ -1,47 +1,89 @@
-
 .scroller {
+  top: 10vw;
+  position: relative;
+  height: 10vw;
+  width: 20%;
+  z-index: 200;
+  border-radius: 20px;
+  text-align: center;
+
+  transition: 3s;
+  /* overflow: hidden; */
+  margin: 2vw;
+}
+
+.scroller_inner_state1 {
+  position: absolute;
+  font-size: 3vw;
+  justify-content: center;
+  top: -10vw;
+  height: 60vw;
+  width: 100%;
+  color: linear-gradient(
+    to bottom,
+    rgba(5, 8, 116, 10) 30%,
+    rgba(20, 98, 154, 10) 60%,
+    rgba(29, 168, 87, 10) 100%
+  );
+  /* background-color: rgba(0,0,255,20); */
+  transition: 1s;
+  opacity: 0%;
+  text-align: center;
+}
+
+.scroller_inner_state2 {
+  font-size: 3vw;
+  top: 10vw;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: linear-gradient(
+    to bottom,
+    rgba(5, 8, 116, 100) 30%,
+    rgba(20, 98, 154, 100) 60%,
+    rgba(29, 168, 87, 100) 100%
+  );
+  background-size: 100%;
+  background-position: left;
+  transition: 2s;
+  opacity: 100%;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .scroller {
+    /* display: none; */
     top: 10vw;
     position: relative;
-    height: 10vw;
-    width: 20%;
+    /* height: 10vw; */
+    width: 0%;
     z-index: 200;
     border-radius: 20px;
     text-align: center;
-
+    padding: 0;
+    margin: 0; 
     transition: 3s;
     /* overflow: hidden; */
-    margin: 2vw;
+    /* margin: 2vw; */
+  }
 
-}
-
-
-.scroller_inner_state1 {
+  .scroller_inner_state1 {
     position: absolute;
     font-size: 3vw;
     justify-content: center;
-    top: -10vw;
+    top: 0vw;
     height: 60vw;
     width: 100%;
-    color: linear-gradient(to bottom, rgba(5, 8, 116, 10) 30%, rgba(20, 98, 154, 10) 60%, rgba(29, 168, 87, 10) 100%);
+    color: linear-gradient(
+      to bottom,
+      rgba(5, 8, 116, 10) 30%,
+      rgba(20, 98, 154, 10) 60%,
+      rgba(29, 168, 87, 10) 100%
+    );
     /* background-color: rgba(0,0,255,20); */
     transition: 1s;
     opacity: 0%;
     text-align: center;
-
-}
-
-
-.scroller_inner_state2 {
-    font-size: 3vw;
-    top: 10vw;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    color: linear-gradient(to bottom, rgba(5, 8, 116, 100) 30%, rgba(20, 98, 154, 100) 60%, rgba(29, 168, 87, 100) 100%);
-    background-size: 100%;
-    background-position: left;
-    transition: 2s;
-    opacity: 100%;
-    text-align: center;
-
+  }
+  
 }

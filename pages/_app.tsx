@@ -3,6 +3,7 @@ console.log(
 );
 
 import React from "react";
+import '../public/globals.css'
 
 function Application({
   Component,

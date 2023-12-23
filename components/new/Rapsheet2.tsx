@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import styles from "./RapsheetController.module.css";
+import { MutableRefObject, RefObject, useEffect, useState } from "react";
 
 type vcInfo = {
   index: number;
@@ -54,37 +54,42 @@ const glideArray: Array<vcInfo> = [
   },
 ];
 
-let startVal = 0.50;
-let increment = .1;
+let startVal = 0.5;
+let increment = 0.1;
 
 for (let i = 0; i < glideArray.length; i++) {
-  glideArray[i].position = startVal + increment * i ;
-  glideArray[i].fade_start_position = 10 * (i+1);
+  glideArray[i].position = startVal + increment * i;
+  glideArray[i].fade_start_position = 10 * (i + 1);
   glideArray[i].fade_modifier = 0.25;
 }
 
-export default function RapsheetController({
-  width,
-  yOffset,
-}: {
-  width: number;
-  yOffset: number;
-}): JSX.Element {
+export default function RapsheetController(
+  ref: RefObject<HTMLDivElement>
+): JSX.Element {
   // const [yOffset, setYOffset] = useState(0);
 
-  const determineFadeIn = (item: vcInfo) => {
-    // if(item.index === 0){
-    //     return ((yOffset / width) * 100 - item.fade_start_position * 0.01)*10;
+  const [currStyle, setCurrStyle] = useState<string>(styles.item_before);
 
-    // }
-    return ((yOffset / width) * (100 - item.fade_start_position))*5;
+  const setBorderAfter = () => {
+    setCurrStyle(styles.item_after);
   };
 
-  const determineGlideIn = (item: vcInfo) => {
-    const ratio = (yOffset / width) 
-    const temp =  item.position * (Math.exp(1/ratio) *.1 * (item.index + 1)) 
-    return temp 
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setBorderAfter();
+      }
+    });
+
+    if (ref && ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      if (ref && ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [ref]);
 
   return (
     <div>
@@ -94,13 +99,10 @@ export default function RapsheetController({
       {glideArray.map((item) => {
         return (
           <h2
-            className={styles.vc}
+            className={currStyle}
             key={item.index}
             style={{
-              left: Math.max(determineGlideIn(item) , 0) + "vw",
-              opacity:
-                determineFadeIn(item) +
-                "%",
+              transition: `${(item.index + 2) * 0.5}s`,
             }}
           >
             {item.title}

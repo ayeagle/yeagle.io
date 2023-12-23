@@ -12,8 +12,8 @@ export default function ProjectDetails(): JSX.Element {
   return (
     <div>
       {mainProjects.map((project: MainProjectDetails) => (
-        <div key={project.id}>
-          <Spacer height={"5vh"} />
+        <div key={project.id} className={styles.project_container_all}>
+          <Spacer height={"60px"} />
 
           <div
             className={
@@ -59,7 +59,7 @@ export default function ProjectDetails(): JSX.Element {
               >
                 {project.description}
               </h4>
-              <div
+              <h5
                 className={
                   project.orientation === "left"
                     ? styles.project_technicals_left
@@ -67,9 +67,9 @@ export default function ProjectDetails(): JSX.Element {
                 }
               >
                 {project.code.map((thing, index) => {
-                  return <h5 key={index}>{thing}</h5>;
+                  return <div key={index}>{thing}</div>;
                 })}
-              </div>
+              </h5>
             </div>
             <img
               className={
@@ -87,10 +87,10 @@ export default function ProjectDetails(): JSX.Element {
               }
             ></div>
           </div>
-          <Spacer height={"5vh"} />
+          <Spacer height={"20px"} />
         </div>
       ))}
-                <Spacer height={"5vh"} />
+      <Spacer height={"20px"} />
 
       <div className={styles.other_projects}>
         {otherProjects.map((units, index) => (
@@ -107,7 +107,15 @@ export default function ProjectDetails(): JSX.Element {
               {units.name}
             </h3>
             <Spacer height="10vw" />
-            <h5 style={{ position: "relative", fontSize: "1.3vw", top: "8%", padding: '1vw', justifyContent: 'center' }}>
+            <h5
+              style={{
+                position: "relative",
+                fontSize: "1.3vw",
+                top: "8%",
+                padding: "1vw",
+                justifyContent: "center",
+              }}
+            >
               {units.description}
             </h5>
             <Spacer height="6vw" />

@@ -19,7 +19,7 @@
 
 .button:hover {
   border: 5px solid rgb(0, 187, 224);
-  transition: 1.5s;
+  /* transition: 1.5s; */
   box-shadow: 10px 10px 0 0 white;
   padding: 1.5vw;
   /* background-color: rgba(255, 255, 255, .05) */

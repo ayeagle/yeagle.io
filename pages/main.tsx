@@ -1,5 +1,11 @@
 import NavBar from "../components/new/Navbar";
-import { useEffect, useState, useRef, MutableRefObject, RefObject } from "react";
+import {
+  useEffect,
+  useState,
+  useRef,
+  MutableRefObject,
+  RefObject,
+} from "react";
 import PageTop from "../components/new/PageTop";
 import styles from "./main.module.css";
 import NavButton from "../components/new/NavButton";
@@ -15,6 +21,8 @@ import Scroller from "../components/new/Scroller";
 import BorderController from "../components/new/BorderController";
 import ContactSection from "../components/new/ContactSection";
 import RapsheetController from "../components/new/RapsheetController";
+import Rapsheet2 from "../components/new/Rapsheet2";
+
 // import CanvasAnimation from "../components/new/CanvasAnimation";
 
 /////////////////////////////
@@ -82,8 +90,6 @@ export default function Main() {
   const targetRef1: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
   const targetRef2: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
   const jobsRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
-
-
 
   /*//////////////////
     random functions
@@ -245,7 +251,7 @@ export default function Main() {
 
   return (
     <div className={styles.master} id="top">
-      <div
+      {/* <div
         className={styles.sticky_left}
         style={{ display: width < 992 ? "none" : "", zIndex: 20 }}
       >
@@ -260,14 +266,14 @@ export default function Main() {
             left: "50%",
           }}
         />
-      </div>
+      </div> */}
       <PageTop />
       <NavBar />
-      <canvas
+      {/* <canvas
         ref={canvasRef}
         className={styles.canvas}
         style={{ height: { totalHeight } + "px" }}
-      />
+      /> */}
 
       <div className={styles.mini_master}>
         <Spacer height={width < 900 ? "5vw" : "5vw"} />
@@ -275,7 +281,7 @@ export default function Main() {
           Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong>{" "}
           and I'm a...
         </h1>
-        <Spacer height={width < 900 ? "5vw" : "5vw"} />
+        <Spacer height={width < 900 ? "80px" : "50px"} />
 
         <div
           style={{
@@ -289,22 +295,19 @@ export default function Main() {
             <img src="/IMGassets/me2.png" className={styles.image} />
           </div>
           <Scroller />
-          <h3
-            className={styles.image_text}
-            style={{ fontSize: width < 900 ? "3vw" : "2.5vw" }}
-          >
+          <h2 className={styles.image_text}>
             <Typing
-              content={`Self-taught developer
-                    <br/>Avid builder
-                    <br/>Behavioral econ nerd
-                    <br/>Product enthusiast
-                    <br/>and more...`}
+              content={`> Self-taught developer
+                    <br/>> Avid builder
+                    <br/>> Behavioral econ nerd
+                    <br/>> Product enthusiast
+                    <br/>> and more...`}
             />
-          </h3>
+          </h2>
         </div>
 
         <div id="resume">
-          <Spacer height={width < 900 ? "20vh" : "15vh"} />
+          <Spacer height={width < 900 ? "10vh" : "15vh"} />
         </div>
         <div className={styles.section_header_wrapper}>
           <h2
@@ -333,18 +336,18 @@ export default function Main() {
         >
           <BorderController {...targetRef1} />
 
-          <RapsheetController width={width} yOffset={+yOffset} />
+          <Rapsheet2 {...targetRef1} />
         </div>
         <div ref={targetRef1} />
 
         <Spacer height={width < 900 ? "10vh" : "20vh"} />
-        <JobSection  open={open} setOpen={setOpen} />
+        <JobSection open={open} setOpen={setOpen} />
 
         <Spacer
           height={width < 1100 ? (width < 700 ? "50vh" : "35vh") : "0vw"}
         />
-        <div ref={jobsRef}/>
-        <Quotes   />
+        <div ref={jobsRef} />
+        <Quotes />
 
         <div id="projects">
           <Spacer height={width < 900 ? "40vh" : "15vh"} />
@@ -380,7 +383,8 @@ export default function Main() {
             <div
               className={styles.video}
               onMouseEnter={() => setBoopBoop(true)}
-              onMouseLeave={() => setBoopBoop(false)}            >
+              onMouseLeave={() => setBoopBoop(false)}
+            >
               <iframe
                 className={styles.video_inner}
                 style={{ pointerEvents: "none", borderRadius: "40px" }}

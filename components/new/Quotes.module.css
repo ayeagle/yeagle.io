@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   z-index: 10;
-  transition: 1s;
+  /* transition: 1s; */
   position: relative;
   height: 50vw;
 }
@@ -31,7 +31,7 @@
   border: 3px solid rgb(0, 187, 224);
   align-items: center;
   justify-content: center;
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
   color: white;
   transition: 0s;
   margin: 2vw;
@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: 1s;
+  /* transition: 1s; */
 
   z-index: 99999;
   border-radius: 10px;
@@ -57,12 +57,12 @@
   width: 100%;
   /* margin-top: 3vw; */
   font-weight: 200;
-  font-size: 3vw;
+  /* font-size: 3vw; */
 
   /* background-color: rgb(40, 51, 109); */
   align-items: center;
   justify-content: center;
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
   color: white;
   /* transition: left 3s ease; */
 

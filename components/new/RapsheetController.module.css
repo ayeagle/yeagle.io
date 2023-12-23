@@ -1,6 +1,19 @@
 .vc {
+  position: relative;
+  z-index: 1010;
+}
 
-    position: relative;
-    z-index: 1010;
+.item_before {
+  position: relative;
+  z-index: 1010;
+  transition: 3s;
+  right: -100vw;
+  opacity: 0;
+}
 
+.item_after {
+  position: relative;
+  z-index: 1010;
+  transition: 3s;
+  right: 0px;
 }

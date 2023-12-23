@@ -128,7 +128,7 @@ export default function Quotes({}) {
           >
             <div
               className={styles.carousel_element_left}
-              style={{ fontSize: "2.5vw", zIndex: 5000 }}
+              style={{ zIndex: 5000 }}
             >
               <img
                 src={element.pic}
