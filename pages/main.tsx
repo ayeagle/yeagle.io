@@ -282,7 +282,6 @@ export default function Main() {
           and I'm a...
         </h1>
         <Spacer height={width < 900 ? "80px" : "50px"} />
-
         <div
           style={{
             position: "relative",
@@ -305,7 +304,6 @@ export default function Main() {
             />
           </h2>
         </div>
-
         <div id="resume">
           <Spacer height={width < 900 ? "10vh" : "15vh"} />
         </div>
@@ -324,7 +322,6 @@ export default function Main() {
           <h2>Resume </h2>
           <div className={styles.section_header_line} />
         </div>
-
         <Spacer height={width < 900 ? "10vh" : "10vh"} />
         <div
           style={{
@@ -339,20 +336,13 @@ export default function Main() {
           <Rapsheet2 {...targetRef1} />
         </div>
         <div ref={targetRef1} />
-
         <Spacer height={width < 900 ? "10vh" : "20vh"} />
         <JobSection open={open} setOpen={setOpen} />
-
-        <Spacer
-          height={width < 1100 ? (width < 700 ? "50vh" : "35vh") : "0vw"}
-        />
+        <Spacer height={"10vh"} />
         <div ref={jobsRef} />
         <Quotes />
-
-        <div id="projects">
-          <Spacer height={width < 900 ? "40vh" : "15vh"} />
-        </div>
-
+        <Spacer height={"10vh"} />
+         <div id="projects"></div>
         <div className={styles.section_header_wrapper}>
           <h2
             style={{
@@ -368,9 +358,7 @@ export default function Main() {
           <h2 id="projects">Projects </h2>
           <div className={styles.section_header_line} />
         </div>
-
         <ProjectDetails />
-
         <Spacer height={"15vh"} />
         <div style={{ position: "relative" }}>
           <div style={{ display: width < 900 ? "none" : "" }}>
@@ -399,7 +387,6 @@ export default function Main() {
             </div>
           </div>
         </div>
-
         <Spacer height={"10vw"} />
         <div className={styles.section_header_wrapper}>
           <h2
@@ -416,11 +403,9 @@ export default function Main() {
           <h2 id="contact">Contact </h2>
           <div className={styles.section_header_line}></div>
         </div>
-
         <Spacer height={"10vw"} />
         <div ref={targetRef2} />
         <ContactSection {...targetRef2} />
-
         <Spacer height={"15vw"} />
         <div style={{ zIndex: "100", position: "relative" }}>
           <PageBot />
