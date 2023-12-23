@@ -17,7 +17,7 @@ export default function JobSection({
   const [mover, setMover] = useState(1000);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [caroLive, setCaroLive] = useState(false);
-  const [workStyle, setWorkStyle] = useState("styles.work_details_closed");
+  const [workStyle, setWorkStyle] = useState(styles.work_details_closed);
   const [currOpen, setCurrOpen] = useState(0);
   const [yOffset, setYOffset] = useState(0);
   const [yTotal, setYTotal] = useState(0);
@@ -71,7 +71,7 @@ export default function JobSection({
   };
 
   if (Math.abs(yOffset / yTotal - 0.15) <= 0.01 && !open && once == 0) {
-    openClick(0);
+    openClick(1);
     setOnce(1);
   }
 
@@ -105,60 +105,71 @@ export default function JobSection({
   return (
     <>
       <div className={styles.jobs_wrapper}>
-        {jobDetailsArray.map((jobDetailsElement, index) => (
-          <div
-            className={styles.jobs_container}
-            style={{ width: width > 2300 ? "" : "25%" }}
-          >
+        {jobDetailsArray.map((jobDetailsElement, index) => {
+          if(index === 0){
+            return <></>
+          }
+          return (
             <div
-              className={styles.logo_container}
-              style={{
-                border:
-                  currOpen == index && open ? "3px solid rgb(0, 187, 224)" : "",
-                boxShadow:
-                  currOpen == index && open
-                    ? "0 0 40px 40px rgba(0, 0, 0, 0.274)"
-                    : "",
-                transition: ".3s",
-              }}
+              className={styles.jobs_container}
+              style={{ width: width > 2300 ? "" : "25%" }}
             >
               <div
-                className={styles.arrow}
-                onClick={() => openClick(index)}
-                onMouseEnter={() => hoverIndexSet(index)}
-                // style={{border: "1px solid white"}}
+                className={styles.logo_container}
+                style={{
+                  border:
+                    currOpen == index && open
+                      ? "3px solid rgb(0, 187, 224)"
+                      : "",
+                  boxShadow:
+                    currOpen == index && open
+                      ? "0 0 40px 40px rgba(0, 0, 0, 0.274)"
+                      : "",
+                  transition: ".3s",
+                }}
               >
-                <div className={styles.arrow_details_header}>
-                  <a href={jobDetailsElement.company_url} target="_blank">
+                <div
+                  className={styles.arrow}
+                  onClick={() => openClick(index)}
+                  onMouseEnter={() => hoverIndexSet(index)}
+                  // style={{border: "1px solid white"}}
+                >
+                  <div className={styles.arrow_details_header}>
+                    <a href={jobDetailsElement.company_url} target="_blank">
+                      <h5 className={styles.details_header_units}>
+                        {jobDetailsElement.company} &#128279;
+                      </h5>
+                    </a>
                     <h5 className={styles.details_header_units}>
-                      {jobDetailsElement.company} &#128279;
+                      {jobDetailsElement.role}
                     </h5>
-                  </a>
-                  <h5 className={styles.details_header_units}>
-                    {jobDetailsElement.role}
-                  </h5>
-                  <h5 className={styles.details_header_units}>
-                    {jobDetailsElement.tenure}
-                  </h5>
+                    <h5 className={styles.details_header_units}>
+                      {jobDetailsElement.tenure}
+                    </h5>
+                  </div>
+                  <img
+                    className={arrowStyle}
+                    src="/IMGassets/down_arrow.png"
+                    style={{ height: "5vw" }}
+                  />
                 </div>
                 <img
-                  className={arrowStyle}
-                  src="/IMGassets/down_arrow.png"
-                  style={{ height: "5vw" }}
+                  src={jobDetailsElement.logo_pic}
+                  style={{ paddingTop: jobDetailsElement.top_move_perc }}
+                  className={styles.logo}
+                  onClick={() => openClick(index)}
                 />
               </div>
-              <img
-                src={jobDetailsElement.logo_pic}
-                style={{ paddingTop: jobDetailsElement.top_move_perc }}
-                className={styles.logo}
-                onClick={() => openClick(index)}
-              />
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
-      <div style={{ zIndex: 50, transition: "2s" }}>
-        <div className={workStyle}>
+      <div className={styles.extra_blocker}> </div>
+
+      <div className={workStyle}>
+        {currOpen === 0 ? (
+          <></>
+        ) : (
           <div
             style={{
               display: "flex",
@@ -205,7 +216,13 @@ export default function JobSection({
               </h4>
             </div>
             <br />
-            <hr style={{ backgroundColor: "rgb(255,255,255)" }}></hr>
+            <hr
+              style={{
+                backgroundColor: "rgb(255,255,255)",
+                opacity: open ? "100%" : "0%",
+                transition: "1s",
+              }}
+            ></hr>
 
             <div className={styles.outer_wrap}>
               <div className={styles.left_wrap}>
@@ -305,7 +322,7 @@ export default function JobSection({
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

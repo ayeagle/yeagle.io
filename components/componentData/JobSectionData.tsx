@@ -16,6 +16,21 @@ export type JobSectionDetails = {
 export const jobDetailsArray: Array<JobSectionDetails> = [
   {
     id: 0,
+    company: "",
+    company_url: "",
+    role: "",
+    tenure: "",
+    details: [],
+
+    logo_pic: "",
+    hard_skills: [
+    ],
+    soft_skills: [
+    ],
+    top_move_perc: "0vw",
+  },
+  {
+    id: 1,
     company: "Facebook",
     company_url: "https://www.metacareers.com/",
     role: "Product Development",
@@ -57,7 +72,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     top_move_perc: "5vw",
   },
   {
-    id: 1,
+    id: 2,
     company: "CaptivateIQ",
     company_url: "https://www.captivateiq.com/",
     role: "Product Solutions Consultant",
@@ -98,7 +113,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     top_move_perc: "3vw",
   },
   {
-    id: 2,
+    id: 3,
     company: "Guide.co",
     company_url: "https://guide.co/",
     role: "Product Growth Lead",
@@ -141,7 +156,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     top_move_perc: "2.5vw",
   },
   {
-    id: 3,
+    id: 4,
     company: "Sift",
     company_url: "https://sift.com/",
     role: "Business Development Lead",
