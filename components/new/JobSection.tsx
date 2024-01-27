@@ -5,6 +5,7 @@ import {
   JobSectionDetails,
   jobDetailsArray,
 } from "../componentData/JobSectionData";
+import Spacer from "../bio/Spacer";
 
 export default function JobSection({
   open,
@@ -102,18 +103,20 @@ export default function JobSection({
     setArrowStyle(styles.arrow_down);
   }, []);
 
+  console.log("CURR OPEN");
+  console.log(currOpen);
+  console.log("OPEN VAR");
+  console.log(open);
+
   return (
     <>
       <div className={styles.jobs_wrapper}>
         {jobDetailsArray.map((jobDetailsElement, index) => {
-          if (index === 0) {
-            return <></>;
-          }
+          // if (index === 0) {
+          //   return <></>;
+          // }
           return (
-            <div
-              className={styles.jobs_container}
-              style={{ width: width > 2300 ? "" : "25%" }}
-            >
+            <div className={styles.jobs_container} style={{ width: "20%" }}>
               <div
                 className={styles.logo_container}
                 style={{
@@ -140,9 +143,9 @@ export default function JobSection({
                         {jobDetailsElement.company} &#128279;
                       </h5>
                     </a>
-                    <h5 className={styles.details_header_units}>
+                    {/* <h5 className={styles.details_header_units}>
                       {jobDetailsElement.role}
-                    </h5>
+                    </h5> */}
                     <h5 className={styles.details_header_units}>
                       {jobDetailsElement.tenure}
                     </h5>
@@ -153,12 +156,14 @@ export default function JobSection({
                     style={{ height: "5vw" }}
                   />
                 </div>
-                <img
-                  src={jobDetailsElement.logo_pic}
-                  style={{ paddingTop: jobDetailsElement.top_move_perc }}
-                  className={styles.logo}
-                  onClick={() => openClick(index)}
-                />
+                <div className={styles.logo_box}>
+                  <img
+                    src={jobDetailsElement.logo_pic}
+                    // style={{ paddingTop: jobDetailsElement.top_move_perc }}
+                    className={styles.logo}
+                    onClick={() => openClick(index)}
+                  />
+                </div>
               </div>
             </div>
           );
@@ -167,166 +172,151 @@ export default function JobSection({
       <div className={styles.extra_blocker}> </div>
 
       <div className={workStyle}>
-        {currOpen === 0 ? (
-          <></>
-        ) : (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            zIndex: 1,
+            width: "100%",
+          }}
+        >
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              zIndex: 1,
-              width: "100%",
+              color: !open ? "rgba(0,0,0,0)" : "blue",
+              transition: !open ? "1s" : "2s",
             }}
+            className={styles.internal_details_header_units}
           >
-            <div
-              style={{
-                color: !open ? "rgba(0,0,0,0)" : "blue",
-                transition: !open ? "1s" : "2s",
-              }}
+            <a href={jobDetailsArray[currOpen].company_url} target="_blank">
+              <h4
+                className={styles.internal_details_header_units}
+                style={{
+                  color: !open ? "rgba(0,0,0,0)" : "",
+                  transition: !open ? ".5s" : "2s",
+                }}
+              >
+                {jobDetailsArray[currOpen].company}{" "}
+              </h4>
+            </a>
+            <h4
               className={styles.internal_details_header_units}
-            >
-              <a href={jobDetailsArray[currOpen].company_url} target="_blank">
-                <h4
-                  className={styles.internal_details_header_units}
-                  style={{
-                    color: !open ? "rgba(0,0,0,0)" : "",
-                    transition: !open ? ".5s" : "2s",
-                  }}
-                >
-                  {jobDetailsArray[currOpen].company}{" "}
-                </h4>
-              </a>
-              <h4
-                className={styles.internal_details_header_units}
-                style={{
-                  color: !open ? "rgba(0,0,0,0)" : "",
-                  transition: !open ? ".5s" : "2s",
-                }}
-              >
-                {jobDetailsArray[currOpen].role}
-              </h4>
-              <h4
-                className={styles.internal_details_header_units}
-                style={{
-                  color: !open ? "rgba(0,0,0,0)" : "",
-                  transition: !open ? ".5s" : "2s",
-                }}
-              >
-                {jobDetailsArray[currOpen].tenure}
-              </h4>
-            </div>
-            <br />
-            <hr
               style={{
-                backgroundColor: "rgb(255,255,255)",
-                opacity: open ? "100%" : "0%",
-                transition: "1s",
+                color: !open ? "rgba(0,0,0,0)" : "",
+                transition: !open ? ".5s" : "2s",
               }}
-            ></hr>
+            >
+              {jobDetailsArray[currOpen].role}
+            </h4>
+            <h4
+              className={styles.internal_details_header_units}
+              style={{
+                color: !open ? "rgba(0,0,0,0)" : "",
+                transition: !open ? ".5s" : "2s",
+              }}
+            >
+              {jobDetailsArray[currOpen].tenure}
+            </h4>
+          </div>
+          <br />
+          <hr
+            style={{
+              backgroundColor: "rgb(255,255,255)",
+              opacity: open ? "100%" : "0%",
+              transition: "1s",
+            }}
+          ></hr>
 
-            <div className={styles.outer_wrap}>
-              <div className={styles.left_wrap}>
-                <h4 className={styles.details_mini_header}> Hard Skills</h4>
-                <div>
-                  <div className={styles.work_bullets}>
-                    {jobDetailsArray[currOpen].hard_skills.map(
-                      (item, index) => (
-                        <div
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          <div
-                            ref={giftRef[currOpen]}
-                            key={
-                              jobDetailsArray[currOpen].id + index + 3 + item[0]
-                            }
-                            className={styles.skill_bar}
-                            style={{
-                              backgroundColor: `hsl(${
-                                500 - item[1] * 2
-                              }, 50%, 50%)`,
-                              height: "10px",
-                              width:
-                                open && currOpen === jobDetailsArray[currOpen].id
-                                  ? item[1] + "%"
-                                  : "0%",
-                              transition:
-                                open == true &&
-                                currOpen == jobDetailsArray[currOpen].id
-                                  ? "2s ease-out "
-                                  : ".8s",
-                            }}
-                          ></div>
-                          <p
-                            key={jobDetailsArray[currOpen].id + item[0]}
-                            style={{ marginLeft: open ? "3vw" : "3vw" }}
-                          >
-                            {item[0]}
-                          </p>
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-                <br />
-                <h4 className={styles.details_mini_header}> Soft Skills</h4>
-                <div>
-                  <div className={styles.work_bullets}>
-                    {/* {jobDetailsArray[currOpen].hard_skills} */}
-                    {jobDetailsArray[currOpen].soft_skills.map(
-                      (item, index) => (
-                        <div
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          <div
-                            ref={giftRef[currOpen]}
-                            key={
-                              jobDetailsArray[currOpen].id + index + 3 + item[0]
-                            }
-                            className={styles.skill_bar}
-                            style={{
-                              display:
-                                currOpen == jobDetailsArray[currOpen].id
-                                  ? ""
-                                  : "none",
-                              backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`,
-                              height: "10px",
-                              width:
-                                open == true &&
-                                currOpen == jobDetailsArray[currOpen].id
-                                  ? item[1] + "%"
-                                  : "0%",
-                              transition: open ? "2s ease-out " : ".8s",
-                            }}
-                          ></div>
-                          <p
-                            key={jobDetailsArray[currOpen].id + item[0]}
-                            style={{ marginLeft: open ? "3vw" : "3vw" }}
-                          >
-                            {item[0]}
-                          </p>
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.right_wrap}>
-                <h4 className={styles.details_mini_header}>Work</h4>
-
-                <ul className={styles.work_bullets}>
-                  {jobDetailsArray[currOpen].details.map((detail, index) => (
-                    <li key={detail[1]}>{detail[0]}</li>
+          <div className={styles.outer_wrap}>
+            <div className={styles.left_wrap}>
+              <h4 className={styles.details_mini_header}> Hard Skills</h4>
+              <div>
+                <div className={styles.work_bullets}>
+                  {jobDetailsArray[currOpen].hard_skills.map((item, index) => (
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <div
+                        ref={giftRef[currOpen]}
+                        key={jobDetailsArray[currOpen].id + index + 3 + item[0]}
+                        className={styles.skill_bar}
+                        style={{
+                          backgroundColor: `hsl(${
+                            500 - item[1] * 2
+                          }, 50%, 50%)`,
+                          height: "10px",
+                          width:
+                            open && currOpen === jobDetailsArray[currOpen].id
+                              ? item[1] + "%"
+                              : "0%",
+                          transition:
+                            open == true &&
+                            currOpen == jobDetailsArray[currOpen].id
+                              ? "2s ease-out "
+                              : ".8s",
+                        }}
+                      ></div>
+                      <p
+                        key={jobDetailsArray[currOpen].id + item[0]}
+                        style={{ marginLeft: open ? "3vw" : "3vw" }}
+                      >
+                        {item[0]}
+                      </p>
+                    </div>
                   ))}
-                </ul>
-                {/* <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} /> */}
-
-                {/* <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} /> */}
+                </div>
               </div>
+              <br />
+              <h4 className={styles.details_mini_header}> Soft Skills</h4>
+              <div>
+                <div className={styles.work_bullets}>
+                  {/* {jobDetailsArray[currOpen].hard_skills} */}
+                  {jobDetailsArray[currOpen].soft_skills.map((item, index) => (
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <div
+                        ref={giftRef[currOpen]}
+                        key={jobDetailsArray[currOpen].id + index + 3 + item[0]}
+                        className={styles.skill_bar}
+                        style={{
+                          display:
+                            currOpen == jobDetailsArray[currOpen].id
+                              ? ""
+                              : "none",
+                          backgroundColor: `hsl(${item[1] * 3}, 50%, 50%)`,
+                          height: "10px",
+                          width:
+                            open == true &&
+                            currOpen == jobDetailsArray[currOpen].id
+                              ? item[1] + "%"
+                              : "0%",
+                          transition: open ? "2s ease-out " : ".8s",
+                        }}
+                      ></div>
+                      <p
+                        key={jobDetailsArray[currOpen].id + item[0]}
+                        style={{ marginLeft: open ? "3vw" : "3vw" }}
+                      >
+                        {item[0]}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.right_wrap}>
+              <h4 className={styles.details_mini_header}>Work</h4>
+
+              <ul className={styles.work_bullets}>
+                {jobDetailsArray[currOpen].details.map((detail, index) => (
+                  <li key={detail[1]}>{detail[0]}</li>
+                ))}
+              </ul>
+              {/* <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} /> */}
+
+              {/* <hr style={{ backgroundColor: !open ? "rgba(0,0,0,0)" : "rgb(255,255,255)", transition: !open ? "1s" : "3s" }} /> */}
             </div>
           </div>
-        )}
+        </div>
       </div>
+      <Spacer height={width < 900 ? jobDetailsArray[currOpen].additional_bottom_padding : "0px"} />
     </>
   );
 }

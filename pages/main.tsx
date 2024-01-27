@@ -166,7 +166,7 @@ export default function Main() {
       <NavBar />
 
       <div className={styles.mini_master}>
-        <Spacer height={width < 900 ? "5vw" : "5vw"} />
+        <Spacer height={'100px'} />
         <h1 className={styles.title}>
           Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong>{" "}
           and I'm a...
@@ -195,7 +195,7 @@ export default function Main() {
           </h2>
         </div>
         <div id={NavScrollTarget.RESUME}>
-          <Spacer height={width < 900 ? "10vh" : "15vh"} />
+          <Spacer height={width < 900 ? "200px" : "150px"} />
         </div>
         <div className={styles.section_header_wrapper}>
           <h2
@@ -212,11 +212,11 @@ export default function Main() {
           <h1>Resume </h1>
           <div className={styles.section_header_line} />
         </div>
-        <Spacer height={width < 900 ? "10vh" : "10vh"} />
+        <Spacer height={"100px"} />
         <div
           style={{
             height: "auto",
-            width: "50vw",
+            width: "80%",
             margin: "0 auto",
             position: "relative",
           }}
@@ -226,12 +226,12 @@ export default function Main() {
           <Rapsheet2 {...targetRef1} />
         </div>
         <div ref={targetRef1} />
-        <Spacer height={width < 900 ? "10vh" : "20vh"} />
+        <Spacer height={width < 900 ? "200px" : "150px"} />
         <JobSection open={open} setOpen={setOpen} />
-        <Spacer height={"10vh"} />
+        <Spacer height={"100px"} />
         <div ref={jobsRef} />
         <Quotes />
-        <Spacer height={"10vh"} />
+        <Spacer height={"100px"} />
         <div id={NavScrollTarget.PROJECTS}></div>
         <div className={styles.section_header_wrapper}>
           <h2
@@ -249,7 +249,7 @@ export default function Main() {
           <div className={styles.section_header_line} />
         </div>
         <ProjectDetails />
-        <Spacer height={"15vh"} />
+        <Spacer height={"150px"} />
         <div style={{ position: "relative" }}>
           <div style={{ display: width < 900 ? "none" : "" }}>
             <h3
@@ -277,7 +277,7 @@ export default function Main() {
             </div>
           </div>
         </div>
-        <Spacer height={"10vw"} />
+        <Spacer height={"100px"} />
         <div className={styles.section_header_wrapper}>
           <h2
             style={{
@@ -293,10 +293,10 @@ export default function Main() {
           <h1 id={NavScrollTarget.CONTACT}>Contact </h1>
           <div className={styles.section_header_line}></div>
         </div>
-        <Spacer height={"10vw"} />
+        <Spacer height={"100px"} />
         <div ref={targetRef2} />
         <ContactSection {...targetRef2} />
-        <Spacer height={"15vw"} />
+        <Spacer height={"150px"} />
         <div style={{ zIndex: "100", position: "relative" }}>
           <PageBot />
         </div>

@@ -11,30 +11,51 @@ export type JobSectionDetails = {
   hard_skills: Array<JobDetailsItem>;
   soft_skills: Array<JobDetailsItem>;
   top_move_perc: string;
+  additional_bottom_padding: string;
 };
 
 export const jobDetailsArray: Array<JobSectionDetails> = [
   {
     id: 0,
-    company: "",
-    company_url: "",
-    role: "",
-    tenure: "",
-    details: [],
-
-    logo_pic: "",
+    company: "Instagram",
+    company_url: "https://www.metacareers.com/",
+    role: "Software Engineer",
+    tenure: "2023-Present",
+    details: [
+      [
+        "Lead server architecture and execution for feature pods within the Lead Generation org",
+        0,
+      ],
+      [
+        "Previously supported server engineering for FB Community Messaging and Design Infrastructure Systems",
+        1,
+      ],
+      [
+        "Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
+        2,
+      ],
+    ],
+    logo_pic: "/NewIMGassets/ig7.png",
     hard_skills: [
+      ["Hack/PHP", 90],
+      ["Python", 74],
+      ["GraphQL", 69],
+      ["Obj C/Swift", 39],
     ],
     soft_skills: [
+      ["Project Scoping and Management", 82],
+      ["Server Architecture", 71],
+      ["Performance Optimization", 51],
     ],
-    top_move_perc: "0vw",
+    top_move_perc: "0px",
+    additional_bottom_padding: "50px",
   },
   {
     id: 1,
     company: "Facebook",
     company_url: "https://www.metacareers.com/",
     role: "Product Development",
-    tenure: "2022-Present",
+    tenure: "2022-2023",
     details: [
       [
         "Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
@@ -69,7 +90,8 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Feature/Fix Efficiency", 55],
       ["Finding PMF", 25],
     ],
-    top_move_perc: "5vw",
+    top_move_perc: "25px",
+    additional_bottom_padding: "150px",
   },
   {
     id: 2,
@@ -110,7 +132,8 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Product Strategy", 72],
       ["Collaboration", 40],
     ],
-    top_move_perc: "3vw",
+    top_move_perc: "3px",
+    additional_bottom_padding: "50px",
   },
   {
     id: 3,
@@ -153,7 +176,8 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Growth Strategy", 75],
       ["Operating in Uncertainty", 43],
     ],
-    top_move_perc: "2.5vw",
+    top_move_perc: "0px",
+    additional_bottom_padding: "125px",
   },
   {
     id: 4,
@@ -187,6 +211,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Project Scoping", 42],
       ["Collaboration", 33],
     ],
-    top_move_perc: "6vw",
+    top_move_perc: "45px",
+    additional_bottom_padding: "0px",
   },
 ];
