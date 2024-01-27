@@ -11,10 +11,10 @@ import * as icons from "react-icons/fa";
 export default function ProjectDetails(): JSX.Element {
   return (
     <div>
+      <Spacer height={"50px"} />
+
       {mainProjects.map((project: MainProjectDetails) => (
         <div key={project.id} className={styles.project_container_all}>
-          <Spacer height={"60px"} />
-
           <div
             className={
               project.orientation === "left"
@@ -87,7 +87,7 @@ export default function ProjectDetails(): JSX.Element {
               }
             ></div>
           </div>
-          <Spacer height={"20px"} />
+          <Spacer height={"150px"} />
         </div>
       ))}
       <Spacer height={"20px"} />

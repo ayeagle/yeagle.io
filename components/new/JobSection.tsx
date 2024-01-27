@@ -72,7 +72,7 @@ export default function JobSection({
   };
 
   if (Math.abs(yOffset / yTotal - 0.15) <= 0.01 && !open && once == 0) {
-    openClick(1);
+    openClick(0);
     setOnce(1);
   }
 
@@ -116,7 +116,7 @@ export default function JobSection({
           //   return <></>;
           // }
           return (
-            <div className={styles.jobs_container} style={{ width: "25%" }}>
+            <div className={styles.jobs_container} style={{ width: "15%" }}>
               <div
                 className={styles.logo_container}
                 style={{
@@ -316,7 +316,7 @@ export default function JobSection({
           </div>
         </div>
       </div>
-      <Spacer height={width < 900 && open ? jobDetailsArray[currOpen].additional_bottom_padding : "0px"} />
+      <Spacer height={open && (width < 900 || width > 2000) ? jobDetailsArray[currOpen].additional_bottom_padding : "0px"} />
     </>
   );
 }
