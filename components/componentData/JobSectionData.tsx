@@ -27,7 +27,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     ],
     soft_skills: [
     ],
-    top_move_perc: "0vw",
+    top_move_perc: "0px",
   },
   {
     id: 1,
@@ -69,7 +69,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Feature/Fix Efficiency", 55],
       ["Finding PMF", 25],
     ],
-    top_move_perc: "5vw",
+    top_move_perc: "25px",
   },
   {
     id: 2,
@@ -110,7 +110,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Product Strategy", 72],
       ["Collaboration", 40],
     ],
-    top_move_perc: "3vw",
+    top_move_perc: "3px",
   },
   {
     id: 3,
@@ -153,7 +153,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Growth Strategy", 75],
       ["Operating in Uncertainty", 43],
     ],
-    top_move_perc: "2.5vw",
+    top_move_perc: "0px",
   },
   {
     id: 4,
@@ -187,6 +187,253 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Project Scoping", 42],
       ["Collaboration", 33],
     ],
-    top_move_perc: "6vw",
+    top_move_perc: "45px",
+  },
+  {
+    id: 4,
+    company: "Sift",
+    company_url: "https://sift.com/",
+    role: "Business Development Lead",
+    tenure: "2018-2019",
+    details: [
+      [
+        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
+        0,
+      ],
+      [
+        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
+        1,
+      ],
+      [
+        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
+        2,
+      ],
+    ],
+
+    logo_pic: "/NewIMGassets/SIFTL.png",
+    hard_skills: [
+      ["Salesforce", 49],
+      ["Excel", 32],
+    ],
+    soft_skills: [
+      ["Leadership", 84],
+      ["Process Optimization", 69],
+      ["Project Scoping", 42],
+      ["Collaboration", 33],
+    ],
+    top_move_perc: "45px",
+  },
+  {
+    id: 4,
+    company: "Sift",
+    company_url: "https://sift.com/",
+    role: "Business Development Lead",
+    tenure: "2018-2019",
+    details: [
+      [
+        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
+        0,
+      ],
+      [
+        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
+        1,
+      ],
+      [
+        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
+        2,
+      ],
+    ],
+
+    logo_pic: "/NewIMGassets/SIFTL.png",
+    hard_skills: [
+      ["Salesforce", 49],
+      ["Excel", 32],
+    ],
+    soft_skills: [
+      ["Leadership", 84],
+      ["Process Optimization", 69],
+      ["Project Scoping", 42],
+      ["Collaboration", 33],
+    ],
+    top_move_perc: "45px",
+  },
+  {
+    id: 4,
+    company: "Sift",
+    company_url: "https://sift.com/",
+    role: "Business Development Lead",
+    tenure: "2018-2019",
+    details: [
+      [
+        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
+        0,
+      ],
+      [
+        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
+        1,
+      ],
+      [
+        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
+        2,
+      ],
+    ],
+
+    logo_pic: "/NewIMGassets/SIFTL.png",
+    hard_skills: [
+      ["Salesforce", 49],
+      ["Excel", 32],
+    ],
+    soft_skills: [
+      ["Leadership", 84],
+      ["Process Optimization", 69],
+      ["Project Scoping", 42],
+      ["Collaboration", 33],
+    ],
+    top_move_perc: "45px",
+  },
+  {
+    id: 4,
+    company: "Sift",
+    company_url: "https://sift.com/",
+    role: "Business Development Lead",
+    tenure: "2018-2019",
+    details: [
+      [
+        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
+        0,
+      ],
+      [
+        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
+        1,
+      ],
+      [
+        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
+        2,
+      ],
+    ],
+
+    logo_pic: "/NewIMGassets/SIFTL.png",
+    hard_skills: [
+      ["Salesforce", 49],
+      ["Excel", 32],
+    ],
+    soft_skills: [
+      ["Leadership", 84],
+      ["Process Optimization", 69],
+      ["Project Scoping", 42],
+      ["Collaboration", 33],
+    ],
+    top_move_perc: "45px",
+  },
+  {
+    id: 4,
+    company: "Sift",
+    company_url: "https://sift.com/",
+    role: "Business Development Lead",
+    tenure: "2018-2019",
+    details: [
+      [
+        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
+        0,
+      ],
+      [
+        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
+        1,
+      ],
+      [
+        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
+        2,
+      ],
+    ],
+
+    logo_pic: "/NewIMGassets/SIFTL.png",
+    hard_skills: [
+      ["Salesforce", 49],
+      ["Excel", 32],
+    ],
+    soft_skills: [
+      ["Leadership", 84],
+      ["Process Optimization", 69],
+      ["Project Scoping", 42],
+      ["Collaboration", 33],
+    ],
+    top_move_perc: "45px",
+  },
+  {
+    id: 4,
+    company: "Sift",
+    company_url: "https://sift.com/",
+    role: "Business Development Lead",
+    tenure: "2018-2019",
+    details: [
+      [
+        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
+        0,
+      ],
+      [
+        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
+        1,
+      ],
+      [
+        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
+        2,
+      ],
+    ],
+
+    logo_pic: "/NewIMGassets/SIFTL.png",
+    hard_skills: [
+      ["Salesforce", 49],
+      ["Excel", 32],
+    ],
+    soft_skills: [
+      ["Leadership", 84],
+      ["Process Optimization", 69],
+      ["Project Scoping", 42],
+      ["Collaboration", 33],
+    ],
+    top_move_perc: "45px",
+  },
+  {
+    id: 3,
+    company: "Guide.co",
+    company_url: "https://guide.co/",
+    role: "Product Growth Lead",
+    tenure: "2019-2020",
+    details: [
+      [
+        "Worked weekly with eng team and C-suite to uncover PMF and bring an early-access platform to market",
+        0,
+      ],
+      [
+        "Collaborated on sourcing, design, and execution of product growth features",
+        1,
+      ],
+      [
+        "Executed 23 growth experiments in 20Q1, tracking towards a 1m user growth rate for 2020",
+        2,
+      ],
+      ["Analyzed usage data weekly to inform adoption strategy", 3],
+      [
+        "Reduced activation time from 1.5 weeks to 45 minutes while increasing first week engagement by 200%+",
+        4,
+      ],
+      [
+        "Uncovered and prioritized customer pains against technical feasibility on a daily basis",
+        6,
+      ],
+    ],
+    logo_pic: "/NewIMGassets/GUIDEL.png",
+    hard_skills: [
+      ["Excel", 60],
+      ["Salesforce", 45],
+      ["Product/Design Tooling", 30],
+      ["SQL", 15],
+    ],
+    soft_skills: [
+      ["Product Strategy", 83],
+      ["Growth Strategy", 75],
+      ["Operating in Uncertainty", 43],
+    ],
+    top_move_perc: "0px",
   },
 ];

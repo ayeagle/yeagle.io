@@ -112,7 +112,7 @@ export default function JobSection({
           return (
             <div
               className={styles.jobs_container}
-              style={{ width: width > 2300 ? "" : "25%" }}
+              style={{ width: "25%" }}
             >
               <div
                 className={styles.logo_container}
@@ -153,12 +153,14 @@ export default function JobSection({
                     style={{ height: "5vw" }}
                   />
                 </div>
-                <img
-                  src={jobDetailsElement.logo_pic}
-                  style={{ paddingTop: jobDetailsElement.top_move_perc }}
-                  className={styles.logo}
-                  onClick={() => openClick(index)}
-                />
+                <div className={styles.logo_box}>
+                  <img
+                    src={jobDetailsElement.logo_pic}
+                    // style={{ paddingTop: jobDetailsElement.top_move_perc }}
+                    className={styles.logo}
+                    onClick={() => openClick(index)}
+                  />
+                </div>
               </div>
             </div>
           );
@@ -246,7 +248,8 @@ export default function JobSection({
                               }, 50%, 50%)`,
                               height: "10px",
                               width:
-                                open && currOpen === jobDetailsArray[currOpen].id
+                                open &&
+                                currOpen === jobDetailsArray[currOpen].id
                                   ? item[1] + "%"
                                   : "0%",
                               transition:
