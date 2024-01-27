@@ -11,30 +11,51 @@ export type JobSectionDetails = {
   hard_skills: Array<JobDetailsItem>;
   soft_skills: Array<JobDetailsItem>;
   top_move_perc: string;
+  additional_bottom_padding: string;
 };
 
 export const jobDetailsArray: Array<JobSectionDetails> = [
   {
     id: 0,
-    company: "",
-    company_url: "",
-    role: "",
-    tenure: "",
-    details: [],
-
-    logo_pic: "",
+    company: "Instagram",
+    company_url: "https://www.metacareers.com/",
+    role: "Software Engineer",
+    tenure: "2023-Present",
+    details: [
+      [
+        "Lead server architecture and execution for feature pods within the Lead Generation org",
+        0,
+      ],
+      [
+        "Previously supported server engineering for FB Community Messaging and Design Infrastructure Systems",
+        1,
+      ],
+      [
+        "Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
+        2,
+      ],
+    ],
+    logo_pic: "/NewIMGassets/ig7.png",
     hard_skills: [
+      ["Hack/PHP", 90],
+      ["Python", 74],
+      ["GraphQL", 69],
+      ["Obj C/Swift", 39],
     ],
     soft_skills: [
+      ["Project Scoping and Management", 82],
+      ["Server Architecture", 71],
+      ["Performance Optimization", 51],
     ],
     top_move_perc: "0px",
+    additional_bottom_padding: "50px",
   },
   {
     id: 1,
     company: "Facebook",
     company_url: "https://www.metacareers.com/",
     role: "Product Development",
-    tenure: "2022-Present",
+    tenure: "2022-2023",
     details: [
       [
         "Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
@@ -70,6 +91,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Finding PMF", 25],
     ],
     top_move_perc: "25px",
+    additional_bottom_padding: "150px",
   },
   {
     id: 2,
@@ -111,6 +133,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Collaboration", 40],
     ],
     top_move_perc: "3px",
+    additional_bottom_padding: "50px",
   },
   {
     id: 3,
@@ -154,6 +177,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Operating in Uncertainty", 43],
     ],
     top_move_perc: "0px",
+    additional_bottom_padding: "125px",
   },
   {
     id: 4,
@@ -188,252 +212,6 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Collaboration", 33],
     ],
     top_move_perc: "45px",
-  },
-  {
-    id: 4,
-    company: "Sift",
-    company_url: "https://sift.com/",
-    role: "Business Development Lead",
-    tenure: "2018-2019",
-    details: [
-      [
-        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
-        0,
-      ],
-      [
-        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
-        1,
-      ],
-      [
-        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
-        2,
-      ],
-    ],
-
-    logo_pic: "/NewIMGassets/SIFTL.png",
-    hard_skills: [
-      ["Salesforce", 49],
-      ["Excel", 32],
-    ],
-    soft_skills: [
-      ["Leadership", 84],
-      ["Process Optimization", 69],
-      ["Project Scoping", 42],
-      ["Collaboration", 33],
-    ],
-    top_move_perc: "45px",
-  },
-  {
-    id: 4,
-    company: "Sift",
-    company_url: "https://sift.com/",
-    role: "Business Development Lead",
-    tenure: "2018-2019",
-    details: [
-      [
-        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
-        0,
-      ],
-      [
-        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
-        1,
-      ],
-      [
-        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
-        2,
-      ],
-    ],
-
-    logo_pic: "/NewIMGassets/SIFTL.png",
-    hard_skills: [
-      ["Salesforce", 49],
-      ["Excel", 32],
-    ],
-    soft_skills: [
-      ["Leadership", 84],
-      ["Process Optimization", 69],
-      ["Project Scoping", 42],
-      ["Collaboration", 33],
-    ],
-    top_move_perc: "45px",
-  },
-  {
-    id: 4,
-    company: "Sift",
-    company_url: "https://sift.com/",
-    role: "Business Development Lead",
-    tenure: "2018-2019",
-    details: [
-      [
-        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
-        0,
-      ],
-      [
-        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
-        1,
-      ],
-      [
-        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
-        2,
-      ],
-    ],
-
-    logo_pic: "/NewIMGassets/SIFTL.png",
-    hard_skills: [
-      ["Salesforce", 49],
-      ["Excel", 32],
-    ],
-    soft_skills: [
-      ["Leadership", 84],
-      ["Process Optimization", 69],
-      ["Project Scoping", 42],
-      ["Collaboration", 33],
-    ],
-    top_move_perc: "45px",
-  },
-  {
-    id: 4,
-    company: "Sift",
-    company_url: "https://sift.com/",
-    role: "Business Development Lead",
-    tenure: "2018-2019",
-    details: [
-      [
-        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
-        0,
-      ],
-      [
-        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
-        1,
-      ],
-      [
-        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
-        2,
-      ],
-    ],
-
-    logo_pic: "/NewIMGassets/SIFTL.png",
-    hard_skills: [
-      ["Salesforce", 49],
-      ["Excel", 32],
-    ],
-    soft_skills: [
-      ["Leadership", 84],
-      ["Process Optimization", 69],
-      ["Project Scoping", 42],
-      ["Collaboration", 33],
-    ],
-    top_move_perc: "45px",
-  },
-  {
-    id: 4,
-    company: "Sift",
-    company_url: "https://sift.com/",
-    role: "Business Development Lead",
-    tenure: "2018-2019",
-    details: [
-      [
-        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
-        0,
-      ],
-      [
-        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
-        1,
-      ],
-      [
-        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
-        2,
-      ],
-    ],
-
-    logo_pic: "/NewIMGassets/SIFTL.png",
-    hard_skills: [
-      ["Salesforce", 49],
-      ["Excel", 32],
-    ],
-    soft_skills: [
-      ["Leadership", 84],
-      ["Process Optimization", 69],
-      ["Project Scoping", 42],
-      ["Collaboration", 33],
-    ],
-    top_move_perc: "45px",
-  },
-  {
-    id: 4,
-    company: "Sift",
-    company_url: "https://sift.com/",
-    role: "Business Development Lead",
-    tenure: "2018-2019",
-    details: [
-      [
-        "Worked closely with Head of GTM and Marketing team weekly to iterate and improve inbound strategy for the global business development team (SF, AZ, EU)",
-        0,
-      ],
-      [
-        "Re-designed inbound lead pipeline that improved conversion to sale by 300% in first 6 months (1.5 to 4.5%)",
-        1,
-      ],
-      [
-        "Implemented lead filtering logic that reduced inbound burden by ~30% without affecting sales meeting output ",
-        2,
-      ],
-    ],
-
-    logo_pic: "/NewIMGassets/SIFTL.png",
-    hard_skills: [
-      ["Salesforce", 49],
-      ["Excel", 32],
-    ],
-    soft_skills: [
-      ["Leadership", 84],
-      ["Process Optimization", 69],
-      ["Project Scoping", 42],
-      ["Collaboration", 33],
-    ],
-    top_move_perc: "45px",
-  },
-  {
-    id: 3,
-    company: "Guide.co",
-    company_url: "https://guide.co/",
-    role: "Product Growth Lead",
-    tenure: "2019-2020",
-    details: [
-      [
-        "Worked weekly with eng team and C-suite to uncover PMF and bring an early-access platform to market",
-        0,
-      ],
-      [
-        "Collaborated on sourcing, design, and execution of product growth features",
-        1,
-      ],
-      [
-        "Executed 23 growth experiments in 20Q1, tracking towards a 1m user growth rate for 2020",
-        2,
-      ],
-      ["Analyzed usage data weekly to inform adoption strategy", 3],
-      [
-        "Reduced activation time from 1.5 weeks to 45 minutes while increasing first week engagement by 200%+",
-        4,
-      ],
-      [
-        "Uncovered and prioritized customer pains against technical feasibility on a daily basis",
-        6,
-      ],
-    ],
-    logo_pic: "/NewIMGassets/GUIDEL.png",
-    hard_skills: [
-      ["Excel", 60],
-      ["Salesforce", 45],
-      ["Product/Design Tooling", 30],
-      ["SQL", 15],
-    ],
-    soft_skills: [
-      ["Product Strategy", 83],
-      ["Growth Strategy", 75],
-      ["Operating in Uncertainty", 43],
-    ],
-    top_move_perc: "0px",
+    additional_bottom_padding: "0px",
   },
 ];
