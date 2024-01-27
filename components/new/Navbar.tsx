@@ -2,6 +2,28 @@ import { useEffect, useState } from "react";
 import Socials from "./Socials";
 // import LoginButton from "./LoginButton";
 import { Property } from "csstype";
+import { NavScrollTarget, PageNavItem } from "../types/NavTypes";
+
+const page_header_payload: PageNavItem[] = [
+  {
+    name: "Resume",
+    class_name: "nav-link",
+    padding_value: ".5vw",
+    scroll_target: NavScrollTarget.RESUME,
+  },
+  {
+    name: "Projects",
+    class_name: "nav-link",
+    padding_value: ".5vw",
+    scroll_target: NavScrollTarget.PROJECTS,
+  },
+  {
+    name: "Contact",
+    class_name: "nav-link",
+    padding_value: ".5vw",
+    scroll_target: NavScrollTarget.CONTACT,
+  },
+];
 
 export default function NavBar() {
   const [height, updateHeight] = useState(0);
@@ -40,6 +62,17 @@ export default function NavBar() {
   const [resumeStyle, upR] = useState("nav-item");
   const [createStyle, upCW] = useState("nav-item");
   const [contactStyle, upCO] = useState("nav-item");
+
+  const scrollToSection = (scroll_target: NavScrollTarget) => {
+    console.log(scroll_target);
+
+    const section = document.getElementById(scroll_target as string);
+    console.log(section);
+    console.log("was triggered");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     console.log(window.location.pathname);
@@ -106,28 +139,46 @@ export default function NavBar() {
           style={{ top: "2px", position: "relative" }}
         >
           <ul className="navbar-nav">
+            {page_header_payload.map((item) => (
+              <h4
+                key={item.name}
+                className={resumeStyle}
+                style={{ padding: item.padding_value, cursor: "pointer" }}
+                onClick={() => {
+                  console.log("outer was clicked");
+                  scrollToSection(item.scroll_target);
+                }}
+              >
+                <div className="nav-link">{`<${item.name} />`}</div>
+              </h4>
+            ))}
+            {/* 
             <h4 className={resumeStyle} style={{ padding: ".5vw" }}>
-              <a className="nav-link" href="#resume">
+              <a
+                className="nav-link"
+                // href="#resume"
+                onClick={() => scrollToSection("resume")}
+              >
                 {" "}
                 {`<`}Resume{` />`}
               </a>
             </h4>
             <h4 className={portStyle} style={{ padding: ".5vw" }}>
-              <a className="nav-link" href="#projects">
+              <a
+                className="nav-link"
+                onClick={() => scrollToSection("projects")}
+              >
                 {`<`}Projects{` />`}
               </a>
             </h4>
-            {/* <h4 className={codingStyle} style={{padding: ".5vw"}}>
-                            <a className="nav-link" href="/coding">{`<`}Dev XP{`/>`}</a>
-                        </h4> */}
             <h4 className={contactStyle} style={{ padding: ".5vw" }}>
-              <a className="nav-link" href="#contact">
+              <a
+                className="nav-link"
+                onClick={() => scrollToSection("contact")}
+              >
                 {`<`}Contact{` />`}
               </a>
-            </h4>
-            {/* <h4 className={contactStyle} style={{padding: ".5vw"}}>
-                            <Socials size={"x-large"} loc={"right"}/>
-                        </h4> */}
+            </h4> */}
             <h4
               className={contactStyle}
               style={{
