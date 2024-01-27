@@ -59,8 +59,8 @@
 
 .video {
   z-index: 1;
-  width: 70vw;
-  height: 39.2 vw;
+  width: 100%;
+  /* height: 39.2 vw; */
   /* height: auto; */
   /* position: absolute; */
   padding-top: -10vw;
@@ -82,7 +82,7 @@
 
 .video_inner {
   z-index: 1;
-  width: 70vw;
+  /* width: 70vw; */
   height: 39.2 vw;
   /* height: auto; */
   /* position: absolute; */

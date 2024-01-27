@@ -119,8 +119,8 @@ export default function Quotes({}) {
                 : index < currentIndex
                 ? preStyle
                 : postStyle),
-              fontSize:
-                width < 900 ? `calc(${element.size} + 1vw)` : element.size,
+              // fontSize:
+              //   width < 900 ? `calc(${element.size}  - .2vw)` : element.size,
               position: "relative",
               zIndex: 5000,
               flexDirection: width < 900 ? "column" : "row",
@@ -133,20 +133,21 @@ export default function Quotes({}) {
               <img
                 src={element.pic}
                 style={{
-                  width: "20vw",
-                  height: "20vw",
+                  width: `min(20vw, 250px)`,
+                  // height: '20%',
                   borderRadius: "100%",
                   zIndex: 5000,
                 }}
               />
-
-              <h3>{element.author}</h3>
-              <h4>{element.role}</h4>
-              <h4>@ {element.company}</h4>
+              <br />
+              <h4>{element.author}</h4>
+              <br />
+              <h5>{element.role}</h5>
+              <h5>@ {element.company}</h5>
             </div>
             <div
               className={styles.carousel_element_right}
-              style={{ height: width < 900 ? "55vw" : "45vw" }}
+              // style={{ height: width < 900 ? "55vw" : "45vw" }}
             >
               <div
                 className={styles.left_click}

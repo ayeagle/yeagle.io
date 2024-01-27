@@ -195,7 +195,7 @@ export default function Main() {
           </h2>
         </div>
         <div id={NavScrollTarget.RESUME}>
-          <Spacer height={width < 900 ? "200px" : "150px"} />
+          <Spacer height={width < 900 ? "300px" : "200px"} />
         </div>
         <div className={styles.section_header_wrapper}>
           <h2
@@ -231,7 +231,7 @@ export default function Main() {
         <Spacer height={"100px"} />
         <div ref={jobsRef} />
         <Quotes />
-        <Spacer height={"100px"} />
+        <Spacer height={"300px"} />
         <div id={NavScrollTarget.PROJECTS}></div>
         <div className={styles.section_header_wrapper}>
           <h2
@@ -266,8 +266,10 @@ export default function Main() {
               <iframe
                 className={styles.video_inner}
                 style={{ pointerEvents: "none", borderRadius: "40px" }}
-                width={width}
-                height={width >= 2000 ? width * 0.375 : width * 0.398}
+                // width={width}
+                width={"100%"}
+                height={width * 0.398}
+                // height={width >= 2000 ? width * 0.375 : width * 0.398}
                 src={`https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=${icelandStart}`}
                 align-content={"center"}
                 frameBorder="0"
@@ -277,7 +279,7 @@ export default function Main() {
             </div>
           </div>
         </div>
-        <Spacer height={"100px"} />
+        <Spacer height={"300px"} />
         <div className={styles.section_header_wrapper}>
           <h2
             style={{
