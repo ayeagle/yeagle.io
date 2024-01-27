@@ -1,6 +1,34 @@
 import { MetaHTMLAttributes } from "react";
 import styles from "./PageBot.module.css";
 import { useState, useEffect } from "react";
+import { NavScrollTarget, PageNavItem } from "../types/NavTypes";
+
+const page_bottom_payload: PageNavItem[] = [
+  {
+    name: "Top",
+    class_name: "nav-link",
+    padding_value: "1.7vw",
+    scroll_target: NavScrollTarget.TOP,
+  },
+  {
+    name: "Resume",
+    class_name: "nav-link",
+    padding_value: "1.7vw",
+    scroll_target: NavScrollTarget.RESUME,
+  },
+  {
+    name: "Projects",
+    class_name: "nav-link",
+    padding_value: "1.7vw",
+    scroll_target: NavScrollTarget.PROJECTS,
+  },
+  {
+    name: "Contact",
+    class_name: "nav-link",
+    padding_value: "1.7vw",
+    scroll_target: NavScrollTarget.CONTACT,
+  },
+];
 
 export default function BasicPageBottom() {
   const [portStyle, upP] = useState<string>("nav-item");
@@ -39,6 +67,17 @@ export default function BasicPageBottom() {
     }
   }, []);
 
+  const scrollToSection = (scroll_target: NavScrollTarget) => {
+    console.log(scroll_target);
+
+    const section = document.getElementById(scroll_target as string);
+    console.log(section);
+    console.log("was triggered");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <script
@@ -58,45 +97,24 @@ export default function BasicPageBottom() {
       ></script>
       <div className=" navbar-collapse" id="navbarNav">
         <span className={styles.bottom}>
-          <h4
-            className={createStyle}
-            style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}
-          >
-            {" "}
-            <a className={styles.bottom} href="#top">
-              {`<`}Top{`/>`}
-            </a>
-          </h4>
-          <h4
-            className={resumeStyle}
-            style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}
-          >
-            {" "}
-            <a className={styles.bottom} href="#resume">
-              {`<`}Resume{`/>`}
-            </a>
-          </h4>
-          {/* <h4 className={codingStyle} style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}> <a className={styles.bottom} href="/coding">{`<`}Dev XP{`/>`}</a></h4> */}
-          <h4
-            className={portStyle}
-            style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}
-          >
-            {" "}
-            <a className={styles.bottom} href="#projects">
-              {`<`}Projects{`/>`}
-            </a>{" "}
-          </h4>
-          <h4
-            className={contactStyle}
-            style={{ paddingLeft: "1.7vw", paddingRight: "1.7vw" }}
-          >
-            {" "}
-            <a className={styles.bottom} href="#contact">
-              {`<`}Contact{`/>`}
-            </a>
-          </h4>
+          {page_bottom_payload.map((item) => (
+            <h4
+              key={item.name}
+              className={resumeStyle}
+              style={{
+                paddingLeft: item.padding_value,
+                paddingRight: item.padding_value,
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                console.log("outer was clicked");
+                scrollToSection(item.scroll_target);
+              }}
+            >
+              <div className="nav-link">{`<${item.name} />`}</div>
+            </h4>
+          ))}
         </span>
-        {/* </ul> */}
       </div>
       <footer className={styles.footer}>
         Designed and built by{" "}
