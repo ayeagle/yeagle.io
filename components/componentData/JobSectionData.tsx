@@ -54,7 +54,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     id: 1,
     company: "Facebook",
     company_url: "https://www.metacareers.com/",
-    role: "Product Development",
+    role: "Product Development Manager",
     tenure: "2022-2023",
     details: [
       [
