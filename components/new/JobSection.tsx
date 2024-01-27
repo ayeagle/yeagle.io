@@ -116,7 +116,7 @@ export default function JobSection({
           //   return <></>;
           // }
           return (
-            <div className={styles.jobs_container} style={{ width: "20%" }}>
+            <div className={styles.jobs_container} style={{ width: "25%" }}>
               <div
                 className={styles.logo_container}
                 style={{
@@ -153,7 +153,7 @@ export default function JobSection({
                   <img
                     className={arrowStyle}
                     src="/IMGassets/down_arrow.png"
-                    style={{ height: "5vw" }}
+                    // style={{ height: "5vw" }}
                   />
                 </div>
                 <div className={styles.logo_box}>
@@ -316,7 +316,7 @@ export default function JobSection({
           </div>
         </div>
       </div>
-      <Spacer height={width < 900 ? jobDetailsArray[currOpen].additional_bottom_padding : "0px"} />
+      <Spacer height={width < 900 && open ? jobDetailsArray[currOpen].additional_bottom_padding : "0px"} />
     </>
   );
 }
