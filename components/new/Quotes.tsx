@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Quotes.module.css";
 import { Property } from "csstype";
-import { quoteArray, QuoteItem } from "../componentData/QuotesData";
+import { quoteArray } from "../componentData/QuotesData";
 
 export default function Quotes({}) {
   const [mover, setMover] = useState<number>(1000);

@@ -187,10 +187,10 @@ export default function Main() {
           <Scroller />
           <h2 className={styles.image_text}>
             <Typing
-              content={`> Self-taught developer
+              content={`> Self-taught Meta SWE
                     <br/>> Avid builder
-                    <br/>> Behavioral econ nerd
                     <br/>> Product enthusiast
+                    <br/>> Cat Dad :3
                     <br/>> and more...`}
             />
           </h2>
