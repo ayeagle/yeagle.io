@@ -1,13 +1,6 @@
 import styles from "./RapsheetController.module.css";
 import { MutableRefObject, RefObject, useEffect, useState } from "react";
-
-type vcInfo = {
-  index: number;
-  title: string;
-  fade_start_position: number;
-  fade_modifier: number;
-  position: number;
-};
+import { vcInfo } from "../types/DataPayloadTypes";
 
 const glideArray: Array<vcInfo> = [
   {
@@ -93,12 +86,14 @@ export default function RapsheetController(
 
   return (
     <>
-      <h2 className={styles.vc}>
+      <h3 className={styles.vc}>
         Worked on hypergrowth solutions backed by...
-      </h2 >
+        <br/>
+        <br/>
+      </h3 >
       {glideArray.map((item) => {
         return (
-          <h3
+          <h4
             className={currStyle}
             key={item.index}
             style={{
@@ -106,7 +101,7 @@ export default function RapsheetController(
             }}
           >
             {item.title}
-          </h3>
+          </h4>
         );
       })}
     </>

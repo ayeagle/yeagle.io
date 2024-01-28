@@ -111,7 +111,7 @@ export default function BasicPageBottom() {
                 scrollToSection(item.scroll_target);
               }}
             >
-              <div className="nav-link">{`<${item.name} />`}</div>
+              <div className="nav-link">{`<${item.name}/>`}</div>
             </h4>
           ))}
         </span>

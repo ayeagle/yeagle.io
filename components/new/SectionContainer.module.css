@@ -1,0 +1,20 @@
+
+.section_header_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-content: left;
+    z-index: 20;
+  }
+  
+  .section_header_line {
+    position: relative;
+    margin-left: 3vw;
+    width: 40%;
+    height: 1px;
+    background-color: white;
+    margin: 1vw;
+    bottom: -1.5vw;
+    z-index: 10;
+  }

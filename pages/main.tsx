@@ -23,6 +23,7 @@ import ContactSection from "../components/new/ContactSection";
 import RapsheetController from "../components/new/RapsheetController";
 import Rapsheet2 from "../components/new/Rapsheet2";
 import { NavScrollTarget } from "../components/types/NavTypes";
+import { SectionContainer } from "../components/new/SectionContainer";
 
 // import CanvasAnimation from "../components/new/CanvasAnimation";
 
@@ -166,7 +167,7 @@ export default function Main() {
       <NavBar />
 
       <div className={styles.mini_master}>
-        <Spacer height={'100px'} />
+        <Spacer height={"100px"} />
         <h1 className={styles.title}>
           Hey I'm <strong style={{ color: "rgb(0, 187, 224)" }}>Alex</strong>{" "}
           and I'm a...
@@ -194,7 +195,36 @@ export default function Main() {
             />
           </h2>
         </div>
-        <div id={NavScrollTarget.RESUME}>
+        <Spacer height={width < 900 ? "0px" : "150px"} />
+
+        <SectionContainer
+          title="Resume"
+          number={"01"}
+          scroll_target={NavScrollTarget.RESUME}
+          page_width={width}
+        >
+          <Spacer height={"100px"} />
+          <div
+            style={{
+              height: "auto",
+              width: "80%",
+              margin: "0 auto",
+              position: "relative",
+            }}
+          >
+            <BorderController {...targetRef1} />
+
+            <Rapsheet2 {...targetRef1} />
+          </div>
+          <div ref={targetRef1} />
+          <Spacer height={width < 900 ? "200px" : "150px"} />
+          <JobSection open={open} setOpen={setOpen} />
+          <Spacer height={width < 900 ? "50px" : "50px"} />
+          <div ref={jobsRef} />
+          <Quotes />
+          <Spacer height={width < 900 ? "0px" : "150px"} />
+        </SectionContainer>
+        {/* <div id={NavScrollTarget.RESUME}>
           <Spacer height={width < 900 ? "300px" : "200px"} />
         </div>
         <div className={styles.section_header_wrapper}>
@@ -211,93 +241,61 @@ export default function Main() {
           </h2>
           <h1>Resume </h1>
           <div className={styles.section_header_line} />
-        </div>
-        <Spacer height={"100px"} />
-        <div
-          style={{
-            height: "auto",
-            width: "80%",
-            margin: "0 auto",
-            position: "relative",
-          }}
-        >
-          <BorderController {...targetRef1} />
+        </div> */}
 
-          <Rapsheet2 {...targetRef1} />
-        </div>
-        <div ref={targetRef1} />
-        <Spacer height={width < 900 ? "200px" : "150px"} />
-        <JobSection open={open} setOpen={setOpen} />
-        <Spacer height={"100px"} />
-        <div ref={jobsRef} />
-        <Quotes />
-        <Spacer height={"300px"} />
-        <div id={NavScrollTarget.PROJECTS}></div>
-        <div className={styles.section_header_wrapper}>
-          <h2
-            style={{
-              position: "relative",
-              paddingRight: "2vw",
-              fontSize: "2vw",
-              color: "rgb(31, 143, 156)",
-              fontWeight: 700,
-            }}
-          >
-            02
-          </h2>
-          <h1>Projects </h1>
-          <div className={styles.section_header_line} />
-        </div>
-        <ProjectDetails />
-        <Spacer height={"150px"} />
-        <div style={{ position: "relative" }}>
-          <div style={{ display: width < 900 ? "none" : "" }}>
-            <h3
-              className={styles.image_text_center}
-              style={{ top: "45%", fontWeight: 200 }}
-            >
-              I'm also a drone videographer!
-            </h3>
-            <div
-              className={styles.video}
-              onMouseEnter={() => setBoopBoop(true)}
-              onMouseLeave={() => setBoopBoop(false)}
-            >
-              <iframe
-                className={styles.video_inner}
-                style={{ pointerEvents: "none", borderRadius: "40px" }}
-                // width={width}
-                width={"100%"}
-                height={width * 0.398}
-                // height={width >= 2000 ? width * 0.375 : width * 0.398}
-                src={`https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=${icelandStart}`}
-                align-content={"center"}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+        <SectionContainer
+          title="Projects"
+          number={"02"}
+          scroll_target={NavScrollTarget.PROJECTS}
+          page_width={width}
+        >
+          <ProjectDetails />
+
+          <Spacer height={width < 900 ? "0px" : "150px"} />
+          <div style={{ position: "relative" }}>
+            <div style={{ display: width < 900 ? "none" : "" }}>
+              <h3
+                className={styles.image_text_center}
+                style={{ top: "45%", fontWeight: 200 }}
+              >
+                I'm also a drone videographer!
+              </h3>
+              <div
+                className={styles.video}
+                onMouseEnter={() => setBoopBoop(true)}
+                onMouseLeave={() => setBoopBoop(false)}
+              >
+                <iframe
+                  className={styles.video_inner}
+                  style={{ pointerEvents: "none", borderRadius: "40px" }}
+                  // width={width}
+                  width={"100%"}
+                  height={width * 0.398}
+                  // height={width >= 2000 ? width * 0.375 : width * 0.398}
+                  src={`https://www.youtube.com/embed/vNF94UrluYg?autoplay=1&mute=1&controls=0&vq=highres&modestbranding=1&start=${icelandStart}`}
+                  align-content={"center"}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </div>
-        </div>
-        <Spacer height={"300px"} />
-        <div className={styles.section_header_wrapper}>
-          <h2
-            style={{
-              position: "relative",
-              paddingRight: "2vw",
-              fontSize: "2vw",
-              color: "rgb(31, 143, 156)",
-              fontWeight: 700,
-            }}
-          >
-            03
-          </h2>
-          <h1 id={NavScrollTarget.CONTACT}>Contact </h1>
-          <div className={styles.section_header_line}></div>
-        </div>
-        <Spacer height={"100px"} />
-        <div ref={targetRef2} />
-        <ContactSection {...targetRef2} />
+        </SectionContainer>
+
+        <Spacer height={width < 900 ? "0px" : "100px"} />
+
+        <SectionContainer
+          title="Contact"
+          number={"03"}
+          scroll_target={NavScrollTarget.CONTACT}
+          page_width={width}
+        >
+          <div ref={targetRef2} />
+          <Spacer height={"100px"} />
+          <ContactSection {...targetRef2} />
+        </SectionContainer>
+
         <Spacer height={"150px"} />
         <div style={{ zIndex: "100", position: "relative" }}>
           <PageBot />
