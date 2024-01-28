@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./JobDetails.module.css";
-import {
-  JobDetailsItem,
-  JobSectionDetails,
-  jobDetailsArray,
-} from "../componentData/JobSectionData";
+import { jobDetailsArray } from "../componentData/JobSectionData";
 import Spacer from "../bio/Spacer";
 
 export default function JobSection({

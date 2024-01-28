@@ -2,11 +2,11 @@ import * as React from "react";
 import {
   otherProjects,
   mainProjects,
-  MainProjectDetails,
 } from "../componentData/ProjectData";
 import styles from "./ProjectDetails.module.css";
 import Spacer from "../bio/Spacer";
 import * as icons from "react-icons/fa";
+import { MainProjectDetails } from "../types/DataPayloadTypes";
 
 export default function ProjectDetails(): JSX.Element {
   return (

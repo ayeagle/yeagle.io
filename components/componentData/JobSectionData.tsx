@@ -202,3 +202,4 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     additional_bottom_padding: "25px",
   },
 ];
+
