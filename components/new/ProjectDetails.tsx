@@ -67,7 +67,7 @@ export default function ProjectDetails(): JSX.Element {
                 }
               >
                 {project.code.map((thing, index) => {
-                  return <div key={index}>{thing}</div>;
+                  return <div key={index + "djh"}>{thing}</div>;
                 })}
               </h5>
             </div>
@@ -132,6 +132,7 @@ export default function ProjectDetails(): JSX.Element {
             >
               {units.code.map((item) => (
                 <h5
+                  key={item + "blah"}
                   style={{
                     position: "relative",
                     fontSize: "1.3vw",
