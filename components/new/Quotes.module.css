@@ -5,7 +5,7 @@
   /* transition: 1s; */
   position: relative;
   /* height: 50vw; */
-  transition: 2s;
+  transition: 0s;
 }
 
 .carousel {
@@ -16,7 +16,7 @@
   /* top: 6vw; */
   left: 0%;
   z-index: 20;
-  transition: 1s;
+  transition: 0s;
 
   justify-content: space-between;
 }

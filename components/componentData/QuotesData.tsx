@@ -1,13 +1,4 @@
-export type QuoteItem = {
-  id: number;
-  content: string;
-  author: string;
-  role: string;
-  company: string;
-  size: string;
-  pic: string;
-  position: number;
-};
+import { QuoteItem } from "../types/DataPayloadTypes";
 
 export const quoteArray: Array<QuoteItem> = [
   {

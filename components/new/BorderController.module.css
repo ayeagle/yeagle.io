@@ -2,7 +2,7 @@
 
 .corner_border_top_left {
     position: absolute;
-    top: -80px;
+    top: -50px;
     left: -30px;
     height: 0;
     width: 0;
@@ -12,7 +12,7 @@
 
 .corner_border_top_right {
     position: absolute;
-    top: -80px;
+    top: -50px;
     left: -30px;
     height: 0;
     width: 0;
@@ -22,7 +22,7 @@
 
 .corner_border_bottom_left {
     position: absolute;
-    top: -80px;
+    top: -50px;
     left: -30px;
     height: 0;
     width: 0;
@@ -32,7 +32,7 @@
 
 .corner_border_bottom_right {
     position: absolute;
-    top: -80px;
+    top: -50px;
     left: -30px;
     height: 0;
 
@@ -46,9 +46,9 @@
 
 .corner_border_top_left_stage1 {
     position: absolute;
-    top: -80px;
+    top: -50px;
     left: -30px;
-    height: 30%;
+    height: 15%;
     width: 5px;
     border: 1px solid white;
     background-color: white;
@@ -59,7 +59,7 @@
 }
 
 .corner_border_top_right_stage1 {
-    top: -80px;
+    top: -50px;
     left: -30px;
     position: absolute;
 
@@ -75,9 +75,9 @@
 
 .corner_border_bottom_left_stage1 {
     position: absolute;
-    bottom: -80px;
+    bottom: -50px;
     right: -30px;
-    height: 30%;
+    height: 15%;
 
     width: 5px;
     border: 1px solid white;
@@ -91,7 +91,7 @@
 
 .corner_border_bottom_right_stage1 {
     position: absolute;
-    bottom: -80px;
+    bottom: -50px;
     right: -30px;
     height: 5px;
 

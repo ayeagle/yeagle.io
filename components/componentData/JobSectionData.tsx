@@ -1,18 +1,5 @@
-export type JobDetailsItem = [string, number];
+import { JobSectionDetails } from "../types/DataPayloadTypes";
 
-export type JobSectionDetails = {
-  id: number;
-  company: string;
-  company_url: string;
-  role: string;
-  tenure: string;
-  details: Array<JobDetailsItem>;
-  logo_pic: string;
-  hard_skills: Array<JobDetailsItem>;
-  soft_skills: Array<JobDetailsItem>;
-  top_move_perc: string;
-  additional_bottom_padding: string;
-};
 
 export const jobDetailsArray: Array<JobSectionDetails> = [
   {
@@ -177,7 +164,7 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Operating in Uncertainty", 43],
     ],
     top_move_perc: "0px",
-    additional_bottom_padding: "125px",
+    additional_bottom_padding: "150px",
   },
   {
     id: 4,
@@ -212,6 +199,6 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
       ["Collaboration", 33],
     ],
     top_move_perc: "45px",
-    additional_bottom_padding: "0px",
+    additional_bottom_padding: "25px",
   },
 ];

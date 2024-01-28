@@ -1,11 +1,5 @@
-export type OtherProjectDetails = {
-  id: number;
-  name: string;
-  description: string;
-  code: Array<string>;
-  website: string;
-  github: string;
-};
+import { MainProjectDetails, OtherProjectDetails } from "../types/DataPayloadTypes";
+
 
 export const otherProjects: Array<OtherProjectDetails> = [
   {
@@ -34,16 +28,6 @@ export const otherProjects: Array<OtherProjectDetails> = [
   },
 ];
 
-export type MainProjectDetails = {
-  id: number;
-  name: string;
-  description: string;
-  code: Array<string>;
-  orientation: string;
-  image_link: string;
-  website: string;
-  github: string;
-};
 
 export const mainProjects: Array<MainProjectDetails> = [
   {
