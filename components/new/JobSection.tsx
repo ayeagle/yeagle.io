@@ -116,7 +116,11 @@ export default function JobSection({
           //   return <></>;
           // }
           return (
-            <div className={styles.jobs_container} style={{ width: "15%" }}>
+            <div
+              className={styles.jobs_container}
+              style={{ width: "15%" }}
+              key={jobDetailsArray[currOpen].id + index + "b"}
+            >
               <div
                 className={styles.logo_container}
                 style={{
@@ -232,7 +236,10 @@ export default function JobSection({
               <div>
                 <div className={styles.work_bullets}>
                   {jobDetailsArray[currOpen].hard_skills.map((item, index) => (
-                    <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div
+                      style={{ display: "flex", flexDirection: "column" }}
+                      key={jobDetailsArray[currOpen].id + index + "F"}
+                    >
                       <div
                         ref={giftRef[currOpen]}
                         key={jobDetailsArray[currOpen].id + index + 3 + item[0]}
@@ -269,7 +276,10 @@ export default function JobSection({
                 <div className={styles.work_bullets}>
                   {/* {jobDetailsArray[currOpen].hard_skills} */}
                   {jobDetailsArray[currOpen].soft_skills.map((item, index) => (
-                    <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div
+                      style={{ display: "flex", flexDirection: "column" }}
+                      key={jobDetailsArray[currOpen].id + index + 3 + item[0]}
+                    >
                       <div
                         ref={giftRef[currOpen]}
                         key={jobDetailsArray[currOpen].id + index + 3 + item[0]}
@@ -316,7 +326,13 @@ export default function JobSection({
           </div>
         </div>
       </div>
-      <Spacer height={open && (width < 900 || width > 2000) ? jobDetailsArray[currOpen].additional_bottom_padding : "0px"} />
+      <Spacer
+        height={
+          open && (width < 900 || width > 2000)
+            ? jobDetailsArray[currOpen].additional_bottom_padding
+            : "0px"
+        }
+      />
     </>
   );
 }
