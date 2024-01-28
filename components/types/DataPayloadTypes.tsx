@@ -1,3 +1,7 @@
+import { Property } from "csstype";
+
+
+
 export type vcInfo = {
   index: number;
   title: string;
@@ -51,4 +55,10 @@ export type QuoteItem = {
   size: string;
   pic: string;
   position: number;
+};
+
+export type SocialProps = {
+  size: string;
+  loc: Property.TextAlign;
+  orientation: Property.FlexDirection;
 };

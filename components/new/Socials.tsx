@@ -3,11 +3,7 @@ import * as icons from "react-icons/fa";
 import styles from "./Socials.module.css";
 import { Property } from "csstype";
 
-export type SocialProps = {
-  size: string;
-  loc: Property.TextAlign;
-  orientation: Property.FlexDirection;
-};
+
 
 export default function Socials({
   size,
