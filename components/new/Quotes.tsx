@@ -90,7 +90,7 @@ export default function Quotes({}) {
   useEffect(() => {
     const interval = setInterval(() => {
       if (loadingBar >= 100) return;
-      else setLoadingBar(loadingBar + 0.15);
+      else setLoadingBar(loadingBar + 0.125);
     }, 10);
     return () => clearInterval(interval);
   }, [loadingBar, currentIndex, setLoadingBar]);
@@ -99,6 +99,9 @@ export default function Quotes({}) {
     forwardClick();
     setLoadingBar(0);
   }, []);
+
+  console.log("Loading bar value : " + loadingBar)
+  console.log("index value : " + currentIndex)
 
   return (
     <>
