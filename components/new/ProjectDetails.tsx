@@ -97,7 +97,7 @@ export default function ProjectDetails(): JSX.Element {
           <div key={units.id} className={styles.other_projects_unit_container}>
             <h3
               style={{
-                position: "absolute",
+                position: "relative",
                 fontSize: "2vw",
                 color: "rgb(0, 187, 224)",
                 top: "10%",
