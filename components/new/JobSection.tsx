@@ -40,7 +40,6 @@ export default function JobSection({
     window.addEventListener("scroll", function () {
       setYOffset(window.pageYOffset);
       setYTotal(document.body.scrollHeight);
-      // console.log(yOffset / yTotal)
     });
   }, [yOffset]);
 
@@ -72,16 +71,6 @@ export default function JobSection({
     setOnce(1);
   }
 
-  const forwardClick = () => {
-    // console.log("e index changed up by 1 from this: " + currentIndex)
-    setCurrentIndex(Math.min(currentIndex + 1, jobDetailsArray.length));
-  };
-
-  const backClick = () => {
-    // console.log("e index changed down by 1 from this: " + currentIndex)
-    setCurrentIndex(Math.max(currentIndex - 1, 0));
-  };
-
   useEffect(() => {
     if (!caroLive) {
       setCurrentIndex(currentIndex + 1);
@@ -98,11 +87,6 @@ export default function JobSection({
     setWorkVH("7vw");
     setArrowStyle(styles.arrow_down);
   }, []);
-
-  console.log("CURR OPEN");
-  console.log(currOpen);
-  console.log("OPEN VAR");
-  console.log(open);
 
   return (
     <>
