@@ -30,9 +30,6 @@ export default function ContactSection(ref: RefObject<HTMLDivElement>): JSX.Elem
               loc={"center"}
             //   style={{ zIndex: "100", position: "relative" }}
             />
-            <h3 className={styles.contact_element}>
-              +1 (559) 451 6174
-            </h3>
             <h3 className={styles.contact_element} onClick={sendEmail}>
               alexyeagle@gmail.com
             </h3>
