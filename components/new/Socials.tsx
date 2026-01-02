@@ -43,7 +43,7 @@ export default function Socials({
             <icons.FaCodeBranch style={{ fill: "white" }} />
           </a>
         </div>
-        <div
+        {/* <div
           className={styles.social}
           style={{ fontSize: size, justifyContent: loc }}
         >
@@ -51,7 +51,7 @@ export default function Socials({
           <a href="https://twitter.com/AlexYeagle" target="_blank">
             <icons.FaTwitter style={{ fill: "white" }} />
           </a>
-        </div>
+        </div> */}
         <div
           className={styles.social}
           style={{ fontSize: size, justifyContent: loc }}
@@ -70,7 +70,7 @@ export default function Socials({
             <icons.FaGithub style={{ fill: "white" }} />
           </a>
         </div>
-        <div
+        {/* <div
           className={styles.social}
           style={{ fontSize: size, justifyContent: loc }}
         >
@@ -78,7 +78,7 @@ export default function Socials({
           <a href="https://www.instagram.com/alexyeagle/" target="_blank">
             <icons.FaInstagram style={{ fill: "white" }} />
           </a>
-        </div>
+        </div> */}
         <div
           className={styles.social}
           style={{ fontSize: size, justifyContent: loc }}
