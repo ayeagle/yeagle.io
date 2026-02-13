@@ -1,6 +1,5 @@
 import { JobSectionDetails } from "../types/DataPayloadTypes";
 
-
 export const jobDetailsArray: Array<JobSectionDetails> = [
   {
     id: 0,
@@ -10,24 +9,32 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     tenure: "2023-Present",
     details: [
       [
-        "Lead server architecture and execution for feature pods within the Lead Generation org",
+        "Tech Lead for Instagram Lead Gen Ads ($4.2b/year) Creation Formats Workstream, ideating, prioritizing and managing projects across 20+ FB/IG engineers and XFN to create >$30m incremental revenue in 2025.",
         0,
       ],
       [
-        "Previously supported server engineering for FB Community Messaging and Design Infrastructure Systems",
+        "Org SME for ad delivery calculators requiring cross-stack expertise for hot path code with 200b+ hits/day.",
         1,
       ],
       [
-        "Engineer and maintain multibillion-row structured data pipelines, tables, and dashboards used by FB, Instagram, Messenger, and Reality Labs reporting teams ",
+        "DRI for Lead Gen alerting and reliability instrumentation, CI/CD merge blocking criteria, >100 alerts, and ensuring TTD <3h for all SEV4 and TTD <1h for revenue-impacting SEV1-3s.",
         2,
+      ],
+      [
+        "Lead investigations for SEVs, regressions, and product analyses (2nd most SQL queries in 300 engineer org).",
+        3,
+      ],
+      [
+        "Mentor 3 E4 engineers via design reviews, oncall response, tech consultation, and biweekly career goal syncs.",
+        4,
       ],
     ],
     logo_pic: "/NewIMGassets/ig7.png",
     hard_skills: [
       ["Hack/PHP", 90],
-      ["Python", 74],
-      ["GraphQL", 69],
-      ["Obj C/Swift", 39],
+      ["Javascript/Typescript", 79],
+      ["Python", 67],
+      ["GraphQL", 45],
     ],
     soft_skills: [
       ["Project Scoping and Management", 82],
@@ -202,4 +209,3 @@ export const jobDetailsArray: Array<JobSectionDetails> = [
     additional_bottom_padding: "25px",
   },
 ];
-
